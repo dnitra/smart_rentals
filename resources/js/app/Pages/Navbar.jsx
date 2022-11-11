@@ -20,7 +20,8 @@ function Navbar() {
             {logo.data}
         </div>
         <div className="navbar__links">
-            <p>Why SR</p>
+            
+            <p><span>Why SR</span></p>
             <p>Product</p>
             <p>Prices</p>
             <p>Contacts</p>
