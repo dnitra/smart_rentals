@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+$background-color-primary: #12476f;
+$background-color-secondary: #d0e2f9;
+
+.register-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .register-container {
+        background-color: $background-color-primary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+
+        .register__heading {
+            font-family: "Play", sans-serif;
+            color: $background-color-secondary;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .register__form {
+            width: 80%;
+            background-color: $background-color-secondary;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            border-radius: 50px;
+        }
+    }
+
+    .register__img {
+        width: 70%;
+    }
+}
