@@ -22,7 +22,7 @@ $font-montserrat: "Montserrat", sans-serif;
         //     width: 20%;
         // }
 
-        .register__heading {
+        .register__heading-form {
             font-family: $font-play;
             color: $background-color-secondary;
             font-weight: 700;
@@ -40,7 +40,7 @@ $font-montserrat: "Montserrat", sans-serif;
             border-radius: 20px;
 
             .register__form-item {
-                width: 65%;
+                width: 75%;
                 border: none;
                 border-radius: 5px;
                 padding: 10px;
@@ -51,7 +51,6 @@ $font-montserrat: "Montserrat", sans-serif;
                 &::placeholder {
                     color: $input-text;
                 }
-                // color: orange;
             }
 
             .register__form-btn {
@@ -80,8 +79,17 @@ $font-montserrat: "Montserrat", sans-serif;
     .register__img {
         width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        // justify-content: space-between;
         align-items: center;
+        padding: 0.5rem 1rem 2rem;
+
+        .register__heading-img {
+            font-family: $font-play;
+            color: $background-color-primary;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
 
         .register__img-item {
             width: 70%;

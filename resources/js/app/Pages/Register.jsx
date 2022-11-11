@@ -14,7 +14,7 @@ function Register() {
                     className="register__logo-sm"
                     alt="smart rentals logo"
                 /> */}
-                <h3 className="register__heading">Registration</h3>
+                <h3 className="register__heading-form">Registration</h3>
 
                 <form className="register__form" action="">
                     <input
@@ -74,6 +74,9 @@ function Register() {
             </div>
 
             <div className="register__img">
+                <h3 className="register__heading register__heading-img">
+                    Overview of all your properties
+                </h3>
                 <img
                     className="register__img-item"
                     src={registerImg}
