@@ -8,17 +8,51 @@ body {
     height: 85px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 2fr 2fr 1fr;
+
+    &__logo {
+        padding: 1rem;
+    }
 
     &__links {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-top: 1.3rem;
+        padding-right: 1rem;
     }
 
     &__buttons {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+
+        // justify-content: space-between;
+
+        .log-button {
+            height: 40px;
+            width: 120px;
+            border-radius: 30px;
+            margin: auto;
+            border: 0px;
+            background-color: #d0e2f9;
+            color: black;
+        }
+
+        .log-button:hover,
+        .log-button:focus {
+            background-color: #16437e;
+            color: white;
+        }
+
+        .log-button:active {
+            background: #09223b;
+            color: rgb(255, 255, 255, 0.7);
+        }
+
+        .log-button:disabled {
+            cursor: not-allowed;
+            background: rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.3);
+        }
     }
 }
