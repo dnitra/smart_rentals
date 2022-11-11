@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Styles/Navbar.scss"
 function Navbar() {
+
     const logo = {
         data: (
         <svg width="229" height="42" viewBox="0 0 229 42" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -15,7 +16,7 @@ function Navbar() {
 )
     }
   return (
-    <div className='navbar'>
+    <header className='navbar'>
         <div className="navbar__logo">
             {logo.data}
         </div>
@@ -31,7 +32,7 @@ function Navbar() {
             <button className='log-button'>Log In</button>
             <button className='log-button'>Sign Up</button>
         </div>
-    </div>
+    </header>
   )
 }
 
