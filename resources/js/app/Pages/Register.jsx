@@ -1,9 +1,8 @@
 import React from "react";
 import "./Register.scss";
-import logo from "../../../img/SM-logo.svg";
+import logo from "../../../img/logos/SM-logo.svg";
 import googleLogo from "../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../img/logos/facebook_logo.svg";
-import registerImg from "../../../img/logos/register-img.png";
 
 function Register() {
     // const logo = {
@@ -100,11 +99,11 @@ function Register() {
                 </form>
             </div>
 
-            <img
+            {/* <img
                 className="register__img"
                 src={registerImg}
                 alt="image of smart rentals app"
-            />
+            /> */}
         </div>
     );
 }
