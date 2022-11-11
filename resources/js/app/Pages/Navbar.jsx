@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Styles/Navbar.scss"
+import { Link } from 'react-router-dom'
 function Navbar() {
 
     const logo = {
@@ -22,11 +23,11 @@ function Navbar() {
         </div>
         <div className="navbar__links">
             
-            <p><span>Why SR</span></p>
-            <p>Product</p>
-            <p>Prices</p>
-            <p>Contacts</p>
-            <p>Reviews</p>
+            <Link to ="/"><p><span>Why SR</span></p></Link>
+            <Link to ="/"><p>Product</p></Link>
+            <Link to ="/"><p>Prices</p></Link>
+            <Link to ="/"><p>Contacts</p></Link>
+            <Link to ="/"> <p>Reviews</p></Link>
         </div>
         <div className="navbar__buttons">
             <button className='log-button'>Log In</button>
