@@ -1,3 +1,7 @@
 .footer {
-    margin-top: 1322px;
+    position: relative;
+    bottom: 0;
+    z-index: 2;
+    height: 100px;
+    background-color:black;
 }

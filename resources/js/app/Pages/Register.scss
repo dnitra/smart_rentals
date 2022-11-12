@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 $background-color-primary: #12476f;
 $background-color-secondary: #d0e2f9;
+$btn-color: #273655bf;
+$input-text: #273655;
+$font-play: "Play", sans-serif;
+$font-montserrat: "Montserrat", sans-serif;
 
 .register-section {
     display: grid;
@@ -11,26 +16,83 @@ $background-color-secondary: #d0e2f9;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 2rem;
+        padding: 15vh 1rem 2rem;
 
-        .register__heading {
-            font-family: "Play", sans-serif;
+        // .register__logo-sm {
+        //     width: 20%;
+        // }
+
+        .register__heading-form {
+            font-family: $font-play;
             color: $background-color-secondary;
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .register__form {
-            width: 80%;
+            width: 50%;
             background-color: $background-color-secondary;
-            padding: 2rem;
+            padding: 2rem 1rem;
             display: flex;
             flex-direction: column;
-            border-radius: 50px;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 20px;
+
+            .register__form-item {
+                width: 75%;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                text-align: center;
+                font-family: $font-montserrat;
+                font-weight: 700;
+
+                &::placeholder {
+                    color: $input-text;
+                }
+            }
+
+            .register__form-btn {
+                background-color: $btn-color;
+                border: none;
+                border-radius: 15px;
+                padding: 1rem;
+                margin-top: 1.5rem;
+                width: 65%;
+
+                font-family: $font-play;
+                color: #fff;
+                font-weight: 700;
+
+                cursor: pointer;
+            }
+        }
+
+        .register__logo-social {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
     }
 
     .register__img {
-        width: 70%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        align-items: center;
+        padding: 15vh 1rem 2rem;
+
+        .register__heading-img {
+            font-family: $font-play;
+            color: $background-color-primary;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .register__img-item {
+            width: 70%;
+        }
     }
 }
