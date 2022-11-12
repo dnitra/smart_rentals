@@ -7,7 +7,7 @@ import loremImage from '../../../img/home/home_lorem.svg'
 import Review from '../Components/Review/Review'
 function Home() {
   const content = useContent();
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -58,4 +58,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
