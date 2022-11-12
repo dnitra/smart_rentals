@@ -50,7 +50,7 @@ function Home() {
         </div>
 
         <div className="review">
-          {/* <Review /> */}
+          <Review />
         </div>
       </div>
     </div>
