@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
     height: 85px;
@@ -42,10 +42,12 @@ body {
     &__buttons {
         display: flex;
         flex-direction: row;
-        width: 200px;
         margin-left: auto;
-        // justify-content: space-between;
-
+        margin-top: 1.5rem;
+        .button_container {
+            // width: 200px;
+            // margin-left: auto;
+        }
         .log-button {
             height: 35px;
             width: 120px;

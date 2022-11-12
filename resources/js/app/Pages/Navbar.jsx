@@ -30,8 +30,8 @@ function Navbar() {
             <Link to ="/"> <p>Reviews</p></Link>
         </div>
         <div className="navbar__buttons">
-            <button className='log-button'>Log In</button>
-            <button className='log-button'>Sign Up</button>
+            <Link to="/register" className='button_container'><button className='log-button'>Log In</button></Link>
+            <Link to="/login" className='button_container'><button className='log-button'>Sign Up</button></Link>
         </div>
     </header>
   )
