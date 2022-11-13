@@ -6,7 +6,7 @@ import loremImage from '../../../img/home/home_lorem.svg'
 import Review from '../Components/Review/Review'
 function Home() {
   const { content, theme } = useCustomContexts();
-  console.log(content)
+
 
 
   const observer = new IntersectionObserver((entries) => {

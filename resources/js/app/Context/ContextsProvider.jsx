@@ -25,7 +25,7 @@ export function useCustomContexts() {
   }
 }
 /**
- * create one ContextsProvider component which takes childern as parameter
+ * create one ContextsProvider component which takes children as parameter
  * and pass all individual context providers
  * 
  * This way we can have just one Context provider in our index.jsx file
@@ -52,11 +52,8 @@ export default function ContextsProvider({ children }) {
       
     }
   }
- 
+ // load all content from contents()component and put it into allContent constant 
   const allContents = contents()
-
-
-  
 
   //create states which will switch between the key words of corresponding objects
   const [theme, setTheme] = useState(themeModes.lightTheme);
@@ -74,7 +71,7 @@ export default function ContextsProvider({ children }) {
   
 /**
  * pass all contexts values and functions in individual providers
- *  so they can be used in all childern
+ *  so they can be used in all children
  */
   return (
     <ContentContext.Provider value={{ content }}>
