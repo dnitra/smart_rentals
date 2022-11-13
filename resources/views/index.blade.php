@@ -11,6 +11,8 @@
     <div id="root"></div>
     @viteReactRefresh
     @vite('resources/js/index.jsx')
-
+<script type="text/javascript">      
+  window.csrf_token = '{{ csrf_token() }}'
+</script>
 </body>
 </html>

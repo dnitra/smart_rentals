@@ -5,6 +5,7 @@ import "./index.scss"
 import ContextsProvider from "./app/Context/ContextsProvider"
 
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>

@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::view('/login', 'index');
 Route::view('/register', 'index');
+Route::view('/units', 'index');
