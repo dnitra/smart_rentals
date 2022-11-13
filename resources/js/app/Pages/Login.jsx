@@ -4,6 +4,7 @@ import "./Register.scss";
 import googleLogo from "../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
+import InputForm from "../components/InputForm/InputForm";
 
 function Login() {
     // settin values from the form
@@ -21,29 +22,31 @@ function Login() {
             const response_data = response.data;
         } catch (error) {
             // if the response code is not 2xx (success)
-            switch (error.response.status) {
-                case 422:
-                    // handle validation errors here
-                    console.log(
-                        "VALIDATION FAILED:",
-                        error.response.data.errors
-                    );
-                    break;
-                case 500:
-                    console.log("UNKNOWN ERROR", error.response.data);
-                    break;
-            }
+            console.log(error);
+            // switch (error.response.status) {
+            //     case 422:
+            //         // handle validation errors here
+            //         console.log(
+            //             "VALIDATION FAILED:",
+            //             error.response.data.errors
+            //         );
+            //         break;
+            //     case 500:
+            //         console.log("UNKNOWN ERROR", error.response.data);
+            //         break;
+            // }
         }
     };
 
     const handleChange = (event) => {
-        setValues((previous_values) => {
+        setLoginValues((previous_values) => {
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
             };
         });
     };
+    console.log(loginValues);
 
     return (
         <div className="register-section">
@@ -52,26 +55,26 @@ function Login() {
 
                 <form
                     className="register__form"
-                    action="/register"
+                    action="/login"
                     method="post"
                     onSubmit={handleSubmit}
                 >
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="email"
                         placeholder="Email"
                         name="email"
                         value={loginValues.email}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                         required
                     />
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="password"
                         placeholder="Password"
                         name="password"
                         value={loginValues.password}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                     />
 
                     <div className="register__logo-social">

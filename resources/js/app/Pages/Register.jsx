@@ -4,6 +4,7 @@ import "./Register.scss";
 import googleLogo from "../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
+import InputForm from "../components/InputForm/InputForm";
 
 function Register() {
     // settin values from the form
@@ -13,7 +14,7 @@ function Register() {
         email: "",
         password: "",
         password_confirmation: "",
-        role: "default",
+        // role: "default",
     });
 
     const handleSubmit = async (event) => {
@@ -64,50 +65,50 @@ function Register() {
                     method="post"
                     onSubmit={handleSubmit}
                 >
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="text"
                         placeholder="First Name"
                         name="first_name"
                         value={formValues.first_name}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                         required
                     />
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="text"
                         placeholder="Last Name"
                         name="last_name"
                         value={formValues.last_name}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                         required
                     />
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="email"
                         placeholder="Email"
                         name="email"
                         value={formValues.email}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                         required
                     />
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="password"
                         placeholder="Password"
                         name="password"
                         value={formValues.password}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                     />
-                    <input
+                    <InputForm
                         className="register__form-item"
                         type="password"
                         placeholder="Confirm Password"
                         name="password_confirmation"
                         value={formValues.password_confirmation}
-                        onChange={handleChange}
+                        handleChange={handleChange}
                     />
-                    <select
+                    {/* <select
                         className="register__form-item"
                         name="role"
                         // defaultValue={"default"}
@@ -126,7 +127,7 @@ function Register() {
                         <option name="manager" value="tenant">
                             Tenant
                         </option>
-                    </select>
+                    </select> */}
 
                     <div className="register__logo-social">
                         <img
