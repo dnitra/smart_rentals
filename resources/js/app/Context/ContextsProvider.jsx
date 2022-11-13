@@ -1,5 +1,5 @@
 
- import { useState } from "react";
+ import { useContext, useState } from "react";
 
 /**
  * import all contexts
@@ -8,19 +8,22 @@ import { ThemeContext } from "./ThemeContext";
 import { LanguageContext } from "./LanguageContext";
 import { ContentContext } from "./ContentContext";
 
+import { contents } from "../Content/contents";
 
-/**
- * import all files from EN folder (english)
- */
-import { mainContent } from "../content/en/mainContent";
-import { errors } from "../content/en/errors";
+/** 
+ * create custom hook which will provide all contexts
+ * import this hook in any file and deconstruct it with values which are needed
+ * for example: 
+ * const {content, theme, user} = useCustomContexts();
+*/
+export function useCustomContexts() {
 
-/**
- * import all files from CS folder (czech)
- */
-import { hlavniObsah } from "../Content/cs/hlavniObsah";
-
-
+  return {
+    ...useContext(ThemeContext),
+    ...useContext(LanguageContext),
+    ...useContext(ContentContext)
+  }
+}
 /**
  * create one ContextsProvider component which takes childern as parameter
  * and pass all individual context providers
@@ -50,19 +53,8 @@ export default function ContextsProvider({ children }) {
     }
   }
  
+  const allContents = contents()
 
-/**
- *  create object which contains different language files
- * use the imported files and spread the content inside the different languages
- */
-  const allContents = {
-    en: {
-      ...mainContent(),
-    },
-    cs: {
-      ...hlavniObsah(),
-    },
-  };
 
   
 
@@ -85,7 +77,7 @@ export default function ContextsProvider({ children }) {
  *  so they can be used in all childern
  */
   return (
-    <ContentContext.Provider value={content}>
+    <ContentContext.Provider value={{ content }}>
       <LanguageContext.Provider value={{ changeLang }}>
         <ThemeContext.Provider value={{ theme, changeTheme }}>
           {children}

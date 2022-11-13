@@ -1,13 +1,13 @@
 import React from 'react'
-import { useContent } from "./../Context/ContentContext"
-import { useTheme } from "./../Context/ThemeContext"
+import { useCustomContexts } from '../Context/ContextsProvider'
 import './Styles/Home.scss'
 import background from '../../../img/home/home_background.svg'
 import loremImage from '../../../img/home/home_lorem.svg'
 import Review from '../Components/Review/Review'
 function Home() {
-  const content = useContent();
-  // const { theme } = useTheme();
+  const { content, theme } = useCustomContexts();
+  console.log(content)
+
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="main-homepage">
       <div className='welcome'>
-        <div className='welcome__project-name'>SMART RENTALS</div>
+        <div className='welcome__project-name'>{content.home_smartRentals}</div>
       </div>
       <div className="main-content">
         <div className="content">

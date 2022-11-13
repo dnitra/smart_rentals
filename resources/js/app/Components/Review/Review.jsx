@@ -103,54 +103,54 @@ function Review() {
 
     return (
         <>
-            <h1 class="heading">Our Reviews</h1>
-            <div class="review">
-                <div class="review__img-container">
+            <h1 className="heading">Our Reviews</h1>
+            <div className="review">
+                <div className="review__img-container">
                     <img
-                        class="review__img"
+                        className="review__img"
                         src="img/jake-nackos-IF9TK5Uy-KI-unsplash (1).jpg"
                         alt="Photo of a guy"
                     />
                 </div>
-                <div class="review__author">Jake Nackos</div>
-                <div class="review__job">UX Designer</div>
-                <div class="review__text">
+                <div className="review__author">Jake Nackos</div>
+                <div className="review__job">UX Designer</div>
+                <div className="review__text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
                     cupiditate in quo sequi architecto nihil laudantium animi accusamus at,
                     nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam
                     possimus iste.
                 </div>
-                <div class="review__arrows">
-                    <div class="review__arrow review__arrow_left">
+                <div className="review__arrows">
+                    <div className="review__arrow review__arrow_left">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="ionicon"
+                            className="ionicon"
                             viewBox="0 0 512 512"
                         >
                             <title>Chevron Back</title>
                             <path
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="48"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="48"
                                 d="M328 112L184 256l144 144"
                             />
                         </svg>
                     </div>
-                    <div class="review__arrow review__arrow_right">
+                    <div className="review__arrow review__arrow_right">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="ionicon"
+                            className="ionicon"
                             viewBox="0 0 512 512"
                         >
                             <title>Chevron Forward</title>
                             <path
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="48"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="48"
                                 d="M184 112l144 144-144 144"
                             />
                         </svg>
