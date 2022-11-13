@@ -6,6 +6,7 @@ import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
 
 function Register() {
+    // settin values from the form
     const [formValues, setFormValues] = useState({
         first_name: "",
         last_name: "",
@@ -26,25 +27,23 @@ function Register() {
             console.log(response_data);
         } catch (error) {
             // if the response code is not 2xx (success)
-            console.log(error);
-            // switch (error.response.status) {
-            //     case 422:
-            //         // handle validation errors here
-            //         console.log(
-            //             "VALIDATION FAILED:",
-            //             error.response.data.errors
-            //         );
-            //         break;
-            //     case 500:
-            //         console.log("UNKNOWN ERROR", error.response.data);
-            //         break;
-            // }
+            switch (error.response.status) {
+                case 422:
+                    // handle validation errors here
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
         }
     };
 
     const handleChange = (event) => {
         setFormValues((previous_values) => {
-            // console.log(event.target.value);
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,

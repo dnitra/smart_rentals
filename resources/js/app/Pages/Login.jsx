@@ -1,9 +1,110 @@
-import React from 'react'
+import React, { useState } from "react";
+import axios from "axios";
+import "./Register.scss";
+import googleLogo from "../../../img/logos/google_logo.svg";
+import facebookLogo from "../../../img/logos/facebook_logo.svg";
+import registerImg from "../../../img/others/register-img.png";
 
 function Login() {
-  return (
-    <div>Login</div>
-  )
+    // settin values from the form
+    const [loginValues, setLoginValues] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            // make the AJAX request
+            const response = await axios.post("/login", loginValues);
+            // get the (already JSON-parsed) response data
+            const response_data = response.data;
+        } catch (error) {
+            // if the response code is not 2xx (success)
+            switch (error.response.status) {
+                case 422:
+                    // handle validation errors here
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
+        }
+    };
+
+    const handleChange = (event) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [event.target.name]: event.target.value,
+            };
+        });
+    };
+
+    return (
+        <div className="register-section">
+            <div className="register-container">
+                <h3 className="register__heading-form">Login</h3>
+
+                <form
+                    className="register__form"
+                    action="/register"
+                    method="post"
+                    onSubmit={handleSubmit}
+                >
+                    <input
+                        className="register__form-item"
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        value={loginValues.email}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        className="register__form-item"
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={loginValues.password}
+                        onChange={handleChange}
+                    />
+
+                    <div className="register__logo-social">
+                        <img
+                            src={facebookLogo}
+                            className="register__logo-item"
+                            alt="smart rentals logo"
+                        />
+                        <img
+                            src={googleLogo}
+                            className="register__logo-item"
+                            alt="smart rentals logo"
+                        />
+                    </div>
+
+                    <button className="register__form-btn" type="submit">
+                        Login
+                    </button>
+                </form>
+            </div>
+
+            <div className="register__img">
+                <h3 className="register__heading register__heading-img">
+                    Overview of all your properties
+                </h3>
+                <img
+                    className="register__img-item"
+                    src={registerImg}
+                    alt="image of smart rentals app"
+                />
+            </div>
+        </div>
+    );
 }
 
-export default Login
+export default Login;
