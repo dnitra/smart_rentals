@@ -1,10 +1,10 @@
 import React from "react";
-import "../../Pages/Styles/Home.scss"
-import review_img_1 from '../../../../img/home/Reviews/review_1.svg'
-import review_img_2 from '../../../../img/home/Reviews/review_2.svg'
-import review_img_3 from '../../../../img/home/Reviews/review_3.svg'
-import review_img_4 from '../../../../img/home/Reviews/review_4.svg'
-import review_img_5 from '../../../../img/home/Reviews/review_5.svg'
+import "../../Pages/Styles/Home.scss";
+import review_img_1 from "../../../../img/home/Reviews/review_1.svg";
+import review_img_2 from "../../../../img/home/Reviews/review_2.svg";
+import review_img_3 from "../../../../img/home/Reviews/review_3.svg";
+import review_img_4 from "../../../../img/home/Reviews/review_4.svg";
+import review_img_5 from "../../../../img/home/Reviews/review_5.svg";
 import Item from "./Item";
 import { useEffect } from "react";
 
@@ -39,7 +39,6 @@ function Review() {
         },
     ];
     useEffect(() => {
-
         const btnPrevious = document.querySelector(".review__arrow_left");
         const btnNext = document.querySelector(".review__arrow_right");
 
@@ -75,7 +74,7 @@ function Review() {
         });
 
         document.addEventListener("keydown", (e) => {
-            console.log(e.code);
+            // console.log(e.code);
             if (e.code === "ArrowLeft") {
                 currentReview--;
                 if (currentReview < 0) {
@@ -94,12 +93,7 @@ function Review() {
                 displayReview(currentReview);
             }
         });
-    }, [])
-
-
-
-
-
+    }, []);
 
     return (
         <>
@@ -115,10 +109,10 @@ function Review() {
                 <div class="review__author">Jake Nackos</div>
                 <div class="review__job">UX Designer</div>
                 <div class="review__text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                    cupiditate in quo sequi architecto nihil laudantium animi accusamus at,
-                    nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam
-                    possimus iste.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Soluta cupiditate in quo sequi architecto nihil laudantium
+                    animi accusamus at, nesciunt libero ad eum, eligendi
+                    consequatur. Ducimus porro aliquam possimus iste.
                 </div>
                 <div class="review__arrows">
                     <div class="review__arrow review__arrow_left">
@@ -158,9 +152,7 @@ function Review() {
                 </div>
             </div>
         </>
-    )
-
-
+    );
 }
 
-export default Review
+export default Review;
