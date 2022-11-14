@@ -1,7 +1,6 @@
 import React from 'react'
-// import "../../Pages/Styles/Navbar.scss"
+import "../Pages/Styles/Navbar.scss"
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 function Navbar() {
 
     const logo = {
@@ -18,43 +17,26 @@ function Navbar() {
         )
     }
 
-    const [position, setPosition] = useState(window.pageYOffset)
-    const [visible, setVisible] = useState(true)
-    useEffect(() => {
-        const handleScroll = () => {
-            let moving = window.pageYOffset
-
-            setVisible(position > moving);
-            setPosition(moving)
-        };
-        window.addEventListener("scroll", handleScroll);
-        return (() => {
-            window.removeEventListener("scroll", handleScroll);
-        })
-    })
-
-    const cls = visible ? "visible" : "hidden";
+    
 
     return (
-        <div className={cls}>
+        
             <header className='navbar'>
                 <div className="navbar__logo">
                     {logo.data}
                 </div>
                 <div className="navbar__links">
 
-                    <Link to="/"><p><span>Why SR</span></p></Link>
-                    <Link to="/"><p>Product</p></Link>
-                    <Link to="/"><p>Prices</p></Link>
-                    <Link to="/"><p>Contacts</p></Link>
-                    <Link to="/"> <p>Reviews</p></Link>
+                    <Link to="/dashboard"><p><span>dashboard</span></p></Link>
+                    <Link to="/dashboard/all"><p>all properties</p></Link>
+                    <Link to="/dashboard/cashflow"><p>cashflow</p></Link>
+                    <Link to="/dashboard/reports"> <p>reports</p></Link>
+                    <Link to="/dashboard/messages"><p>messages</p></Link>
                 </div>
                 <div className="navbar__buttons">
-                    <Link to="/register" className='button_container'><button className='log-button'>Log In</button></Link>
-                    <Link to="/login" className='button_container'><button className='log-button'>Sign Up</button></Link>
+                    <Link to="/" className='button_container'><button className='log-button'>Logout</button></Link>
                 </div>
-            </header>
-        </div>
+        </header>
     )
 }
 
