@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./dashboard-app/App";
+import App from "./owner-portal/App";
 import "./index.scss"
 import ContextsProvider from "./app/Context/ContextsProvider"
 

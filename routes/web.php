@@ -23,11 +23,11 @@ Route::view('/units', 'index');
 
 /// DASHBOARD FOR USERS 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('owner');
 });
 
-Route::view('/dashboard/all', 'userIndex');
-Route::view('/dashboard/cashflow', 'userIndex');
-Route::view('/dashboard/listings', 'userIndex');
-Route::view('/dashboard/messages', 'userIndex');
-Route::view('/dashboard/reports', 'userIndex');
+Route::view('/dashboard/all', 'ownerIndex');
+Route::view('/dashboard/cashflow', 'ownerIndex');
+Route::view('/dashboard/listings', 'ownerIndex');
+Route::view('/dashboard/messages', 'ownerIndex');
+Route::view('/dashboard/reports', 'ownerIndex');
