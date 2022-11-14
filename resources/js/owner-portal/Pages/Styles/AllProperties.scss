@@ -1,0 +1,51 @@
+.properies{
+position: absolute;
+width: 100%;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+padding:5rem;
+gap: 3rem;
+background-color: #F5F5F5;
+margin-top: 5rem;
+.property{ 
+    background-color:#FFFFFF;
+    height: 30rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+   
+
+    &__img{
+        width: 100%;
+        height: 100%;
+        & img{
+            min-width: 60%;
+            margin-left: 20%;
+        }
+    }
+    &__adress{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__button{
+            height: 35px;
+            width: 120px;
+            border-radius: 30px;
+            margin: auto 1rem;
+            border: 0px;
+            background-color: rgb(204,222,249,1) ;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+    }
+}
+
+
+}
+
