@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\Rented_unit;
+use App\Models\RentedProperty;
 
 class User extends Authenticatable
 {
@@ -45,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function rented_units()
+    public function rentedProperties()
     {
-        return $this->belongsToMany(Rented_unit::class);
+        return $this->belongsToMany(RentedProperty::class);
     }
 }

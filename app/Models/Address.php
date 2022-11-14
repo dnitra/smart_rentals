@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Rented_unit;
+use App\Models\RentedProperty;
 
 class Address extends Model
 {
     use HasFactory;
 
-    public function rented_units (){
-        return $this->belongsToMany(Rented_unit::class);
+    public function rentedProperties()
+    {
+        return $this->belongsToMany(RentedProperty::class);
     }
 }

@@ -4,8 +4,8 @@ import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Units from "./Pages/units";
-import '../bootstrap';
+import Properties from "./Pages/Properties";
+import "../bootstrap";
 
 export default function App() {
     return (
@@ -16,7 +16,7 @@ export default function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                 </Route>
-                <Route path="/units" element={<Units />} />
+                <Route path="/properties" element={<Properties />} />
             </Routes>
         </BrowserRouter>
     );

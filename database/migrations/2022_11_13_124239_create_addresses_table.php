@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->string("city");
-            $table->string("city_district")->nullable();
-            $table->string("street");
-            $table->string("house_number")->nullable();
-            $table->string("district_number")->nullable();
+            $table->string("country");
+            $table->string("street_and_number")->nullable();
             $table->string("zip_code")->nullable();
         });
     }
