@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("house_number")->nullable();
             $table->string("district_number")->nullable();
             $table->string("zip_code")->nullable();
+            $table->string("country");
         });
     }
 
