@@ -6,8 +6,10 @@ import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
 import InputForm from "../components/InputForm/InputForm";
 import { loadUser } from "../actions/auth";
+import { useCustomContexts } from "../Context/ContextsProvider";
 
 function Login() {
+    const { user, setUser, loadingUser } = useCustomContexts();
     // settin values from the form
     const [loginValues, setLoginValues] = useState({
         email: "",
@@ -51,7 +53,6 @@ function Login() {
             };
         });
     };
-    console.log(loginValues);
 
     return (
         <div className="register-section">
