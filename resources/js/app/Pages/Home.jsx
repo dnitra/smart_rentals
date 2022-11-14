@@ -5,7 +5,7 @@ import background from '../../../img/home/home_background.svg'
 import phones from '../../../img/home/home_phones.svg'
 
 import loremImage from '../../../img/home/home_lorem.svg'
-import Review from '../Components/Review/Review'
+import Review from '../Components/HomePage/Review/Review'
 function Home() {
   const { content, theme } = useCustomContexts();
 
