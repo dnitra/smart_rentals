@@ -65,7 +65,7 @@ function Register() {
                     method="post"
                     onSubmit={handleSubmit}
                 >
-                    <InputForm
+                    {/* <InputForm
                         className="register__form-item"
                         type="text"
                         placeholder="First Name"
@@ -82,7 +82,7 @@ function Register() {
                         value={formValues.last_name}
                         handleChange={handleChange}
                         required
-                    />
+                    /> */}
                     <InputForm
                         className="register__form-item"
                         type="email"
