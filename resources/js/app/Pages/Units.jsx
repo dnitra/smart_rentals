@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useCustomContexts } from "../Context/ContextsProvider";
+
 
 export default function Units() {
 
@@ -9,7 +11,8 @@ export default function Units() {
         
     })
  
-
+    const { theme, content } = useCustomContexts();
+ 
 
     const handleChange = (event) => {
         setFormData((previous_values) => {
@@ -51,7 +54,6 @@ export default function Units() {
     return (
         <form
             className="unit__form"
-            action="/units"
             method="post"
             onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>

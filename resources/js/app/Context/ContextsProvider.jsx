@@ -1,5 +1,5 @@
 
- import { useState } from "react";
+ import { useContext, useState } from "react";
 
 /**
  * import all contexts
@@ -8,21 +8,24 @@ import { ThemeContext } from "./ThemeContext";
 import { LanguageContext } from "./LanguageContext";
 import { ContentContext } from "./ContentContext";
 
+import { contents } from "../Content/contents";
 
+/** 
+ * create custom hook which will provide all contexts
+ * import this hook in any file and deconstruct it with values which are needed
+ * for example: 
+ * const {content, theme, user} = useCustomContexts();
+*/
+export function useCustomContexts() {
+
+  return {
+    ...useContext(ThemeContext),
+    ...useContext(LanguageContext),
+    ...useContext(ContentContext)
+  }
+}
 /**
- * import all files from EN folder (english)
- */
-import { mainContent } from "../content/en/mainContent";
-import { errors } from "../content/en/errors";
-
-/**
- * import all files from CS folder (czech)
- */
-import { hlavniObsah } from "../Content/cs/hlavniObsah";
-
-
-/**
- * create one ContextsProvider component which takes childern as parameter
+ * create one ContextsProvider component which takes children as parameter
  * and pass all individual context providers
  * 
  * This way we can have just one Context provider in our index.jsx file
@@ -49,22 +52,8 @@ export default function ContextsProvider({ children }) {
       
     }
   }
- 
-
-/**
- *  create object which contains different language files
- * use the imported files and spread the content inside the different languages
- */
-  const allContents = {
-    en: {
-      ...mainContent(),
-    },
-    cs: {
-      ...hlavniObsah(),
-    },
-  };
-
-  
+ // load all content from contents()component and put it into allContent constant 
+  const allContents = contents()
 
   //create states which will switch between the key words of corresponding objects
   const [theme, setTheme] = useState(themeModes.lightTheme);
@@ -82,10 +71,10 @@ export default function ContextsProvider({ children }) {
   
 /**
  * pass all contexts values and functions in individual providers
- *  so they can be used in all childern
+ *  so they can be used in all children
  */
   return (
-    <ContentContext.Provider value={content}>
+    <ContentContext.Provider value={{ content }}>
       <LanguageContext.Provider value={{ changeLang }}>
         <ThemeContext.Provider value={{ theme, changeTheme }}>
           {children}

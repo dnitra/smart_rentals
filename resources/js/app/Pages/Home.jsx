@@ -1,13 +1,15 @@
 import React from 'react'
-import { useContent } from "./../Context/ContentContext"
-import { useTheme } from "./../Context/ThemeContext"
+import { useCustomContexts } from '../Context/ContextsProvider'
 import './Styles/Home.scss'
 import background from '../../../img/home/home_background.svg'
+import phones from '../../../img/home/home_phones.svg'
+
 import loremImage from '../../../img/home/home_lorem.svg'
 import Review from '../Components/Review/Review'
 function Home() {
-  const content = useContent();
-  // const { theme } = useTheme();
+  const { content, theme } = useCustomContexts();
+
+
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -26,7 +28,7 @@ function Home() {
   return (
     <div className="main-homepage">
       <div className='welcome'>
-        <div className='welcome__project-name'>SMART RENTALS</div>
+        <div className='welcome__project-name'>{content.home_smartRentals}</div>
       </div>
       <div className="main-content">
         <div className="content">
@@ -46,7 +48,7 @@ function Home() {
             <p className='content-1__info-bold'>About the Product</p>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sit amet magna in magna gravida vehicula. Proin mattis lacinia justo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede.</p>
           </div>
-          <div className="content-1__img"> <img src={loremImage} alt="" /></div>
+          <div className="content-1__img"> <img src={phones} alt="" /></div>
         </div>
 
         <div className="review">
