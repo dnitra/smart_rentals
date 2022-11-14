@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RentedUnitController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,14 @@ use App\Http\Controllers\Api\RentedUnitController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
     return $request->user();
 });
+
+// Route::get("/user/auth", function (Request $request) {
+//     // dd($request->user());
+//     return Auth::user();
+// });
 
 
 Route::post('/unit/store', [RentedUnitController::class, 'store']);

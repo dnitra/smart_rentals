@@ -5,6 +5,7 @@ import googleLogo from "../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
 import InputForm from "../components/InputForm/InputForm";
+import { loadUser } from "../actions/auth";
 
 function Login() {
     // settin values from the form
@@ -19,7 +20,12 @@ function Login() {
             // make the AJAX request
             const response = await axios.post("/login", loginValues);
             // get the (already JSON-parsed) response data
+            console.log(response.status);
             const response_data = response.data;
+
+            // Load users data
+            const data = await loadUser();
+            setUser(data);
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {

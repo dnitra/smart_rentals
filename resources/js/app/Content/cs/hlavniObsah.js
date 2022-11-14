@@ -1,5 +1,5 @@
-export  function hlavniObsah() {
-  return {
-    home: "Domů"
-  };
+export function hlavniObsah() {
+    return {
+        home: "Domů",
+    };
 }

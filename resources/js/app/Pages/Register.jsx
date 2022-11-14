@@ -5,9 +5,13 @@ import googleLogo from "../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../img/others/register-img.png";
 import InputForm from "../components/InputForm/InputForm";
+import { useCustomContexts } from "../Context/ContextsProvider";
+import { loadUser } from "../actions/auth";
 
 function Register() {
-    // settin values from the form
+    const { user, setUser, loadingUser } = useCustomContexts();
+
+    // setting values from the form
     const [formValues, setFormValues] = useState({
         first_name: "",
         last_name: "",
@@ -25,21 +29,26 @@ function Register() {
             const response = await axios.post("/register", formValues);
             // get the (already JSON-parsed) response data
             const response_data = response.data;
-            console.log(response_data);
+            // console.log(response_data);
+
+            const userData = await loadUser();
+            setUser(userData);
+            console.log(user);
         } catch (error) {
             // if the response code is not 2xx (success)
-            switch (error.response.status) {
-                case 422:
-                    // handle validation errors here
-                    console.log(
-                        "VALIDATION FAILED:",
-                        error.response.data.errors
-                    );
-                    break;
-                case 500:
-                    console.log("UNKNOWN ERROR", error.response.data);
-                    break;
-            }
+            console.log(error);
+            // switch (error.response.status) {
+            //     case 422:
+            //         // handle validation errors here
+            //         console.log(
+            //             "VALIDATION FAILED:",
+            //             error.response.data.errors
+            //         );
+            //         break;
+            //     case 500:
+            //         console.log("UNKNOWN ERROR", error.response.data);
+            //         break;
+            // }
         }
     };
 
@@ -52,7 +61,7 @@ function Register() {
         });
     };
 
-    console.log(formValues);
+    // console.log(formValues);
 
     return (
         <div className="register-section">
