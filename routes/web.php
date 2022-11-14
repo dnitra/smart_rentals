@@ -20,3 +20,14 @@ Route::get('/', function () {
 Route::view('/login', 'index');
 Route::view('/register', 'index');
 Route::view('/units', 'index');
+
+/// DASHBOARD FOR USERS 
+Route::get('/dashboard', function () {
+    return view('owner');
+});
+
+Route::view('/dashboard/all', 'ownerIndex');
+Route::view('/dashboard/cashflow', 'ownerIndex');
+Route::view('/dashboard/listings', 'ownerIndex');
+Route::view('/dashboard/messages', 'ownerIndex');
+Route::view('/dashboard/reports', 'ownerIndex');

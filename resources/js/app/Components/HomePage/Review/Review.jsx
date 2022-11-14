@@ -1,11 +1,10 @@
 import React from "react";
-import "../../Pages/Styles/Home.scss";
-import review_img_1 from "../../../../img/home/Reviews/review_1.svg";
-import review_img_2 from "../../../../img/home/Reviews/review_2.svg";
-import review_img_3 from "../../../../img/home/Reviews/review_3.svg";
-import review_img_4 from "../../../../img/home/Reviews/review_4.svg";
-import review_img_5 from "../../../../img/home/Reviews/review_5.svg";
-import Item from "./Item";
+import "../../../Pages/Styles/Home.scss";
+import review_img_1 from "../../../../../img/home/Reviews/review_1.svg";
+import review_img_2 from "../../../../../img/home/Reviews/review_2.svg";
+import review_img_3 from "../../../../../img/home/Reviews/review_3.svg";
+import review_img_4 from "../../../../../img/home/Reviews/review_4.svg";
+import review_img_5 from "../../../../../img/home/Reviews/review_5.svg";
 import { useEffect } from "react";
 
 function Review() {
@@ -107,10 +106,10 @@ function Review() {
                 <div className="review__author">Jake Nackos</div>
                 <div className="review__job">UX Designer</div>
                 <div className="review__text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                    cupiditate in quo sequi architecto nihil laudantium animi accusamus at,
-                    nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam
-                    possimus iste.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Soluta cupiditate in quo sequi architecto nihil laudantium
+                    animi accusamus at, nesciunt libero ad eum, eligendi
+                    consequatur. Ducimus porro aliquam possimus iste.
                 </div>
                 <div className="review__arrows">
                     <div className="review__arrow review__arrow_left">

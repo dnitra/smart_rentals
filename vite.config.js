@@ -9,6 +9,7 @@ export default defineConfig({
                 "resources/css/app.scss",
                 "resources/js/app.js",
                 "resources/js/index.jsx",
+                "resources/js/index-user-login.jsx",
             ],
             refresh: true,
         }),
