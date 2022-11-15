@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Home.scss";
 // import background from "../../../img/home/home_background.svg";
@@ -9,17 +9,20 @@ function Home() {
   const { content, theme } = useCustomContexts();
 
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show");
-            }
-        });
-    });
-    const hiddenElements = document.querySelectorAll(".hidden");
-    hiddenElements.forEach((el) => observer.observe(el));
+    // const observer = new IntersectionObserver((entries) => {
+    //     entries.forEach((entry) => {
+    //         if (entry.isIntersecting) {
+    //             entry.target.classList.add("show");
+    //         } else {
+    //             entry.target.classList.remove("show");
+    //         }
+    //     });
+    // });
+    // useEffect(() => {
+    //     const hiddenElements = document.querySelectorAll(".hidden");
+    //     hiddenElements.forEach((el) => observer.observe(el));
+    // },[])
+    
 
     return (
         <div className="main-homepage">
