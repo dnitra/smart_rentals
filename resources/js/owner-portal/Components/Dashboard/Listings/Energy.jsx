@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import CheckBox from "./CheckBox";
 import Card from "./Card";
 
-export default function Energy(setFormData) {
+export default function Energy({setFormData}) {
   const [file, setFile] = useState();
 
   function handleChange(event) {

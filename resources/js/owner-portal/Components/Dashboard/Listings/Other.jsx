@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import CheckBox from "./CheckBox";
 
-export default function Other() {
+export default function Other({ setFormData }) {
   return (
     <Card className="basic-content">
       <h4>Other</h4>
@@ -14,7 +14,7 @@ export default function Other() {
           <option value="no">no Park</option>
           <option value="partialy">partialy</option>
         </select>
-        <CheckBox label="Attic" />
+        <CheckBox label="Attic" setFormData={setFormData} name="lowEnergy" />
       </fieldset>
     </Card>
   );
