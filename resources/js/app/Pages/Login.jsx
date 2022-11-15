@@ -45,6 +45,8 @@ function Login() {
         }
     };
 
+    console.log(user);
+
     const handleChange = (event) => {
         setLoginValues((previous_values) => {
             return {
