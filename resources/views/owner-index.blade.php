@@ -10,7 +10,7 @@
 <body>
     <div id="root"></div>
     @viteReactRefresh
-    @vite('resources/js/owner-index.jsx')
+    @vite('resources/js/ownerIndex.jsx')
 
 </body>
 </html>

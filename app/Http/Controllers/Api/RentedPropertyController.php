@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RentedProperty;
+use App\Models\Address;
 
 class RentedPropertyController extends Controller
 {
@@ -13,12 +14,13 @@ class RentedPropertyController extends Controller
     {
 
         $data = $request->all();
-        // dd($data);
+        dd($data);
+
         $property = new RentedProperty;
-        // $address = new RentedProperty;
+        $address = new Address;
 
         $property->name = $data["name"];
-        // $address->address = $data["address"];
+        $address->address = $data["street_and_number"];
         $property->type = $data["type"];
 
         $property->save();

@@ -1,6 +1,5 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import '../bootstrap';
+import "../bootstrap";
 import Layout from "./Pages/Layout";
 import AllProperties from "./Pages/AllProperties";
 import Cashflow from "./Pages/Cashflow";
@@ -8,7 +7,7 @@ import Dashboard from "./Pages/Dashboard";
 import Listings from "./Pages/Listings";
 import Messages from "./Pages/Messages";
 import Reports from "./Pages/Reports";
-
+import Properties from "./Pages/Properties";
 
 export default function App() {
     return (
@@ -21,6 +20,7 @@ export default function App() {
                     <Route path="/dashboard/listings" element={<Listings />} />
                     <Route path="/dashboard/messages" element={<Messages />} />
                     <Route path="/dashboard/reports" element={<Reports />} />
+                    <Route path="/properties" element={<Properties />} />
                 </Route>
             </Routes>
         </BrowserRouter>

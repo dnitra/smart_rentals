@@ -4,7 +4,7 @@ import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Properties from "./Pages/Properties";
+// import Properties from "./Pages/Properties";
 import "../bootstrap";
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                 </Route>
-                <Route path="/properties" element={<Properties />} />
+                {/* <Route path="/properties" element={<Properties />} /> */}
             </Routes>
         </BrowserRouter>
     );

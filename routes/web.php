@@ -20,15 +20,15 @@ Route::get('/', function () {
 
 Route::view('/login', 'index');
 Route::view('/register', 'index');
-Route::view('/properties', 'index');
 
 /// DASHBOARD FOR USERS 
 Route::get('/dashboard', function () {
     return view('owner');
 });
 
-Route::view('/dashboard/all', 'ownerIndex');
-Route::view('/dashboard/cashflow', 'ownerIndex');
-Route::view('/dashboard/listings', 'ownerIndex');
-Route::view('/dashboard/messages', 'ownerIndex');
-Route::view('/dashboard/reports', 'ownerIndex');
+Route::view('/properties', 'owner-index');
+Route::view('/dashboard/all', 'owner-index');
+Route::view('/dashboard/cashflow', 'owner-index');
+Route::view('/dashboard/listings', 'owner-index');
+Route::view('/dashboard/messages', 'owner-index');
+Route::view('/dashboard/reports', 'owner-index');
