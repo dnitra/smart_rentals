@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-    position: fixed;
+    // position: fixed;
     // position: absolute;
     z-index: 1;
     background-color: rgba(39, 54, 85, 0.88);
@@ -17,6 +17,7 @@ body {
     grid-template-columns: 2fr 3fr 2fr;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 3rem;
 
     &__logo {
         padding: 1rem;

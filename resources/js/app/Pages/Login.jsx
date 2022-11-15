@@ -9,7 +9,7 @@ import { loadUser } from "../actions/auth";
 import { useCustomContexts } from "../Context/ContextsProvider";
 
 function Login() {
-    const { user, setUser, loadingUser } = useCustomContexts();
+    const { user, setUser, loadingUser, content } = useCustomContexts();
     // settin values from the form
     const [loginValues, setLoginValues] = useState({
         email: "",
@@ -57,18 +57,19 @@ function Login() {
     return (
         <div className="register-section">
             <div className="register-container">
-                <h3 className="register__heading-form">Login</h3>
-
                 <form
                     className="register__form"
                     action="/login"
                     method="post"
                     onSubmit={handleSubmit}
                 >
+                    <h3 className="register__heading-form">
+                        {content.headingLogin}
+                    </h3>
                     <InputForm
                         className="register__form-item"
                         type="email"
-                        placeholder="Email"
+                        placeholder={content.email}
                         name="email"
                         value={loginValues.email}
                         handleChange={handleChange}
@@ -77,12 +78,14 @@ function Login() {
                     <InputForm
                         className="register__form-item"
                         type="password"
-                        placeholder="Password"
+                        placeholder={content.password}
                         name="password"
                         value={loginValues.password}
                         handleChange={handleChange}
                     />
-
+                    <span className="register__form-other">
+                        {content.otherOptions}
+                    </span>
                     <div className="register__logo-social">
                         <img
                             src={facebookLogo}
@@ -97,14 +100,14 @@ function Login() {
                     </div>
 
                     <button className="register__form-btn" type="submit">
-                        Login
+                        {content.headingLogin}
                     </button>
                 </form>
             </div>
 
             <div className="register__img">
                 <h3 className="register__heading register__heading-img">
-                    Overview of all your properties
+                    {content.overview}
                 </h3>
                 <img
                     className="register__img-item"

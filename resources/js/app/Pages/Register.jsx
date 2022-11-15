@@ -9,7 +9,7 @@ import { useCustomContexts } from "../Context/ContextsProvider";
 import { loadUser } from "../actions/auth";
 
 function Register() {
-    const { user, setUser, loadingUser } = useCustomContexts();
+    const { user, setUser, loadingUser, content } = useCustomContexts();
 
     // setting values from the form
     const [formValues, setFormValues] = useState({
@@ -36,19 +36,19 @@ function Register() {
             console.log(user);
         } catch (error) {
             // if the response code is not 2xx (success)
-            console.log(error);
-            // switch (error.response.status) {
-            //     case 422:
-            //         // handle validation errors here
-            //         console.log(
-            //             "VALIDATION FAILED:",
-            //             error.response.data.errors
-            //         );
-            //         break;
-            //     case 500:
-            //         console.log("UNKNOWN ERROR", error.response.data);
-            //         break;
-            // }
+            // console.log(error);
+            switch (error.response.status) {
+                case 422:
+                    // handle validation errors here
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
         }
     };
 
@@ -66,36 +66,20 @@ function Register() {
     return (
         <div className="register-section">
             <div className="register-container">
-                <h3 className="register__heading-form">Registration</h3>
-
                 <form
                     className="register__form"
                     action="/register"
                     method="post"
                     onSubmit={handleSubmit}
                 >
-                    {/* <InputForm
-                        className="register__form-item"
-                        type="text"
-                        placeholder="First Name"
-                        name="first_name"
-                        value={formValues.first_name}
-                        handleChange={handleChange}
-                        required
-                    />
-                    <InputForm
-                        className="register__form-item"
-                        type="text"
-                        placeholder="Last Name"
-                        name="last_name"
-                        value={formValues.last_name}
-                        handleChange={handleChange}
-                        required
-                    /> */}
+                    <h3 className="register__heading-form">
+                        {content.headingRegister}
+                    </h3>
+
                     <InputForm
                         className="register__form-item"
                         type="email"
-                        placeholder="Email"
+                        placeholder={content.email}
                         name="email"
                         value={formValues.email}
                         handleChange={handleChange}
@@ -104,7 +88,7 @@ function Register() {
                     <InputForm
                         className="register__form-item"
                         type="password"
-                        placeholder="Password"
+                        placeholder={content.password}
                         name="password"
                         value={formValues.password}
                         handleChange={handleChange}
@@ -112,32 +96,15 @@ function Register() {
                     <InputForm
                         className="register__form-item"
                         type="password"
-                        placeholder="Confirm Password"
+                        placeholder={content.passwordConfirmation}
                         name="password_confirmation"
                         value={formValues.password_confirmation}
                         handleChange={handleChange}
                     />
-                    {/* <select
-                        className="register__form-item"
-                        name="role"
-                        // defaultValue={"default"}
-                        value={formValues.role}
-                        onChange={handleChange}
-                    >
-                        <option value="default" disabled>
-                            Select your role
-                        </option>
-                        <option name="manager" value="manager">
-                            Manager
-                        </option>
-                        <option name="manager" value="landlord">
-                            Landlord
-                        </option>
-                        <option name="manager" value="tenant">
-                            Tenant
-                        </option>
-                    </select> */}
 
+                    <span className="register__form-other">
+                        {content.otherOptions}
+                    </span>
                     <div className="register__logo-social">
                         <img
                             src={facebookLogo}
@@ -152,14 +119,14 @@ function Register() {
                     </div>
 
                     <button className="register__form-btn" type="submit">
-                        Register
+                        {content.headingRegister}
                     </button>
                 </form>
             </div>
 
             <div className="register__img">
                 <h3 className="register__heading register__heading-img">
-                    Overview of all your properties
+                    {content.overview}
                 </h3>
                 <img
                     className="register__img-item"
