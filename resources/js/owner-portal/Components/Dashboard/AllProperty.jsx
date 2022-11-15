@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import image from "../../../../img/dashboard/Properties.svg"
+import newPropertyImage from "../../../../img/dashboard/NewProperty.svg"
 import { useState, useEffect } from 'react'
 function AllProperty() {
    const [data, setData] = useState([])
@@ -55,6 +56,15 @@ function AllProperty() {
                 
 
             }
+            <div className='property'>
+                <div className="property__img">
+                    <img src={newPropertyImage} alt="" />
+                </div>
+                <div className="property__adress">
+                    <p></p>
+                    <Link to={"/"}><button className='property__add'>+</button></Link>
+                </div>
+            </div>
         </div>
     )
 }
