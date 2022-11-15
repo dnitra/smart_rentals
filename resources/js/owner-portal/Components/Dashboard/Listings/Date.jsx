@@ -5,15 +5,15 @@ import "./Date.css";
 
 export default function Date({ setFormData }) {
   const content = {
-    sale: "Sale: ",
-    movingIn: "Moving in: ",
-    commencement: "Construction Commencement: ",
-    endOfConstruction: "EndOfConstruction: ",
-    visitFrom: "Visit from: ",
-    visitTo: "Visit to: ",
-    constructYear: "Year of construction: ",
-    approvalYear: "Year of approval: ",
-    reconstructionYear: "Year of reconstruction",
+    sale: "Sale:",
+    movingIn: "Moving in:",
+    commencement: "Construction Commencement:",
+    endOfConstruction: "EndOfConstruction:",
+    visitFrom: "Visit from:",
+    visitTo: "Visit to:",
+    constructYear: "Year of construction:",
+    approvalYear: "Year of approval:",
+    reconstructionYear: "Year of reconstruction:",
   };
   return (
     <Card className="basic-content">

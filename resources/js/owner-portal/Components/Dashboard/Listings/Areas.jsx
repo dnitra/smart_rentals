@@ -9,12 +9,12 @@ export default function Areas({ setFormData }) {
     buildUp: "Built-up area (in m²):",
     garden: "Gardens (in m²):",
     floorArea: "Floor area (in m²):",
-    balcony: "Balcony",
+    balcony: "Balcony (in m²):",
     loggia: "Loggia (in m²):",
     terrace: "Terrace (in m²):",
     pool: "Pool (in m²):",
-    parking: "Parking space:",
-    garage: "Garage:",
+    parking: "Parking space (count):",
+    garage: "Garage (count):",
   };
   return (
     <Card className="basic-content">
