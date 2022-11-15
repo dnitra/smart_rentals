@@ -81,9 +81,9 @@ export default function Properties() {
                     value={formData.country}
                     onChange={handleChange}
                 >
-                    <option value="1">Czech Republic</option>
-                    <option value="2">Slovakia</option>
-                    <option value="3">Germany</option>
+                    <option value="57">Czech Republic</option>
+                    <option value="191">Slovakia</option>
+                    <option value="82">Germany</option>
                 </select>
                 <br />
 

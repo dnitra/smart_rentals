@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 use App\Models\Address;
+use App\Models\PropertyDetails;
 
 class RentedProperty extends Model
 {
@@ -20,5 +21,10 @@ class RentedProperty extends Model
     public function address()
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function propertyDetails()
+    {
+        $this->belongsToMany(PropertyDetail::class);
     }
 }
