@@ -6,7 +6,7 @@ export default function Properties() {
     const [formData, setFormData] = useState({
         name: "",
         address: "",
-        country: "",
+        country: 1,
         city: "",
         type: 1,
     });
@@ -34,19 +34,19 @@ export default function Properties() {
             console.log(response_data);
         } catch (error) {
             // if the response code is not 2xx (success)
-            console.log(error);
-            // switch (error.response.status) {
-            //     case 422:
-            //         // handle validation errors here
-            //         console.log(
-            //             "VALIDATION FAILED:",
-            //             error.response.data.errors
-            //         );
-            //         break;
-            //     case 500:
-            //         console.log("UNKNOWN ERROR", error.response.data);
-            //         break;
-            // }
+            // console.log(error);
+            switch (error.response.status) {
+                case 422:
+                    // handle validation errors here
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
         }
     };
     return (
@@ -75,12 +75,16 @@ export default function Properties() {
                 <br />
 
                 <label htmlFor="country">Country:</label>
-                <input
-                    type="text"
+                <select
+                    id="type"
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                />
+                >
+                    <option value="1">Czech Republic</option>
+                    <option value="2">Slovakia</option>
+                    <option value="3">Germany</option>
+                </select>
                 <br />
 
                 <label htmlFor="address">Street:</label>
