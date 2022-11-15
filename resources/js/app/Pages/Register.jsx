@@ -60,7 +60,7 @@ function Register() {
             };
         });
     };
-
+    // console.log(user);
     // console.log(formValues);
 
     return (
