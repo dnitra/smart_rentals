@@ -6,7 +6,8 @@ import Phones from "../../../img/home/home_phones.svg";
 import LoremImage from "../../../img/home/home_lorem.svg";
 import Review from "../components/HomePage/Review/Review";
 function Home() {
-    const { content, theme } = useCustomContexts();
+  const { content, theme } = useCustomContexts();
+
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
