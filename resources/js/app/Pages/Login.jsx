@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./Register.scss";
 import googleLogo from "../../../img/logos/google_logo.svg";
@@ -7,6 +7,7 @@ import registerImg from "../../../img/others/register-img.png";
 import InputForm from "../components/InputForm/InputForm";
 import { loadUser } from "../actions/auth";
 import { useCustomContexts } from "../Context/ContextsProvider";
+import RedirectTo from "../components/RedirectTo/RedirectTo";
 
 function Login() {
     const { user, setUser, loadingUser, content } = useCustomContexts();
@@ -15,6 +16,7 @@ function Login() {
         email: "",
         password: "",
     });
+    // const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -46,6 +48,9 @@ function Login() {
     };
 
     console.log(user);
+
+    // function that redirects me to the dashboard
+    RedirectTo("/dashboard/all", user);
 
     const handleChange = (event) => {
         setLoginValues((previous_values) => {
