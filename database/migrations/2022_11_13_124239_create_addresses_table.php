@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("country");
             $table->string("street_and_number")->nullable();
             $table->string("zip_code")->nullable();
+            $table->timestamps();
         });
     }
 

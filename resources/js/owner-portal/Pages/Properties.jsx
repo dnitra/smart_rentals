@@ -6,6 +6,9 @@ export default function Properties() {
     const [formData, setFormData] = useState({
         name: "",
         address: "",
+        country: "",
+        city: "",
+        type: 1,
     });
 
     const { theme, content } = useCustomContexts();
@@ -47,34 +50,60 @@ export default function Properties() {
         }
     };
     return (
-        <form className="property__form" method="post" onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input
-                id="name"
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-            />
-            <label htmlFor="name">Address:</label>
-            <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-            />
-            <label htmlFor="name">Type:</label>
-            <select
-                id="type"
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
+        <>
+            <form
+                className="property__form"
+                method="post"
+                onSubmit={handleSubmit}
             >
-                <option value="1">House</option>
-                <option value="2">Apartment</option>
-                <option value="3">Room</option>
-            </select>
-            <button type="submit">Submit</button>
-        </form>
+                <label htmlFor="name">Name:</label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                />
+                <br />
+                <label htmlFor="city">City:</label>
+                <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                />
+                <br />
+
+                <label htmlFor="country">Country:</label>
+                <input
+                    type="text"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                />
+                <br />
+
+                <label htmlFor="address">Street:</label>
+                <input
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                />
+                <br />
+                <label htmlFor="name">Type:</label>
+                <select
+                    id="type"
+                    name="type"
+                    value={formData.type}
+                    onChange={handleChange}
+                >
+                    <option value="1">House</option>
+                    <option value="2">Apartment</option>
+                    <option value="3">Room</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </>
     );
 }

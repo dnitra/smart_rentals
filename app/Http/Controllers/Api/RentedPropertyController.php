@@ -14,20 +14,30 @@ class RentedPropertyController extends Controller
     {
 
         $data = $request->all();
-        dd($data);
+        // dd($data);
 
+        // create new instance
         $property = new RentedProperty;
         $address = new Address;
 
+        // fill the object with data and save it to database
+        $address->street_and_number = $data["address"];
+        $address->city = $data["city"];
+        $address->country = $data["country"];
+        $address->save();
+
+        // fill the object with data and save it to database
         $property->name = $data["name"];
-        $address->address = $data["street_and_number"];
-        $property->type = $data["type"];
+        $property->rented_property_type_id = $data["type"];
+        $property->address_id = $address->id;
 
         $property->save();
 
         return [
             'status' => 'success',
-            'property' => $property
+            'property' => $property,
+            'address' => $address,
+
         ];
     }
 }

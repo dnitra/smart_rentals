@@ -20,8 +20,9 @@ export default function App() {
                     <Route path="/dashboard/listings" element={<Listings />} />
                     <Route path="/dashboard/messages" element={<Messages />} />
                     <Route path="/dashboard/reports" element={<Reports />} />
-                    <Route path="/properties" element={<Properties />} />
                 </Route>
+                <Route path="/properties" element={<Properties />} />
+                {/* move to layout */}
             </Routes>
         </BrowserRouter>
     );
