@@ -4,7 +4,7 @@
 //     // width: 100%;
 //     // height: 100%;
 // }
-html{
+html {
     margin: 0;
     padding: 0;
 }
@@ -15,9 +15,10 @@ body {
     position: relative;
     // top: 0px;
     // z-index: -1;
-    width:100vw;
+    width: 100vw;
     height: 120vh;
-    background: url("../../../../img/home/home_background.svg") no-repeat fixed center center;
+    background: url("../../../../img/home/home_background.svg") no-repeat fixed
+        center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -94,10 +95,9 @@ body {
 }
 
 .content-1 {
-   
     display: flex;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     margin-top: -7rem;
     // margin: rem;
     margin-bottom: 1rem;
@@ -106,7 +106,6 @@ body {
     &__img {
         width: 200%;
         & img {
-
             max-width: 100%;
             max-height: auto;
         }

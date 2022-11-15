@@ -2,6 +2,7 @@ import React from "react";
 import "../../Pages/Styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 function Navbar() {
     const logo = {
         data: (
