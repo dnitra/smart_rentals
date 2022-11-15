@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./Register.scss";
 import googleLogo from "../../../img/logos/google_logo.svg";
@@ -15,6 +15,7 @@ function Login() {
         email: "",
         password: "",
     });
+    // const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,6 +29,7 @@ function Login() {
             // Load users data
             const data = await loadUser();
             setUser(data);
+            window.location.replace(`http://www.smartrentals.test/test`);
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {
@@ -44,7 +46,6 @@ function Login() {
             }
         }
     };
-
     console.log(user);
 
     const handleChange = (event) => {

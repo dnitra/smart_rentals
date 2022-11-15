@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::view('/login', 'index');
 Route::view('/register', 'index');
+Route::view('/test', 'index');
 
 /// DASHBOARD FOR USERS 
 Route::get('/dashboard', function () {
@@ -36,4 +37,3 @@ Route::view('/dashboard/reports', 'owner-index');
 Route::get('/dashboard', function () {
     return view('owner');
 });
-
