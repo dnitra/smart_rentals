@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\RentedPropertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,20 @@ Route::get('/', function () {
 
 Route::view('/login', 'index');
 Route::view('/register', 'index');
-Route::view('/units', 'index');
+
+/// DASHBOARD FOR USERS 
+Route::get('/dashboard', function () {
+    return view('owner');
+});
+
+Route::view('/properties', 'owner-index');
+Route::view('/dashboard/all', 'owner-index');
+Route::view('/dashboard/cashflow', 'owner-index');
+Route::view('/dashboard/listings', 'owner-index');
+Route::view('/dashboard/messages', 'owner-index');
+Route::view('/dashboard/reports', 'owner-index');
+
+Route::get('/dashboard', function () {
+    return view('owner');
+});
+

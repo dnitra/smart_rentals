@@ -4,19 +4,22 @@
 //     // width: 100%;
 //     // height: 100%;
 // }
-
-body {
-    overscroll-behavior: none;
+html {
+    margin: 0;
+    padding: 0;
 }
 .welcome {
     position: relative;
-
     // top: 0px;
     // z-index: -1;
-    width: 100%;
+    width: 100vw;
     height: 120vh;
     background: url("../../../../img/home/home_background.svg") no-repeat fixed
-        center;
+        center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     z-index: 1;
 
     &__project-name {
@@ -39,9 +42,15 @@ body {
     position: relative;
     margin-top: -5rem;
     background: url("../../../../img/home/home_content_background.svg")
-        no-repeat center;
+        no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     width: 100%;
     height: 318vh;
+    margin-bottom: -8rem;
+    z-index: 0;
 }
 .content {
     display: grid;
@@ -69,6 +78,7 @@ body {
             letter-spacing: 0em;
             text-align: left;
         }
+
         &-video {
             text-align: left;
             & .video_player {
@@ -82,16 +92,19 @@ body {
 }
 
 .content-1 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    margin: 5rem;
-    margin-bottom: 15rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -7rem;
+    // margin: rem;
+    margin-bottom: 1rem;
     text-align: right;
 
     &__img {
+        width: 200%;
         & img {
             max-width: 100%;
-            height: auto;
+            max-height: auto;
         }
     }
     &__info {
@@ -117,22 +130,22 @@ h1 {
 }
 
 .review {
-    width: 40%;
+    width: 80%;
     margin: 0 auto;
-    background-color: #f1f3f5;
+    // background-color: #f1f3f5;
+
     padding: 2rem;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
     text-align: justify;
-    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+    // box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
     position: relative;
 }
 
 .review__img-container {
-    width: 50%;
+    width: 20%;
     border-radius: 50%;
     position: relative;
 }
@@ -141,19 +154,7 @@ h1 {
     width: 100%;
     border-radius: 50%;
     position: relative;
-    z-index: 3;
-}
-
-.review__img-container::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #1c7ed6;
-    position: absolute;
-    bottom: 3px;
-    left: 3px;
-    border-radius: 50%;
-    z-index: 2;
+    z-index: 0;
 }
 
 .review__job {

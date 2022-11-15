@@ -24,7 +24,7 @@ $font-montserrat: "Montserrat", sans-serif;
 
         .register__heading-form {
             font-family: $font-play;
-            color: $background-color-secondary;
+            color: $background-color-primary;
             font-weight: 700;
             font-size: 1.5rem;
         }
@@ -68,11 +68,14 @@ $font-montserrat: "Montserrat", sans-serif;
                 cursor: pointer;
             }
         }
-
+        .register__form-other {
+            margin-top: 1.5rem;
+            color: $background-color-primary;
+        }
         .register__logo-social {
             display: flex;
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 5px;
         }
     }
 
