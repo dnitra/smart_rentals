@@ -7,7 +7,6 @@ import registerImg from "../../../img/others/register-img.png";
 import InputForm from "../components/InputForm/InputForm";
 import { loadUser } from "../actions/auth";
 import { useCustomContexts } from "../Context/ContextsProvider";
-import RedirectTo from "../components/RedirectTo/RedirectTo";
 
 function Login() {
     const { user, setUser, loadingUser, content } = useCustomContexts();
@@ -30,6 +29,7 @@ function Login() {
             // Load users data
             const data = await loadUser();
             setUser(data);
+            window.location.replace(`http://www.smartrentals.test/test`);
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {
@@ -46,11 +46,7 @@ function Login() {
             }
         }
     };
-
     console.log(user);
-
-    // function that redirects me to the dashboard
-    RedirectTo("/dashboard/all", user);
 
     const handleChange = (event) => {
         setLoginValues((previous_values) => {
