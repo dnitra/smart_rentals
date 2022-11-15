@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useCustomContexts } from "../../app/Context/ContextsProvider";
+import { useCustomContexts } from "../../../app/Context/ContextsProvider";
 
 export default function Properties() {
     const [formData, setFormData] = useState({

@@ -1,5 +1,5 @@
 import React from 'react'
-import newPropertyImage from "../../../../img/dashboard/NewProperty.svg"
+import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg"
 import { Link } from 'react-router-dom'
 function NewProperty() {
 

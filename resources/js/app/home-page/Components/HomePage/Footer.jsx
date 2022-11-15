@@ -1,9 +1,9 @@
 import React from 'react'
 // import "..//Styles/Footer.scss"
 import "../../Pages/Styles/Footer.scss"
-import logo from "../../../../img/logos/SM-logo-black.svg"
-import facebook from "../../../../img/logos/facebook-logo-black.svg"
-import instagram from "../../../../img/logos/instagram-logo-black.svg"
+import logo from "../../../../../img/logos/SM-logo-black.svg"
+import facebook from "../../../../../img/logos/facebook-logo-black.svg"
+import instagram from "../../../../../img/logos/instagram-logo-black.svg"
 function Footer() {
   return (
     <div className='footer_container'>

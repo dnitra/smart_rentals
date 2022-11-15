@@ -1,42 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./Register.scss";
-import googleLogo from "../../../img/logos/google_logo.svg";
-import facebookLogo from "../../../img/logos/facebook_logo.svg";
-import registerImg from "../../../img/others/register-img.png";
-import InputForm from "../components/InputForm/InputForm";
-import { useCustomContexts } from "../Context/ContextsProvider";
-import { loadUser } from "../actions/auth";
+import googleLogo from "../../../../img/logos/google_logo.svg";
+import facebookLogo from "../../../../img/logos/facebook_logo.svg";
+import registerImg from "../../../../img/others/register-img.png";
+import InputForm from "./../Components/InputForm/InputForm";
+import { loadUser } from "../../actions/auth";
+import { useCustomContexts } from "../../Context/ContextsProvider";
 
-function Register() {
+
+function Login() {
     const { user, setUser, loadingUser, content } = useCustomContexts();
-
-    // setting values from the form
-    const [formValues, setFormValues] = useState({
-        first_name: "",
-        last_name: "",
+    // settin values from the form
+    const [loginValues, setLoginValues] = useState({
         email: "",
         password: "",
-        password_confirmation: "",
-        // role: "default",
     });
+    // const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
             // make the AJAX request
-            const response = await axios.post("/register", formValues);
+            const response = await axios.post("/login", loginValues);
             // get the (already JSON-parsed) response data
+            console.log(response.status);
             const response_data = response.data;
-            // console.log(response_data);
 
-            const userData = await loadUser();
-            setUser(userData);
-            console.log(user);
+            // Load users data
+            const data = await loadUser();
+            setUser(data);
         } catch (error) {
             // if the response code is not 2xx (success)
-            // console.log(error);
             switch (error.response.status) {
                 case 422:
                     // handle validation errors here
@@ -52,36 +47,37 @@ function Register() {
         }
     };
 
+    console.log(user);
+
+    
+
     const handleChange = (event) => {
-        setFormValues((previous_values) => {
+        setLoginValues((previous_values) => {
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
             };
         });
     };
-    // console.log(user);
-    // console.log(formValues);
 
     return (
         <div className="register-section">
             <div className="register-container">
                 <form
                     className="register__form"
-                    action="/register"
+                    action="/login"
                     method="post"
                     onSubmit={handleSubmit}
                 >
                     <h3 className="register__heading-form">
-                        {content.headingRegister}
+                        {content.headingLogin}
                     </h3>
-
                     <InputForm
                         className="register__form-item"
                         type="email"
                         placeholder={content.email}
                         name="email"
-                        value={formValues.email}
+                        value={loginValues.email}
                         handleChange={handleChange}
                         required
                     />
@@ -90,18 +86,9 @@ function Register() {
                         type="password"
                         placeholder={content.password}
                         name="password"
-                        value={formValues.password}
+                        value={loginValues.password}
                         handleChange={handleChange}
                     />
-                    <InputForm
-                        className="register__form-item"
-                        type="password"
-                        placeholder={content.passwordConfirmation}
-                        name="password_confirmation"
-                        value={formValues.password_confirmation}
-                        handleChange={handleChange}
-                    />
-
                     <span className="register__form-other">
                         {content.otherOptions}
                     </span>
@@ -119,7 +106,7 @@ function Register() {
                     </div>
 
                     <button className="register__form-btn" type="submit">
-                        {content.headingRegister}
+                        {content.headingLogin}
                     </button>
                 </form>
             </div>
@@ -138,4 +125,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Login;

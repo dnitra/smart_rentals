@@ -1,10 +1,10 @@
 import React from "react";
-import { useCustomContexts } from "../Context/ContextsProvider";
+import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Home.scss";
 // import background from "../../../img/home/home_background.svg";
-import Phones from "../../../img/home/home_phones.svg";
-import LoremImage from "../../../img/home/home_lorem.svg";
-import Review from "../components/HomePage/Review/Review";
+import Phones from "../../../../img/home/home_phones.svg";
+import LoremImage from "../../../../img/home/home_lorem.svg";
+import Review from "../../home-page/Components/HomePage/Review/Review";
 function Home() {
   const { content, theme } = useCustomContexts();
 

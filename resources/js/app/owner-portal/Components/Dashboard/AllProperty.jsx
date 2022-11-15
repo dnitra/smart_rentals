@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import image from "../../../../img/dashboard/Properties.svg";
-import newPropertyImage from "../../../../img/dashboard/NewProperty.svg";
+import image from "../../../../../img/dashboard/Properties.svg";
+import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg";
 import { useState, useEffect } from "react";
-import { useCustomContexts } from "../../../app/Context/ContextsProvider";
+import { useCustomContexts } from "../../../../app/Context/ContextsProvider";
 function AllProperty() {
     const [data, setData] = useState([]);
     const { user } = useCustomContexts();

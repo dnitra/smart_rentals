@@ -1,5 +1,5 @@
 import React from "react";
-import { useCustomContexts } from "../Context/ContextsProvider";
+import { useCustomContexts } from "../../Context/ContextsProvider";
 
 export default function Test() {
     const { user } = useCustomContexts();

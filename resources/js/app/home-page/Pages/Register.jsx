@@ -1,37 +1,42 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Register.scss";
-import googleLogo from "../../../img/logos/google_logo.svg";
-import facebookLogo from "../../../img/logos/facebook_logo.svg";
-import registerImg from "../../../img/others/register-img.png";
-import InputForm from "../components/InputForm/InputForm";
-import { loadUser } from "../actions/auth";
-import { useCustomContexts } from "../Context/ContextsProvider";
+import googleLogo from "../../../../img/logos/google_logo.svg";
+import facebookLogo from "../../../../img/logos/facebook_logo.svg";
+import registerImg from "../../../../img/others/register-img.png";
+import InputForm from "../../home-page/Components/InputForm/InputForm";
+import { useCustomContexts } from "../../Context/ContextsProvider";
+import { loadUser } from "../../actions/auth";
 
-function Login() {
+function Register() {
     const { user, setUser, loadingUser, content } = useCustomContexts();
-    // settin values from the form
-    const [loginValues, setLoginValues] = useState({
+
+    // setting values from the form
+    const [formValues, setFormValues] = useState({
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
+        password_confirmation: "",
+        // role: "default",
     });
-    // const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
             // make the AJAX request
-            const response = await axios.post("/login", loginValues);
+            const response = await axios.post("/register", formValues);
             // get the (already JSON-parsed) response data
-            console.log(response.status);
             const response_data = response.data;
+            // console.log(response_data);
 
-            // Load users data
-            const data = await loadUser();
-            setUser(data);
-            window.location.replace(`http://www.smartrentals.test/test`);
+            const userData = await loadUser();
+            setUser(userData);
+            console.log(user);
         } catch (error) {
             // if the response code is not 2xx (success)
+            // console.log(error);
             switch (error.response.status) {
                 case 422:
                     // handle validation errors here
@@ -46,35 +51,37 @@ function Login() {
             }
         }
     };
-    console.log(user);
 
     const handleChange = (event) => {
-        setLoginValues((previous_values) => {
+        setFormValues((previous_values) => {
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
             };
         });
     };
+    // console.log(user);
+    // console.log(formValues);
 
     return (
         <div className="register-section">
             <div className="register-container">
                 <form
                     className="register__form"
-                    action="/login"
+                    action="/register"
                     method="post"
                     onSubmit={handleSubmit}
                 >
                     <h3 className="register__heading-form">
-                        {content.headingLogin}
+                        {content.headingRegister}
                     </h3>
+
                     <InputForm
                         className="register__form-item"
                         type="email"
                         placeholder={content.email}
                         name="email"
-                        value={loginValues.email}
+                        value={formValues.email}
                         handleChange={handleChange}
                         required
                     />
@@ -83,9 +90,18 @@ function Login() {
                         type="password"
                         placeholder={content.password}
                         name="password"
-                        value={loginValues.password}
+                        value={formValues.password}
                         handleChange={handleChange}
                     />
+                    <InputForm
+                        className="register__form-item"
+                        type="password"
+                        placeholder={content.passwordConfirmation}
+                        name="password_confirmation"
+                        value={formValues.password_confirmation}
+                        handleChange={handleChange}
+                    />
+
                     <span className="register__form-other">
                         {content.otherOptions}
                     </span>
@@ -103,7 +119,7 @@ function Login() {
                     </div>
 
                     <button className="register__form-btn" type="submit">
-                        {content.headingLogin}
+                        {content.headingRegister}
                     </button>
                 </form>
             </div>
@@ -122,4 +138,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;

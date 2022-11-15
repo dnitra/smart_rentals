@@ -1,10 +1,10 @@
 import React from "react";
 import "../../../Pages/Styles/Home.scss";
-import review_img_1 from "../../../../../img/home/Reviews/review_1.svg";
-import review_img_2 from "../../../../../img/home/Reviews/review_2.svg";
-import review_img_3 from "../../../../../img/home/Reviews/review_3.svg";
-import review_img_4 from "../../../../../img/home/Reviews/review_4.svg";
-import review_img_5 from "../../../../../img/home/Reviews/review_5.svg";
+import review_img_1 from "../../../../../../img/home/Reviews/review_1.svg";
+import review_img_2 from "../../../../../../img/home/Reviews/review_2.svg";
+import review_img_3 from "../../../../../../img/home/Reviews/review_3.svg";
+import review_img_4 from "../../../../../../img/home/Reviews/review_4.svg";
+import review_img_5 from "../../../../../../img/home/Reviews/review_5.svg";
 import { useEffect } from "react";
 
 function Review() {
