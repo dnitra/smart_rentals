@@ -31,55 +31,57 @@ export default function Energy({setFormData}) {
   };
 
   return (
-    <Card className="basic-content">
-      <h4>Energy eficciency of the building</h4>
-
-      <CheckBox
-        label="lowEnergy"
-        value={null}
-        setFormData={setFormData}
-        name="lowEnergy"
-      />
-      <fieldset className="fieldset">
-        {/* -------------------------------energy dropdown----------------------- */}
-        <div className="fieldset-dropdown">
-          <label>Energy efficiency class: </label>
-          <select className="select">
-            <option value="">- select</option>
-            <option value="a">A - extremely efficient</option>
-            <option value="b">B - very efficient</option>
-            <option value="c">C - efficient</option>
-            <option value="d">D - less efficient</option>
-            <option value="e">E - uneconomical</option>
-            <option value="f">F - very uneconomical</option>
-            <option value="g">G - extremely uneconomical</option>
-          </select>
-        </div>
-        <InputField
-          label={content.energyConsumptionIndex}
-          name="energyConsumptionIndex"
-          value={undefined}
+    <Card>
+      <div className="content">
+        <h4>Energy eficciency of the building</h4>
+  
+        <CheckBox
+          label="lowEnergy"
+          value={null}
           setFormData={setFormData}
+          name="lowEnergy"
         />
-
-        {/* ---------------------------------------upload file form---------------------------------- */}
-
-        <form onSubmit={handleSubmit}>
-          <h5>React File Upload</h5>
-          <input type="file" onChange={handleChange} />
-          <button type="submit">Upload</button>
-        </form>
-        {/* -------------------------------------decree dropdown-------------------------------- */}
-        <div className="fieldset-dropdown">
-          <label>According to a regulation: </label>
-          <select className="select">
-            <option value="">- select</option>
-            <option value="idk">TBD</option>
-            <option value="idk">TBD</option>
-            <option value="idk">TBD</option>
-          </select>
-        </div>
-      </fieldset>
+        <fieldset className="fieldset">
+          {/* -------------------------------energy dropdown----------------------- */}
+          <div className="fieldset-dropdown">
+            <label>Energy efficiency class: </label>
+            <select className="select">
+              <option value="">- select</option>
+              <option value="a">A - extremely efficient</option>
+              <option value="b">B - very efficient</option>
+              <option value="c">C - efficient</option>
+              <option value="d">D - less efficient</option>
+              <option value="e">E - uneconomical</option>
+              <option value="f">F - very uneconomical</option>
+              <option value="g">G - extremely uneconomical</option>
+            </select>
+          </div>
+          <InputField
+            label={content.energyConsumptionIndex}
+            name="energyConsumptionIndex"
+            value={undefined}
+            setFormData={setFormData}
+          />
+  
+          {/* ---------------------------------------upload file form---------------------------------- */}
+  
+          <form onSubmit={handleSubmit}>
+            <h5>React File Upload</h5>
+            <input type="file" onChange={handleChange} />
+            <button type="submit">Upload</button>
+          </form>
+          {/* -------------------------------------decree dropdown-------------------------------- */}
+          <div className="fieldset-dropdown">
+            <label>According to a regulation: </label>
+            <select className="select">
+              <option value="">- select</option>
+              <option value="idk">TBD</option>
+              <option value="idk">TBD</option>
+              <option value="idk">TBD</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
     </Card>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import BasicDropdown from "./BasicDropdown";
-import InputField from ".//InputField";
+import InputField from "./InputField";
 import "./BasicInfo.css";
 import Card from "./Card";
 
@@ -26,8 +26,8 @@ export default function Basic({ setFormData }) {
   };
 
   return (
-    <Card className="basic-content">
-      <div className="basic-contents">
+    <Card >
+      <div className="content">
         <h4>Basic Information</h4>
         <fieldset className="fieldset">
           {/* ---------------------first part of basic info------------------------- */}

@@ -16,8 +16,8 @@ export default function Date({ setFormData }) {
     reconstructionYear: "Year of reconstruction:",
   };
   return (
-    <Card className="basic-content">
-      <div className="basic-contents">
+    <Card>
+      <div className="content">
         <h4>Date</h4>
         <fieldset className="fieldset">
           <div className="fieldset-date">

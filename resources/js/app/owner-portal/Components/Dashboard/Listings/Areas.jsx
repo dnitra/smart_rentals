@@ -17,8 +17,8 @@ export default function Areas({ setFormData }) {
     garage: "Garage (count):",
   };
   return (
-    <Card className="basic-content">
-      <div className="basic-contents">
+    <Card>
+      <div className="content">
         <h4>Areas</h4>
         <fieldset className="fieldset">
           <div className="fieldset-inputs">

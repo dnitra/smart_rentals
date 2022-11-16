@@ -19,6 +19,7 @@ import Messages from "./owner-portal/Pages/Messages";
 import Reports from "./owner-portal/Pages/Reports";
 import Properties from "./owner-portal/Pages/Properties";
 import Property from "./owner-portal/Components/Dashboard/Listings/Property";
+import EditDeatilsLand from "./owner-portal/Pages/EditDeatilsLand";
 
 export default function App() {
     return (
@@ -45,8 +46,12 @@ export default function App() {
                         element={<Listings />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/create"
+                        path="/owner/dashboard/listings/details/apartment"
                         element={<Property />}
+                    />
+                    <Route
+                        path="/owner/dashboard/listings/details/land"
+                        element={<EditDeatilsLand />}
                     />
                     <Route
                         path="/owner/dashboard/messages"
