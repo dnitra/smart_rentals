@@ -27,11 +27,11 @@ function Navbar() {
                 </div>
                 <div className="navbar__links">
 
-                    <Link to="/dashboard"><p><span>dashboard</span></p></Link>
-                    <Link to="/dashboard/all"><p>all properties</p></Link>
-                    <Link to="/dashboard/cashflow"><p>cashflow</p></Link>
-                    <Link to="/dashboard/reports"> <p>reports</p></Link>
-                    <Link to="/dashboard/messages"><p>messages</p></Link>
+                    <Link to="/owner/dashboard"><p><span>dashboard</span></p></Link>
+                    <Link to="/owner/dashboard/all"><p>all properties</p></Link>
+                    <Link to="/owner/dashboard/cashflow"><p>cashflow</p></Link>
+                    <Link to="/owner/dashboard/reports"> <p>reports</p></Link>
+                    <Link to="/owner/dashboard/messages"><p>messages</p></Link>
                 </div>
                 <div className="navbar__buttons">
                     <Link to="/" className='button_container'><button className='log-button'>Logout</button></Link>
