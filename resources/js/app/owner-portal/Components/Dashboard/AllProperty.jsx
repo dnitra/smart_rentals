@@ -13,26 +13,32 @@ function AllProperty() {
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id:1
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id: 2
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id: 3
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id: 4
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id: 5
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
+            id: 6
         },
     ];
     useEffect(() => {
@@ -49,7 +55,7 @@ function AllProperty() {
                               </div>
                               <div className="property__adress">
                                   <p>{property.address}</p>
-                                  <Link to={"/id"}>
+                                  <Link to={`/owner/dashboard/all/${property.id}`}>
                                       <button className="property__button">
                                           Details
                                       </button>
