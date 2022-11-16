@@ -33,7 +33,4 @@ Route::view('/dashboard/listings', 'owner-index');
 Route::view('/dashboard/messages', 'owner-index');
 Route::view('/dashboard/reports', 'owner-index');
 
-Route::get('/dashboard', function () {
-    return view('owner');
-});
 

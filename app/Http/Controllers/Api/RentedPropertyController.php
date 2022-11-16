@@ -40,4 +40,19 @@ class RentedPropertyController extends Controller
 
         ];
     }
+
+    public function showAllProperties()
+    {
+        $properties = RentedProperty::with("address")->get();
+        
+        return $properties;
+    }
+
+    public function showProperty($id)
+    {
+        $property = RentedProperty::with("address")->find($id);
+        // $property = RentedProperty::with("address")->where('id', $id)->first();
+
+        return $property;
+    }
 }

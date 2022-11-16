@@ -4,38 +4,57 @@ import image from "../../../../img/dashboard/Properties.svg"
 import newPropertyImage from "../../../../img/dashboard/NewProperty.svg"
 import { useState, useEffect } from 'react'
 function AllProperty() {
-   const [data, setData] = useState([])
+    const [allProperties, setAllProperties] = useState([])
+
+    const loadProperties = async() => {
+        const response = await axios.get('http://www.smart-rentals.test/api/property/list');
+        setAllProperties(response.data)
+        console.log(response.data)
+    }
+
+    useEffect(() => {
+        loadProperties()
+      
+    }, [])
+    
+    
+
     const properties = [
       {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id : 1
+
         }, 
         {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id: 2
         }, 
         {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id: 3
         },
         {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id: 4
         },
         {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id: 5
         },
         {
             img: image,
-            address: "byt č. 4, Žižkova, Nové Město"
+            address: "byt č. 4, Žižkova, Nové Město",
+            id: 6
         },
 
 
     ]
-    useEffect(() => {
-    setData(properties)
-    }, [])
+
     return (
         <div className='properies'>
             {    
@@ -48,7 +67,7 @@ function AllProperty() {
                             </div>
                             <div className="property__adress">
                                 <p>{property.address}</p>
-                                <Link to={"/id"}><button className='property__button'>Details</button></Link>
+                                <Link to={`/dashboard/property/${property.id}`}><button className='property__button'>Details</button></Link>
                             </div>
                         </div>)
                 }

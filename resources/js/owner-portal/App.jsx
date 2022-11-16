@@ -8,6 +8,7 @@ import Listings from "./Pages/Listings";
 import Messages from "./Pages/Messages";
 import Reports from "./Pages/Reports";
 import Properties from "./Pages/Properties";
+import SelectedPropertyDetails from "./Pages/SelectedPropertyDetails";
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/" element={<Layout />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/dashboard/all" element={<AllProperties />} />
+                    <Route path="/dashboard/property/:id" element={<SelectedPropertyDetails/>} />
                     <Route path="/dashboard/cashflow" element={<Cashflow />} />
                     <Route path="/dashboard/listings" element={<Listings />} />
                     <Route path="/dashboard/messages" element={<Messages />} />
