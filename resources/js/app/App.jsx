@@ -33,7 +33,7 @@ export default function App() {
                 <Route path="/owner" element={<OwnerLayout />}>
                     <Route path="/owner/dashboard" element={<Dashboard />} />
                     <Route path="/owner/dashboard/all" element={<AllProperties />}/>
-                    <Route path="/owner/dashboard/:id" element={<SelectedPropertyDetails />} />
+                    <Route path="/owner/dashboard/all/:id" element={<SelectedPropertyDetails />} />
                     <Route path="/owner/dashboard/cashflow" element={<Cashflow />}/>
                     <Route path="/owner/dashboard/listings" element={<Listings />}/>
                     <Route path="/owner/dashboard/listings/create" element={<Property />}/>
