@@ -2,10 +2,13 @@
  * import all files from EN folder (english)
  */
 import { mainContent } from "./en/mainContent";
+import { login } from "./en/login";
+import { register } from "./en/register";
 
 /**
  * import all files from CS folder (czech)
  */
+
 import { hlavniObsah } from "./cs/hlavniObsah";
 
 export function contents() {
@@ -17,6 +20,8 @@ export function contents() {
     return {
         en: {
             ...mainContent(),
+            ...login(),
+            ...register(),
         },
         cs: {
             ...hlavniObsah(),
