@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.scss";
 import googleLogo from "../../../../img/logos/google_logo.svg";
@@ -8,7 +9,6 @@ import InputForm from "./../Components/InputForm/InputForm";
 import { loadUser } from "../../actions/auth";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 
-
 function Login() {
     const { user, setUser, loadingUser, content } = useCustomContexts();
     // settin values from the form
@@ -16,7 +16,7 @@ function Login() {
         email: "",
         password: "",
     });
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -30,6 +30,8 @@ function Login() {
             // Load users data
             const data = await loadUser();
             setUser(data);
+
+            navigate("/dashboard/all");
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {
@@ -48,8 +50,6 @@ function Login() {
     };
 
     console.log(user);
-
-    
 
     const handleChange = (event) => {
         setLoginValues((previous_values) => {

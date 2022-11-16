@@ -23,14 +23,18 @@ Route::view('/register', 'index');
 Route::view('/test', 'index');
 
 /// DASHBOARD FOR USERS 
+// Route::get('/dashboard', function () {
+//     return view('owner');
+// });
+
+Route::view('/properties', 'index');
+Route::view('/owner/dashboard', 'index');
+Route::view('/owner/dashboard/all', 'index');
+Route::view('/owner/dashboard/cashflow', 'index');
+Route::view('/owner/dashboard/listings', 'index');
+Route::view('/owner/dashboard/messages', 'index');
+Route::view('/owner/dashboard/reports', 'index');
+
 Route::get('/dashboard', function () {
     return view('owner');
 });
-
-Route::view('/properties', 'owner-index');
-Route::view('/dashboard/all', 'owner-index');
-Route::view('/dashboard/cashflow', 'owner-index');
-Route::view('/dashboard/listings', 'owner-index');
-Route::view('/dashboard/messages', 'owner-index');
-Route::view('/dashboard/reports', 'owner-index');
-
