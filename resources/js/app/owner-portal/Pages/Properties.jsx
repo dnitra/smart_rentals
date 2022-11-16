@@ -95,7 +95,7 @@ export default function Properties() {
                     onChange={handleChange}
                 />
                 <br />
-                <label htmlFor="name">Type:</label>
+                <label htmlFor="type">{content.category}</label>
                 <select
                     id="type"
                     name="type"
@@ -104,8 +104,22 @@ export default function Properties() {
                 >
                     <option value="1">House</option>
                     <option value="2">Apartment</option>
-                    <option value="3">Room</option>
+                    <option value="3">Commercial</option>
+                    <option value="4">Others</option>
                 </select>
+
+                {formData.type === 1 ? (
+                    <>
+                        <label htmlFor="subtype">{content.subCategory}</label>
+                        <select>
+                            <option value="1">{content.type1}</option>
+                            <option value="2">{content.type2}</option>
+                            <option value="3">{content.type2}</option>
+                            <option value="4"></option>
+                        </select>
+                    </>
+                ) : null}
+
                 <button type="submit">Submit</button>
             </form>
         </>

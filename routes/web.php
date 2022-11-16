@@ -14,27 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::view('/', 'index');
 Route::view('/login', 'index');
 Route::view('/register', 'index');
 Route::view('/test', 'index');
 
 /// DASHBOARD FOR USERS 
-// Route::get('/dashboard', function () {
-//     return view('owner');
-// });
-
-Route::view('/properties', 'index');
+Route::view('/owner/properties', 'index');
 Route::view('/owner/dashboard', 'index');
 Route::view('/owner/dashboard/all', 'index');
 Route::view('/owner/dashboard/cashflow', 'index');
 Route::view('/owner/dashboard/listings', 'index');
+Route::view('/owner/dashboard/listings/create', 'index');
 Route::view('/owner/dashboard/messages', 'index');
 Route::view('/owner/dashboard/reports', 'index');
-
-// Route::get('/dashboard', function () {
-//     return view('owner');
-// });
