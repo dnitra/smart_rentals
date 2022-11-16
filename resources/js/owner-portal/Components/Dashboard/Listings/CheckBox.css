@@ -1,0 +1,27 @@
+.checkbox-input{
+    margin: 1px 1px 3px 6px;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+.checkbox-label{
+    display: inline-block;
+    font-weight: normal;
+    width: auto;
+    margin-bottom: 0;
+}
+.checkbox:nth-child(even){
+    float: right;
+    clear: both;
+}
+.checkbox:nth-child(odd){
+    float: left;
+    clear: both;
+}

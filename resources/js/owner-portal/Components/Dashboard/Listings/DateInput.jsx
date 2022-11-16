@@ -7,7 +7,7 @@ export default function DateInput({ name, label, value, setFormData }) {
     });
   };
   return (
-    <div className="fieldset-item">
+    <Card className="fieldset-item">
       <label>{label}</label>
       <input
         className="selectDate"
@@ -18,6 +18,6 @@ export default function DateInput({ name, label, value, setFormData }) {
         name={name}
         onChange={selectChangeHandler}
       ></input>
-    </div>
+    </Card>
   );
 }

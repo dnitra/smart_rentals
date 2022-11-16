@@ -7,7 +7,6 @@
   border: 1px solid #c4c4c4;
   width: 100%;
   min-height: 2.5rem;
-
   display: inline-block;
   border: 1px solid #ccc;
 }
@@ -17,12 +16,7 @@
   flex-direction: column;
 }
 
-label {
-  font-weight: bold;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  display: flex;
-}
+
 .selectDate {
   border-radius: 0.25rem;
   border: 1px solid #c4c4c4;
@@ -38,6 +32,4 @@ label {
   outline: none;
   width: 100%;
 }
-h4 {
-  display: flex;
-}
+

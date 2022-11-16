@@ -15,12 +15,12 @@ export default function Body() {
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="body">
+        <div onSubmit={handleFormSubmit} className="propbody">
+            <BasicInfo setFormData={setFormData} />
             <Areas setFormData={setFormData} />
             <Date setFormData={setFormData} />
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
-            <BasicInfo setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
             <button type="submit"></button>
         </div>

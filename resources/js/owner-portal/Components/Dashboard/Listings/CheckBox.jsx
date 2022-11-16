@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import './CheckBox.css';
 export default function CheckBox({ label, name, setFormData }) {
     const [checkboxValue, setCheckboxValue] = useState(false);
     const handler = () => {
@@ -16,6 +16,7 @@ export default function CheckBox({ label, name, setFormData }) {
         <div className="checkbox">
             <label className="checkbox-label">{label} </label>
             <input
+            className="checkbox-input"
                 type="checkbox"
                 name={name}
                 value={checkboxValue}
