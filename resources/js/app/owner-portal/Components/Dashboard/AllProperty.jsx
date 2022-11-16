@@ -49,7 +49,7 @@ function AllProperty() {
                               </div>
                               <div className="property__adress">
                                   <p>{property.address}</p>
-                                  <Link to={"/id"}>
+                                  <Link to={`/owner/dashboard/all/${property.id}`}>
                                       <button className="property__button">
                                           Details
                                       </button>
