@@ -59,18 +59,14 @@ class RentedPropertyController extends Controller
 
     public function showAllProperties()
     {
-        // $properties = RentedProperty::with("address")->get();
 
         //get the current user id
-        $user = auth()->user();
+        $userId = auth()->id();
 
         //get the current user's data from the database as object instance
+        $user = User::with('rentedProperties.address')->findOrFail($userId);
 
-        $properties = $user->rentedProperties;
-        // $address = $properties->addresses;
-
-
-        return $properties;
+        return $user;
     }
 
     public function showProperty($id)

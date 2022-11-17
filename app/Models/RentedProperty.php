@@ -27,4 +27,5 @@ class RentedProperty extends Model
     {
         $this->belongsToMany(PropertyDetail::class);
     }
+    
 }
