@@ -1,12 +1,16 @@
+body{
+background-color: #F5F5F5;
+}
+
 .properies{
-position: absolute;
+// position: relative;
 width: 100%;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 padding:5rem;
 gap: 3rem;
-background-color: #F5F5F5;
-margin-top: 5rem;
+
+// margin-top: 5rem;
 .property{ 
     background-color:#FFFFFF;
     height: 30rem;

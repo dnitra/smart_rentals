@@ -1,5 +1,6 @@
 import React from 'react'
-import "../Pages/Styles/Navbar.scss"
+// import "../Pages/Styles/Navbar.scss"
+import "../../home-page/Pages/Styles/Navbar.scss"
 import { Link } from 'react-router-dom'
 function Navbar() {
 
@@ -21,7 +22,7 @@ function Navbar() {
 
     return (
         
-            <header className='navbar'>
+            <header className='navbar navbar_owner'>
                 <div className="navbar__logo">
                     {logo.data}
                 </div>
@@ -30,6 +31,7 @@ function Navbar() {
                     <Link to="/owner/dashboard"><p><span>dashboard</span></p></Link>
                     <Link to="/owner/dashboard/all"><p>all properties</p></Link>
                     <Link to="/owner/dashboard/cashflow"><p>cashflow</p></Link>
+                    <Link to="/owner/dashboard/listings"><p>listings</p></Link>
                     <Link to="/owner/dashboard/reports"> <p>reports</p></Link>
                     <Link to="/owner/dashboard/messages"><p>messages</p></Link>
                 </div>
