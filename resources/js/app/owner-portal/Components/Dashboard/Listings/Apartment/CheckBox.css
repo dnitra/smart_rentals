@@ -1,5 +1,5 @@
-.checkbox-input{
-    margin: 1px 1px 3px 6px;
+.checkbox-input {
+    margin: 1px 5px 1px 1px;
     text-rendering: auto;
     color: fieldtext;
     letter-spacing: normal;
@@ -11,17 +11,10 @@
     display: inline-block;
     text-align: start;
 }
-.checkbox-label{
+.checkbox-label {
     display: inline-block;
     font-weight: normal;
     width: auto;
     margin-bottom: 0;
 }
-.checkbox:nth-child(even){
-    float: right;
-    clear: both;
-}
-.checkbox:nth-child(odd){
-    float: left;
-    clear: both;
-}
+

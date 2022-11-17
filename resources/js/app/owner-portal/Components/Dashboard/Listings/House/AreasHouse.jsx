@@ -1,7 +1,7 @@
 import React from "react";
-import BasicDropdown from "./BasicDropdown";
-import InputField from "./InputField";
-import Card from "./Card";
+import BasicDropdown from "../Apartment/BasicDropdown";
+import InputField from "../Apartment/InputField";
+import Card from "../Apartment/Card";
 
 export default function Areas({ setFormData }) {
   const content = {

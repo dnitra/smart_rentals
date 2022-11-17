@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "./Card";
-import CheckBox from "./CheckBox";
-import "./CheckBoxArea.css";
+import Card from "../Apartment/Card";
+import CheckBox from "../Apartment/CheckBox";
+
 
 export default function CheckBoxArea({ setFormData }) {
   const content = {

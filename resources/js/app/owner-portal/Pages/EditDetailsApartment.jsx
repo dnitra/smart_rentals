@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Areas from "./Areas";
-import Date from "./Date";
-import Energy from "./Energy";
-import Other from "./Other";
-import BasicInfo from "./BasicInfo";
-import CheckBoxArea from "./CheckBoxArea";
-import "./Property.css";
+import Areas from "../Components/Dashboard/Listings/Apartment/Areas";
+import Date from "../Components/Dashboard/Listings/Apartment/Date";
+import Energy from "../Components/Dashboard/Listings/Apartment/Energy";
+import Other from "../Components/Dashboard/Listings/Apartment/Other";
+import BasicInfo from "../Components/Dashboard/Listings/Apartment/BasicInfo";
+import CheckBoxArea from "../Components/Dashboard/Listings/Apartment/CheckBoxArea";
 
 export default function Body() {
     const [formData, setFormData] = useState({});
@@ -15,7 +14,7 @@ export default function Body() {
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="propbody">
+        <div onSubmit={handleFormSubmit} className="apartment">
             <BasicInfo setFormData={setFormData} />
             <Areas setFormData={setFormData} />
             <Date setFormData={setFormData} />

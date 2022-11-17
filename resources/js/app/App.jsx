@@ -18,8 +18,10 @@ import Listings from "./owner-portal/Pages/Listings";
 import Messages from "./owner-portal/Pages/Messages";
 import Reports from "./owner-portal/Pages/Reports";
 import Properties from "./owner-portal/Pages/Properties";
-import Property from "./owner-portal/Components/Dashboard/Listings/Property";
-import EditDeatilsLand from "./owner-portal/Pages/EditDeatilsLand";
+import EditDetailsApartment from "./owner-portal/Pages/EditDetailsApartment";
+import EditDeatilsLand from "./owner-portal/Pages/EditDetailsLand";
+import EditDetailsHouse from "./owner-portal/Pages/EditDetailsHouse";
+import EditDetailsCommercial from "./owner-portal/Pages/EditDetailsCommercial";
 
 export default function App() {
     return (
@@ -47,11 +49,19 @@ export default function App() {
                     />
                     <Route
                         path="/owner/dashboard/listings/details/apartment"
-                        element={<Property />}
+                        element={<EditDetailsApartment />}
                     />
                     <Route
                         path="/owner/dashboard/listings/details/land"
                         element={<EditDeatilsLand />}
+                    />
+                    <Route
+                        path="/owner/dashboard/listings/details/house/"
+                        element={<EditDetailsHouse />}
+                    />
+                    <Route
+                        path="/owner/dashboard/listings/details/commercial/"
+                        element={<EditDetailsCommercial />}
                     />
                     <Route
                         path="/owner/dashboard/messages"
