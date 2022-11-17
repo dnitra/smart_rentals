@@ -94,7 +94,9 @@ function Navbar() {
             </div>
             <div className="navbar__buttons">
                 <Link to="/" className="button_container">
-                    <button className="log-button">Logout</button>
+                    <button className="log-button" onClick={logoutUser}>
+                        Logout
+                    </button>
                 </Link>
             </div>
         </header>

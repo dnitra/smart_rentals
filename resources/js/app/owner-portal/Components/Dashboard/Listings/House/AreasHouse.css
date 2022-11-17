@@ -1,0 +1,14 @@
+fieldset {
+  border-color: none;
+  border-image: none;
+  border-style: none;
+  border-width: 0;
+  display: block;
+  margin-inline-end: 2px;
+  margin-inline-start: 2px;
+  min-inline-size: min-content;
+  padding-block-end: 0.625em;
+  padding-block-start: 0.35em;
+  padding-inline-end: 0.75em;
+  padding-inline-start: 0.75em;
+}

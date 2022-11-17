@@ -8,6 +8,7 @@ function AllProperty() {
     const [allProperties, setAllProperties] = useState([]);
     const { user } = useCustomContexts();
 
+    console.log("HERE");
     const loadProperties = async () => {
         const response = await axios.get("/api/property/list");
         setAllProperties(response.data);
