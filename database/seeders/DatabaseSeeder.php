@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CountriesSeeder;
+use Database\Seeders\PropertyDetailsSeeder;
+use Database\Seeders\RentedPropertyUserRoleSeeder;
+use Database\Seeders\RentedUnitSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +19,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'email' => 'nitradavid@gmail.com',
+        ]);
+        \App\Models\User::factory()->create([
+            'email' => 'jakub.rosol@gmail.com',
+        ]);
+
+        $this->call([
+            CountriesSeeder::class,
+            PropertyDetailsSeeder::class,
+            RentedPropertyUserRoleSeeder::class,
+            RentedUnitSeeder::class
+        ]);
     }
 }

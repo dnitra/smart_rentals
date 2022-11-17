@@ -16,7 +16,7 @@ class RentedPropertyUserRoleSeeder extends Seeder
     public function run()
     {
         $roles = [
-            "Manager", "Owner", "Tenant", "Landlord"
+            "Owner", "Manager", "Tenant", "Applicant"
         ];
         foreach ($roles as $role_name) {
             $role = new RentedPropertyUserRole;
