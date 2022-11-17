@@ -17,7 +17,7 @@ class RentedPropertyController extends Controller
 
 
 
-    public function store(Request $request)
+    public function storeProperty(Request $request)
     {
 
         //get the data from all methods
