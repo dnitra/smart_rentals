@@ -1,39 +1,45 @@
-.properies{
-position: absolute;
-width: 100%;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-padding:5rem;
-gap: 3rem;
-background-color: #F5F5F5;
-margin-top: 5rem;
-.property{ 
-    background-color:#FFFFFF;
-    height: 30rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border: 1px solid lightgray;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-   
+body{
+    background-color: #F5F5F5;
+}
 
-    &__img{
-        width: 100%;
-        height: 100%;
-        & img{
-            min-width: 60%;
-            margin-left: 20%;
+.properies{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:5rem;
+    gap: 3rem; 
+        .property{ 
+            background-color:#FFFFFF;
+            height: 30rem;
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border: 1px solid lightgray;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+
+        &__img{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+                & img{
+
+                    width: 90%;
+                    max-width: 250px;
+                
+                }
         }
-    }
-    &__adress{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    &__button{
+        &__adress{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__button{
             height: 35px;
             width: 120px;
             border-radius: 30px;
@@ -43,20 +49,108 @@ margin-top: 5rem;
             color: black;
             text-transform: uppercase;
             letter-spacing: 1px;
-            
+                
+        }
+        &__add{
+            border-radius:50%;
+            width: 100px;
+            height: 100px;
+            font-size: 5rem;
+            font-weight:lighter;
+            color:rgb(204,222,249,1);
+            background-color: white;
+            border:1px solid lightgray;
+        }
+        &__add:hover{
+            background:rgb(204,222,249,1);
+            color:white;
+        }
     }
-    &__add{
-        border-radius:50%;
-        width: 100px;
-        height: 100px;
-        font-size: 5rem;
-        font-weight:lighter;
-        color:rgb(204,222,249,1);
-        background-color: white;
-        border:1px solid lightgray;
+
+}
+
+@media (max-width: 1366px) {
+
+.properies{
+    margin-top: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding:5rem;
+    gap: 3rem;   
+
+   @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+
+   }
+   @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+    padding:1rem;
+    gap: 1rem;
+    
+   }
+        .property{ 
+            background-color:#FFFFFF;
+            height: 30rem;
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border: 1px solid lightgray;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+            @media (max-width: 1000px) {
+                height: 25rem;
+            }
+        &__img{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+                & img{
+
+                    width: 90%;
+                    max-width: 250px;
+                
+                }
+        }
+        &__adress{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__button{
+            height: 35px;
+            width: 120px;
+            border-radius: 30px;
+            margin: auto 1rem;
+            border: 0px;
+            background-color: rgb(204,222,249,1) ;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+                
+        }
+        &__add{
+            border-radius:50%;
+            width: 100px;
+            height: 100px;
+            font-size: 5rem;
+            font-weight:lighter;
+            color:rgb(204,222,249,1);
+            background-color: white;
+            border:1px solid lightgray;
+        }
+        &__add:hover{
+            background:rgb(204,222,249,1);
+            color:white;
+        }
     }
+
 }
 
 
 }
-

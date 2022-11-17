@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RentedPropertyController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -21,10 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get("/user/auth", function (Request $request) {
-//     // dd($request->user());
-//     return Auth::user();
-// });
-
-
 Route::post('/property/store', [RentedPropertyController::class, 'store']);
+Route::get('/property/list', [RentedPropertyController::class, 'showAllProperties'])->middleware('auth:sanctum');
+Route::get('/property/list/{id}', [RentedPropertyController::class, 'showProperty']);
+

@@ -6,9 +6,10 @@ export default function Properties() {
     const [formData, setFormData] = useState({
         name: "",
         address: "",
-        country: 1,
+        country: "1",
         city: "",
-        type: 1,
+        type: "1",
+        subtype: "1",
     });
 
     const { theme, content } = useCustomContexts();
@@ -22,7 +23,7 @@ export default function Properties() {
             };
         });
     };
-
+    console.log(formData);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -95,17 +96,120 @@ export default function Properties() {
                     onChange={handleChange}
                 />
                 <br />
-                <label htmlFor="name">Type:</label>
+                <label htmlFor="type">{content.category}</label>
                 <select
                     id="type"
                     name="type"
                     value={formData.type}
                     onChange={handleChange}
                 >
-                    <option value="1">House</option>
-                    <option value="2">Apartment</option>
-                    <option value="3">Room</option>
+                    <option value="1">{content.type1}</option>
+                    <option value="2">{content.type2}</option>
+                    <option value="3">{content.type3}</option>
+                    <option value="4">{content.type4}</option>
                 </select>
+
+                {formData.type === "1" ? (
+                    <>
+                        <label htmlFor="subtype-flat">
+                            {content.subCategory}
+                        </label>
+                        <select
+                            name="subtype"
+                            id="subtype-flat"
+                            value={formData.subtype}
+                            onChange={handleChange}
+                        >
+                            <option value="1">{content.subTypeFlat1}</option>
+                            <option value="3">{content.subTypeFlat2}</option>
+                            <option value="2">{content.subTypeFlat3}</option>
+                            <option value="4">{content.subTypeFlat4}</option>
+                            <option value="5">{content.subTypeFlat5}</option>
+                            <option value="6">{content.subTypeFlat6}</option>
+                            <option value="7">{content.subTypeFlat7}</option>
+                            <option value="8">{content.subTypeFlat8}</option>
+                            <option value="9">{content.subTypeFlat9}</option>
+                            <option value="10">{content.subTypeFlat10}</option>
+                            <option value="11">{content.subTypeFlat11}</option>
+                            <option value="12">{content.subTypeFlat12}</option>
+                            <option value="13">{content.subTypeFlat13}</option>
+                        </select>
+                    </>
+                ) : formData.type === "2" ? (
+                    <>
+                        <label htmlFor="subtype-house">
+                            {content.subCategory}
+                        </label>
+                        <select
+                            name="subtype"
+                            id="subtype-house"
+                            value={formData.subtype}
+                            onChange={handleChange}
+                        >
+                            <option value="1">{content.subTypeHouse1}</option>
+                            <option value="2">{content.subTypeHouse2}</option>
+                            <option value="3">{content.subTypeHouse3}</option>
+                            <option value="4">{content.subTypeHouse4}</option>
+                        </select>
+
+                        <select
+                            name="rooms"
+                            id="rooms"
+                            value={formData.rooms}
+                            onChange={handleChange}
+                        >
+                            <option value="1">{content.rooms1}</option>
+                            <option value="2">{content.rooms2}</option>
+                            <option value="3">{content.rooms3}</option>
+                            <option value="4">{content.rooms4}</option>
+                            <option value="5">{content.rooms5}</option>
+                            <option value="6">{content.rooms6}</option>
+                        </select>
+                    </>
+                ) : formData.type === "3" ? (
+                    <>
+                        <label htmlFor="subtype-commercial">
+                            {content.subCategory}
+                        </label>
+                        <select
+                            name="subtype"
+                            id="subtype-commercial"
+                            value={formData.subtype}
+                            onChange={handleChange}
+                        >
+                            <option value="1">
+                                {content.subTypeCommercial1}
+                            </option>
+                            <option value="2">
+                                {content.subTypeCommercial2}
+                            </option>
+                            <option value="3">
+                                {content.subTypeCommercial3}
+                            </option>
+                            <option value="4">
+                                {content.subTypeCommercial4}
+                            </option>
+                        </select>
+                    </>
+                ) : formData.type === "4" ? (
+                    <>
+                        <label htmlFor="subtype-others">
+                            {content.subCategory}
+                        </label>
+                        <select
+                            name="subtype"
+                            id="subtype-others"
+                            value={formData.subtype}
+                            onChange={handleChange}
+                        >
+                            <option value="1">{content.subTypeOthers1}</option>
+                            <option value="2">{content.subTypeOthers2}</option>
+                            <option value="3">{content.subTypeOthers3}</option>
+                            <option value="4">{content.subTypeOthers4}</option>
+                        </select>
+                    </>
+                ) : null}
+
                 <button type="submit">Submit</button>
             </form>
         </>

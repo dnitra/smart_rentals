@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 use App\Models\RentedProperty;
+use App\Models\Address;
 
 class User extends Authenticatable
 {
