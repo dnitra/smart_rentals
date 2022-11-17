@@ -5,15 +5,30 @@ body {
     padding: 0;
 }
 
-.navbar {
+.navbar_owner {
+    grid-template-columns: 1.5fr 3fr 1fr;
     // position: fixed;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    background-color: rgba(39, 54, 85, 0.88);
     height: 85px;
-    // height: 13vh;
     width: 100%;
     display: grid;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+}
+
+.navbar_home{
     grid-template-columns: 2fr 3fr 2fr;
+    z-index: 2;
+    position: fixed;
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 85px;
+    width: 100%;
+    display: grid;
     text-transform: uppercase;
     letter-spacing: 1px;
 

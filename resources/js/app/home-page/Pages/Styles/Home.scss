@@ -11,7 +11,7 @@ html {
 .welcome {
     position: relative;
     // top: 0px;
-    // z-index: -1;
+    z-index: 1;
     width: 100vw;
     height: 120vh;
     background: url("../../../../../img/home/home_background.svg") no-repeat fixed
