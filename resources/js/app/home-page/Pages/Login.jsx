@@ -31,7 +31,7 @@ function Login(props) {
             // Load users data
             const data = await loadUser();
             setUser(data);
-
+            // console.log(user);
             window.location.assign("/owner/dashboard/all");
         } catch (error) {
             // if the response code is not 2xx (success)
@@ -50,7 +50,7 @@ function Login(props) {
         }
     };
 
-    console.log(user);
+    // console.log(user);
 
     const handleChange = (event) => {
         setLoginValues((previous_values) => {

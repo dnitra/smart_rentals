@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Pages/Styles/Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
@@ -11,9 +10,7 @@ function Navbar() {
     const logoutUser = async () => {
         const response = await axios.post("/logout");
         if (user) setUser(null);
-        const userCheck = await axios.get("/api/user");
-        console.log(userCheck);
-        navigate("/");
+        window.location.assign("/");
     };
 
     const logo = {
@@ -77,9 +74,11 @@ function Navbar() {
                 </Link>
             </div>
             <div className="navbar__buttons">
-                <Link to="/" className="button_container">
-                    <button className="log-button">Logout</button>
-                </Link>
+                {/* <Link to="/" className="button_container"> */}
+                <button className="log-button" onClick={logoutUser}>
+                    Logout
+                </button>
+                {/* </Link> */}
             </div>
         </header>
     );

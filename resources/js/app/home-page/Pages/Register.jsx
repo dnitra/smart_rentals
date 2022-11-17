@@ -60,8 +60,6 @@ function Register() {
             };
         });
     };
-    // console.log(user);
-    // console.log(formValues);
 
     return (
         <div className="register-section">

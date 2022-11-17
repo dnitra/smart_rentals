@@ -60,7 +60,7 @@ function Navbar() {
     const logoutUser = async () => {
         const response = await axios.post("/logout");
         if (user) setUser(null);
-        window.location.assign("/test");
+        window.location.assign("/");
     };
 
     console.log(user);

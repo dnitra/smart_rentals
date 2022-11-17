@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 // import image from "../../../../img/dashboard/Properties.svg"
 import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg";
 import { useState, useEffect } from "react";
+import { useCustomContexts } from "../../../Context/ContextsProvider";
 function AllProperty() {
     const [allProperties, setAllProperties] = useState([]);
+    const { user } = useCustomContexts();
 
     const loadProperties = async () => {
         const response = await axios.get(
@@ -17,6 +19,8 @@ function AllProperty() {
     useEffect(() => {
         loadProperties();
     }, []);
+
+    console.log(user);
 
     return (
         <div className="properies">

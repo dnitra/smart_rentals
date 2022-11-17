@@ -23,6 +23,7 @@ import Property from "./owner-portal/Components/Dashboard/Listings/Property";
 import SelectedPropertyDetails from "./owner-portal/Pages/SelectedPropertyDetails";
 import { useCustomContexts } from "./Context/ContextsProvider";
 import axios from "axios";
+
 export default function App() {
     const { user, setUser } = useCustomContexts();
     const getUser = async () => {
@@ -34,10 +35,9 @@ export default function App() {
     useEffect(() => {
         console.log("app running");
     });
-    const isOwner = document.querySelector("title").textContent == "Owner";
+
     useEffect(() => {
         !user && getUser();
-        console.log(isOwner);
     }, []);
     return (
         <BrowserRouter>
