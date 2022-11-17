@@ -59,8 +59,15 @@ class RentedPropertyController extends Controller
 
     public function showAllProperties()
     {
+        //get the current user id
+        $user = auth()->user();
 
-        $properties = auth()->user()->rentedProperties;
+        //get the current user's data from the database as object instance
+
+        $properties = $user->rentedProperties;
+        // $address = $properties->addresses;
+
+        
         return $properties;
     }
 

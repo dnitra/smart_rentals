@@ -12,6 +12,7 @@ import Test from "./home-page/Pages/Test";
 //imports from owner portal
 import OwnerLayout from "./owner-portal/Pages/OwnerLayout";
 import AllProperties from "./owner-portal/Pages/AllProperties";
+import AllProperty from "./owner-portal/Components/Dashboard/AllProperty";
 import Cashflow from "./owner-portal/Pages/Cashflow";
 import Dashboard from "./owner-portal/Pages/Dashboard";
 import Listings from "./owner-portal/Pages/Listings";
@@ -32,7 +33,7 @@ export default function App() {
                 </Route>
                 <Route path="/owner" element={<OwnerLayout />}>
                     <Route path="/owner/dashboard" element={<Dashboard />} />
-                    <Route path="/owner/dashboard/all" element={<AllProperties />}/>
+                    <Route path="/owner/dashboard/all" element={<AllProperty />}/>
                     <Route path="/owner/dashboard/all/:id" element={<SelectedPropertyDetails />} />
                     <Route path="/owner/dashboard/cashflow" element={<Cashflow />}/>
                     <Route path="/owner/dashboard/listings" element={<Listings />}/>

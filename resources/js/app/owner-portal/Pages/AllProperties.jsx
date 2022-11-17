@@ -6,7 +6,7 @@ import "./Styles/AllProperties.scss"
 function AllProperties() {
     return (
         <div> 
-            {<AllProperty />}
+            <AllProperty />
         </div>
     )
 }
