@@ -23,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/property/store', [RentedPropertyController::class, 'store']);
 Route::get('/userData', [UserDataController::class, 'showAllUserData']);
+// Route::post('/property/store', [RentedPropertyController::class, '']);
+Route::get('/property/list', [RentedPropertyController::class, 'showAllProperties']);
 Route::get('/property/list/{id}', [RentedPropertyController::class, 'showProperty']);

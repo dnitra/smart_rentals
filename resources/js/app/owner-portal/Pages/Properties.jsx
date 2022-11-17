@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
-import { redirect } from "react-router-dom";
+// import { redirect } from "react-router-dom";
+import ImageUploading from "react-images-uploading";
 
 export default function Properties() {
+    const [images, setImages] = useState([]);
+    const maxNumber = 69;
+
+    const onChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
+
+    // useEffect(() => {
+    //     console.log(images && images[0] && images[0].data_url);
+    // }, [images]);
+
+    // -------------------------------------------------------------- //
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -11,13 +26,13 @@ export default function Properties() {
         city: "",
         type: "1",
         subtype: "1",
+        // image: {},
     });
 
     const { theme, content, setUserData } = useCustomContexts();
 
     const handleChange = (event) => {
         setFormData((previous_values) => {
-            // console.log(event.target.value);
             return {
                 ...previous_values,
                 [event.target.name]: event.target.value,
@@ -30,11 +45,20 @@ export default function Properties() {
 
         try {
             // make the AJAX request
-            const response = await axios.post("/api/property/store", formData);
+            const response = await axios.post(
+                "/api/property/store",
+                {
+                    ...formData,
+                    uploaded_file: images[0].file,
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
             // get the (already JSON-parsed) response data
             const response_data = response.data;
-
-
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
@@ -50,11 +74,11 @@ export default function Properties() {
                     console.log("UNKNOWN ERROR", error.response.data);
                     break;
             }
-        }
-        finally {
-            window.location.assign("/owner/dashboard/all")
+        } finally {
+            window.location.assign("/owner/dashboard/all");
         }
     };
+
     return (
         <>
             <form
@@ -214,7 +238,74 @@ export default function Properties() {
                         </select>
                     </>
                 ) : null}
+                <br />
+                <br />
+                {/* <input
+                    type="file"
+                    name="image"
+                    value={formData.image}
+                    onChange={handleChange}
+                /> */}
+                {/* -------------------------------------------------------------------------- */}
+                <ImageUploading
+                    multiple
+                    value={images}
+                    onChange={onChange}
+                    maxNumber={maxNumber}
+                    dataURLKey="data_url"
+                >
+                    {({
+                        imageList,
+                        onImageUpload,
+                        onImageRemoveAll,
+                        onImageUpdate,
+                        onImageRemove,
+                        isDragging,
+                        dragProps,
+                    }) => (
+                        // write your building UI
+                        <div className="upload__image-wrapper">
+                            <button
+                                style={
+                                    isDragging ? { color: "red" } : undefined
+                                }
+                                onClick={onImageUpload}
+                                {...dragProps}
+                            >
+                                Click or Drop here
+                            </button>
+                            &nbsp;
+                            <button onClick={onImageRemoveAll}>
+                                Remove all images
+                            </button>
+                            {imageList.map((image, index) => (
+                                <div key={index} className="image-item">
+                                    <img
+                                        src={image["data_url"]}
+                                        alt=""
+                                        width="100"
+                                    />
+                                    <div className="image-item__btn-wrapper">
+                                        <button
+                                            onClick={() => onImageUpdate(index)}
+                                        >
+                                            Update
+                                        </button>
+                                        <button
+                                            onClick={() => onImageRemove(index)}
+                                        >
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </ImageUploading>
 
+                {/* -------------------------------------------------------------------------- */}
+                <br />
+                <br />
                 <button type="submit">Submit</button>
             </form>
         </>

@@ -25,7 +25,10 @@ import { useCustomContexts } from "./Context/ContextsProvider";
 import axios from "axios";
 
 export default function App() {
+    // state from contexts
     const { user, setUser, changeUserData } = useCustomContexts();
+
+    // get authenticated user and store the user in state
     const getUser = async () => {
         const res = await axios.get("/api/user");
         const data = res.data;
@@ -33,11 +36,11 @@ export default function App() {
     };
 
     useEffect(() => {
+        // if there is no user run the function getUser - short-circuiting
         !user && getUser();
-        changeUserData()
+        changeUserData();
     }, []);
 
-    
     return (
         <BrowserRouter>
             <Routes>
