@@ -47,38 +47,55 @@ function Navbar() {
         ),
     };
 
+    const goBurger = () => {
+        document
+            .querySelector(".navbar")
+            .classList.toggle("burger__menu-container");
+        // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
+    };
+
     return (
         <header className="navbar navbar_owner">
+            <div
+                className="burger__menu"
+                onClick={(e) => {
+                    goBurger();
+                }}
+            >
+                <div className="burger__menu-icon"></div>
+                <div className="burger__menu-icon"></div>
+                <div className="burger__menu-icon"></div>
+            </div>
             <div className="navbar__logo">{logo.data}</div>
-            <div className="navbar__links">
-                <Link to="/owner/dashboard">
-                    <p>
-                        <span>dashboard</span>
-                    </p>
-                </Link>
-                <Link to="/owner/dashboard/all">
-                    <p>all properties</p>
-                </Link>
-                <Link to="/owner/dashboard/cashflow">
-                    <p>cashflow</p>
-                </Link>
-                <Link to="/owner/dashboard/listings">
-                    <p>listings</p>
-                </Link>
-                <Link to="/owner/dashboard/reports">
-                    {" "}
-                    <p>reports</p>
-                </Link>
-                <Link to="/owner/dashboard/messages">
-                    <p>messages</p>
-                </Link>
+            <div className="navbar__menu">
+                <div className="navbar__links">
+                    <Link to="/owner/dashboard">
+                        <p>
+                            <span>dashboard</span>
+                        </p>
+                    </Link>
+                    <Link to="/owner/dashboard/all">
+                        <p>all properties</p>
+                    </Link>
+                    <Link to="/owner/dashboard/cashflow">
+                        <p>cashflow</p>
+                    </Link>
+                    <Link to="/owner/dashboard/listings">
+                        <p>listings</p>
+                    </Link>
+                    <Link to="/owner/dashboard/reports">
+                        {" "}
+                        <p>reports</p>
+                    </Link>
+                    <Link to="/owner/dashboard/messages">
+                        <p>messages</p>
+                    </Link>
+                </div>
             </div>
             <div className="navbar__buttons">
-                {/* <Link to="/" className="button_container"> */}
-                <button className="log-button" onClick={logoutUser}>
-                    Logout
-                </button>
-                {/* </Link> */}
+                <Link to="/" className="button_container">
+                    <button className="log-button">Logout</button>
+                </Link>
             </div>
         </header>
     );
