@@ -9,9 +9,7 @@ function AllProperty() {
     const { user } = useCustomContexts();
 
     const loadProperties = async () => {
-        const response = await axios.get(
-            "http://www.smart-rentals.test/api/property/list"
-        );
+        const response = await axios.get("/api/property/list");
         setAllProperties(response.data);
         console.log(response.data);
     };
