@@ -1,8 +1,8 @@
 import React from 'react'
-
+import PropertyReports from '../Components/Dashboard/PropertyReports/PropertyReports'
 function Reports() {
     return (
-        <div>Reports</div>
+        <div><PropertyReports/></div>
     )
 }
 

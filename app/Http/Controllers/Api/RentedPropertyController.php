@@ -17,7 +17,7 @@ class RentedPropertyController extends Controller
 
 
 
-    public function storeProperty(Request $request)
+    public function store(Request $request)
     {
 
         //get the data from all methods
@@ -65,15 +65,17 @@ class RentedPropertyController extends Controller
 
         //get the current user's data from the database as object instance
         $user = User::with('rentedProperties.address')->findOrFail($userId);
-
+        
         return $user;
     }
 
     public function showProperty($id)
     {
-        $property = RentedProperty::with("address")->find($id);
+        $userId = auth()->id();
+        
+        $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
         // $property = RentedProperty::with("address")->where('id', $id)->first();
-
+        dd($property);
         return $property;
     }
 }
