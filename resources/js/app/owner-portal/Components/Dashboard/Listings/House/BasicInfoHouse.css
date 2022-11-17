@@ -9,13 +9,9 @@ fieldset {
   border-color: none;
   border-image: none;
 }
-.fieldset-date {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 .basic-contents {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
