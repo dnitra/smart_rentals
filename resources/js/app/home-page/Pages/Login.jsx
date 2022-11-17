@@ -9,14 +9,15 @@ import InputForm from "./../Components/InputForm/InputForm";
 import { loadUser } from "../../actions/auth";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 
-function Login() {
+function Login(props) {
     const { user, setUser, loadingUser, content } = useCustomContexts();
     // settin values from the form
     const [loginValues, setLoginValues] = useState({
         email: "",
         password: "",
     });
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    // const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,7 +32,7 @@ function Login() {
             const data = await loadUser();
             setUser(data);
 
-            navigate("/owner/dashboard/all");
+            window.location.assign("/owner/dashboard/all");
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {

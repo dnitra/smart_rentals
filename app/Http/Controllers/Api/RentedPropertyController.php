@@ -23,7 +23,7 @@ class RentedPropertyController extends Controller
         // fill the object with data and save it to database
         $address->street_and_number = $data["address"];
         $address->city = $data["city"];
-        $address->country = $data["country"];
+        $address->country_id = $data["country"];
         $address->save();
 
         // fill the object with data and save it to database
@@ -44,7 +44,7 @@ class RentedPropertyController extends Controller
     public function showAllProperties()
     {
         $properties = RentedProperty::with("address")->get();
-        
+
         return $properties;
     }
 

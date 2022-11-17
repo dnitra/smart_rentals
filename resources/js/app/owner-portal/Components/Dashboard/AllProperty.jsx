@@ -6,39 +6,39 @@ import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../../app/Context/ContextsProvider";
 function AllProperty() {
     const [data, setData] = useState([]);
-    const { user } = useCustomContexts();
-    console.log(user);
+    // const { user } = useCustomContexts();
+    // console.log(user);
 
     const properties = [
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id:1
+            id: 1,
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id: 2
+            id: 2,
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id: 3
+            id: 3,
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id: 4
+            id: 4,
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id: 5
+            id: 5,
         },
         {
             img: image,
             address: "byt č. 4, Žižkova, Nové Město",
-            id: 6
+            id: 6,
         },
     ];
     useEffect(() => {
@@ -55,7 +55,9 @@ function AllProperty() {
                               </div>
                               <div className="property__adress">
                                   <p>{property.address}</p>
-                                  <Link to={`/owner/dashboard/all/${property.id}`}>
+                                  <Link
+                                      to={`/owner/dashboard/all/${property.id}`}
+                                  >
                                       <button className="property__button">
                                           Details
                                       </button>
