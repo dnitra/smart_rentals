@@ -19,7 +19,7 @@ class UserFactory extends Factory
     {
         return [
             'email' => fake()->unique()->safeEmail(),
-            'password' => '12345678', // password
+            'password' => bcrypt('12345678'), // password
         ];
     }
 
