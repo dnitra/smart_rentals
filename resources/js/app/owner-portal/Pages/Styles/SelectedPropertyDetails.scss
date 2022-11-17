@@ -1,26 +1,32 @@
 .property{
-
+  text-transform: uppercase;
 
 
     &__info{
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 3rem;
+
         &-img{
 
         }
         &-details{
+            padding: 5rem;
             display: grid;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;;
             &-top{
-
+              text-align: center;
             }
             &-buttom{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+             
                 &-left{
-
+                  text-align: center;
                 }
                 &-right{
-
+                  text-align: center;
                 }
             }
         }
@@ -35,39 +41,41 @@
     }
 }
 
-/* Стиль вкладок */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+.tab{
+    overflow: hidden;
+    height: 5rem;
+    background-color: #1877F2B2;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    
+&__links {
+    background-color: rgb(40, 40, 40);
+    font-size: larger;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    color:white;
+    &--active{
+        background-color: rgb(60, 60, 60);
+        font-size: larger;
+        letter-spacing: 1px;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        transition: 0.3s;
+        text-transform: uppercase;
+        color:white;
+    }
+} 
+
+&__links:hover{
+    background-color: rgb(75, 75, 75);
+    color:white;
 }
 
-/* Стиль кнопок внутри вкладок */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Изменение цвета фона кнопок при наведении курсора мыши */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Создание активного/текущего класса связей вкладок */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Стиль содержимого вкладки */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
 }

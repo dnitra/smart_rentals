@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rented_property_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("property_id");
+            $table->foreignId("rented_property_id");
             $table->foreignId("user_id");
             $table->foreignId("role_id");
             $table->timestamps();

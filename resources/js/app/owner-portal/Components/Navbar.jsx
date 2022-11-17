@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
-import "../Pages/Styles/Navbar.scss";
+import React from "react";
+// import "../Pages/Styles/Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import "../../home-page/Pages/Styles/Navbar.scss";
+
 function Navbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
@@ -49,7 +51,7 @@ function Navbar() {
     };
 
     return (
-        <header className="navbar">
+        <header className="navbar navbar_owner">
             <div className="navbar__logo">{logo.data}</div>
             <div className="navbar__links">
                 <Link to="/owner/dashboard">
@@ -63,6 +65,9 @@ function Navbar() {
                 <Link to="/owner/dashboard/cashflow">
                     <p>cashflow</p>
                 </Link>
+                <Link to="/owner/dashboard/listings">
+                    <p>listings</p>
+                </Link>
                 <Link to="/owner/dashboard/reports">
                     {" "}
                     <p>reports</p>
@@ -72,9 +77,9 @@ function Navbar() {
                 </Link>
             </div>
             <div className="navbar__buttons">
-                <button className="log-button" onClick={logoutUser}>
-                    Logout
-                </button>
+                <Link to="/" className="button_container">
+                    <button className="log-button">Logout</button>
+                </Link>
             </div>
         </header>
     );

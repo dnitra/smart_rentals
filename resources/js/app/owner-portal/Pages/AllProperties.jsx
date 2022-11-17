@@ -5,7 +5,11 @@ import NewProperty from "../Components/Dashboard/NewProperty";
 import "./Styles/AllProperties.scss";
 
 function AllProperties() {
-    return <div>{<AllProperty />}</div>;
+    return (
+        <div>
+            <AllProperty />
+        </div>
+    );
 }
 
 export default AllProperties;

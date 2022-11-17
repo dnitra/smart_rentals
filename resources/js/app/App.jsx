@@ -12,6 +12,7 @@ import Test from "./home-page/Pages/Test";
 //imports from owner portal
 import OwnerLayout from "./owner-portal/Pages/OwnerLayout";
 import AllProperties from "./owner-portal/Pages/AllProperties";
+import AllProperty from "./owner-portal/Components/Dashboard/AllProperty";
 import Cashflow from "./owner-portal/Pages/Cashflow";
 import Dashboard from "./owner-portal/Pages/Dashboard";
 import Listings from "./owner-portal/Pages/Listings";

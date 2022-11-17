@@ -69,7 +69,7 @@ function Navbar() {
 
     return (
         <div className={cls}>
-            <header className="navbar">
+            <header className="navbar navbar_home">
                 <div className="navbar__logo">{logo.data}</div>
                 <div className="navbar__links">
                     <Link to="/">

@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./Styles/Cashflow.scss"
 function Cashflow() {
     return (
-        <div>Cashflow</div>
+        <div className='cashflow'>Cashflow</div>
     )
 }
 
