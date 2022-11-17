@@ -71,7 +71,7 @@ function AllProperty() {
                 </div>
                 <div className="property__adress">
                     <p></p>
-                    <Link to={"/"}>
+                    <Link to={"/owner/properties"}>
                         <button className="property__add">+</button>
                     </Link>
                 </div>

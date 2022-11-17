@@ -31,7 +31,7 @@ function Login() {
             const data = await loadUser();
             setUser(data);
 
-            navigate("/dashboard/all");
+            navigate("/owner/dashboard/all");
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {
