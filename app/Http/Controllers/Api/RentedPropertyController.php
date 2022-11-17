@@ -23,6 +23,18 @@ class RentedPropertyController extends Controller
         //get the data from all methods
         $data = $request->all();
 
+        // dd($data);
+        // handling data upload
+        $image = $request->file();
+        // dd($image);
+
+        // storing images
+        $request->file('uploaded_file')->storeAs(
+            'uploaded_files',
+            $request->file('uploaded_file')->getClientOriginalName(),
+            'uploads'
+        );
+
         //get the current user id
         $userId = auth()->id();
 
