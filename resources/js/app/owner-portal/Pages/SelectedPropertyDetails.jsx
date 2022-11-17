@@ -4,9 +4,11 @@ import './Styles/SelectedPropertyDetails.scss'
 import image from "../../../../img/dashboard/Property.svg"
 import { useState, useEffect } from 'react'
 
-function SelectedPropertyDetails() {
+const SelectedPropertyDetails = () =>{
     const [propertyDetails, setPropertyDetails] = useState([])
     const [detailsShown, setDetailsShown] = useState(false)
+    const [active, setActive] = useState(false)
+    console.log(active)
     const data = [
         {
             img: image,
@@ -25,16 +27,15 @@ function SelectedPropertyDetails() {
     
     useEffect(() => {
         setPropertyDetails(data)
-        console.log(data)
     }, [])
         
 
   return (
-    <div className='property'>
-        
+    <>
           {propertyDetails ? (
-              propertyDetails.map(propertyDetail => {
-               return( <>
+              propertyDetails.map((propertyDetail,key) => {
+               return(
+                   <div className='property' key={key}>
                   <div className="property__info">
                     <div className="property__info-img">
                           <img src={propertyDetail.img} alt="property_preview" />
@@ -61,47 +62,65 @@ function SelectedPropertyDetails() {
                     <h2>About property</h2>
                         
                     <div className="property__about-details">
-                           <div class="tab">
-                               <button class="tablinks" onClick={() => {setDetailsShown('Cashflow')}}>Cashflow</button>
-                               <button class="tablinks" onClick={() => {setDetailsShown('Bills') }}>Bills</button>
-                               <button class="tablinks" onClick={() => {setDetailsShown('Reports') }}>Reports</button>
-                           </div>
-                           {/* { () => { return <p>LOL</p>
-                            // switch (detailsShown) {
-                            //     case value:
-                            //         return
-                            //         break;
-                            
-                            //     default:
-                            //         break;
-                            // }
-                            // return 'lol'
-                            }()
-                           } */}
-                           {detailsShown == 'Cashflow' ?
-                                <><div id="Cashflow" class="tabcontent">
-                               <p>Cashflow</p>
-                        
-                           </div></>
-                           :
-                           <></>
-                        }
+                               <div className="property__about-details tab">
+                               <button 
+                                className={'tab__links' + (active === 'cashflow' ? '--active' : '' )} 
+                                onClick={() => {
+                                    setDetailsShown('Cashflow')
+                                    setActive('cashflow')
+                                }}>Cashflow</button>
 
-                           {/* <div id="Bills" class="tabcontent">
-                               <p>Bills</p>
-                           </div>
+                                <button 
+                                className={'tab__links' + (active === 'bills' ? '--active' : '')}
+                                onClick={() => { 
+                                    setDetailsShown('Bills')
+                                    setActive('bills') 
+                                }}>Bills</button>
 
-                           <div id="Reports" class="tabcontent">
-                               <p>Reports</p>
-                           </div> */}
-                    </div>
-                  </div>
-                 
-               </>)
+                                <button 
+                                className={'tab__links' + (active === 'reports' ? '--active' : '')}
+                                onClick={() => {
+                                    setDetailsShown('Reports')
+                                    setActive('reports') 
+                                }}>Reports</button>
+                           </div>
+                               {(() => {
+                                switch(detailsShown){
+                                    case 'Cashflow': 
+                                    return(
+                                        <>
+                                            <div id="Cashflow" className="tab__content">
+                                                <p>Cashflow</p>
+                                            </div>
+                                        </>
+                                    )
+                                    case 'Bills':
+                                        return (
+                                            <>
+                                                <div id="Bills" className="tab__content">
+                                                    <p>Bills</p>
+                                                </div>
+                                            </>
+                                        )
+                                    case 'Reports':
+                                        return (
+                                            <>
+                                                <div id="Reports" className="tab__content">
+                                                    <p>Reports</p>
+                                                </div>
+                                            </>
+                                        )
+                                    default: 
+                                        ""
+                                }
+                               })()}
+                            </div>
+                        </div>
+                    </div>)
               })
             ) : "error"
           }
-    </div>
+    </>
   )
 }
 
