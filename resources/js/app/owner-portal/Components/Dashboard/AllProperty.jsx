@@ -12,8 +12,10 @@ function AllProperty() {
         const response = await axios.get(
             "http://www.smart-rentals.test/api/property/list"
         );
-        setAllProperties(response.data);
-        console.log(response.data);
+        setAllProperties(response.data.rented_properties
+);
+        console.log(response.data.rented_properties
+);
     };
 
     useEffect(() => {
@@ -23,29 +25,27 @@ function AllProperty() {
     console.log(user);
 
     return (
-        <div className="properies">
-            {allProperties
-                ? allProperties.map((property, i) => {
-                      return (
-                          <div className="property" key={i}>
-                              <div className="property__img">
-                                  <img src={`${property.img}`} alt="" />
-                              </div>
-                              <div className="property__adress">
-                                  <p>{property.address}</p>
-                                  <Link
-                                      to={`/dashboard/property/${property.id}`}
-                                  >
-                                      <button className="property__button">
-                                          Details
-                                      </button>
-                                  </Link>
-                              </div>
-                          </div>
-                      );
-                  })
-                : ""}
-            <div className="property">
+        <div className='properies'>
+            {    
+            allProperties ? (
+                allProperties.map((property, i) => {
+                    return (
+                        <div className='property' key={i}> 
+                            <div className="property__img">
+                                <img src={`${property.img}`} alt="" />
+                            </div>
+                            <div className="property__adress">
+                                <p>{property.address.street_and_number}</p>
+                                <p>{property.address.city }</p>
+                                <Link to={`/dashboard/property/${property.id}`}><button className='property__button'>Details</button></Link>
+                            </div>
+                        </div>)
+                }
+            )) : ""
+                
+
+            }
+            <div className='property'>
                 <div className="property__img">
                     <img src={newPropertyImage} alt="" />
                 </div>
