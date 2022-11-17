@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
+import { redirect } from "react-router-dom";
 
 export default function Properties() {
     const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ export default function Properties() {
         subtype: "1",
     });
 
-    const { theme, content } = useCustomContexts();
+    const { theme, content, setUserData } = useCustomContexts();
 
     const handleChange = (event) => {
         setFormData((previous_values) => {
@@ -32,7 +33,8 @@ export default function Properties() {
             const response = await axios.post("/api/property/store", formData);
             // get the (already JSON-parsed) response data
             const response_data = response.data;
-            console.log(response_data);
+
+
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
@@ -48,6 +50,9 @@ export default function Properties() {
                     console.log("UNKNOWN ERROR", error.response.data);
                     break;
             }
+        }
+        finally {
+            window.location.assign("/owner/dashboard/all")
         }
     };
     return (

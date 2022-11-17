@@ -25,7 +25,7 @@ import { useCustomContexts } from "./Context/ContextsProvider";
 import axios from "axios";
 
 export default function App() {
-    const { user, setUser } = useCustomContexts();
+    const { user, setUser, changeUserData } = useCustomContexts();
     const getUser = async () => {
         const res = await axios.get("/api/user");
         const data = res.data;
@@ -33,12 +33,11 @@ export default function App() {
     };
 
     useEffect(() => {
-        console.log("app running");
-    });
-
-    useEffect(() => {
         !user && getUser();
+        changeUserData()
     }, []);
+
+    
     return (
         <BrowserRouter>
             <Routes>
