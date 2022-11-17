@@ -12,8 +12,10 @@ function AllProperty() {
         const response = await axios.get(
             "http://www.smart-rentals.test/api/property/list"
         );
-        setAllProperties(response.data);
-        console.log(response.data);
+        setAllProperties(response.data.rented_properties
+);
+        console.log(response.data.rented_properties
+);
     };
 
     useEffect(() => {
