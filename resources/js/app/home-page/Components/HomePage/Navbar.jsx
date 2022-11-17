@@ -1,9 +1,13 @@
 import React from "react";
 import "../../Pages/Styles/Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCustomContexts } from "../../../Context/ContextsProvider";
 
 function Navbar() {
+    const { user, setUser } = useCustomContexts();
+    const navigate = useNavigate();
+
     const logo = {
         data: (
             <svg
@@ -53,6 +57,14 @@ function Navbar() {
         };
     });
 
+    const logoutUser = async () => {
+        const response = await axios.post("/logout");
+        if (user) setUser(null);
+        window.location.assign("/");
+    };
+
+    console.log(user);
+
     const cls = visible ? "visible" : "hidden";
 
     return (
@@ -65,7 +77,7 @@ function Navbar() {
                             <span>Why SR</span>
                         </p>
                     </Link>
-                    <Link to="/">
+                    <Link to="/test">
                         <p>Product</p>
                     </Link>
                     <Link to="/">
@@ -79,14 +91,22 @@ function Navbar() {
                         <p>Reviews</p>
                     </Link>
                 </div>
-                <div className="navbar__buttons">
-                    <Link to="/login" className="button_container">
-                        <button className="log-button">Log In</button>
-                    </Link>
-                    <Link to="/register" className="button_container">
-                        <button className="log-button">Sign Up</button>
-                    </Link>
-                </div>
+                {user ? (
+                    <div className="navbar__buttons">
+                        <button className="log-button" onClick={logoutUser}>
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <div className="navbar__buttons">
+                        <Link to="/login" className="button_container">
+                            <button className="log-button">Log In</button>
+                        </Link>
+                        <Link to="/register" className="button_container">
+                            <button className="log-button">Sign Up</button>
+                        </Link>
+                    </div>
+                )}
             </header>
         </div>
     );
