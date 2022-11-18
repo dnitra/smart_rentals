@@ -20,14 +20,16 @@ export default function Tiles() {
                     {userData.rented_properties
                         ? userData.rented_properties.map((address, index) => {
                           return (
-                                  <h3
-                                      key={index}
-                                      className="tiles-address__heading"
-                                  >
-                                      {address.address.street_and_number}
-                                      <br></br>
-                                      {address.address.city}
-                                  </h3>
+                            <>
+                                    <h3
+                                        key={index}
+                                        className="tiles-address__heading"
+                                    >
+                                        {address.address.street_and_number}
+                                        <br></br>
+                                        {address.address.city}
+                                    </h3>
+                            </>
                               );
                           })
                         : ""}
