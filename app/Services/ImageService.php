@@ -9,11 +9,17 @@ class ImageService
 {
 
 
-  function storeImage($image, $propertyId, $title)
+  function storeImage($uploaded_image, $propertyId)
   {
 
-    $filename = time() . rand(0, 3) . '.' . ($image->getClientOriginalExtension());
-    $image->storeAs('uploaded_files', $filename, 'uploads');
+    // set random filename with original extension
+    $filename = time() . rand(0, 3) . '.' . ($uploaded_image->getClientOriginalExtension());
+
+    // save image to laravel disk
+    $uploaded_image->storeAs('uploaded_files', $filename, 'uploads');
+
+    // image title is original name of the image
+    $imageTitle = $uploaded_image->getClientOriginalName();
 
 
     // create new image instance
@@ -22,8 +28,9 @@ class ImageService
     // fill image object with data
     // add rented property id to image
     $image->rented_property_id = $propertyId;
-    $image->title = $title;
+    $image->title = $imageTitle;
     $image->image_url = 'uploads/uploaded_files/' . $filename;
+    // save image to the database
     $image->save();
   }
 }

@@ -47,12 +47,18 @@ class RentedPropertyController extends Controller
         $property->address_id = $address->id;
         $property->save();
 
-        $imageTitle = $request->file('uploaded_images')->getClientOriginalName();
-        ImageService::storeImage($request->file('uploaded_images'), $property->id, $imageTitle);
+
+        // if there are any uploaded images, then loop through them and call storeImage for each of them
+        if ($request->has('uploaded_images')) {
+
+            foreach ($request->file('uploaded_images') as $uploaded_image) {
+
+                ImageService::storeImage($uploaded_image, $property->id);
+            }
+        }
 
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
-
 
         return [
             'status' => 'success',
