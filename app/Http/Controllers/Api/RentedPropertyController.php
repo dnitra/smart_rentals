@@ -71,9 +71,11 @@ class RentedPropertyController extends Controller
 
     public function showProperty($id)
     {
-        $property = RentedProperty::with("address")->find($id);
+        $userId = auth()->id();
+        
+        $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
         // $property = RentedProperty::with("address")->where('id', $id)->first();
-
+        dd($property);
         return $property;
     }
 

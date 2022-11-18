@@ -1,0 +1,20 @@
+.checkbox-input {
+    margin: 1px 5px 1px 1px;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+.checkbox-label {
+    display: inline-block;
+    font-weight: normal;
+    width: auto;
+    margin-bottom: 0;
+}
+

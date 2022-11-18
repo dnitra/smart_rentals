@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\RentedProperty;
+use App\Models\Accessory;
 
-class Image extends Model
+class AccessoriesItem extends Model
 {
     use HasFactory;
 
-    public function RentedProperty()
+    public function accesories()
     {
-        return $this->belongsTo(RentedProperty::class);
+        return $this->hasMany(Accessory::class);
     }
 }

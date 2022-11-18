@@ -1,0 +1,11 @@
+.checkbox-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.checkbox-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
