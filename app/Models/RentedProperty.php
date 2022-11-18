@@ -26,10 +26,10 @@ class RentedProperty extends Model
 
     public function propertyDetails()
     {
-        $this->belongsToMany(PropertyDetail::class);
+        return $this->belongsToMany(PropertyDetail::class);
     }
     public function images()
     {
-        $this->hasMany(Image::class);
+        return $this->hasMany(Image::class);
     }
 }

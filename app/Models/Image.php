@@ -12,6 +12,6 @@ class Image extends Model
 
     public function RentedProperty()
     {
-        $this->belongsTo(RentedProperty::class);
+        return $this->belongsTo(RentedProperty::class);
     }
 }
