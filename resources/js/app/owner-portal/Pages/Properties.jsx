@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
-// import { redirect } from "react-router-dom";
 import ImageUploading from "react-images-uploading";
 
 export default function Properties() {
+    // setting states
+    const { theme, content } = useCustomContexts();
     const [images, setImages] = useState([]);
-    const maxNumber = 69;
-
-    const onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
-        setImages(imageList);
-    };
-
-    // useEffect(() => {
-    //     console.log(images && images[0] && images[0].data_url);
-    // }, [images]);
-
-    // -------------------------------------------------------------- //
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -26,12 +14,18 @@ export default function Properties() {
         city: "",
         type: "1",
         subtype: "1",
-        // image: {},
     });
+    const maxNumber = 10;
 
-    const { theme, content, setUserData } = useCustomContexts();
+    // Handling selecting images changes
+    const handleImageChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
 
-    const handleChange = (event) => {
+    // Handling inputs changes
+    const handleInputChange = (event) => {
         setFormData((previous_values) => {
             return {
                 ...previous_values,
@@ -39,24 +33,31 @@ export default function Properties() {
             };
         });
     };
-    console.log(formData);
+
+    // handling submit
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // create new array with the data I want to send to backend
+        const imagesArray = images.map((imgObject) => imgObject.file);
 
         try {
             // make the AJAX request
             const response = await axios.post(
                 "/api/property/store",
                 {
+                    // Object to send
                     ...formData,
-                    uploaded_file: images[0].file,
+                    uploaded_images: imagesArray,
                 },
                 {
+                    // Options
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
                 }
             );
+
             // get the (already JSON-parsed) response data
             const response_data = response.data;
         } catch (error) {
@@ -74,8 +75,6 @@ export default function Properties() {
                     console.log("UNKNOWN ERROR", error.response.data);
                     break;
             }
-        } finally {
-            window.location.assign("/owner/dashboard/all");
         }
     };
 
@@ -92,24 +91,26 @@ export default function Properties() {
                     type="text"
                     name="name"
                     value={formData.name}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                 />
                 <br />
+                {/* ---------------------------------- SELECT ADDRESS  ---------------------------------- */}
                 <label htmlFor="city">City:</label>
                 <input
                     type="text"
                     name="city"
                     value={formData.city}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                 />
                 <br />
 
                 <label htmlFor="country">Country:</label>
+
                 <select
                     id="type"
                     name="country"
                     value={formData.country}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                 >
                     <option value="57">Czech Republic</option>
                     <option value="191">Slovakia</option>
@@ -122,15 +123,16 @@ export default function Properties() {
                     type="text"
                     name="address"
                     value={formData.address}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                 />
                 <br />
+                {/* ---------------------------------- SELECT CATEGORY  ---------------------------------- */}
                 <label htmlFor="type">{content.category}</label>
                 <select
                     id="type"
                     name="type"
                     value={formData.type}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                 >
                     <option value="1">{content.type1}</option>
                     <option value="2">{content.type2}</option>
@@ -147,7 +149,7 @@ export default function Properties() {
                             name="subtype"
                             id="subtype-flat"
                             value={formData.subtype}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                         >
                             <option value="1">{content.subTypeFlat1}</option>
                             <option value="3">{content.subTypeFlat2}</option>
@@ -173,7 +175,7 @@ export default function Properties() {
                             name="subtype"
                             id="subtype-house"
                             value={formData.subtype}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                         >
                             <option value="1">{content.subTypeHouse1}</option>
                             <option value="2">{content.subTypeHouse2}</option>
@@ -185,7 +187,7 @@ export default function Properties() {
                             name="rooms"
                             id="rooms"
                             value={formData.rooms}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                         >
                             <option value="1">{content.rooms1}</option>
                             <option value="2">{content.rooms2}</option>
@@ -204,7 +206,7 @@ export default function Properties() {
                             name="subtype"
                             id="subtype-commercial"
                             value={formData.subtype}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                         >
                             <option value="1">
                                 {content.subTypeCommercial1}
@@ -229,7 +231,7 @@ export default function Properties() {
                             name="subtype"
                             id="subtype-others"
                             value={formData.subtype}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                         >
                             <option value="1">{content.subTypeOthers1}</option>
                             <option value="2">{content.subTypeOthers2}</option>
@@ -240,17 +242,12 @@ export default function Properties() {
                 ) : null}
                 <br />
                 <br />
-                {/* <input
-                    type="file"
-                    name="image"
-                    value={formData.image}
-                    onChange={handleChange}
-                /> */}
-                {/* -------------------------------------------------------------------------- */}
+
+                {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
                 <ImageUploading
                     multiple
                     value={images}
-                    onChange={onChange}
+                    onChange={handleImageChange}
                     maxNumber={maxNumber}
                     dataURLKey="data_url"
                 >
@@ -263,7 +260,6 @@ export default function Properties() {
                         isDragging,
                         dragProps,
                     }) => (
-                        // write your building UI
                         <div className="upload__image-wrapper">
                             <button
                                 style={

@@ -13,14 +13,20 @@ function AllProperty() {
         changeUserData();
     }, []);
 
+    console.log(userData);
+
     return (
         <div className="properies">
             {userData.rented_properties
                 ? userData.rented_properties.map((property, i) => {
+                      console.log(property);
                       return (
                           <div className="property" key={i}>
                               <div className="property__img">
-                                  <img src={`${property.img}`} alt="" />
+                                  <img
+                                      src={"/" + property.images[0]?.image_url}
+                                      alt="property"
+                                  />
                               </div>
                               <div className="property__adress">
                                   <p>{property.address.street_and_number}</p>
