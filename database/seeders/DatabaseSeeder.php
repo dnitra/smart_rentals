@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                 DB::table('rented_property_user')->insert([
                     'user_id' => $user->id,
                     'rented_property_id' => $property->id,
-                    'role_id' => 1
+                    'role_id' => rand(1, 10) > 7 ? 3 : 1,
 
                 ]);
             }

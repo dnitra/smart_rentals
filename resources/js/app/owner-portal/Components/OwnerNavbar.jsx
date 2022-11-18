@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
 
-function Navbar() {
+export default function OwnerNavbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
 
@@ -103,4 +103,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+

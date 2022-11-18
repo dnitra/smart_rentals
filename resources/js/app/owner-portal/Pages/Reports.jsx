@@ -7,7 +7,7 @@ function Reports() {
 
     const { theme, content, userData } = useCustomContexts();
 
-    console.log(userData)
+    // console.log(userData)
     const [properties, setProperties] = useState(null)
     const [report, setReport] = useState({
         rented_property_id : "",

@@ -35,7 +35,7 @@ function Login(props) {
             changeUserData();
 
             // console.log(user);
-            window.location.assign("/owner/dashboard/all");
+            window.location.assign("/choosePortal");
         } catch (error) {
             // if the response code is not 2xx (success)
             switch (error.response.status) {
