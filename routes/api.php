@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RentedPropertyController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\UserDataController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------

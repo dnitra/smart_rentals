@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\RentedProperty;
 use App\Models\Address;
 use App\Models\User;
+use Facades\App\Services\ImageService;
+use Facades\App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,12 +19,13 @@ class RentedPropertyController extends Controller
 
 
 
+
+
     public function store(Request $request)
     {
-
-        //get the data from all methods
         $data = $request->all();
 
+<<<<<<< HEAD
         // dd($data);
         // handling data upload
         // $image = $request->file();
@@ -35,6 +38,8 @@ class RentedPropertyController extends Controller
         //     'uploads'
         // );
 
+=======
+>>>>>>> main
         //get the current user id
         $userId = auth()->id();
 
@@ -57,9 +62,18 @@ class RentedPropertyController extends Controller
         $property->address_id = $address->id;
         $property->save();
 
+
+        // if there are any uploaded images, then loop through them and call storeImage for each of them
+        if ($request->has('uploaded_images')) {
+
+            foreach ($request->file('uploaded_images') as $uploaded_image) {
+
+                ImageService::storeImage($uploaded_image, $property->id);
+            }
+        }
+
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
-
 
         return [
             'status' => 'success',
