@@ -1,21 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-function Listings() {
+import React from "react";
+import { Link } from "react-router-dom";
+import Tiles from "../Components/Dashboard/Listings/Tiles/Tiles";
+import "./Styles/Listings.scss";
 
+function Listings() {
     return (
         <>
-            <div className='listings-buttons'>
-                <div><Link to="/owner/dashboard/listings/details/apartment"><button>Add new listing</button></Link></div>
-                <div><Link to="/owner/dashboard/listings/details/land"><button>land</button></Link></div>
-                <div><Link to="/owner/dashboard/listings/details/house"><button>house</button></Link></div>
-                <div><Link to="/owner/dashboard/listings/details/commercial"><button>commercial</button></Link></div>
-                
+            <div className="advert">
+                <div className="advert-btns">
+                    <Link to="/owner/dashboard/listings/details/apartment">
+                        <button className="advert-btns__btn">
+                            Add new listing
+                        </button>
+                    </Link>
+                </div>
+                <div className="advert-btns">
+                    <Link to="/owner/dashboard/listings/details/land">
+                    <button className="advert-btns__btn">
+                           Land
+                        </button>
+                    </Link>
+                </div>
+                <div className="advert-btns">
+                    <Link to="/owner/dashboard/listings/details/house">
+                        <button className="advert-btns__btn">
+                            House
+                            </button>
+                    </Link>
+                </div>
+                <div className="advert-btns">
+                    <Link to="/owner/dashboard/listings/details/commercial">
+                        <button className="advert-btns__btn">commercial</button>
+                    </Link>
+                </div>
             </div>
-            <div className='tiles'>
-                
+            <div className="tiles">
+                <Tiles />
             </div>
         </>
-    )
+    );
 }
 
-export default Listings
+export default Listings;

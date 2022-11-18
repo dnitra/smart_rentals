@@ -1,0 +1,27 @@
+.advert {
+    display: flex;
+}
+.advert-btns {
+    display: flex;
+}
+.advert-btns__btn {
+    height: 35px;
+    width: 120px;
+    border-radius: 30px;
+    margin: auto 0.2rem;
+    border: 0px;
+    background-color: rgb(204, 222, 249);
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all .1s ease;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.advert-btns__btn:hover {
+    color: white;
+    background-color: rgb(122,122,122);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
