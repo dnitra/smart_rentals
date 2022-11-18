@@ -10,14 +10,13 @@ import { loadUser } from "../../actions/auth";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 
 function Login(props) {
-    const { user, setUser, loadingUser, content, changeUserData } = useCustomContexts();
+    const { user, setUser, loadingUser, content, changeUserData } =
+        useCustomContexts();
     // settin values from the form
     const [loginValues, setLoginValues] = useState({
         email: "",
         password: "",
     });
-    // const navigate = useNavigate();
-    // const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,8 +31,8 @@ function Login(props) {
             const data = await loadUser();
             setUser(data);
 
-           //load all the user data with all of his database data to userContext as userData variable
-            changeUserData()
+            //load all the user data with all of his database data to userContext as userData variable
+            changeUserData();
 
             // console.log(user);
             window.location.assign("/owner/dashboard/all");
@@ -54,11 +53,11 @@ function Login(props) {
         }
     };
 
-    // console.log(user);
-
+    // handle change of the inputs in the form
     const handleChange = (event) => {
         setLoginValues((previous_values) => {
             return {
+                // return all the previous values plus name of the changed input (key) and its value
                 ...previous_values,
                 [event.target.name]: event.target.value,
             };

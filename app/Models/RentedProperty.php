@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 use App\Models\Address;
+use App\Models\Image;
 use App\Models\PropertyDetails;
 
 class RentedProperty extends Model
@@ -27,5 +28,8 @@ class RentedProperty extends Model
     {
         $this->belongsToMany(PropertyDetail::class);
     }
-    
+    public function images()
+    {
+        $this->hasMany(Image::class);
+    }
 }
