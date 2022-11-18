@@ -1,0 +1,63 @@
+.titles-btn2 {
+    width: 120px;
+    border-radius: 30px;
+    margin: 0.2rem;
+    border: 0px;
+    background-color: rgb(204, 222, 249);
+    color: rgb(24, 106, 238);
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+    transition: all 0.1s ease;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+}
+p {
+    display: flex;
+}
+.titles-btn {
+    height: 35px;
+    width: 120px;
+    border-radius: 30px;
+    margin: auto 0.2rem;
+    border: 0px;
+    background-color: rgb(204, 222, 249);
+    color: rgb(24, 106, 238);
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+    transition: all 0.1s ease;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+}
+.tiles {
+    display: flex;
+    justify-content: space-between;
+    height: 10rem;
+    width: 100%;
+}
+.tiles-picture {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    background-color: blueviolet;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+.tiles-list {
+    display: flex;
+    align-items: flex-end;
+    padding-right: 2rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+.titles-edit {
+    display: flex;
+}
+.tiles-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

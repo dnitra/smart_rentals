@@ -74,8 +74,6 @@ export default function Properties() {
                     console.log("UNKNOWN ERROR", error.response.data);
                     break;
             }
-        } finally {
-            window.location.assign("/owner/dashboard/all");
         }
     };
 

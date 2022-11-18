@@ -1,10 +1,14 @@
-.advert {
+.listings{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.advert-btns {
+.listnings-add {
     display: flex;
+    margin-bottom: 5rem;
 }
-.advert-btns__btn {
+
+.listnings-add__btn {
     height: 35px;
     width: 120px;
     border-radius: 30px;
