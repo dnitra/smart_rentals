@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\RentedProperty;
 use App\Models\Address;
+use App\Models\Image;
 
 class User extends Authenticatable
 {
@@ -51,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(RentedProperty::class);
     }
+
+    // public function images()
+    // {
+    //     return $this->hasManyThrough(RentedProperty::class, Image::class);
+    // }
 }
