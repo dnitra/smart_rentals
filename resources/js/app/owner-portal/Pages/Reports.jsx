@@ -13,7 +13,8 @@ function Reports() {
         rented_property_id : "",
         accessory_id : "",
         subject : "",
-        details: ""
+        details: "",
+        active: 1
     })
   
     useEffect(() => {

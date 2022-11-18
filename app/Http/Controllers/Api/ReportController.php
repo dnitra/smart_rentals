@@ -30,6 +30,7 @@ class ReportController extends Controller
         // dd($data["subject"]);
 
         $report->user_id = $userId;
+        $report->active = $data["report"]["active"];
         $report->subject = $data["report"]["subject"];
         $report->details = $data["report"]["details"];
         $report->accessory_id = $data["report"]["accessory_id"];
