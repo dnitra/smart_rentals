@@ -25,12 +25,13 @@ class DatabaseSeeder extends Seeder
     {
 
         // Populate users
-        User::factory(10);
+        User::factory()->count(10)->create();
 
 
         User::factory()->create([
             'email' => 'jakub.rosol@email.cz',
         ]);
+
         User::factory()->create([
             'email' => 'nitradavid@gmail.com',
         ]);
@@ -42,7 +43,7 @@ class DatabaseSeeder extends Seeder
         foreach ($users as $user) {
 
             for ($i = 0; $i < rand(1, 10); $i++) {
-                $property = RentedProperty::create();
+                $property = RentedProperty::factory()->create();
 
                 DB::table('rented_property_user')->insert([
                     'user_id' => $user->id,
@@ -55,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
             $this->call([
                 CountriesSeeder::class,
-                PropertyDetailsSeeder::class,
+                // PropertyDetailsSeeder::class,
                 RentedPropertyUserRoleSeeder::class,
                 AddressSeeder::class,
             ]);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './Styles/SelectedPropertyDetails.scss'
 import image from "../../../../img/dashboard/Property.svg"
 import { useState, useEffect } from 'react'
@@ -7,7 +7,9 @@ import { useState, useEffect } from 'react'
 const SelectedPropertyDetails = () =>{
     const [propertyDetails, setPropertyDetails] = useState([])
     const [detailsShown, setDetailsShown] = useState(false)
-    const [active, setActive] = useState(false)
+    const [active, setActive] = useState(false) 
+    const {propertyId} = useParams()
+    console.log(propertyId)
     console.log(active)
     const data = [
         {

@@ -1,0 +1,13 @@
+.inputField {
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #c4c4c4;
+  width: 100%;
+  min-height: 2.5rem;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+

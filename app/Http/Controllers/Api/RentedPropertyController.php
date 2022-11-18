@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\RentedProperty;
 use App\Models\Address;
 use App\Models\User;
+use Facades\App\Services\ImageService;
+use Facades\App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,23 +19,11 @@ class RentedPropertyController extends Controller
 
 
 
+
+
     public function store(Request $request)
     {
-
-        //get the data from all methods
         $data = $request->all();
-
-        // dd($data);
-        // handling data upload
-        $image = $request->file();
-        // dd($image);
-
-        // storing images
-        $request->file('uploaded_file')->storeAs(
-            'uploaded_files',
-            $request->file('uploaded_file')->getClientOriginalName(),
-            'uploads'
-        );
 
         //get the current user id
         $userId = auth()->id();
@@ -57,9 +47,18 @@ class RentedPropertyController extends Controller
         $property->address_id = $address->id;
         $property->save();
 
+
+        // if there are any uploaded images, then loop through them and call storeImage for each of them
+        if ($request->has('uploaded_images')) {
+
+            foreach ($request->file('uploaded_images') as $uploaded_image) {
+
+                ImageService::storeImage($uploaded_image, $property->id);
+            }
+        }
+
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
-
 
         return [
             'status' => 'success',
@@ -72,9 +71,26 @@ class RentedPropertyController extends Controller
 
     public function showProperty($id)
     {
-        $property = RentedProperty::with("address")->find($id);
+        $userId = auth()->id();
+        
+        $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
         // $property = RentedProperty::with("address")->where('id', $id)->first();
-
+        dd($property);
         return $property;
+    }
+
+    public function publish(Request $request)
+    {
+        $data = $request->all();;
+
+        //get the current user id
+        $userId = auth()->id();
+
+        //get the current user's data from the database as object instance
+        $user = User::find($userId);
+
+        $property = RentedProperty::findorFail($data["id"]);
+
+        $property->published = 1;
     }
 }
