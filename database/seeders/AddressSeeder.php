@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Address;
 
-class RentedUnitSeeder extends Seeder
+class AddressSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class RentedUnitSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Address::factory(30);
     }
 }

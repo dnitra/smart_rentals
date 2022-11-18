@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('property_details', function (Blueprint $table) {
             $table->id();
+            $table->string("name_in_form")->unique();
             $table->string("name");
             $table->string("unit")->nullable();
             $table->timestamps();

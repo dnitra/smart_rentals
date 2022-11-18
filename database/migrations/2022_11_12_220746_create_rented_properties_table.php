@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('rented_properties', function (Blueprint $table) {
             $table->id();
             $table->string("name", 50)->nullable();
-            $table->unsignedBigInteger("address_id");
-            $table->unsignedBigInteger("rented_property_type_id");
+            $table->unsignedBigInteger("address_id")->nullable();;
+            $table->unsignedBigInteger("rented_property_type_id")->nullable();;
             $table->unsignedBigInteger("parent_id")->nullable();
             $table->tinyInteger("active")->nullable();
             $table->tinyInteger("rented_out")->nullable();

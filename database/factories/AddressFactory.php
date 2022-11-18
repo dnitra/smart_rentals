@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rented_unit>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Address>
  */
-class RentedUnitFactory extends Factory
+class AddressFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,10 @@ class RentedUnitFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            "street_and_number" => fake()->streetAddress(),
+            "city" => fake()->city(),
+            "country_id" => 57,
         ];
     }
 }
