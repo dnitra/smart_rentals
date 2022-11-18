@@ -76,4 +76,19 @@ class RentedPropertyController extends Controller
 
         return $property;
     }
+
+    public function publish(Request $request)
+    {
+        $data = $request->all();;
+
+        //get the current user id
+        $userId = auth()->id();
+
+        //get the current user's data from the database as object instance
+        $user = User::find($userId);
+
+        $property = RentedProperty::findorFail($data["id"]);
+
+        $property->published = 1;
+    }
 }
