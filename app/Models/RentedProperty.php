@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 use App\Models\Address;
-use App\Models\PropertyDetails;
+use App\Models\PropertyDetail;
+use App\Models\Report;
 
 class RentedProperty extends Model
 {
@@ -26,6 +27,11 @@ class RentedProperty extends Model
     public function propertyDetails()
     {
         $this->belongsToMany(PropertyDetail::class);
+    }
+
+    public function reports()
+    {
+        return $this ->hasMany(Report::class);
     }
     
 }
