@@ -4,8 +4,8 @@ import Tiles from "../Components/Dashboard/Listings/Tiles/Tiles";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Listings.scss";
 
-function Listings() {
-    
+
+function Listings({name}) {
     const { user, userData, changeUserData } = useCustomContexts();
     const [showPopup, setShowPopup] = useState(false);
 
@@ -51,14 +51,22 @@ function Listings() {
             {showPopup &&
                 userData &&
                 userData.rented_properties &&
-                userData.rented_properties.map((address, index) => {
+                userData.rented_properties.map((address, index, id, name) => {
                     return (
-                        <select>
-                            <li key={index} className="tiles-address__heading" value={undefined}>
+                        <select className="select">
+                            <option value="" disabled>
+                            - select
+                            </option>
+                            <option
+                                key={index}
+                                className="tiles-address__heading"
+                                value={id}
+                                name={name}
+                            >
                                 {address.address.street_and_number}
                                 <br></br>
                                 {address.address.city}
-                            </li>
+                            </option>
                         </select>
                     );
                 })}
