@@ -21,6 +21,7 @@ class AddressFactory extends Factory
             "street_and_number" => fake()->streetAddress(),
             "city" => fake()->city(),
             "country_id" => 57,
+            "zip_code" => fake()->numberBetween($min = 10000, $max = 60000)
         ];
     }
 }

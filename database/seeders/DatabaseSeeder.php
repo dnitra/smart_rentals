@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($users as $user) {
 
-            for ($i = 0; $i < rand(1, 10); $i++) {
+            for ($i = 0; $i < rand(3, 10); $i++) {
                 $property = RentedProperty::factory()->create();
 
                 DB::table('rented_property_user')->insert([

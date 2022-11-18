@@ -21,7 +21,8 @@ class RentedPropertyFactory extends Factory
 
             "name" => fake()->realText($maxNbChars = 20),
             "rented_property_type_id" => fake()->randomDigitNotNull(),
-            "address_id" => rand(1,30),
+            "address_id" => rand(1, 30),
+            "published" => rand(1, 10) > 6 ? 1 : 0,
 
         ];
     }

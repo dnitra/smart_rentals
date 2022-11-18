@@ -72,25 +72,25 @@ class RentedPropertyController extends Controller
     public function showProperty($id)
     {
         $userId = auth()->id();
-        
+
         $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
         // $property = RentedProperty::with("address")->where('id', $id)->first();
         dd($property);
         return $property;
     }
 
-    public function publish(Request $request)
+    public function handlePublishing(Request $request)
     {
         $data = $request->all();;
 
-        //get the current user id
-        $userId = auth()->id();
+        $property = RentedProperty::findorFail($data["propertyId"]);
 
-        //get the current user's data from the database as object instance
-        $user = User::find($userId);
+        if ($property->published === null) {
+            $property->published = 1;
+        } else {
+            $property->published = 0;
+        }
 
-        $property = RentedProperty::findorFail($data["id"]);
-
-        $property->published = 1;
+        $property->save();
     }
 }
