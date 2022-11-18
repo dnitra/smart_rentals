@@ -7,8 +7,8 @@ import { ThemeContext } from "./ThemeContext";
 import { LanguageContext } from "./LanguageContext";
 import { ContentContext } from "./ContentContext";
 import { UserContext } from "./UserContext";
-
 import { contents } from "../Content/contents";
+
 
 /**
  * create custom hook which will provide all contexts
@@ -22,6 +22,7 @@ export function useCustomContexts() {
         ...useContext(LanguageContext),
         ...useContext(ContentContext),
         ...useContext(UserContext),
+  
     };
 }
 /**
@@ -68,21 +69,33 @@ export default function ContextsProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loadingUser, setLoadingUser] = useState(false);
 
+
+    // userData states - default values
+    const [userData, setUserData] = useState({});
+
+    const changeUserData = async () => {
+        const responseUserData = await axios.get("/api/userData");
+        setUserData(responseUserData.data)
+    
+    }
+
+
+
     /**
      * pass all contexts values and functions in individual providers
      *  so they can be used in all children
      */
     return (
-        <UserContext.Provider
-            value={{ user, setUser, loadingUser, setLoadingUser }}
-        >
-            <ContentContext.Provider value={{ content }}>
-                <LanguageContext.Provider value={{ changeLang }}>
-                    <ThemeContext.Provider value={{ theme, changeTheme }}>
-                        {children}
-                    </ThemeContext.Provider>
-                </LanguageContext.Provider>
-            </ContentContext.Provider>
-        </UserContext.Provider>
+        // <UserDataContext>
+            <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser , userData, changeUserData }}>
+                <ContentContext.Provider value={{ content }}>
+                    <LanguageContext.Provider value={{ changeLang }}>
+                        <ThemeContext.Provider value={{ theme, changeTheme }}>
+                            {children}
+                        </ThemeContext.Provider>
+                    </LanguageContext.Provider>
+                </ContentContext.Provider>
+            </UserContext.Provider>
+        // </UserDataContext>
     );
 }

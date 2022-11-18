@@ -23,11 +23,23 @@ class RentedPropertyController extends Controller
         //get the data from all methods
         $data = $request->all();
 
+        // dd($data);
+        // handling data upload
+        $image = $request->file();
+        // dd($image);
+
+        // storing images
+        $request->file('uploaded_file')->storeAs(
+            'uploaded_files',
+            $request->file('uploaded_file')->getClientOriginalName(),
+            'uploads'
+        );
+
         //get the current user id
         $userId = auth()->id();
 
         //get the current user's data from the database as object instance
-        $user = User::findOrFail($userId);
+        $user = User::find($userId);
 
         // create new instances of  property and address
         $property = new RentedProperty;
@@ -57,17 +69,6 @@ class RentedPropertyController extends Controller
         ];
     }
 
-    public function showAllProperties()
-    {
-
-        //get the current user id
-        $userId = auth()->id();
-
-        //get the current user's data from the database as object instance
-        $user = User::with('rentedProperties.address')->findOrFail($userId);
-
-        return $user;
-    }
 
     public function showProperty($id)
     {

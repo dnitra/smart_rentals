@@ -10,7 +10,7 @@ import { loadUser } from "../../actions/auth";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 
 function Login(props) {
-    const { user, setUser, loadingUser, content } = useCustomContexts();
+    const { user, setUser, loadingUser, content, changeUserData } = useCustomContexts();
     // settin values from the form
     const [loginValues, setLoginValues] = useState({
         email: "",
@@ -28,9 +28,13 @@ function Login(props) {
             console.log(response.status);
             const response_data = response.data;
 
-            // Load users data
+            // Load information about the user
             const data = await loadUser();
             setUser(data);
+
+           //load all the user data with all of his database data to userContext as userData variable
+            changeUserData()
+
             // console.log(user);
             window.location.assign("/owner/dashboard/all");
         } catch (error) {

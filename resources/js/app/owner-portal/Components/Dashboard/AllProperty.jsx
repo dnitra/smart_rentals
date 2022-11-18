@@ -4,27 +4,19 @@ import { Link } from "react-router-dom";
 import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
-function AllProperty() {
-    const [allProperties, setAllProperties] = useState([]);
-    const { user } = useCustomContexts();
 
-    console.log("HERE");
-    const loadProperties = async () => {
-        const response = await axios.get("/api/property/list");
-        setAllProperties(response.data);
-        console.log(response.data);
-    };
+function AllProperty() {
+    const { user, userData, changeUserData } = useCustomContexts();
 
     useEffect(() => {
-        loadProperties();
+        //load all the user data with all of his database data to userContext as userData variable
+        changeUserData();
     }, []);
-
-    console.log(user);
 
     return (
         <div className="properies">
-            {allProperties
-                ? allProperties.map((property, i) => {
+            {userData.rented_properties
+                ? userData.rented_properties.map((property, i) => {
                       return (
                           <div className="property" key={i}>
                               <div className="property__img">
