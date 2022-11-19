@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
 import ImageUploading from "react-images-uploading";
 
+
 export default function Properties() {
     // setting states
     const { theme, content } = useCustomContexts();

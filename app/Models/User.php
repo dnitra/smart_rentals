@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function rentedProperties()
     {
-        return $this->belongsToMany(RentedProperty::class);
+        return $this->belongsToMany(RentedProperty::class)->withPivot('role_id');
     }
 
     public function reports()

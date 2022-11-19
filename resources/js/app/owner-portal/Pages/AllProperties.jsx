@@ -8,6 +8,7 @@ function AllProperties() {
     return (
         <div>
             <AllProperty />
+           
         </div>
     );
 }

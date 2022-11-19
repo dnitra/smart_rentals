@@ -9,8 +9,9 @@ export default function Tiles() {
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
+         console.log(userData);
       }, []);
-      console.log(userData);
+     
       
       return (
         <Card>

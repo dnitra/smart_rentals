@@ -5,6 +5,7 @@ import { mainContent } from "./en/mainContent";
 import { login } from "./en/login";
 import { register } from "./en/register";
 import { properties } from "./en/properties";
+import { tenantPortal } from "./en/tenantPortal";
 
 /**
  * import all files from CS folder (czech)
@@ -24,6 +25,7 @@ export function contents() {
             ...login(),
             ...register(),
             ...properties(),
+            ...tenantPortal(),
         },
         cs: {
             ...hlavniObsah(),
