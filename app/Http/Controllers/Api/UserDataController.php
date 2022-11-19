@@ -18,6 +18,7 @@ class UserDataController extends Controller
         $user = User::with('rentedProperties.address')
             ->with('rentedProperties.images')
             ->with("rentedProperties.reports")
+            ->with("rentedProperties.propertyAccesses")
             ->findOrFail($userId);
 
         return $user;
