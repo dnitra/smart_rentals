@@ -11,15 +11,11 @@ function AllProperty() {
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
-        console.log(userData)
+        console.log(userData);
     }, []);
 
-
     return (
-
-        
         <div className="properies">
-
             <div className="property">
                 <div className="property__img">
                     <img src={newPropertyImage} alt="" />
@@ -32,35 +28,43 @@ function AllProperty() {
                 </div>
             </div>
             {userData.rented_properties
-                ? userData.rented_properties.filter((property) => {
-                    
-                    return property.pivot.role_id==1
-                }).map((property, i) => {
-                      
-                      return (
-                          <div className="property" key={i}>
-                              <div className="property__img">
-                                  <img
-                                      src={"/" + property.images[0]?.image_url}
-                                      alt="property"
-                                  />
+                ? userData.rented_properties
+                      .filter((property) => {
+                          return property.pivot.role_id == 1;
+                      })
+                      .map((property, i) => {
+                          return (
+                              <div className="property" key={i}>
+                                  <div className="property__img">
+                                      {property.images.length === 0 ? (
+                                          <img src="" alt="empty" />
+                                      ) : (
+                                          <img
+                                              src={
+                                                  "/" +
+                                                  property.images[0]?.image_url
+                                              }
+                                              alt="property"
+                                          />
+                                      )}
+                                  </div>
+                                  <div className="property__adress">
+                                      <p>
+                                          {property.address.street_and_number}
+                                      </p>
+                                      <p>{property.address.city}</p>
+                                      <Link
+                                          to={`/owner/dashboard/property/all/${property.id}`}
+                                      >
+                                          <button className="property__button">
+                                              Details
+                                          </button>
+                                      </Link>
+                                  </div>
                               </div>
-                              <div className="property__adress">
-                                  <p>{property.address.street_and_number}</p>
-                                  <p>{property.address.city}</p>
-                                  <Link
-                                      to={`/dashboard/property/${property.id}`}
-                                  >
-                                      <button className="property__button">
-                                          Details
-                                      </button>
-                                  </Link>
-                              </div>
-                          </div>
-                      );
-                  })
+                          );
+                      })
                 : ""}
-            
         </div>
     );
 }
