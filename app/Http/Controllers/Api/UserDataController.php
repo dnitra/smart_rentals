@@ -17,7 +17,8 @@ class UserDataController extends Controller
         //get the current user's data from the database as object instance
         $user = User::with('rentedProperties.address')
             ->with('rentedProperties.images')
-            ->with("reports.rentedProperty")
+            ->with("rentedProperties.reports")
+            ->with("rentedProperties.propertyAccesses")
             ->findOrFail($userId);
 
         return $user;
