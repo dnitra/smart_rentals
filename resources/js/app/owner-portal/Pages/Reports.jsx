@@ -123,9 +123,11 @@ function Reports() {
                 <input type="text" list="accessories" name='subject' onChange={handleChange} />
                 <textarea name='details' onChange={handleChange}></textarea>
             </div>
-            <button onClick={(e) => {
+            <button type='submit' onClick={(e) => {
                 e.preventDefault()
                 uploadReport()
+                    // setReport({ active: 1 })
+                // window.location.reload(false);
             }}>Confirm</button> 
         </div>
         <div className="allReports"><PropertyReports/></div> 
