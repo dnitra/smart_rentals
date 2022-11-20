@@ -122,6 +122,20 @@ body{
             flex-direction: column;
             align-items: center;
         }
+
+        &__reports{
+            display: flex;
+            flex-direction: row;
+            // width: 100%;
+            &--container{
+                display: flex;
+                flex-direction: column;
+                
+            }
+            .done{
+                color:gray;
+            }
+        }
         &__button{
             height: 35px;
             width: 120px;

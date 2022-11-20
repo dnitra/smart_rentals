@@ -36,22 +36,6 @@ class ReportController extends Controller
         $report->accessory_id = $data["report"]["accessory_id"];
         $report->rented_property_id = $data["report"]["rented_property_id"];
         $report->save();
-        
-        // fill the object with data and save it to database
-                // $address->street_and_number = $data["address"];
-                // $address->city = $data["city"];
-                // $address->country_id = $data["country"];
-                // $address->save();
-
-        // fill the object with data and save it to database
-        // $property->name = $data["name"];
-        // $property->rented_property_type_id = $data["type"];
-        // $property->address_id = $address->id;
-        // $property->save();
-
-        // //save the user_id and rented_property_id to intermediate table
-        // $user->rentedProperties()->attach($property, ["role_id" => 1]);
-
 
         // return [
         //     'status' => 'success',
@@ -59,6 +43,38 @@ class ReportController extends Controller
         //     'address' => $address,
 
         // ];
+    }
+
+    public function updateStatus(Request $request)
+        {
+            //get the data from all methods
+            $data = $request->all();
+            // dd($data['status'][0]['id']);
+            //get the current user id
+            $userId = auth()->id();
+            // dd($userId);
+            //get the current user's data from the database as object instance
+
+            $updateStatus = Report::where('user_id', $userId)->where('id', $data['status'][0]['id'])->first();
+            $updateStatus->active = $data['status'][0]['active'];
+            $updateStatus->save();
+            // dd($updateStatus);
+        }
+
+
+    public function deleteReport(Request $request)
+    {
+        //get the data from all methods
+        $data = $request->all();
+        // dd($data['status'][0]['id']);
+        //get the current user id
+        $userId = auth()->id();
+        // dd($userId);
+        //get the current user's data from the database as object instance
+
+        $updateStatus = Report::where('user_id', $userId)->where('id', $data['deleteCurrnetReport'][0]['id'])->first();
+        $updateStatus->delete();
+        // dd($updateStatus);
     }
 
 }
