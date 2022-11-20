@@ -33,17 +33,16 @@ import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
 
 export default function App() {
     // state from contexts
-    const { user,userData, setUser, changeUserData } = useCustomContexts();
+    const { user, userData, setUser, changeUserData } = useCustomContexts();
 
     // get authenticated user and store the user in state
     const getUser = async () => {
-        try{
-        const res = await axios.get("/api/user");
-        const data = res.data;
+        try {
+            const res = await axios.get("/api/user");
+            const data = res.data;
             setUser(data);
-        }
-        catch (error) {
-            console.log(error)
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -71,7 +70,7 @@ export default function App() {
                         element={<AllProperties />}
                     />
                     <Route
-                        path="/owner/dashboard/all/:id"
+                        path="/owner/dashboard/property/all/:propertyId"
                         element={<SelectedPropertyDetails />}
                     />
                     <Route
@@ -111,7 +110,7 @@ export default function App() {
                 <Route path="/tenant" element={<TenantLayout />}>
                     <Route
                         path="/tenant/dashboard"
-                        element={<TenantDashboard/>}
+                        element={<TenantDashboard />}
                     />
                     <Route
                         path="/tenant/dashboard/all"
@@ -125,7 +124,6 @@ export default function App() {
                         path="/tenant/dashboard/reports"
                         element={<Reports />}
                     />
-
                 </Route>
             </Routes>
         </BrowserRouter>
