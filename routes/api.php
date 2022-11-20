@@ -29,6 +29,8 @@ Route::post('/report/store', [ReportController::class, 'store']);
 Route::post('/property/{propertyId}/add-access', [RentedPropertyController::class, 'addAccess']);
 Route::post('/property/{propertyId}/remove-access/{accessId}', [RentedPropertyController::class, 'removeAccess']);
 
+Route::post('/report/status', [ReportController::class, 'updateStatus']);
+Route::post('/report/deleteReport', [ReportController::class, 'deleteReport']);
 Route::get('/userData', [UserDataController::class, 'showAllUserData']);
 // Route::post('/property/store', [RentedPropertyController::class, '']);
 Route::get('/property/list', [RentedPropertyController::class, 'showAllProperties']);

@@ -2,12 +2,13 @@ import React from 'react'
 import PropertyReports from '../Components/Dashboard/PropertyReports/PropertyReports'
 import { useCustomContexts } from '../../Context/ContextsProvider'
 import { useState,useEffect } from 'react'
+import "./Styles/Reports.scss"
+import AllProperty from '../Components/Dashboard/AllProperty'
+import { render } from 'react-dom'
 
 function Reports() {
 
     const { theme, content, userData } = useCustomContexts();
-
-    // console.log(userData)
     const [properties, setProperties] = useState(null)
     const [report, setReport] = useState({
         rented_property_id : "",
@@ -22,8 +23,6 @@ function Reports() {
        
     }, [])
 
-
-    // console.log(userData.rented_properties)
     const accessories = {
         1 : {id: "1",
             name: "Shower"
@@ -46,9 +45,6 @@ function Reports() {
         }, 
     }
 
-    useEffect(() => {
-      console.log(report)
-    }, [report])
 
     const uploadReport = async() => {
         try {
@@ -94,52 +90,54 @@ function Reports() {
     }
 
     return (
-        <>
         <div className='reports'>
-            <div className="reports__property">
-                <select name="rented_property_id" className='property' onChange={handleChange}>      
-                    <option value='default' selected> --- Choose a property </option>
-                    {userData.rented_properties ? (
-                        userData.rented_properties.map(property => {
-                        return(
-                            <option value={property.id}>
-                                {property.name} | {property.address.city} | {property.address.street_and_number}
-                            </option>
-                        )
-                    })) : ""
-                }
-            </select>
-            </div>
-            <div className="reports__select">
+            <h2>Create new report</h2>
+        <div className='reports__new'>  
+               
+                <div className="reports__new--property select-dropdown">
+                    
+                    <select name="rented_property_id" className='property' onChange={handleChange}>      
+                        <option value='Others'>Please select a property</option>
+                                {userData.rented_properties ? (
+                                    userData.rented_properties.map((property, i) => {
+                                        return(
+                                            <option value={property.id} key={i}>
+                                                {property.name} | {property.address.city} | {property.address.street_and_number}
+                                            </option>
+                                        )
+                                    })) : ""
+                                }
+                    </select>
+                </div>
+                <div className="reports__new--select select-dropdown">
                 
-                <select name="accessory_id" onChange={handleChange}>         
-                    <option value={accessories[1].id}>{accessories[1].name}</option>
-                    <option value={accessories[2].id}>{accessories[2].name}</option>
-                    <option value={accessories[3].id}>{accessories[3].name}</option>
-                    <option value={accessories[4].id}>{accessories[4].name}</option>
-                    <option value={accessories[5].id}>{accessories[5].name}</option>
-                    <option value={"other"}>Others</option>
-            </select>
-                <input type="text" list="accessories" name='subject' onChange={handleChange} />
-                <textarea name='details' onChange={handleChange}></textarea>
-            </div>
-            <button onClick={(e) => {
-                e.preventDefault()
-                uploadReport()
-            }}>Confirm</button> 
+                    <select name="accessory_id" onChange={handleChange}>   
+                        <option value='default'>Please select a accessory</option>
+                        <option value={accessories[1].id}>{accessories[1].name}</option>
+                        <option value={accessories[2].id}>{accessories[2].name}</option>
+                        <option value={accessories[3].id}>{accessories[3].name}</option>
+                        <option value={accessories[4].id}>{accessories[4].name}</option>
+                        <option value={accessories[5].id}>{accessories[5].name}</option>
+                        <option value={"other"}>Others</option>
+                    </select>
+                </div>
+                <div className='reports__new--text'>            
+                    <input type="text" list="accessories" name='subject' onChange={handleChange} placeholder="Subject"/>
+                    <textarea name='details' onChange={handleChange} placeholder="Details here"></textarea>
+                    <button type='submit' onClick={(e) => {
+                        e.preventDefault()
+                        uploadReport()
+
+                        // setReport({ active: 1 })
+                        window.location.reload();
+                    }}>Confirm</button> 
+                </div>                    
+            
         </div>
+        {/* <AllProperty/> */}
         <div className="allReports"><PropertyReports/></div> 
-        </>
+        </div>
     )
 }
 
 export default Reports
-
-
-
-//     (report.choosedProperty && report.accessory && report.subject && report.desctiption) ? (
-//                     return (
-//     <div>
-//         <p className='success-message'>was saved!</p>
-//     </div>
-// ))  : ""
