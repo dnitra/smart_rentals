@@ -110,7 +110,6 @@ class PropertyDetailsSeeder extends Seeder
 
             foreach ($details as $detail_slug => $datail_name) {
                 $detail = new PropertyDetail();
-
                 $detail->name = $datail_name;
                 $detail->name_in_form = $detail_slug;
                 $detail->unit = $unit;
