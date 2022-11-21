@@ -1,38 +1,34 @@
-import { set } from 'lodash';
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import { useCustomContexts } from '../../../../Context/ContextsProvider';
+import { set } from "lodash";
+import React from "react";
+import { useState, useEffect } from "react";
+import { render } from "react-dom";
+import { useCustomContexts } from "../../../../Context/ContextsProvider";
 const PropertyReports = () => {
-  const { user, userData, changeUserData } = useCustomContexts();
-    const [ status, setStatus ] = useState([])
-    const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([])
-    const [done, setDone] = useState("Done")
+    const { user, userData, changeUserData } = useCustomContexts();
+    const [status, setStatus] = useState([]);
+    const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([]);
+    const [done, setDone] = useState("Done");
     // console.log(done)
-  useEffect(() => {
-    //load all the user data with all of his database data to userContext as userData variable
-    changeUserData();
-    console.log(userData)
-  }, []);
-
-
-    
     useEffect(() => {
-        if (status.length >= 1){
-            uploadStatus()
-        } 
-    }, [status])
+        //load all the user data with all of his database data to userContext as userData variable
+        changeUserData();
+        console.log(userData);
+    }, []);
 
-   useEffect(() => {
-       deleteReport()
-    //    window.location.reload();
-   }, [deleteCurrnetReport])
-   
+    useEffect(() => {
+        if (status.length >= 1) {
+            uploadStatus();
+        }
+    }, [status]);
 
-    
+    //    useEffect(() => {
+    //        deleteReport()
+    //     //    window.location.reload();
+    //    }, [deleteCurrnetReport])
+
     const handleClick = () => {
-        setDone("delete")
-    }
+        setDone("delete");
+    };
     const uploadStatus = async () => {
         try {
             // make the AJAX request
@@ -66,7 +62,7 @@ const PropertyReports = () => {
             }
         }
         // console.log(response.data)
-    }
+    };
 
     const deleteReport = async () => {
         try {
@@ -83,9 +79,7 @@ const PropertyReports = () => {
                 }
             );
             // get the (already JSON-parsed) response data
-            const response_data = response.data; 
-            
-           
+            const response_data = response.data;
         } catch (error) {
             // if the response code is not 2xx (success)
             console.log(error);
@@ -103,7 +97,7 @@ const PropertyReports = () => {
             }
         }
         // console.log(response.data)
-    }
+    };
 
     // useEffect(() => {
     //     setDeleteCurrnetReport([])
@@ -117,14 +111,8 @@ const PropertyReports = () => {
             return property.pivot.role_id == 1
             }).map((property, i) => {
                 return( 
-                property.reports.length >= 1 ? ( 
-                        <div className="property" key={i}>
-                            <div className="property__img">
-                                <img
-                                    src={"/" + property.images[0]?.image_url}
-                                    alt="property"
-                                />
-                            </div>
+                property.reports.length > 0 ? ( 
+                        <div className="property property__report-container" key={i}>
                             <div className="property__adress">
                                 <p>{property.address.street_and_number}</p>
                                 <p>{property.address.city}</p>
@@ -135,9 +123,19 @@ const PropertyReports = () => {
                                     if (report.active != "0") {
                                         return (
                                             <div className={done == "done" ? "property__reports--container done" : "property__reports--container" } key={i}>
-                                                <p>{report.subject}</p>
-                                                <p>{report.details}</p>
-                                                <button onClick={() => {
+                                                <div>
+                                                    <p className='title'>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
                                                     setStatus([
                                                         { id: report.id, active: "0" }
                                                     ]) 
@@ -152,13 +150,22 @@ const PropertyReports = () => {
                                         
                                         return (
                                             <div className='property__reports--container done' key={i}>
-                                                <p>{report.subject}</p>
-                                                <p>{report.details}</p>
-                                                <button onClick={() => {
+                                                <div>
+                                                    <p>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
                                                     setDeleteCurrnetReport([
                                                         { id: report.id }
                                                     ])
-
                                                 }}>Delete</button>
                                             </div>
                                         )

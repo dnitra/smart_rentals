@@ -17,12 +17,6 @@ use Illuminate\Support\Facades\Auth;
 
 class RentedPropertyController extends Controller
 {
-
-
-
-
-
-
     public function store(Request $request)
     {
         $data = $request->all();
@@ -58,10 +52,10 @@ class RentedPropertyController extends Controller
                 ImageService::storeImage($uploaded_image, $property->id);
             }
         }
-        
+
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
-        
+
         //if there is rented_property_id being send with data then create new rented_property_user instance and fill it with the user_id, rented_property_id and role_id
 
 
@@ -135,7 +129,24 @@ class RentedPropertyController extends Controller
 
         $access = PropertyAccess::latest()->first();
 
-
         return $access;
+    }
+    public function update(Request $request, $propertyId)
+    {
+        $property = RentedProperty::find($propertyId);
+        $data = $request->all();
+        // dd($property->address);
+        $address = $property->address;;
+        // // fill the object with data and save it to database
+        $address->street_and_number = $data["address"];
+        $address->city = $data["city"];
+        $address->country_id = $data["country"];
+        $address->save();
+
+        // // fill the object with data and save it to database
+        $property->name = $data["name"];
+        $property->rented_property_type_id = $data["type"];
+        $property->address_id = $address->id;
+        $property->save();
     }
 }

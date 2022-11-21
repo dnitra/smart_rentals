@@ -1,0 +1,54 @@
+.property-form {
+    width: 60%;
+    // background-color: orange;
+    margin: 0 auto;
+    display: grid;
+    padding: 1rem;
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        font-size: 1rem;
+        font-weight: normal;
+        max-width: 100%;
+        padding: 8px 24px 8px 10px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        // resize: none;
+    }
+
+    &__button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+.upload__image-wrapper {
+    margin-bottom: 1rem;
+}
+
+.property-form__image-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.image-item__btn-wrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.image-item {
+    text-align: center;
+}

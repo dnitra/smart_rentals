@@ -27,6 +27,7 @@ import EditDeatilsLand from "./owner-portal/Pages/EditDetailsLand";
 import EditDetailsHouse from "./owner-portal/Pages/EditDetailsHouse";
 import EditDetailsCommercial from "./owner-portal/Pages/EditDetailsCommercial";
 import EditAccesses from "./owner-portal/Pages/EditAccess";
+import EditProperty from "./owner-portal/Pages/EditProperty";
 
 //import from tenant portal
 import TenantLayout from "./tenant-portal/Pages/TenantLayout";
@@ -35,17 +36,16 @@ import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
 
 export default function App() {
     // state from contexts
-    const { user,userData, setUser, changeUserData } = useCustomContexts();
+    const { user, userData, setUser, changeUserData } = useCustomContexts();
 
     // get authenticated user and store the user in state
     const getUser = async () => {
-        try{
-        const res = await axios.get("/api/user");
-        const data = res.data;
+        try {
+            const res = await axios.get("/api/user");
+            const data = res.data;
             setUser(data);
-        }
-        catch (error) {
-            console.log(error)
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -76,8 +76,12 @@ export default function App() {
                         element={<AllProperties />}
                     />
                     <Route
-                        path="/owner/dashboard/all/:id"
+                        path="/owner/dashboard/property/all/:propertyId"
                         element={<SelectedPropertyDetails />}
+                    />
+                    <Route
+                        path="/owner/dashboard/property/all/:propertyId/edit"
+                        element={<EditProperty />}
                     />
                     <Route
                         path="/owner/dashboard/cashflow"
@@ -111,9 +115,7 @@ export default function App() {
                         path="/owner/dashboard/reports"
                         element={<Reports />}
                     />
-                    <Route
-                        path="/owner/properties"
-                        element={<Properties />} />
+                    <Route path="/owner/properties" element={<Properties />} />
                     <Route
                         path="/owner/property/:propertyId/accesses"
                         element={<EditAccesses />} />
@@ -122,7 +124,7 @@ export default function App() {
                 <Route path="/tenant" element={<TenantLayout />}>
                     <Route
                         path="/tenant/dashboard"
-                        element={<TenantDashboard/>}
+                        element={<TenantDashboard />}
                     />
                     <Route
                         path="/tenant/dashboard/all"
@@ -136,7 +138,6 @@ export default function App() {
                         path="/tenant/dashboard/reports"
                         element={<Reports />}
                     />
-
                 </Route>
             </Routes>
         </BrowserRouter>
