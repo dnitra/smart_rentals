@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
-import { slide as Menu } from 'react-burger-menu'
-import logoBlack from "../../../../img/logos/SM-logo-black.svg"
+import { slide as Menu } from "react-burger-menu";
+import logoBlack from "../../../../img/logos/SM-logo-black.svg";
 export default function OwnerNavbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
@@ -48,7 +48,6 @@ export default function OwnerNavbar() {
         ),
     };
 
-
     // const goBurger = () => {
     //     document
     //         .querySelector(".navbar")
@@ -58,14 +57,50 @@ export default function OwnerNavbar() {
 
     const showSettings = (event) => {
         event.preventDefault();
-    }
+    };
 
     return (
         <>
-        <header className="navbar navbar_owner">
-            <div className="navbar__logo">{logo.data}</div>
-            <div className="navbar__menu">
-                <div className="navbar__links">
+            <header className="navbar navbar_owner">
+                <div className="navbar__logo">{logo.data}</div>
+                <div className="navbar__menu">
+                    <div className="navbar__links">
+                        <Link to="/owner/dashboard">
+                            <p>
+                                <span>dashboard</span>
+                            </p>
+                        </Link>
+                        <Link to="/owner/dashboard/all">
+                            <p>all properties</p>
+                        </Link>
+                        <Link to="/owner/dashboard/cashflow">
+                            <p>cashflow</p>
+                        </Link>
+                        <Link to="/owner/dashboard/listings">
+                            <p>listings</p>
+                        </Link>
+                        <Link to="/owner/dashboard/reports">
+                            {" "}
+                            <p>reports</p>
+                        </Link>
+                        <Link to="/owner/dashboard/messages">
+                            <p>messages</p>
+                        </Link>
+                        <Link to="/" className="button_container">
+                            <button className="log-button" onClick={logoutUser}>
+                                Logout
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+            </header>
+            <div className="header-menu">
+                <Menu>
+                    <Link to="/owner/dashboard">
+                        <p>
+                            <img src={logoBlack} alt="logo" />
+                        </p>
+                    </Link>
                     <Link to="/owner/dashboard">
                         <p>
                             <span>dashboard</span>
@@ -81,7 +116,6 @@ export default function OwnerNavbar() {
                         <p>listings</p>
                     </Link>
                     <Link to="/owner/dashboard/reports">
-                        {" "}
                         <p>reports</p>
                     </Link>
                     <Link to="/owner/dashboard/messages">
@@ -92,60 +126,24 @@ export default function OwnerNavbar() {
                             Logout
                         </button>
                     </Link>
-
+                </Menu>
+                <div className="bm-cross-button">
+                    <button
+                        type="button"
+                        id="react-burger-cross-btn"
+                        tabIndex="0"
+                    >
+                        Close Menu
+                    </button>
+                    <span className="bm-span">
+                        <span className="bm-cross-1"></span>
+                        <span className="bm-cross-2"></span>
+                    </span>
                 </div>
-            </div>
-        </header>
-        <div className="header-menu">
-            
-        <Menu>
-                <Link to="/owner/dashboard">
-                    <p>
-                        <img src={logoBlack} alt="logo" />
-                    </p>
-                </Link>
-            <Link to="/owner/dashboard">
-                <p>
-                    <span>dashboard</span>
-                </p>
-            </Link>
-            <Link to="/owner/dashboard/all">
-                <p>all properties</p>
-            </Link>
-            <Link to="/owner/dashboard/cashflow">
-                <p>cashflow</p>
-            </Link>
-            <Link to="/owner/dashboard/listings">
-                <p>listings</p>
-            </Link>
-            <Link to="/owner/dashboard/reports">
-                <p>reports</p>
-            </Link>
-            <Link to="/owner/dashboard/messages">
-                <p>messages</p>
-            </Link>
-            <Link to="/" className="button_container">
-                <button className="log-button" onClick={logoutUser}>
-                    Logout
-                </button>
-            </Link>
-                
-        </Menu>
-            <div className="bm-cross-button" >
-                <button type="button" id="react-burger-cross-btn" tabindex="0">Close Menu</button>
-                <span className="bm-span">
-                    <span className="bm-cross-1">
-                    </span>
-                    <span className="bm-cross-2">
-                    </span>
-                </span>
-            </div>
-            {/* <div>
+                {/* <div>
                 
             </div> */}
-        </div>
+            </div>
         </>
     );
 }
-
-

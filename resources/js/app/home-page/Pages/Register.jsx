@@ -33,7 +33,7 @@ function Register() {
 
             const userData = await loadUser();
             setUser(userData);
-            window.location.assign("/owner/dashboard");
+            window.location.assign("/choosePortal");
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
