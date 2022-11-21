@@ -55,6 +55,11 @@ const SelectedPropertyDetails = () => {
                                                   <h3>Tenant</h3>
                                                   {/* <h4>{property.tenant}</h4> */}
                                               </div>
+                                              <Link
+                                                  to={`/owner/dashboard/property/all/${propertyId}/edit`}
+                                              >
+                                                  <button>Edit property</button>
+                                              </Link>
                                           </div>
                                       </div>
                                   </div>

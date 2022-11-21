@@ -26,6 +26,7 @@ import EditDeatilsLand from "./owner-portal/Pages/EditDetailsLand";
 import EditDetailsHouse from "./owner-portal/Pages/EditDetailsHouse";
 import EditDetailsCommercial from "./owner-portal/Pages/EditDetailsCommercial";
 import EditAccesses from "./owner-portal/Pages/EditAccess";
+import EditProperty from "./owner-portal/Pages/EditProperty";
 
 //import from tenant portal
 import TenantLayout from "./tenant-portal/Pages/TenantLayout";
@@ -75,6 +76,10 @@ export default function App() {
                         element={<SelectedPropertyDetails />}
                     />
                     <Route
+                        path="/owner/dashboard/property/all/:propertyId/edit"
+                        element={<EditProperty />}
+                    />
+                    <Route
                         path="/owner/dashboard/cashflow"
                         element={<Cashflow />}
                     />
@@ -106,12 +111,11 @@ export default function App() {
                         path="/owner/dashboard/reports"
                         element={<Reports />}
                     />
-                    <Route
-                        path="/owner/properties"
-                        element={<Properties />} />
+                    <Route path="/owner/properties" element={<Properties />} />
                     <Route
                         path="/owner/property/:propertyId/accesses/"
-                        element={<EditAccesses />} />
+                        element={<EditAccesses />}
+                    />
                 </Route>
                 <Route path="/tenant" element={<TenantLayout />}>
                     <Route
