@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Register.scss";
 import googleLogo from "../../../../img/logos/google_logo.svg";
@@ -7,9 +7,10 @@ import registerImg from "../../../../img/others/register-img.png";
 import InputForm from "../../home-page/Components/InputForm/InputForm";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import { loadUser } from "../../actions/auth";
+import { useParams } from "react-router-dom";
 
 function Register() {
-    const { user, setUser, loadingUser, content } = useCustomContexts();
+    const { user, setUser, loadingUser, content, changeUserData } = useCustomContexts();
 
     // setting values from the form
     const [formValues, setFormValues] = useState({
@@ -18,8 +19,30 @@ function Register() {
         email: "",
         password: "",
         password_confirmation: "",
+        rented_property_id: null,
+        rented_property_user_role_id: null
+        
         // role: "default",
     });
+
+    const { linkId } = useParams()
+
+    
+    useEffect(() => {
+        loadProperty()
+    },[])
+    const loadProperty = async () => {
+                
+        const response = await axios.get(`/api/invite/${linkId}`)
+        const data = response.data
+        setFormValues({
+            first_name: data.first_name,
+            last_name: data.last_name,
+            email: data.email,
+            rented_property_id: data.rented_property_id,
+            rented_property_user_role_id: data.rented_property_user_role_id
+        })
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -33,7 +56,7 @@ function Register() {
 
             const userData = await loadUser();
             setUser(userData);
-            window.location.assign("/owner/dashboard");
+            window.location.assign("/choosePortal")
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);

@@ -4,6 +4,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Styles/EditAccesses.scss"
+import { set } from "lodash";
 
 const roles = {
     1:"Owner",
@@ -12,38 +13,71 @@ const roles = {
     4:"Applicant"
 }
 
-
-export default function EditAccesses() {
-    const { userData,changeUserData } = useCustomContexts();
-    const [accesses, setAccesses] = useState({
-        role: null,
+const accessesData = {
+        role: "",
         firstName: "",
         lastName: "",
         email:""
         
-    });
-    const {propertyId} = useParams()
+    }
+
+
+export default function EditAccesses() {
+    const { userData,changeUserData } = useCustomContexts();
+    const [accesses, setAccesses] = useState(accessesData);
+    const { propertyId } = useParams()
+    const [errors,setErrors] = useState(accessesData)
     
-    
+  
     useEffect(() => {
         changeUserData()
         console.log(userData)
     },[])
-    
+
+
+    const validation = () => {
+        if (accesses.email == "" ) {
+            
+            setErrors((prev_values) => {
+                return {...prev_values,email:"error__required"}
+            })
+        }
+        else {
+            setErrors((prev_values) => {
+                return {...prev_values,email:""}
+            })
+        }
+        if(accesses.role == ""){
+            
+           setErrors((prev_values) => {
+                return {...prev_values,role:"error__required"}
+            })
+        }
+        else {
+            setErrors((prev_values) => {
+                return {...prev_values,role:""}
+            })
+        }
+
+
+    }
     const addAccess = (e) => {
+
+        console.log(accesses)
+        console.log(errors)
         
+        if (accesses.role !== "" && accesses.email !== "") {
+
         try {
             const response = axios.post(`/api/property/${propertyId}/add-access`, { ...accesses })
+            changeUserData()
             console.log("test")
-            console.log(response)
+            setAccesses(accessesData)
         }
         catch (error) {
             console.log(error)
-            
         }
-        finally {
-            changeUserData()
-        }
+            }
     }
 
     const removeAccess = async (index) => {
@@ -51,7 +85,7 @@ export default function EditAccesses() {
         try {
             
             const response = await axios.post(`/api/property/${propertyId}/remove-access/${index}`)
-            changeUserData()
+            
             
         }
         catch (error) {
@@ -69,7 +103,6 @@ export default function EditAccesses() {
         })
     }
     
-  
 
     return (
         <div className="accesses">
@@ -86,21 +119,40 @@ export default function EditAccesses() {
                 <h3>Action</h3>
             </div>
                 
-            <form className="accesses__row" onSubmit={addAccess}>
-                <select required onInput={handleInput} defaultValue={""} name="role" id="addAccess">
+            <div  className="accesses__row" >
+                <select
+                    onInput={handleInput}
+                    defaultValue={""}
+                    name="role"
+                    id="addAccess"
+                    value={accesses.role}
+                    className={errors.role}
+                >
                     <option disabled value="">Select the role</option>
                     <option  value="3">Tenant</option>
                     <option  value="2">Manager</option>
                     <option  value="1">Co-owner</option>
                 </select>                
-                <input onInput={handleInput} id="firstName" name="firstName" type="text" />                                                    
-                <input onInput={handleInput} id="lastName" name="lastName" type="text" />                                              
-                <input required onInput={handleInput} id="email" name="email" type="email" />                                        
-                <button type="submit">
+                <input onInput={handleInput} id="firstName" name="firstName" type="text" value={accesses.firstName} />                                                    
+                <input onInput={handleInput} id="lastName" name="lastName" type="text" value={accesses.lastName} />                                              
+                <input
+                    onInput={handleInput}
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={accesses.email}
+                    className={errors.role}/>                                        
+                <button
+                    onClick={() => {
+                        validation()
+                        addAccess()
+                        changeUserData()
+                            }}
+                    type="submit">
                     Add access
                 </button>
                 
-            </form> 
+            </div> 
             
         
 
@@ -132,7 +184,10 @@ export default function EditAccesses() {
                         
                         <button
                             type="button"
-                            onClick={() => { removeAccess(access.id) }}
+                            onClick={() => {
+                                removeAccess(access.id)
+                                changeUserData()
+                            }}
                         >
                             Remove access
                         </button>

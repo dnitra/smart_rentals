@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+
 class RentedPropertyController extends Controller
 {
 
@@ -57,9 +58,12 @@ class RentedPropertyController extends Controller
                 ImageService::storeImage($uploaded_image, $property->id);
             }
         }
-
+        
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
+        
+        //if there is rented_property_id being send with data then create new rented_property_user instance and fill it with the user_id, rented_property_id and role_id
+
 
         return [
             'status' => 'success',
@@ -73,7 +77,7 @@ class RentedPropertyController extends Controller
     {
 
         $data = $request->all();
-    
+
         $access = new PropertyAccess();
 
         $access->first_name = $data["firstName"];
@@ -86,18 +90,18 @@ class RentedPropertyController extends Controller
         $access->save();
     }
 
-    public function removeAccess($propertyId, $accessId){
+    public function removeAccess($propertyId, $accessId)
+    {
 
         //get the current user id
         $user = auth()->user();
 
-     
-        
+
+
 
         //
-    
-        PropertyAccess::destroy($accessId);
 
+        PropertyAccess::destroy($accessId);
     }
 
 
@@ -120,9 +124,18 @@ class RentedPropertyController extends Controller
         if ($property->published === null) {
             $property->published = 1;
         } else {
-            $property->published = 0;
+            $property->published = null;
         }
 
         $property->save();
+    }
+
+    public function showInvitation($linkId)
+    {
+
+        $access = PropertyAccess::latest()->first();
+
+
+        return $access;
     }
 }
