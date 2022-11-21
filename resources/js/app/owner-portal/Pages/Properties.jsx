@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
 import ImageUploading from "react-images-uploading";
-
+import "./Styles/EditProperty.scss";
 
 export default function Properties() {
     // setting states
     const { theme, content } = useCustomContexts();
     const [images, setImages] = useState([]);
-    const [amountOfAccesses,setAmountOfAccesses] = useState([true])
+    const [amountOfAccesses, setAmountOfAccesses] = useState([true]);
     const [emails, setEmails] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
@@ -27,7 +27,6 @@ export default function Properties() {
         setImages(imageList);
     };
 
-   
     // Handling inputs changes
     const handleInputChange = (event) => {
         setFormData((previous_values) => {
@@ -53,7 +52,6 @@ export default function Properties() {
                     // Object to send
                     ...formData,
                     uploaded_images: imagesArray,
-                
                 },
                 {
                     // Options
@@ -87,48 +85,56 @@ export default function Properties() {
         setFormData((previous_values) => {
             return {
                 ...previous_values,
-                property_access_emails: emails
+                property_access_emails: emails,
             };
         });
-    },[emails])
-    
+    }, [emails]);
+
     useEffect(() => {
-        console.log(amountOfAccesses)
-    },[amountOfAccesses])
+        console.log(amountOfAccesses);
+    }, [amountOfAccesses]);
     useEffect(() => {
-        console.log(formData)
-    },[formData])
-    
+        console.log(formData);
+    }, [formData]);
 
     return (
         <>
             <form
-                className="property__form"
+                className="property-form"
                 method="post"
                 onSubmit={handleSubmit}
             >
-                <label htmlFor="name">Name:</label>
+                <h2 className="property-form__heading">Create New Property</h2>
+                <label className="property-form__label" htmlFor="name">
+                    Name:
+                </label>
                 <input
+                    className="property-form__input"
                     id="name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                 />
-                <br />
+
                 {/* ---------------------------------- SELECT ADDRESS  ---------------------------------- */}
-                <label htmlFor="city">City:</label>
+                <label className="property-form__label" htmlFor="city">
+                    City:
+                </label>
                 <input
+                    className="property-form__input"
                     type="text"
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
                 />
-                <br />
 
-                <label htmlFor="country">Country:</label>
+                <label className="property-form__label" htmlFor="country">
+                    Country:
+                </label>
 
                 <select
+                    className="property-form__input"
                     id="type"
                     name="country"
                     value={formData.country}
@@ -138,19 +144,24 @@ export default function Properties() {
                     <option value="191">Slovakia</option>
                     <option value="82">Germany</option>
                 </select>
-                <br />
 
-                <label htmlFor="address">Street:</label>
+                <label className="property-form__label" htmlFor="address">
+                    Street:
+                </label>
                 <input
+                    className="property-form__input"
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
                 />
-                <br />
+
                 {/* ---------------------------------- SELECT CATEGORY  ---------------------------------- */}
-                <label htmlFor="type">{content.category}</label>
+                <label className="property-form__label" htmlFor="type">
+                    {content.category}
+                </label>
                 <select
+                    className="property-form__input"
                     id="type"
                     name="type"
                     value={formData.type}
@@ -164,10 +175,14 @@ export default function Properties() {
 
                 {formData.type === "1" ? (
                     <>
-                        <label htmlFor="subtype-flat">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-flat"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-flat"
                             value={formData.subtype}
@@ -190,10 +205,14 @@ export default function Properties() {
                     </>
                 ) : formData.type === "2" ? (
                     <>
-                        <label htmlFor="subtype-house">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-house"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-house"
                             value={formData.subtype}
@@ -206,6 +225,7 @@ export default function Properties() {
                         </select>
 
                         <select
+                            className="property-form__input"
                             name="rooms"
                             id="rooms"
                             value={formData.rooms}
@@ -221,10 +241,14 @@ export default function Properties() {
                     </>
                 ) : formData.type === "3" ? (
                     <>
-                        <label htmlFor="subtype-commercial">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-commercial"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-commercial"
                             value={formData.subtype}
@@ -246,10 +270,14 @@ export default function Properties() {
                     </>
                 ) : formData.type === "4" ? (
                     <>
-                        <label htmlFor="subtype-others">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-others"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-others"
                             value={formData.subtype}
@@ -262,8 +290,6 @@ export default function Properties() {
                         </select>
                     </>
                 ) : null}
-                <br />
-                <br />
 
                 {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
                 <ImageUploading
@@ -282,51 +308,67 @@ export default function Properties() {
                         isDragging,
                         dragProps,
                     }) => (
-                        <div className="upload__image-wrapper">
-                            <button
-                                style={
-                                    isDragging ? { color: "red" } : undefined
-                                }
-                                onClick={onImageUpload}
-                                {...dragProps}
-                            >
-                                Click or Drop here
-                            </button>
-                            &nbsp;
-                            <button onClick={onImageRemoveAll}>
-                                Remove all images
-                            </button>
-                            {imageList.map((image, index) => (
-                                <div key={index} className="image-item">
-                                    <img
-                                        src={image["data_url"]}
-                                        alt=""
-                                        width="100"
-                                    />
-                                    <div className="image-item__btn-wrapper">
-                                        <button
-                                            onClick={() => onImageUpdate(index)}
-                                        >
-                                            Update
-                                        </button>
-                                        <button
-                                            onClick={() => onImageRemove(index)}
-                                        >
-                                            Remove
-                                        </button>
-                                    </div>
+                        <>
+                            <label>Upload your images:</label>
+                            <div className="upload__image-wrapper">
+                                <button
+                                    className="property-form__button property-form__button_images"
+                                    style={
+                                        isDragging
+                                            ? { color: "red" }
+                                            : undefined
+                                    }
+                                    onClick={onImageUpload}
+                                    {...dragProps}
+                                >
+                                    Click or Drop here
+                                </button>
+                                &nbsp;
+                                <button
+                                    className="property-form__button property-form__button_images"
+                                    onClick={onImageRemoveAll}
+                                >
+                                    Remove all images
+                                </button>
+                                <div className="property-form__image-container">
+                                    {imageList.map((image, index) => (
+                                        <div key={index} className="image-item">
+                                            <img
+                                                src={image["data_url"]}
+                                                alt=""
+                                                width="100"
+                                            />
+                                            <div className="image-item__btn-wrapper">
+                                                <button
+                                                    className="property-form__button property-form__button_images"
+                                                    onClick={() =>
+                                                        onImageUpdate(index)
+                                                    }
+                                                >
+                                                    Update
+                                                </button>
+                                                <button
+                                                    className="property-form__button property-form__button_images"
+                                                    onClick={() =>
+                                                        onImageRemove(index)
+                                                    }
+                                                >
+                                                    Remove
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        </>
                     )}
                 </ImageUploading>
 
-                
-
                 {/* -------------------------------------------------------------------------- */}
-                <br />
-                <br />
-                <button type="submit">Submit</button>
+
+                <button className="property-form__button" type="submit">
+                    Submit
+                </button>
             </form>
         </>
     );

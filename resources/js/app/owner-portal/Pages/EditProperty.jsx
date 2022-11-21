@@ -1,7 +1,7 @@
-import { property } from "lodash";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import "./Styles/EditProperty.scss";
 
 export default function EditProperty() {
     const { userData, content, changeUserData } = useCustomContexts();
@@ -92,34 +92,45 @@ export default function EditProperty() {
     }, [userData]);
 
     return (
-        <>
+        <div className="section-edit">
             <form
-                className="property__form"
+                className="property-form"
                 method="post"
                 onSubmit={handleSubmit}
             >
-                <label htmlFor="name">Name:</label>
+                <h2 className="property-form__heading">
+                    Update Property Details
+                </h2>
+                <label className="property-form__label" htmlFor="name">
+                    Name:
+                </label>
                 <input
+                    className="property-form__input"
                     id="name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                 />
-                <br />
+
                 {/* ---------------------------------- SELECT ADDRESS  ---------------------------------- */}
-                <label htmlFor="city">City:</label>
+                <label className="property-form__label" htmlFor="city">
+                    City:
+                </label>
                 <input
+                    className="property-form__input"
                     type="text"
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
                 />
-                <br />
 
-                <label htmlFor="country">Country:</label>
+                <label className="property-form__label" htmlFor="country">
+                    Country:
+                </label>
 
                 <select
+                    className="property-form__input"
                     id="type"
                     name="country"
                     value={formData.country}
@@ -129,19 +140,24 @@ export default function EditProperty() {
                     <option value="191">Slovakia</option>
                     <option value="82">Germany</option>
                 </select>
-                <br />
 
-                <label htmlFor="address">Street:</label>
+                <label className="property-form__label" htmlFor="address">
+                    Street:
+                </label>
                 <input
+                    className="property-form__input"
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
                 />
-                <br />
+
                 {/* ---------------------------------- SELECT CATEGORY  ---------------------------------- */}
-                <label htmlFor="type">{content.category}</label>
+                <label className="property-form__label" htmlFor="type">
+                    {content.category}
+                </label>
                 <select
+                    className="property-form__input"
                     id="type"
                     name="type"
                     value={formData.type}
@@ -155,10 +171,14 @@ export default function EditProperty() {
 
                 {formData.type === "1" ? (
                     <>
-                        <label htmlFor="subtype-flat">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-flat"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-flat"
                             value={formData.subtype}
@@ -181,10 +201,14 @@ export default function EditProperty() {
                     </>
                 ) : formData.type === "2" ? (
                     <>
-                        <label htmlFor="subtype-house">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-house"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-house"
                             value={formData.subtype}
@@ -197,6 +221,7 @@ export default function EditProperty() {
                         </select>
 
                         <select
+                            className="property-form__input"
                             name="rooms"
                             id="rooms"
                             value={formData.rooms}
@@ -212,10 +237,14 @@ export default function EditProperty() {
                     </>
                 ) : formData.type === "3" ? (
                     <>
-                        <label htmlFor="subtype-commercial">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-commercial"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-commercial"
                             value={formData.subtype}
@@ -237,10 +266,14 @@ export default function EditProperty() {
                     </>
                 ) : formData.type === "4" ? (
                     <>
-                        <label htmlFor="subtype-others">
+                        <label
+                            className="property-form__label"
+                            htmlFor="subtype-others"
+                        >
                             {content.subCategory}
                         </label>
                         <select
+                            className="property-form__input"
                             name="subtype"
                             id="subtype-others"
                             value={formData.subtype}
@@ -253,10 +286,11 @@ export default function EditProperty() {
                         </select>
                     </>
                 ) : null}
-                <br />
-                <br />
-                <button type="submit">Submit</button>
+
+                <button type="submit" className="property-form__button">
+                    Update Property
+                </button>
             </form>
-        </>
+        </div>
     );
 }

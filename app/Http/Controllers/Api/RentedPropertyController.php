@@ -67,7 +67,7 @@ class RentedPropertyController extends Controller
     {
 
         $data = $request->all();
-    
+
         $access = new PropertyAccess();
 
         $access->first_name = $data["firstName"];
@@ -80,18 +80,18 @@ class RentedPropertyController extends Controller
         $access->save();
     }
 
-    public function removeAccess($propertyId, $accessId){
+    public function removeAccess($propertyId, $accessId)
+    {
 
         //get the current user id
         $user = auth()->user();
 
-     
-        
+
+
 
         //
-    
-        PropertyAccess::destroy($accessId);
 
+        PropertyAccess::destroy($accessId);
     }
 
 
@@ -114,7 +114,7 @@ class RentedPropertyController extends Controller
         if ($property->published === null) {
             $property->published = 1;
         } else {
-            $property->published = 0;
+            $property->published = null;
         }
 
         $property->save();
