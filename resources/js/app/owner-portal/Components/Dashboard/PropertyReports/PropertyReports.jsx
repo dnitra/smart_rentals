@@ -103,110 +103,107 @@ const PropertyReports = () => {
     //     setDeleteCurrnetReport([])
     // }, [])
 
-    return (
-        <div className="properies">
-            {userData.rented_properties
-                ? userData.rented_properties
-                      .filter((property) => {
-                          return property.pivot.role_id == 1;
-                      })
-                      .map((property, i) => {
-                          return property.reports.length >= 1 ? (
-                              <div className="property" key={i}>
-                                  <div className="property__img">
-                                      <img
-                                          src={
-                                              "/" +
-                                              property.images[0]?.image_url
-                                          }
-                                          alt="property"
-                                      />
-                                  </div>
-                                  <div className="property__adress">
-                                      <p>
-                                          {property.address.street_and_number}
-                                      </p>
-                                      <p>{property.address.city}</p>
-                                  </div>
-                                  <div className="property__reports">
-                                      {property.reports.map((report, i) => {
-                                          if (report.active != "0") {
-                                              return (
-                                                  <div
-                                                      className={
-                                                          done == "done"
-                                                              ? "property__reports--container done"
-                                                              : "property__reports--container"
-                                                      }
-                                                      key={i}
-                                                  >
-                                                      <p>{report.subject}</p>
-                                                      <p>{report.details}</p>
-                                                      <button
-                                                          onClick={() => {
-                                                              setStatus([
-                                                                  {
-                                                                      id: report.id,
-                                                                      active: "0",
-                                                                  },
-                                                              ]);
-                                                              handleClick();
-                                                          }}
-                                                      >
-                                                          Done
-                                                      </button>
-                                                  </div>
-                                              );
-                                          } else {
-                                              return (
-                                                  <div
-                                                      className="property__reports--container done"
-                                                      key={i}
-                                                  >
-                                                      <p>{report.subject}</p>
-                                                      <p>{report.details}</p>
-                                                      <button
-                                                          onClick={() => {
-                                                              setDeleteCurrnetReport(
-                                                                  [
-                                                                      {
-                                                                          id: report.id,
-                                                                      },
-                                                                  ]
-                                                              );
-                                                          }}
-                                                      >
-                                                          Delete
-                                                      </button>
-                                                  </div>
-                                              );
-                                          }
 
-                                          // {
-                                          //     report.active === "1" ? () => {
+  return (
 
-                                          //      (<div className='property__reports--container' key={i}>
-                                          //         <p>{report.subject}</p>
-                                          //         <p>{report.details}</p>
-                                          //         <button onClick={() => {
-                                          //             setStatus([
-                                          //                 { id: report.id, active: "0" }
-                                          //             ])
-                                          //         }}>Done</button>
-                                          //         </div>)
-                                          //     } : ""
+    <div className="properies">
+      {userData.rented_properties ? userData.rented_properties.filter((property) => {
+            return property.pivot.role_id == 1
+            }).map((property, i) => {
+                return( 
+                property.reports.length > 0 ? ( 
+                        <div className="property property__report-container" key={i}>
+                            <div className="property__adress">
+                                <p>{property.address.street_and_number}</p>
+                                <p>{property.address.city}</p>
+                            </div>
+                            <div className='property__reports'>
+                                {property.reports.map((report, i) => {
+                                    
+                                    if (report.active != "0") {
+                                        return (
+                                            <div className={done == "done" ? "property__reports--container done" : "property__reports--container" } key={i}>
+                                                <div>
+                                                    <p className='title'>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
+                                                    setStatus([
+                                                        { id: report.id, active: "0" }
+                                                    ]) 
+                                                    handleClick()
+                                                }
+                                                    
+                                                }>Done</button>
+                                            </div>
+                                        )
+                                            
+                                    } else {
+                                        
+                                        return (
+                                            <div className='property__reports--container done' key={i}>
+                                                <div>
+                                                    <p>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
+                                                    setDeleteCurrnetReport([
+                                                        { id: report.id }
+                                                    ])
+                                                }}>Delete</button>
+                                            </div>
+                                        )
 
-                                          //     }
-                                      })}
-                                  </div>
-                              </div>
-                          ) : (
-                              ""
-                          );
-                      })
-                : ""}
-        </div>
-    );
-};
+                                    }
 
-export default PropertyReports;
+                                    // {
+                                    //     report.active === "1" ? () => {
+
+                                        
+                                    //      (<div className='property__reports--container' key={i}>
+                                    //         <p>{report.subject}</p>
+                                    //         <p>{report.details}</p>
+                                    //         <button onClick={() => {
+                                    //             setStatus([
+                                    //                 { id: report.id, active: "0" }
+                                    //             ])
+                                    //         }}>Done</button>
+                                    //         </div>)
+                                    //     } : ""
+                                               
+                                    //     }
+                                        
+                                        
+                                   
+                                })}
+                            </div>
+                        </div>
+                            
+                    ): ""
+                ) 
+            }) : ""
+            }
+    </div>
+  )
+}
+
+
+export default PropertyReports
+
+
