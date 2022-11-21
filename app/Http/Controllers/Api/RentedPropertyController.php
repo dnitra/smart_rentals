@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+
 class RentedPropertyController extends Controller
 {
     public function store(Request $request)
@@ -57,6 +58,9 @@ class RentedPropertyController extends Controller
 
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
+
+        //if there is rented_property_id being send with data then create new rented_property_user instance and fill it with the user_id, rented_property_id and role_id
+
 
         return [
             'status' => 'success',
@@ -123,6 +127,13 @@ class RentedPropertyController extends Controller
         $property->save();
     }
 
+    public function showInvitation($linkId)
+    {
+
+        $access = PropertyAccess::latest()->first();
+
+        return $access;
+    }
     public function update(Request $request, $propertyId)
     {
         $property = RentedProperty::find($propertyId);

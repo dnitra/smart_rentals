@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'index');
 Route::view('/login', 'index');
 Route::view('/register', 'index');
+Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
 
 /// DASHBOARD FOR OWNER
