@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../Components/Navbar";
+import OwnerNavbar from "../Components/OwnerNavbar";
 
 const OwnerLayout = () => {
   return (
     <>
-      <Navbar />
+      <OwnerNavbar />
       <Outlet />
     </>
   );

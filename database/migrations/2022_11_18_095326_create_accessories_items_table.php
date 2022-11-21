@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('property_details', function (Blueprint $table) {
+        Schema::create('accessories_items', function (Blueprint $table) {
             $table->id();
-            $table->string("name_in_form")->unique();
-            $table->string("name");
-            $table->string("unit")->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property_details');
+        Schema::dropIfExists('accessories_items');
     }
 };

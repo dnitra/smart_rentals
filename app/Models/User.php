@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\RentedProperty;
 use App\Models\Address;
-use App\Models\Image;
+use App\Models\Report;
 
 class User extends Authenticatable
 {
@@ -50,11 +50,11 @@ class User extends Authenticatable
 
     public function rentedProperties()
     {
-        return $this->belongsToMany(RentedProperty::class);
+        return $this->belongsToMany(RentedProperty::class)->withPivot('role_id');
     }
 
-    // public function images()
-    // {
-    //     return $this->hasManyThrough(RentedProperty::class, Image::class);
-    // }
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RentedProperty;
 use App\Models\Address;
+use App\Models\PropertyAccess;
 use App\Models\User;
 use Facades\App\Services\ImageService;
 use Facades\App\Http\Controllers\ImageController;
@@ -68,12 +69,60 @@ class RentedPropertyController extends Controller
         ];
     }
 
+    public function addAccess(Request $request, $propertyId)
+    {
+
+        $data = $request->all();
+    
+        $access = new PropertyAccess();
+
+        $access->first_name = $data["firstName"];
+        $access->last_name = $data["lastName"];
+        $access->email = $data["email"];
+        $access->rented_property_user_role_id = $data["role"];
+        $access->invite_link = fake()->bothify('#?#?#?#?#?#?#?#?#?#?');
+        $access->rented_property_id = $propertyId;
+
+        $access->save();
+    }
+
+    public function removeAccess($propertyId, $accessId){
+
+        //get the current user id
+        $user = auth()->user();
+
+     
+        
+
+        //
+    
+        PropertyAccess::destroy($accessId);
+
+    }
+
 
     public function showProperty($id)
     {
-        $property = RentedProperty::with("address")->find($id);
-        // $property = RentedProperty::with("address")->where('id', $id)->first();
+        $userId = auth()->id();
 
+        $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
+        // $property = RentedProperty::with("address")->where('id', $id)->first();
+        dd($property);
         return $property;
+    }
+
+    public function handlePublishing(Request $request)
+    {
+        $data = $request->all();;
+
+        $property = RentedProperty::findOrFail($data["propertyId"]);
+
+        if ($property->published === null) {
+            $property->published = 1;
+        } else {
+            $property->published = 0;
+        }
+
+        $property->save();
     }
 }

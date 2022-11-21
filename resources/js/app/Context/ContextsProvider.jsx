@@ -74,8 +74,14 @@ export default function ContextsProvider({ children }) {
     const [userData, setUserData] = useState({});
 
     const changeUserData = async () => {
-        const responseUserData = await axios.get("/api/userData");
-        setUserData(responseUserData.data)
+        try{
+            const responseUserData = await axios.get("/api/userData");
+            setUserData(responseUserData.data)
+
+        }
+        catch (error) {
+            console.log(error)
+        }
     
     }
 

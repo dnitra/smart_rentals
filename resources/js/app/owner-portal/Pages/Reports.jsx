@@ -1,8 +1,142 @@
 import React from 'react'
+import PropertyReports from '../Components/Dashboard/PropertyReports/PropertyReports'
+import { useCustomContexts } from '../../Context/ContextsProvider'
+import { useState,useEffect } from 'react'
+import "./Styles/Reports.scss"
+import AllProperty from '../Components/Dashboard/AllProperty'
+import { render } from 'react-dom'
 
 function Reports() {
+
+    const { theme, content, userData } = useCustomContexts();
+    const [properties, setProperties] = useState(null)
+    const [report, setReport] = useState({
+        rented_property_id : "",
+        accessory_id : "",
+        subject : "",
+        details: "",
+        active: 1
+    })
+  
+    useEffect(() => {
+        setProperties(userData.rented_properties)
+       
+    }, [])
+
+    const accessories = {
+        1 : {id: "1",
+            name: "Shower"
+        }, 
+        2: {
+            id: "2",
+            name: "TV"
+        }, 
+        3: {
+            id: "3",
+            name: "Frige"
+        }, 
+        4: {
+            id: "4",
+            name: "Light"
+        }, 
+        5: {
+            id: "5",
+            name: "Window"
+        }, 
+    }
+
+
+    const uploadReport = async() => {
+        try {
+            // make the AJAX request
+            const response = await axios.post(
+                "/api/report/store",
+                {
+                    report,
+                    // uploaded_file: images[0].file,
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
+            // get the (already JSON-parsed) response data
+            const response_data = response.data;
+        } catch (error) {
+            // if the response code is not 2xx (success)
+            console.log(error);
+            switch (error.response.status) {
+                case 422:
+                    // handle validation errors here
+                    console.log(
+                        "VALIDATION FAILED:",
+                        error.response.data.errors
+                    );
+                    break;
+                case 500:
+                    console.log("UNKNOWN ERROR", error.response.data);
+                    break;
+            }
+        } 
+        // console.log(response.data)
+    }
+
+    
+    const handleChange = (e) => {
+        setReport((previous_values)=>{
+            return { ...previous_values, [e.target.name]:e.target.value}
+        })
+    }
+
     return (
-        <div>Reports</div>
+        <div className='reports'>
+            <h2>Create new report</h2>
+        <div className='reports__new'>  
+               
+                <div className="reports__new--property select-dropdown">
+                    
+                    <select name="rented_property_id" className='property' onChange={handleChange}>      
+                        <option value='Others'>Please select a property</option>
+                                {userData.rented_properties ? (
+                                    userData.rented_properties.map((property, i) => {
+                                        return(
+                                            <option value={property.id} key={i}>
+                                                {property.name} | {property.address.city} | {property.address.street_and_number}
+                                            </option>
+                                        )
+                                    })) : ""
+                                }
+                    </select>
+                </div>
+                <div className="reports__new--select select-dropdown">
+                
+                    <select name="accessory_id" onChange={handleChange}>   
+                        <option value='default'>Please select a accessory</option>
+                        <option value={accessories[1].id}>{accessories[1].name}</option>
+                        <option value={accessories[2].id}>{accessories[2].name}</option>
+                        <option value={accessories[3].id}>{accessories[3].name}</option>
+                        <option value={accessories[4].id}>{accessories[4].name}</option>
+                        <option value={accessories[5].id}>{accessories[5].name}</option>
+                        <option value={"other"}>Others</option>
+                    </select>
+                </div>
+                <div className='reports__new--text'>            
+                    <input type="text" list="accessories" name='subject' onChange={handleChange} placeholder="Subject"/>
+                    <textarea name='details' onChange={handleChange} placeholder="Details here"></textarea>
+                    <button type='submit' onClick={(e) => {
+                        e.preventDefault()
+                        uploadReport()
+
+                        // setReport({ active: 1 })
+                        window.location.reload();
+                    }}>Confirm</button> 
+                </div>                    
+            
+        </div>
+        {/* <AllProperty/> */}
+        <div className="allReports"><PropertyReports/></div> 
+        </div>
     )
 }
 

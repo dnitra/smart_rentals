@@ -4,7 +4,6 @@ import AllProperty from "../Components/Dashboard/AllProperty";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 function Dashboard() {
     const { user } = useCustomContexts();
-    console.log(user);
     return (
         <div>
             {/* <div className="property"></div>

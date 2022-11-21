@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('property_details', function (Blueprint $table) {
+        Schema::create('accessories', function (Blueprint $table) {
             $table->id();
-            $table->string("name_in_form")->unique();
-            $table->string("name");
-            $table->string("unit")->nullable();
+            $table->string('name');
+            $table->unsignedBigInteger('rented_property_id');
+            $table->unsignedBigInteger('accessories_item_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property_details');
+        Schema::dropIfExists('accessories');
     }
 };

@@ -3,10 +3,13 @@ import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
 import ImageUploading from "react-images-uploading";
 
+
 export default function Properties() {
     // setting states
     const { theme, content } = useCustomContexts();
     const [images, setImages] = useState([]);
+    const [amountOfAccesses,setAmountOfAccesses] = useState([true])
+    const [emails, setEmails] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -24,6 +27,7 @@ export default function Properties() {
         setImages(imageList);
     };
 
+   
     // Handling inputs changes
     const handleInputChange = (event) => {
         setFormData((previous_values) => {
@@ -49,6 +53,7 @@ export default function Properties() {
                     // Object to send
                     ...formData,
                     uploaded_images: imagesArray,
+                
                 },
                 {
                     // Options
@@ -77,6 +82,23 @@ export default function Properties() {
             }
         }
     };
+
+    useEffect(() => {
+        setFormData((previous_values) => {
+            return {
+                ...previous_values,
+                property_access_emails: emails
+            };
+        });
+    },[emails])
+    
+    useEffect(() => {
+        console.log(amountOfAccesses)
+    },[amountOfAccesses])
+    useEffect(() => {
+        console.log(formData)
+    },[formData])
+    
 
     return (
         <>
@@ -298,6 +320,8 @@ export default function Properties() {
                         </div>
                     )}
                 </ImageUploading>
+
+                
 
                 {/* -------------------------------------------------------------------------- */}
                 <br />
