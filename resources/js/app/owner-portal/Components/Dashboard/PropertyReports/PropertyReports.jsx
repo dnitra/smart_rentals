@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
 const PropertyReports = () => {
-  const { user, userData, changeUserData } = useCustomContexts();
+    const { user, userData, changeUserData } = useCustomContexts();
     const [ status, setStatus ] = useState([])
     const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([])
     const [done, setDone] = useState("Done")
@@ -13,26 +13,60 @@ const PropertyReports = () => {
     //load all the user data with all of his database data to userContext as userData variable
     changeUserData();
     console.log(userData)
+    
   }, []);
 
-
+  useEffect(() => {
+      if (userData.length > 0) {
+          userReports()
+      }
+  }, [])
+  
     
     useEffect(() => {
         if (status.length >= 1){
             uploadStatus()
+            changeUserData();
         } 
     }, [status])
 
    useEffect(() => {
-       deleteReport()
+    
+       if (deleteCurrnetReport.length >= 1) {
+           deleteReport()
+           changeUserData();
+       }
+       
     //    window.location.reload();
    }, [deleteCurrnetReport])
    
-
+   const deleteItem = () => {
+       deleteReport()
+   }
     
     const handleClick = () => {
         setDone("delete")
     }
+    // const userReports = async() => {
+
+    //     const user_id = userData.id
+    //     console.log(user_id)
+    //     const response = await axios.post(
+    //         "/api/report/user-reports",
+    //         {
+    //             id : user_id
+    //         },
+    //         {
+    //             headers: {
+    //                 "Content-Type": "multipart/form-data",
+    //             },
+    //         }
+    //     );
+    //     const data = response.data
+    // }
+
+
+
     const uploadStatus = async () => {
         try {
             // make the AJAX request
@@ -117,7 +151,7 @@ const PropertyReports = () => {
             return property.pivot.role_id == 1
             }).map((property, i) => {
                 return( 
-                property.reports.length >= 1 ? ( 
+                property.reports.length > 0 ? ( 
                         <div className="property" key={i}>
                             <div className="property__img">
                                 <img
@@ -158,6 +192,7 @@ const PropertyReports = () => {
                                                     setDeleteCurrnetReport([
                                                         { id: report.id }
                                                     ])
+                                                    
 
                                                 }}>Delete</button>
                                             </div>

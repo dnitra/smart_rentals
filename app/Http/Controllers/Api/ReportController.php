@@ -62,6 +62,21 @@ class ReportController extends Controller
         }
 
 
+    public function reportsFromUser(Request $request)
+    {
+        //get the data from all methods
+        $userId = auth()->id();
+        dd($userId);
+        $data = $request->all();
+        // dd($data);
+            // dd($userId);
+            //get the current user's data from the database as object instance
+        $userReports = Report::where('user_id', $data['id'])->where('active', '1')->get();
+        
+        return $userReports; 
+    }
+
+
     public function deleteReport(Request $request)
     {
         //get the data from all methods
