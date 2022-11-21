@@ -92,7 +92,9 @@ body{
                 padding: 1rem;
                 display: flex;
                 flex-direction: column;
-
+                & div{
+                    margin: 1rem;
+                }
                 & p{
                     overflow-wrap: anywhere;
                     // & span{
