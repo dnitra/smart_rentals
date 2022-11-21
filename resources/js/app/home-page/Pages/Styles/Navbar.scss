@@ -151,7 +151,8 @@ body {
      background-color:rgba(2, 2, 2, 0.5);
   }
 .bm-menu{
-    padding: 20%;
+   padding-top: 1rem;
+   padding-left: 2rem;
 }
 .bm-item-list{
     // margin: 0 30px;
@@ -164,6 +165,7 @@ body {
     color:black;
     text-transform: uppercase;
     font-weight: 500;
+    margin: 2rem;
     // text-align: center;
     & p:hover{ 
           color:gray;

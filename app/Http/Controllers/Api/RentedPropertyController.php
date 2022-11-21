@@ -16,12 +16,6 @@ use Illuminate\Support\Facades\Auth;
 
 class RentedPropertyController extends Controller
 {
-
-
-
-
-
-
     public function store(Request $request)
     {
         $data = $request->all();
@@ -73,7 +67,7 @@ class RentedPropertyController extends Controller
     {
 
         $data = $request->all();
-    
+
         $access = new PropertyAccess();
 
         $access->first_name = $data["firstName"];
@@ -86,18 +80,18 @@ class RentedPropertyController extends Controller
         $access->save();
     }
 
-    public function removeAccess($propertyId, $accessId){
+    public function removeAccess($propertyId, $accessId)
+    {
 
         //get the current user id
         $user = auth()->user();
 
-     
-        
+
+
 
         //
-    
-        PropertyAccess::destroy($accessId);
 
+        PropertyAccess::destroy($accessId);
     }
 
 
@@ -120,9 +114,28 @@ class RentedPropertyController extends Controller
         if ($property->published === null) {
             $property->published = 1;
         } else {
-            $property->published = 0;
+            $property->published = null;
         }
 
+        $property->save();
+    }
+
+    public function update(Request $request, $propertyId)
+    {
+        $property = RentedProperty::find($propertyId);
+        $data = $request->all();
+        // dd($property->address);
+        $address = $property->address;;
+        // // fill the object with data and save it to database
+        $address->street_and_number = $data["address"];
+        $address->city = $data["city"];
+        $address->country_id = $data["country"];
+        $address->save();
+
+        // // fill the object with data and save it to database
+        $property->name = $data["name"];
+        $property->rented_property_type_id = $data["type"];
+        $property->address_id = $address->id;
         $property->save();
     }
 }

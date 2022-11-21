@@ -1,72 +1,34 @@
-import { set } from 'lodash';
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import { useCustomContexts } from '../../../../Context/ContextsProvider';
+import { set } from "lodash";
+import React from "react";
+import { useState, useEffect } from "react";
+import { render } from "react-dom";
+import { useCustomContexts } from "../../../../Context/ContextsProvider";
 const PropertyReports = () => {
     const { user, userData, changeUserData } = useCustomContexts();
-    const [ status, setStatus ] = useState([])
-    const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([])
-    const [done, setDone] = useState("Done")
+    const [status, setStatus] = useState([]);
+    const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([]);
+    const [done, setDone] = useState("Done");
     // console.log(done)
-  useEffect(() => {
-    //load all the user data with all of his database data to userContext as userData variable
-    changeUserData();
-    console.log(userData)
-    
-  }, []);
-
-  useEffect(() => {
-      if (userData.length > 0) {
-          userReports()
-      }
-  }, [])
-  
-    
     useEffect(() => {
-        if (status.length >= 1){
-            uploadStatus()
-            changeUserData();
-        } 
-    }, [status])
+        //load all the user data with all of his database data to userContext as userData variable
+        changeUserData();
+        console.log(userData);
+    }, []);
 
-   useEffect(() => {
-    
-       if (deleteCurrnetReport.length >= 1) {
-           deleteReport()
-           changeUserData();
-       }
-       
-    //    window.location.reload();
-   }, [deleteCurrnetReport])
-   
-   const deleteItem = () => {
-       deleteReport()
-   }
-    
+    useEffect(() => {
+        if (status.length >= 1) {
+            uploadStatus();
+        }
+    }, [status]);
+
+    //    useEffect(() => {
+    //        deleteReport()
+    //     //    window.location.reload();
+    //    }, [deleteCurrnetReport])
+
     const handleClick = () => {
-        setDone("delete")
-    }
-    // const userReports = async() => {
-
-    //     const user_id = userData.id
-    //     console.log(user_id)
-    //     const response = await axios.post(
-    //         "/api/report/user-reports",
-    //         {
-    //             id : user_id
-    //         },
-    //         {
-    //             headers: {
-    //                 "Content-Type": "multipart/form-data",
-    //             },
-    //         }
-    //     );
-    //     const data = response.data
-    // }
-
-
-
+        setDone("delete");
+    };
     const uploadStatus = async () => {
         try {
             // make the AJAX request
@@ -100,7 +62,7 @@ const PropertyReports = () => {
             }
         }
         // console.log(response.data)
-    }
+    };
 
     const deleteReport = async () => {
         try {
@@ -117,9 +79,7 @@ const PropertyReports = () => {
                 }
             );
             // get the (already JSON-parsed) response data
-            const response_data = response.data; 
-            
-           
+            const response_data = response.data;
         } catch (error) {
             // if the response code is not 2xx (success)
             console.log(error);
@@ -137,7 +97,7 @@ const PropertyReports = () => {
             }
         }
         // console.log(response.data)
-    }
+    };
 
     // useEffect(() => {
     //     setDeleteCurrnetReport([])
