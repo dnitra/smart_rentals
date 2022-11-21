@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
+import "../../../Pages/Styles/AllProperties.scss"
 const PropertyReports = () => {
     const { user, userData, changeUserData } = useCustomContexts();
     const [status, setStatus] = useState([])
