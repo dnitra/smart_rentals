@@ -8,7 +8,7 @@ import { render } from 'react-dom'
 
 function Reports() {
 
-    const { theme, content, userData } = useCustomContexts();
+    const { theme, content, userData, user, changeUserData } = useCustomContexts();
     const [properties, setProperties] = useState(null)
     const [report, setReport] = useState({
         rented_property_id : "",
@@ -122,14 +122,14 @@ function Reports() {
                     </select>
                 </div>
                 <div className='reports__new--text'>            
-                    <input type="text" list="accessories" name='subject' onChange={handleChange} placeholder="Subject"/>
+                    <input type="text" className='subject-input' list="accessories" name='subject' onChange={handleChange} placeholder="Subject"/>
                     <textarea name='details' onChange={handleChange} placeholder="Details here"></textarea>
                     <button type='submit' onClick={(e) => {
                         e.preventDefault()
                         uploadReport()
 
                         // setReport({ active: 1 })
-                        window.location.reload();
+                        changeUserData()
                     }}>Confirm</button> 
                 </div>                    
             

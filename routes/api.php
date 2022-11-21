@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/property/store', [RentedPropertyController::class, 'store']);
 Route::post('/property/publish', [RentedPropertyController::class, 'handlePublishing']);
 Route::post('/report/store', [ReportController::class, 'store']);
+Route::get('/report/user-reports', [ReportController::class, 'reportsFromUser']);
 Route::post('/report/status', [ReportController::class, 'updateStatus']);
 Route::post('/report/deleteReport', [ReportController::class, 'deleteReport']);
 Route::get('/userData', [UserDataController::class, 'showAllUserData']);

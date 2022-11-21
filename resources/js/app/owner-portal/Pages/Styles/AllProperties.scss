@@ -65,6 +65,10 @@ body{
             background:rgb(204,222,249,1);
             color:white;
         }
+
+          .done{
+                color:gray;
+            }
     }
 
 }
@@ -132,9 +136,7 @@ body{
                 flex-direction: column;
                 
             }
-            .done{
-                color:gray;
-            }
+          
         }
         &__button{
             height: 35px;
