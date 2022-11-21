@@ -120,7 +120,7 @@ class RentedPropertyController extends Controller
         if ($property->published === null) {
             $property->published = 1;
         } else {
-            $property->published = 0;
+            $property->published = null;
         }
 
         $property->save();

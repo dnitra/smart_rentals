@@ -1,12 +1,13 @@
 .titles-btn2 {
     width: 120px;
     border-radius: 30px;
-    margin: 0.2rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0.3rem;
     border: 0px;
     background-color: rgb(204, 222, 249);
-    color: rgb(24, 106, 238);
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
-
     letter-spacing: 1px;
     transition: all 0.1s ease;
     box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
@@ -15,6 +16,15 @@
 p {
     display: flex;
 }
+.tileImg{
+    max-width:100%;
+    max-height:100%;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+    background-color: blueviolet;
+    
+}
 .titles-btn {
     height: 35px;
     width: 120px;
@@ -22,7 +32,7 @@ p {
     margin: auto 0.2rem;
     border: 0px;
     background-color: rgb(204, 222, 249);
-    color: rgb(24, 106, 238);
+    color: rgb(15, 15, 15);
     text-transform: uppercase;
 
     letter-spacing: 1px;
@@ -32,9 +42,16 @@ p {
 }
 .tiles {
     display: flex;
-    justify-content: space-between;
-    height: 10rem;
+    justify-content: center;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.tile {
+    display: flex;
+   height: 12rem;
+    width: 100%;
+    
 }
 .tiles-picture {
     width: 7rem;
@@ -46,18 +63,25 @@ p {
 }
 .tiles-list {
     display: flex;
-    align-items: flex-end;
     padding-right: 2rem;
     flex-direction: column;
-    justify-content: flex-end;
     margin-bottom: 1rem;
+    justify-content: flex-end;
 }
-.titles-edit {
+.tiles-edit {
     display: flex;
 }
 .tiles-address {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+  
+}
+.tiles-address__heading{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    height: 100%;
+    text-transform: uppercase;
 }
