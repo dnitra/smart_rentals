@@ -20,7 +20,7 @@ class RentedPropertyFactory extends Factory
         return [
 
             "name" => fake()->realText($maxNbChars = 20),
-            "rented_property_type_id" => fake()->randomDigitNotNull(),
+            "rented_property_type_id" => fake()->numberBetween($min = 1, $max = 4),
             "address_id" => rand(1, 30),
             "published" => rand(1, 10) > 6 ? 1 : null,
 

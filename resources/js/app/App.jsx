@@ -9,6 +9,7 @@ import Login from "./home-page/Pages/Login";
 import Register from "./home-page/Pages/Register";
 import Test from "./home-page/Pages/Test";
 import ChoosePortal from "./home-page/Pages/ChoosePortal";
+import Invitation from "./home-page/Pages/Invitation";
 
 //imports from owner portal
 import OwnerLayout from "./owner-portal/Pages/OwnerLayout";
@@ -61,8 +62,11 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/register/:linkId" element={<Register />} />
                     {/* <Route path="/products" element={<Products />} /> */}
                     <Route path="/choosePortal" element={<ChoosePortal />} />
+
+                    <Route path="/invite/:linkId" element={<Invitation />} />
                 </Route>
 
                 <Route path="/owner" element={<OwnerLayout />}>
@@ -113,9 +117,9 @@ export default function App() {
                     />
                     <Route path="/owner/properties" element={<Properties />} />
                     <Route
-                        path="/owner/property/:propertyId/accesses/"
-                        element={<EditAccesses />}
-                    />
+                        path="/owner/property/:propertyId/accesses"
+                        element={<EditAccesses />} />
+                    
                 </Route>
                 <Route path="/tenant" element={<TenantLayout />}>
                     <Route
