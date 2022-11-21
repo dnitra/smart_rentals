@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useCustomContexts } from "../../../app/Context/ContextsProvider";
-import ImageUploading from "react-images-uploading";
+import { useParams } from "react-router-dom";
+import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/EditProperty.scss";
 
-export default function Properties() {
-    // setting states
-    const { theme, content } = useCustomContexts();
-    const [images, setImages] = useState([]);
-    const [amountOfAccesses, setAmountOfAccesses] = useState([true]);
-    const [emails, setEmails] = useState([]);
+export default function EditProperty() {
+    const { userData, content, changeUserData } = useCustomContexts();
+    const { propertyId } = useParams();
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -18,13 +14,24 @@ export default function Properties() {
         type: "1",
         subtype: "1",
     });
-    const maxNumber = 10;
+    useEffect(() => {
+        changeUserData();
+    }, []);
 
-    // Handling selecting images changes
-    const handleImageChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
-        setImages(imageList);
+    const populateFormData = () => {
+        const propertyData = userData.rented_properties.filter((property) => {
+            return property.id == propertyId;
+        })[0];
+
+        // propertyData.address = propertyData.address.street_and_number;
+        setFormData({
+            name: propertyData.name,
+            address: propertyData.address.street_and_number,
+            country: propertyData.address.country_id,
+            city: propertyData.address.city,
+            type: "1",
+            subtype: "1",
+        });
     };
 
     // Handling inputs changes
@@ -41,17 +48,14 @@ export default function Properties() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // create new array with the data I want to send to backend
-        const imagesArray = images.map((imgObject) => imgObject.file);
-
         try {
             // make the AJAX request
             const response = await axios.post(
-                "/api/property/store",
+                `/api/property/${propertyId}/update`,
                 {
                     // Object to send
                     ...formData,
-                    uploaded_images: imagesArray,
+                    // uploaded_images: imagesArray,
                 },
                 {
                     // Options
@@ -81,30 +85,22 @@ export default function Properties() {
         }
     };
 
-    useEffect(() => {
-        setFormData((previous_values) => {
-            return {
-                ...previous_values,
-                property_access_emails: emails,
-            };
-        });
-    }, [emails]);
+    console.log(formData);
 
     useEffect(() => {
-        console.log(amountOfAccesses);
-    }, [amountOfAccesses]);
-    useEffect(() => {
-        console.log(formData);
-    }, [formData]);
+        userData && userData.rented_properties && populateFormData();
+    }, [userData]);
 
     return (
-        <>
+        <div className="section-edit">
             <form
                 className="property-form"
                 method="post"
                 onSubmit={handleSubmit}
             >
-                <h2 className="property-form__heading">Create New Property</h2>
+                <h2 className="property-form__heading">
+                    Update Property Details
+                </h2>
                 <label className="property-form__label" htmlFor="name">
                     Name:
                 </label>
@@ -291,85 +287,10 @@ export default function Properties() {
                     </>
                 ) : null}
 
-                {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
-                <ImageUploading
-                    multiple
-                    value={images}
-                    onChange={handleImageChange}
-                    maxNumber={maxNumber}
-                    dataURLKey="data_url"
-                >
-                    {({
-                        imageList,
-                        onImageUpload,
-                        onImageRemoveAll,
-                        onImageUpdate,
-                        onImageRemove,
-                        isDragging,
-                        dragProps,
-                    }) => (
-                        <>
-                            <label>Upload your images:</label>
-                            <div className="upload__image-wrapper">
-                                <button
-                                    className="property-form__button property-form__button_images"
-                                    style={
-                                        isDragging
-                                            ? { color: "red" }
-                                            : undefined
-                                    }
-                                    onClick={onImageUpload}
-                                    {...dragProps}
-                                >
-                                    Click or Drop here
-                                </button>
-                                &nbsp;
-                                <button
-                                    className="property-form__button property-form__button_images"
-                                    onClick={onImageRemoveAll}
-                                >
-                                    Remove all images
-                                </button>
-                                <div className="property-form__image-container">
-                                    {imageList.map((image, index) => (
-                                        <div key={index} className="image-item">
-                                            <img
-                                                src={image["data_url"]}
-                                                alt=""
-                                                width="100"
-                                            />
-                                            <div className="image-item__btn-wrapper">
-                                                <button
-                                                    className="property-form__button property-form__button_images"
-                                                    onClick={() =>
-                                                        onImageUpdate(index)
-                                                    }
-                                                >
-                                                    Update
-                                                </button>
-                                                <button
-                                                    className="property-form__button property-form__button_images"
-                                                    onClick={() =>
-                                                        onImageRemove(index)
-                                                    }
-                                                >
-                                                    Remove
-                                                </button>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </ImageUploading>
-
-                {/* -------------------------------------------------------------------------- */}
-
-                <button className="property-form__button" type="submit">
-                    Submit
+                <button type="submit" className="property-form__button">
+                    Update Property
                 </button>
             </form>
-        </>
+        </div>
     );
 }

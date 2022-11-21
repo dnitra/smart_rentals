@@ -9,7 +9,6 @@ import { ContentContext } from "./ContentContext";
 import { UserContext } from "./UserContext";
 import { contents } from "../Content/contents";
 
-
 /**
  * create custom hook which will provide all contexts
  * import this hook in any file and deconstruct it with values which are needed
@@ -22,7 +21,6 @@ export function useCustomContexts() {
         ...useContext(LanguageContext),
         ...useContext(ContentContext),
         ...useContext(UserContext),
-  
     };
 }
 /**
@@ -69,23 +67,17 @@ export default function ContextsProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loadingUser, setLoadingUser] = useState(false);
 
-
     // userData states - default values
     const [userData, setUserData] = useState({});
 
     const changeUserData = async () => {
-        try{
+        try {
             const responseUserData = await axios.get("/api/userData");
-            setUserData(responseUserData.data)
-
+            setUserData(responseUserData.data);
+        } catch (error) {
+            console.log(error);
         }
-        catch (error) {
-            console.log(error)
-        }
-    
-    }
-
-
+    };
 
     /**
      * pass all contexts values and functions in individual providers
@@ -93,15 +85,24 @@ export default function ContextsProvider({ children }) {
      */
     return (
         // <UserDataContext>
-            <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser , userData, changeUserData }}>
-                <ContentContext.Provider value={{ content }}>
-                    <LanguageContext.Provider value={{ changeLang }}>
-                        <ThemeContext.Provider value={{ theme, changeTheme }}>
-                            {children}
-                        </ThemeContext.Provider>
-                    </LanguageContext.Provider>
-                </ContentContext.Provider>
-            </UserContext.Provider>
+        <UserContext.Provider
+            value={{
+                user,
+                setUser,
+                loadingUser,
+                setLoadingUser,
+                userData,
+                changeUserData,
+            }}
+        >
+            <ContentContext.Provider value={{ content }}>
+                <LanguageContext.Provider value={{ changeLang }}>
+                    <ThemeContext.Provider value={{ theme, changeTheme }}>
+                        {children}
+                    </ThemeContext.Provider>
+                </LanguageContext.Provider>
+            </ContentContext.Provider>
+        </UserContext.Provider>
         // </UserDataContext>
     );
 }

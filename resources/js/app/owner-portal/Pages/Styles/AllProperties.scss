@@ -2,12 +2,17 @@ body{
     background-color: #F5F5F5;
 }
 
+
 .properies{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding:5rem;
     gap: 3rem; 
+
+    .property__report-container{
+         padding-bottom:0;
+    }
         .property{ 
             background-color:#FFFFFF;
             height: 30rem;
@@ -19,6 +24,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow: hidden;
         
 
         &__img{
@@ -65,6 +71,51 @@ body{
             background:rgb(204,222,249,1);
             color:white;
         }
+
+          .done{
+                color:gray;
+            }
+           &__reports{
+            overflow-y: scroll; height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            // align-items:center; 
+            &--container{
+                // border:1px solid gray;
+                background-color:rgb(234, 241, 251);
+                border-radius:25px;
+                width: 95%;
+                height: auto;
+                margin: 1rem auto;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                & p{
+                    overflow-wrap: anywhere;
+                    // & span{
+                    //     overflow-wrap:none;
+                    // }
+                }
+                .title{
+                    font-weight: 700;
+                } 
+                .report-button{
+                    height: 30px;
+                    width: 100px;
+                    border-radius: 30px;
+                    margin: 0 auto;
+                    border: 0px;
+                    background-color: rgb(204,222,249,1) ;
+                    color: black;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                   
+                }
+            }
+           }
     }
 
 }
@@ -72,7 +123,7 @@ body{
 @media (max-width: 1366px) {
 
 .properies{
-    margin-top: 1rem;
+    // margin-top: 1rem;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -123,19 +174,17 @@ body{
             align-items: center;
         }
 
-        &__reports{
-            display: flex;
-            flex-direction: row;
-            // width: 100%;
-            &--container{
-                display: flex;
-                flex-direction: column;
+        // &__reports{
+        //     display: flex;
+        //     flex-direction: row;
+        //     // width: 100%;
+        //     &--container{
+        //         display: flex;
+        //         flex-direction: column;
                 
-            }
-            .done{
-                color:gray;
-            }
-        }
+        //     }
+          
+        // }
         &__button{
             height: 35px;
             width: 120px;

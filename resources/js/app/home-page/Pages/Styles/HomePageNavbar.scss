@@ -1,0 +1,129 @@
+// .navbar_home {
+//     grid-template-columns: 2fr 3fr 2fr;
+//     z-index: 2;
+//     position: fixed;
+// }
+
+// .navbar {
+//     background-color: rgba(0, 0, 0, 0.5);
+//     height: 85px;
+//     width: 100%;
+//     display: grid;
+//     text-transform: uppercase;
+//     letter-spacing: 1px;
+
+//     &__logo {
+//         padding: 1rem;
+//     }
+
+//     &__links {
+//         @media (max-width: 1320px) {
+//             font-size: 0.8rem;
+//             line-height: 20px;
+//         }
+
+//         @media (max-width: 1050px) {
+//             display: none;
+//         }
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+//         padding-top: 1.3rem;
+//         color: white;
+
+//         & a {
+//             text-decoration: none;
+//             color: white;
+//         }
+//         & a:hover {
+//             cursor: pointer;
+//             color: lightblue;
+//         }
+
+//         & span {
+//             // font-size: 16px;
+//             font-weight: 700;
+//             line-height: 20px;
+//             letter-spacing: 0em;
+//             text-align: left;
+
+//             @media (max-width: 1320px) {
+//                 font-size: 0.9rem;
+//                 //  line-height: 27px;
+//             }
+//         }
+//     }
+
+//     &__buttons {
+//         display: flex;
+//         flex-direction: row;
+//         margin-left: auto;
+//         margin-top: 1.5rem;
+//         margin-right: 2rem;
+
+//         .log-button {
+//             height: 35px;
+//             width: 120px;
+//             border-radius: 30px;
+//             margin: auto 0.2rem;
+//             border: 0px;
+//             background-color: rgb(204, 222, 249, 1);
+//             color: black;
+//             text-transform: uppercase;
+//             letter-spacing: 1px;
+//             cursor: pointer;
+//         }
+
+//         .log-button:hover,
+//         .log-button:focus {
+//             background-color: lightblue;
+//             color: black;
+//         }
+//         .log-button:active {
+//             background: #09223b;
+//             color: rgb(255, 255, 255, 0.7);
+//         }
+//         .log-button:disabled {
+//             cursor: not-allowed;
+//             background: rgba(0, 0, 0, 0.08);
+//             color: rgba(0, 0, 0, 0.3);
+//         }
+//     }
+// }
+
+// .navbar:hover {
+//     animation-name: background_navbar;
+//     animation-duration: 2s;
+//     animation-fill-mode: forwards;
+// }
+
+// .navbar {
+//     animation-name: background_navbar_back;
+//     animation-duration: 2s;
+//     animation-fill-mode: forwards;
+// }
+
+// @keyframes background_navbar {
+//     from {
+//         background-color: rgba(0, 0, 0, 0.5);
+//     }
+//     to {
+//         background-color: rgba(0, 0, 0, 0.8);
+//     }
+// }
+// @keyframes background_navbar_back {
+//     from {
+//         background-color: rgba(0, 0, 0, 0.8);
+//     }
+//     to {
+//         background-color: rgba(0, 0, 0, 0.5);
+//     }
+// }
+
+// .visible {
+//     display: fixed;
+// }
+
+// .hidden {
+//     display: none;
+// }
