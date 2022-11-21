@@ -21,7 +21,7 @@ export default function Body() {
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
-            <button type="submit"></button>
+            <button type="submit">Submit</button>
         </div>
     );
 }
