@@ -3,10 +3,12 @@ import axios from "axios";
 import { useCustomContexts } from "../../../app/Context/ContextsProvider";
 import ImageUploading from "react-images-uploading";
 import "./Styles/EditProperty.scss";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
 
 export default function Properties() {
     // setting states
-    const { theme, content } = useCustomContexts();
+    const [propertyId, setPropertyId] = useState(null);
+    const { theme, content, userData, changeUserData } = useCustomContexts();
     const [images, setImages] = useState([]);
     const [amountOfAccesses, setAmountOfAccesses] = useState([true]);
     const [emails, setEmails] = useState([]);
@@ -19,6 +21,7 @@ export default function Properties() {
         subtype: "1",
     });
     const maxNumber = 10;
+    const navigate = useNavigate();
 
     // Handling selecting images changes
     const handleImageChange = (imageList, addUpdateIndex) => {
@@ -37,11 +40,15 @@ export default function Properties() {
         });
     };
 
+    // const insertedPropertyId = () => {
+    //     return userData.rented_properties.pop().id;
+    // };
+
     // handling submit
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log(event);
+        // console.log(event);
 
         // create new array with the data I want to send to backend
         const imagesArray = images.map((imgObject) => imgObject.file);
@@ -62,10 +69,16 @@ export default function Properties() {
                     },
                 }
             );
-
             // get the (already JSON-parsed) response data
-            const response_data = response.data;
+            const propertyId = await response.data.property.id;
+
+            if (propertyId) {
+                window.location.assign(
+                    `/owner/property/${propertyId}/accesses`
+                );
+            }
         } catch (error) {
+            console.log(error);
             // if the response code is not 2xx (success)
             // console.log(error);
             switch (error.response.status) {
@@ -95,17 +108,15 @@ export default function Properties() {
     useEffect(() => {
         console.log(amountOfAccesses);
     }, [amountOfAccesses]);
-    useEffect(() => {
-        console.log(formData);
-    }, [formData]);
+
+    // useEffect(() => {
+    //     navigate(`/owner/property/${propertyId}/accesses`);
+    // }, [propertyId]);
+    // console.log(propertyId);
 
     return (
         <>
-            <form
-                className="property-form"
-                method="post"
-                onSubmit={handleSubmit}
-            >
+            <form className="property-form" onSubmit={handleSubmit}>
                 <h2 className="property-form__heading">Create New Property</h2>
                 <label className="property-form__label" htmlFor="name">
                     Name:
