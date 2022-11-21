@@ -152,13 +152,7 @@ const PropertyReports = () => {
             }).map((property, i) => {
                 return( 
                 property.reports.length > 0 ? ( 
-                        <div className="property" key={i}>
-                            <div className="property__img">
-                                <img
-                                    src={"/" + property.images[0]?.image_url}
-                                    alt="property"
-                                />
-                            </div>
+                        <div className="property property__report-container" key={i}>
                             <div className="property__adress">
                                 <p>{property.address.street_and_number}</p>
                                 <p>{property.address.city}</p>
@@ -169,9 +163,19 @@ const PropertyReports = () => {
                                     if (report.active != "0") {
                                         return (
                                             <div className={done == "done" ? "property__reports--container done" : "property__reports--container" } key={i}>
-                                                <p>{report.subject}</p>
-                                                <p>{report.details}</p>
-                                                <button onClick={() => {
+                                                <div>
+                                                    <p className='title'>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p className='title'>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
                                                     setStatus([
                                                         { id: report.id, active: "0" }
                                                     ]) 
@@ -186,14 +190,22 @@ const PropertyReports = () => {
                                         
                                         return (
                                             <div className='property__reports--container done' key={i}>
-                                                <p>{report.subject}</p>
-                                                <p>{report.details}</p>
-                                                <button onClick={() => {
+                                                <div>
+                                                    <p>Accesory:</p>
+                                                    <p>{report.accessory_id}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Subject:</p>
+                                                    <p>{report.subject}</p>
+                                                </div>
+                                                <div>
+                                                    <p>Detils:</p>
+                                                    <p>{report.details}</p>
+                                                </div>
+                                                <button className='report-button' onClick={() => {
                                                     setDeleteCurrnetReport([
                                                         { id: report.id }
                                                     ])
-                                                    
-
                                                 }}>Delete</button>
                                             </div>
                                         )
