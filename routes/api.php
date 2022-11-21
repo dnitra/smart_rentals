@@ -26,6 +26,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/property/store', [RentedPropertyController::class, 'store']);
 Route::post('/property/publish', [RentedPropertyController::class, 'handlePublishing']);
 Route::post('/report/store', [ReportController::class, 'store']);
+Route::post('/property/{propertyId}/add-access', [RentedPropertyController::class, 'addAccess']);
+Route::post('/property/{propertyId}/remove-access/{accessId}', [RentedPropertyController::class, 'removeAccess']);
+
 Route::post('/report/status', [ReportController::class, 'updateStatus']);
 Route::post('/report/deleteReport', [ReportController::class, 'deleteReport']);
 Route::get('/userData', [UserDataController::class, 'showAllUserData']);

@@ -31,6 +31,7 @@ Route::view('/owner/dashboard/listings/create', 'index');
 Route::view('/owner/dashboard/messages', 'index');
 Route::view('/owner/dashboard/reports', 'index');
 Route::view('/owner/dashboard/property/all/{propertyId}', 'index');
+Route::view('/owner/property/{propertyId}/accesses', 'index');
 
 
 
@@ -39,3 +40,4 @@ Route::view('/tenant/dashboard', 'index');
 Route::view('/tenant/dashboard/all', 'index');
 Route::view('/tenant/dashboard/messages', 'index');
 Route::view('/tenant/dashboard/reports', 'index');
+Route::view('/invite/{linkId}', 'index');
