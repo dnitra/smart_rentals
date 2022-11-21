@@ -41,6 +41,8 @@ export default function Properties() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        console.log(event);
+
         // create new array with the data I want to send to backend
         const imagesArray = images.map((imgObject) => imgObject.file);
 
@@ -309,10 +311,11 @@ export default function Properties() {
                         dragProps,
                     }) => (
                         <>
-                            <label>Upload your images:</label>
+                            {/* <label>Upload your images:</label> */}
                             <div className="upload__image-wrapper">
                                 <button
                                     className="property-form__button property-form__button_images"
+                                    type="button"
                                     style={
                                         isDragging
                                             ? { color: "red" }
@@ -325,6 +328,7 @@ export default function Properties() {
                                 </button>
                                 &nbsp;
                                 <button
+                                    type="button"
                                     className="property-form__button property-form__button_images"
                                     onClick={onImageRemoveAll}
                                 >
@@ -340,6 +344,7 @@ export default function Properties() {
                                             />
                                             <div className="image-item__btn-wrapper">
                                                 <button
+                                                    type="button"
                                                     className="property-form__button property-form__button_images"
                                                     onClick={() =>
                                                         onImageUpdate(index)
@@ -348,6 +353,7 @@ export default function Properties() {
                                                     Update
                                                 </button>
                                                 <button
+                                                    type="button"
                                                     className="property-form__button property-form__button_images"
                                                     onClick={() =>
                                                         onImageRemove(index)

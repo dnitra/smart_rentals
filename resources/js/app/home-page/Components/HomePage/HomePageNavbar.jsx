@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
 
-
 export default function HomePageNavbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
@@ -64,7 +63,6 @@ export default function HomePageNavbar() {
         window.location.assign("/");
     };
 
-
     const cls = visible ? "visible" : "hidden";
 
     return (
@@ -92,25 +90,24 @@ export default function HomePageNavbar() {
                     </Link>
                 </div>
                 {user ? (
-                    
                     <div className="navbar__buttons">
-                    <Link to="/choosePortal" className="button_container">
-                        {" "}
-                        <button className="log-button">Start Now</button>
-                    </Link>
+                        <Link to="/choosePortal" className="button_container">
+                            {" "}
+                            <button className="log-button">Start Now</button>
+                        </Link>
                         <button className="log-button" onClick={logoutUser}>
                             Logout
                         </button>
                     </div>
                 ) : (
-                        <div className="navbar__buttons">
-                        <Link to="/login" className="button_container" >
+                    <div className="navbar__buttons">
+                        <Link to="/login" className="button_container">
                             {" "}
                             <button className="log-button">Start Now</button>
                         </Link>
-                        <Link to="/login" className="button_container">
+                        {/* <Link to="/login" className="button_container">
                             <button className="log-button">Log In</button>
-                        </Link>
+                        </Link> */}
                         <Link to="/register" className="button_container">
                             <button className="log-button">Sign Up</button>
                         </Link>
@@ -120,5 +117,3 @@ export default function HomePageNavbar() {
         </div>
     );
 }
-
-

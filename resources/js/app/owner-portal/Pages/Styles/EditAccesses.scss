@@ -5,6 +5,7 @@
          
             margin: 5px;
             width: 15%;
+            overflow:auto;
         }
         
         
@@ -15,6 +16,13 @@
             width: 15%;
             overflow:auto;
             
+        }
+    }
+
+    .error{
+
+        &__required{
+            border: 3px solid red
         }
     }
    

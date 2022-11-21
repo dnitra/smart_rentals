@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
+import BuildingPlaceholder from "../../../../../img/building-placeholder.jpg";
 
 function AllProperty() {
     const { user, userData, changeUserData } = useCustomContexts();
@@ -37,7 +38,10 @@ function AllProperty() {
                               <div className="property" key={i}>
                                   <div className="property__img">
                                       {property.images.length === 0 ? (
-                                          <img src="" alt="empty" />
+                                          <img
+                                              src={BuildingPlaceholder}
+                                              alt="building placeholder"
+                                          />
                                       ) : (
                                           <img
                                               src={
