@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
-
+import { slide as Menu } from 'react-burger-menu'
+import logoBlack from "../../../../img/logos/SM-logo-black.svg"
 export default function OwnerNavbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
@@ -47,25 +48,21 @@ export default function OwnerNavbar() {
         ),
     };
 
-    const goBurger = () => {
-        document
-            .querySelector(".navbar")
-            .classList.toggle("burger__menu-container");
-        // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
-    };
+
+    // const goBurger = () => {
+    //     document
+    //         .querySelector(".navbar")
+    //         .classList.toggle("burger__menu-container");
+    //     // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
+    // };
+
+    const showSettings = (event) => {
+        event.preventDefault();
+    }
 
     return (
+        <>
         <header className="navbar navbar_owner">
-            <div
-                className="burger__menu"
-                onClick={(e) => {
-                    goBurger();
-                }}
-            >
-                <div className="burger__menu-icon"></div>
-                <div className="burger__menu-icon"></div>
-                <div className="burger__menu-icon"></div>
-            </div>
             <div className="navbar__logo">{logo.data}</div>
             <div className="navbar__menu">
                 <div className="navbar__links">
@@ -90,16 +87,64 @@ export default function OwnerNavbar() {
                     <Link to="/owner/dashboard/messages">
                         <p>messages</p>
                     </Link>
+                    <Link to="/" className="button_container">
+                        <button className="log-button" onClick={logoutUser}>
+                            Logout
+                        </button>
+                    </Link>
+
                 </div>
             </div>
-            <div className="navbar__buttons">
-                <Link to="/" className="button_container">
-                    <button className="log-button" onClick={logoutUser}>
-                        Logout
-                    </button>
-                </Link>
-            </div>
         </header>
+        <div className="header-menu">
+            
+        <Menu>
+                <Link to="/owner/dashboard">
+                    <p>
+                        <img src={logoBlack} alt="logo" />
+                    </p>
+                </Link>
+            <Link to="/owner/dashboard">
+                <p>
+                    <span>dashboard</span>
+                </p>
+            </Link>
+            <Link to="/owner/dashboard/all">
+                <p>all properties</p>
+            </Link>
+            <Link to="/owner/dashboard/cashflow">
+                <p>cashflow</p>
+            </Link>
+            <Link to="/owner/dashboard/listings">
+                <p>listings</p>
+            </Link>
+            <Link to="/owner/dashboard/reports">
+                <p>reports</p>
+            </Link>
+            <Link to="/owner/dashboard/messages">
+                <p>messages</p>
+            </Link>
+            <Link to="/" className="button_container">
+                <button className="log-button" onClick={logoutUser}>
+                    Logout
+                </button>
+            </Link>
+                
+        </Menu>
+            <div className="bm-cross-button" >
+                <button type="button" id="react-burger-cross-btn" tabindex="0">Close Menu</button>
+                <span className="bm-span">
+                    <span className="bm-cross-1">
+                    </span>
+                    <span className="bm-cross-2">
+                    </span>
+                </span>
+            </div>
+            {/* <div>
+                
+            </div> */}
+        </div>
+        </>
     );
 }
 
