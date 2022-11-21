@@ -3,7 +3,7 @@
     border-radius: 30px;
     padding-top: 4px;
     padding-bottom: 4px;
-    margin: 0.3rem;
+    margin-top: 0.5rem;
     border: 0px;
     background-color: rgb(204, 222, 249);
     color: rgb(0, 0, 0);
@@ -16,20 +16,18 @@
 p {
     display: flex;
 }
-.tileImg{
-    max-width:100%;
-    max-height:100%;
-    width: 7rem;
-    height: 7rem;
+.tileImg {
+    max-width: 100%;
+    max-height: 100%;
+    width: 10rem;
+    height: 10rem;
     border-radius: 100%;
-    background-color: blueviolet;
-    
 }
 .titles-btn {
     height: 35px;
     width: 120px;
     border-radius: 30px;
-    margin: auto 0.2rem;
+    margin-bottom: 1rem;
     border: 0px;
     background-color: rgb(204, 222, 249);
     color: rgb(15, 15, 15);
@@ -49,17 +47,18 @@ p {
 }
 .tile {
     display: flex;
-   height: 12rem;
+    height: 13rem;
     width: 100%;
-    
 }
 .tiles-picture {
-    width: 7rem;
-    height: 7rem;
+    max-width: 100%;
+    max-height: 100%;
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
     border-radius: 100%;
     background-color: blueviolet;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
 }
 .tiles-list {
     display: flex;
@@ -76,12 +75,16 @@ p {
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
-  
 }
-.tiles-address__heading{
+.tiles-address__heading {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+.ahoj {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
-    text-transform: uppercase;
+    justify-content: space-between;
 }

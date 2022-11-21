@@ -49,24 +49,27 @@ export default function Tiles() {
                                                   }
                                               ></img>
                                           </div>
-                                          <h3
-                                              key={index}
-                                              className="tiles-address__heading"
-                                          >
-                                              {
-                                                  property.address
-                                                      .street_and_number
-                                              }
-                                              <br></br>
-                                              {property.address.city}
-                                              <br />
-                                              <button
-                                                  type="button"
-                                                  className="titles-btn"
+
+                                          <div className="ahoj">
+                                              <h3
+                                                  key={index}
+                                                  className="tiles-address__heading"
                                               >
-                                                  Edit
-                                              </button>
-                                          </h3>
+                                                  {
+                                                      property.address
+                                                          .street_and_number
+                                                  }
+                                                  <br></br>
+                                                  {property.address.city}
+                                                  <br />
+                                              </h3>
+                                                  <button
+                                                      type="button"
+                                                      className="titles-btn"
+                                                  >
+                                                      Edit
+                                                  </button>
+                                          </div>
                                           <div className="tiles-list">
                                               {/* <ul>
                         <li>Applicants</li>

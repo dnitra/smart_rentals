@@ -2,17 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .listnings-add {
     display: flex;
     margin-bottom: 5rem;
+    
 }
 
 .listnings-add__btn {
     height: 35px;
     width: 120px;
     border-radius: 30px;
-    margin: auto 0.2rem;
+    margin:  0.2rem;
     border: 0px;
     background-color: rgb(204, 222, 249);
     color: black;
@@ -30,7 +32,7 @@
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .select-listnings {
-    border-radius: 0.25rem;
+    border-radius: 30px;
     border: 1px solid #c4c4c4;
 
     box-sizing: border-box;
