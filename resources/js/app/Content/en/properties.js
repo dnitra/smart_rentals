@@ -39,8 +39,8 @@ export function properties() {
         subTypeCommercial8: "Apartments",
         subTypeCommercial9: "Others",
         subTypeOthers1: "Garage",
-        subTypeOthers1: "Wine cellar",
-        subTypeOthers1: "Attic",
-        subTypeOthers1: "Mobilheim",
+        subTypeOthers2: "Wine cellar",
+        subTypeOthers3: "Attic",
+        subTypeOthers4: "Mobilheim",
     };
 }

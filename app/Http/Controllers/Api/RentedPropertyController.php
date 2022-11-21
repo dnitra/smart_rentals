@@ -41,6 +41,7 @@ class RentedPropertyController extends Controller
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();
+        // dd($property);
 
 
         // if there are any uploaded images, then loop through them and call storeImage for each of them
@@ -51,6 +52,8 @@ class RentedPropertyController extends Controller
                 ImageService::storeImage($uploaded_image, $property->id);
             }
         }
+
+
 
         //save the user_id and rented_property_id to intermediate table
         $user->rentedProperties()->attach($property, ["role_id" => 1]);
