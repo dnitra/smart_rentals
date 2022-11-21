@@ -5,10 +5,9 @@ body {
     padding: 0;
 }
 
+/// DESKTOP SIZE
 
-/// DESKTOP SIZE 
-
-/// OWNER NAVBAR 
+/// OWNER NAVBAR
 .navbar_owner {
     grid-template-columns: 1.5fr 3fr 1fr;
     z-index: 1;
@@ -18,18 +17,17 @@ body {
     display: grid;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 3rem; 
-
+    margin-bottom: 3rem;
 }
-/// HOME NAVBAR 
-.navbar_home{
+/// HOME NAVBAR
+.navbar_home {
     grid-template-columns: 2fr 3fr 2fr;
     z-index: 2;
     position: fixed;
 }
 
 ///FOR EACH NAVBAR
-.navbar{
+.navbar {
     background-color: rgba(0, 0, 0, 0.5);
     height: 85px;
     width: 100%;
@@ -42,25 +40,26 @@ body {
     }
 
     &__links {
-        @media (max-width:1320px) {
-            font-size: 0.8rem;    
-             line-height: 20px;
+        @media (max-width: 1320px) {
+            font-size: 0.8rem;
+            line-height: 20px;
         }
-          
-        @media (max-width:1050px) {
-           display: none;   
+
+        @media (max-width: 1050px) {
+            display: none;
         }
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding-top: 1.3rem;
-        color: white; 
+        color: white;
 
         & a {
             text-decoration: none;
             color: white;
         }
         & a:hover {
+            cursor: pointer;
             color: lightblue;
         }
 
@@ -70,16 +69,15 @@ body {
             line-height: 20px;
             letter-spacing: 0em;
             text-align: left;
-            
-            @media (max-width:1320px) {
-                font-size: 0.9rem;    
+
+            @media (max-width: 1320px) {
+                font-size: 0.9rem;
                 //  line-height: 27px;
             }
         }
     }
 
     &__buttons {
-       
         display: flex;
         flex-direction: row;
         margin-left: auto;
@@ -87,7 +85,7 @@ body {
         margin-right: 2rem;
 
         .log-button {
-            @media (max-width:1050px) {
+            @media (max-width: 1050px) {
                 display: none;
             }
             height: 35px;
@@ -99,6 +97,7 @@ body {
             color: black;
             text-transform: uppercase;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .log-button:hover,
@@ -155,24 +154,21 @@ body {
     display: none;
 }
 
-
 /// MOBILE SIZE
-/// 
-/// 
-/// 
-/// 
+///
+///
+///
+///
 
-
-
-.burger__menu{
-    display: none; 
-    @media (max-width:1050px) {
+.burger__menu {
+    display: none;
+    @media (max-width: 1050px) {
         display: block;
         padding: 2rem;
         margin-right: -10px;
         position: relative;
 
-        &-icon{
+        &-icon {
             width: 35px;
             height: 3px;
             background-color: white;
@@ -180,12 +176,12 @@ body {
         }
     }
 }
-.navbar.burger__menu-container{
-    @media (max-width:1050px) {
-            .navbar__menu{
+.navbar.burger__menu-container {
+    @media (max-width: 1050px) {
+        .navbar__menu {
             display: flex;
-            flex-direction: column; 
-            background-color:rgba(0, 0, 0, 0.8);
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.8);
             position: absolute;
             left: 0;
             top: 7.9%;
@@ -193,26 +189,23 @@ body {
             height: 20rem;
             text-align: center;
             transition: all 1s ease;
-            
-            }
-           
-            .navbar__logo {
-            align-content: center;
-            }
+        }
 
-           .navbar__links{
+        .navbar__logo {
+            align-content: center;
+        }
+
+        .navbar__links {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding-top: 1.3rem;
-            color: white; 
-          
-            }
+            color: white;
+        }
 
-            .navbar__buttons {
-                // display: none;
-            }
-        // }   
+        .navbar__buttons {
+            // display: none;
+        }
+        // }
     }
-
 }

@@ -8,6 +8,7 @@ import Home from "./home-page/Pages/Home";
 import Login from "./home-page/Pages/Login";
 import Register from "./home-page/Pages/Register";
 import Test from "./home-page/Pages/Test";
+import ChoosePortal from "./home-page/Pages/ChoosePortal";
 
 //imports from owner portal
 import OwnerLayout from "./owner-portal/Pages/OwnerLayout";
@@ -24,16 +25,27 @@ import EditDetailsApartment from "./owner-portal/Pages/EditDetailsApartment";
 import EditDeatilsLand from "./owner-portal/Pages/EditDetailsLand";
 import EditDetailsHouse from "./owner-portal/Pages/EditDetailsHouse";
 import EditDetailsCommercial from "./owner-portal/Pages/EditDetailsCommercial";
+import EditAccesses from "./owner-portal/Pages/EditAccess";
+
+//import from tenant portal
+import TenantLayout from "./tenant-portal/Pages/TenantLayout";
+import TenantDashboard from "./tenant-portal/Pages/TenantDashboard";
+import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
 
 export default function App() {
     // state from contexts
-    const { user, setUser, changeUserData } = useCustomContexts();
+    const { user,userData, setUser, changeUserData } = useCustomContexts();
 
     // get authenticated user and store the user in state
     const getUser = async () => {
+        try{
         const res = await axios.get("/api/user");
         const data = res.data;
-        setUser(data);
+            setUser(data);
+        }
+        catch (error) {
+            console.log(error)
+        }
     };
 
     useEffect(() => {
@@ -50,7 +62,7 @@ export default function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     {/* <Route path="/products" element={<Products />} /> */}
-                    <Route path="/test" element={<Test />} />
+                    <Route path="/choosePortal" element={<ChoosePortal />} />
                 </Route>
 
                 <Route path="/owner" element={<OwnerLayout />}>
@@ -95,7 +107,31 @@ export default function App() {
                         path="/owner/dashboard/reports"
                         element={<Reports />}
                     />
-                    <Route path="/owner/properties" element={<Properties />} />
+                    <Route
+                        path="/owner/properties"
+                        element={<Properties />} />
+                    <Route
+                        path="/owner/property/:propertyId/accesses/"
+                        element={<EditAccesses />} />
+                </Route>
+                <Route path="/tenant" element={<TenantLayout />}>
+                    <Route
+                        path="/tenant/dashboard"
+                        element={<TenantDashboard/>}
+                    />
+                    <Route
+                        path="/tenant/dashboard/all"
+                        element={<TenantProperties />}
+                    />
+                    <Route
+                        path="/tenant/dashboard/messages"
+                        element={<Messages />}
+                    />
+                    <Route
+                        path="/tenant/dashboard/reports"
+                        element={<Reports />}
+                    />
+
                 </Route>
             </Routes>
         </BrowserRouter>

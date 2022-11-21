@@ -1,0 +1,23 @@
+.accesses{
+    &__head, &__access-detail{
+        display: flex;
+        h3{
+         
+            margin: 5px;
+            width: 15%;
+        }
+        
+        
+    }
+    &__row{
+        input,select,button,div{
+            margin: 5px;
+            width: 15%;
+            overflow:auto;
+            
+        }
+    }
+   
+
+   
+}

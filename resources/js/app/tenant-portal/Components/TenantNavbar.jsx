@@ -1,12 +1,17 @@
 import React from "react";
-import "../../Pages/Styles/Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useCustomContexts } from "../../../Context/ContextsProvider";
+import { useCustomContexts } from "../../Context/ContextsProvider";
+import "../../home-page/Pages/Styles/Navbar.scss";
 
-function Navbar() {
-    const { user, setUser } = useCustomContexts();
+function TenantNavbar() {
+    const { user, setUser, conent } = useCustomContexts();
     const navigate = useNavigate();
+
+    const logoutUser = async () => {
+        const response = await axios.post("/logout");
+        if (user) setUser(null);
+        window.location.assign("/");
+    };
 
     const logo = {
         data: (
@@ -42,73 +47,53 @@ function Navbar() {
         ),
     };
 
-    const [position, setPosition] = useState(window.pageYOffset);
-    const [visible, setVisible] = useState(true);
-    useEffect(() => {
-        const handleScroll = () => {
-            let moving = window.pageYOffset;
-
-            setVisible(position > moving);
-            setPosition(moving);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    });
-
-    const logoutUser = async () => {
-        const response = await axios.post("/logout");
-        if (user) setUser(null);
-        window.location.assign("/");
+    const goBurger = () => {
+        document
+            .querySelector(".navbar")
+            .classList.toggle("burger__menu-container");
+        // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
     };
 
-    console.log(user);
-
-    const cls = visible ? "visible" : "hidden";
-
     return (
-        <div className={cls}>
-            <header className="navbar navbar_home">
-                <div className="navbar__logo">{logo.data}</div>
+        <header className="navbar navbar_owner">
+            <div
+                className="burger__menu"
+                onClick={(e) => {
+                    goBurger();
+                }}
+            >
+                <div className="burger__menu-icon"></div>
+                <div className="burger__menu-icon"></div>
+                <div className="burger__menu-icon"></div>
+            </div>
+            <div className="navbar__logo">{logo.data}</div>
+            <div className="navbar__menu">
                 <div className="navbar__links">
-                    <Link to="/">
+                    <Link to="/owner/dashboard">
                         <p>
-                            <span>Why SR</span>
+                            <span>{content.tenant_navbar_dashboard}</span>
                         </p>
                     </Link>
-                    <Link to="/test">
-                        <p>Product</p>
+                    <Link to="/tenant/dashboard/all">
+                        <p>{content.tenant_navbar_allProperties}</p>
                     </Link>
-                    <Link to="/">
-                        <p>Prices</p>
-                    </Link>
-                    <Link to="/">
-                        <p>Contacts</p>
-                    </Link>
-                    <Link to="/">
+                    <Link to="/tenant/dashboard/reports">
                         {" "}
-                        <p>Reviews</p>
+                        <p>{content.tenant_navbar_reports}</p>
+                    </Link>
+                    <Link to="/tenant/dashboard/messages">
+                        <p>{content.tenant_navbar_messages}</p>
                     </Link>
                 </div>
-                {user ? (
-                    <div className="navbar__buttons">
-                        <button className="log-button" onClick={logoutUser}>
-                            Logout
-                        </button>
-                    </div>
-                ) : (
-                    <div className="navbar__buttons">
-                        <Link to="/login" className="button_container">
-                            <button className="log-button">Log In</button>
-                        </Link>
-                        <Link to="/register" className="button_container">
-                            <button className="log-button">Sign Up</button>
-                        </Link>
-                    </div>
-                )}
-            </header>
-        </div>
+            </div>
+            <div className="navbar__buttons">
+                <Link to="/" className="button_container">
+                    <button className="log-button" onClick={logoutUser}>
+                        {conent.tenant_navbar_Logout}
+                    </button>
+                </Link>
+            </div>
+        </header>
     );
 }
 

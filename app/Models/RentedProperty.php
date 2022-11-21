@@ -10,6 +10,7 @@ use App\Models\Address;
 use App\Models\PropertyDetail;
 use App\Models\Report;
 use App\Models\Image;
+use App\Models\PropertyAccess;
 
 class RentedProperty extends Model
 {
@@ -36,7 +37,11 @@ class RentedProperty extends Model
 
     public function reports()
     {
-        return $this ->hasMany(Report::class);
+        return $this->hasMany(Report::class);
     }
-    
+
+    public function propertyAccesses()
+    {
+        return $this->hasMany(PropertyAccess::class);
+    }
 }

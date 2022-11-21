@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('property_detail_rented_property', function (Blueprint $table) {
+        Schema::create('property_accesses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("property_detail_id");
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string("invite_link")->unique();
             $table->unsignedBigInteger("rented_property_id");
-            $table->string("value")->nullable();
+            $table->unsignedBigInteger("rented_property_user_role_id");
+            $table->tinyInteger("active")->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property_detail_rented_property');
+        Schema::dropIfExists('property_accesses');
     }
 };

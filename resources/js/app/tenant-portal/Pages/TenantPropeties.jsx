@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import image from "../../../../img/dashboard/Properties.svg"
-import newPropertyImage from "../../../../../img/dashboard/NewProperty.svg";
 import { useState, useEffect } from "react";
-import { useCustomContexts } from "../../../Context/ContextsProvider";
+import { useCustomContexts } from "../../Context/ContextsProvider";
 
-function AllProperty() {
+export default function TenantProperties() {
     const { user, userData, changeUserData } = useCustomContexts();
 
     useEffect(() => {
@@ -14,27 +13,15 @@ function AllProperty() {
         console.log(userData)
     }, []);
 
-
+    
     return (
 
         
         <div className="properies">
 
-            <div className="property">
-                <div className="property__img">
-                    <img src={newPropertyImage} alt="" />
-                </div>
-                <div className="property__adress">
-                    <p></p>
-                    <Link to={"/owner/properties"}>
-                        <button className="property__add">+</button>
-                    </Link>
-                </div>
-            </div>
             {userData.rented_properties
                 ? userData.rented_properties.filter((property) => {
-                    
-                    return property.pivot.role_id==1
+                    return property.pivot.role_id ===3
                 }).map((property, i) => {
                       
                       return (
@@ -65,4 +52,3 @@ function AllProperty() {
     );
 }
 
-export default AllProperty;
