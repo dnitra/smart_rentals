@@ -213,24 +213,6 @@ const PropertyReports = () => {
 
                                     }
 
-                                    // {
-                                    //     report.active === "1" ? () => {
-
-
-                                    //      (<div className='property__reports--container' key={i}>
-                                    //         <p>{report.subject}</p>
-                                    //         <p>{report.details}</p>
-                                    //         <button onClick={() => {
-                                    //             setStatus([
-                                    //                 { id: report.id, active: "0" }
-                                    //             ])
-                                    //         }}>Done</button>
-                                    //         </div>)
-                                    //     } : ""
-
-                                    //     }
-
-
 
                                 })}
                             </div>

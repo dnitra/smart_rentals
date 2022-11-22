@@ -9,15 +9,15 @@ function DashboardCashflow() {
     const { user, userData } = useCustomContexts();
     console.log(userData.rented_properties)
 
+    const months = ["June", "Jule", "August", "September", "October"]
 
     const graph = []
     userData.rented_properties ? (
-        userData.rented_properties.map(property => {
-            console.log(property.name)
-            let range = { min: 1000, max: 2500 }
+        months.map(month => {
+            let range = { min: 100000, max: 250000 }
             let delta = range.max - range.min
             const result = Math.round(range.min + Math.random() * delta)
-            graph.push({ name: property.name, uv: result, pv: result, amt: result })
+            graph.push({ name: month, Incoming: result, pv: result, amt: result })
 
         })) : ""
 
@@ -26,13 +26,12 @@ function DashboardCashflow() {
     return (
        
             <div className="dashboard__cashflow">
-                <BarChart width={600} height={300} data={graph}>
+                <BarChart width={600} height={450} data={graph}>
                     <XAxis dataKey="name" stroke="#8884d8" />
                     <YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                    <Tooltip wrapperStyle={{ width: 250, backgroundColor: '#ccc' }} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <Bar dataKey="uv" fill="blue" barSize={30} />
+                    <Bar dataKey="Incoming" fill="blue" barSize={70} />
                 </BarChart>
             </div>
     );

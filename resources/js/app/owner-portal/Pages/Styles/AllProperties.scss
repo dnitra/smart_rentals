@@ -2,21 +2,21 @@ body {
     background-color: #f5f5f5;
 }
 
-.dashboard__reports{
-    height: auto;
+// .dashboard__reports{
+//     height: auto;
 
-    overflow-x: scroll;
-    .properies{
-        display: flex;
+//     overflow-x: scroll;
+//     .properies{
+//         display: flex;
         
-        .property{
-        &.property__report-container{
-            min-width: 500px;
-        }
-        }
+//         .property{
+//         &.property__report-container{
+//             min-width: 500px;
+//         }
+//         }
     
-    }
-}
+//     }
+// }
 .properies {
     width: 100%;
     display: grid;

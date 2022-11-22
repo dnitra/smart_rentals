@@ -3,133 +3,66 @@ import { useState } from 'react';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
 
 function DashboardReports() {
-    const [detailsShown, setDetailsShown] = useState(false);
-    const [active, setActive] = useState(false);
-    const { user, userData, changeUserData } = useCustomContexts();
-
+    const [detailsShown, setDetailsShown] = useState(false)
+    const [active, setActive] = useState(false)
+    // const [toggle, setToggle] = useState(true)
+    const { user, userData, changeUserData } = useCustomContexts()
     console.log(userData)
-
   return (
     <div className='dashboard__reports-container'>
-          <button
-              className={
-                  "dashboard__reports-container__links" +
-                  (active === "cashflow" ? "--active" : "")
-              }
-              onClick={() => {
-                  setDetailsShown("Cashflow");
-                  setActive("cashflow");
-              }}
-          >
-              Cashflow
-          </button>
-
-          {(() => {
-              switch (detailsShown) {
-                  case "Cashflow":
-                      return (
-                          <>
-                              <div
-                                  id="Cashflow"
-                                  className="dashboard__reports-container__content"
+          <div>
+              {userData.rented_properties ? userData.rented_properties.filter((property) => {
+                  return property.pivot.role_id == 1
+              }).map((property, i) => {
+                  return (
+                      property.reports.length > 0 ? (
+                          <div key={i}>
+                              <button
+                                  className={
+                                      "dashboard__reports-container__links" +
+                                      (active === property.name? "--active" : "")
+                                  }
+                                  onClick={() => {
+                                      setDetailsShown(property.name);
+                                      setActive(property.name);
+                                  }}
                               >
-                                  <p>Cashflow</p>
+                                  {property.name} , {property.address.street_and_number}
+                              </button>
+                              <div className={active === property.name ? "dashboard__report dashboard__report--show" : "dashboard__report"} >
+                                  {property.reports.map((report, i) => {
+
+                                      if (report.active != "0") {
+                                          return (
+                                              <div className="dashboard__report--info" key={i}>
+                                                  <div className='dashboard__report--info__current'>
+                                                      <p className='title'>Accesory:</p>
+                                                      <p>{report.accessory_id}</p>
+                                                  </div>
+                                                  <div className='dashboard__report--info__current'>
+                                                      <p className='title'>Subject:</p>
+                                                      <p>{report.subject}</p>
+                                                  </div>
+                                                  <div className='dashboard__report--info__current'>
+                                                      <p className='title'>Detils:</p>
+                                                      <p>{report.details}</p>
+                                                  </div>
+                                                  
+                                              </div>
+                                          )
+
+                                      }
+                                  })}
                               </div>
-                          </>
-                      );
-                  default:
-                      "";
+                          </div>
+
+                      ) : ""
+                  )
+              }) : ""
               }
-          })()}
+          </div>
     </div>
   )
 }
 
 export default DashboardReports
-
-
-
-
-    // (
-    //     <div className='dashboard__reports-container'>
-    //         <button
-    //             className={
-    //                 "dashboard__reports-container__links" +
-    //                 (active === "cashflow" ? "--active" : "")
-    //             }
-    //             onClick={() => {
-    //                 setDetailsShown("Cashflow");
-    //                 setActive("cashflow");
-    //             }}
-    //         >
-    //             Cashflow
-    //         </button>
-
-    //         <button
-    //             className={
-    //                 "dashboard__reports-container__links" +
-    //                 (active === "bills" ? "--active" : "")
-    //             }
-    //             onClick={() => {
-    //                 setDetailsShown("Bills");
-    //                 setActive("bills");
-    //             }}
-    //         >
-    //             Bills
-    //         </button>
-
-    //         <button
-    //             className={
-    //                 "dashboard__reports-container__links" +
-    //                 (active === "reports" ? "--active" : "")
-    //             }
-    //             onClick={() => {
-    //                 setDetailsShown("Reports");
-    //                 setActive("reports");
-    //             }}
-    //         >
-    //             Reports
-    //         </button>
-
-    //         {(() => {
-    //             switch (detailsShown) {
-    //                 case "Cashflow":
-    //                     return (
-    //                         <>
-    //                             <div
-    //                                 id="Cashflow"
-    //                                 className="dashboard__reports-container__content"
-    //                             >
-    //                                 <p>Cashflow</p>
-    //                             </div>
-    //                         </>
-    //                     );
-    //                 case "Bills":
-    //                     return (
-    //                         <>
-    //                             <div
-    //                                 id="Bills"
-    //                                 className="dashboard__reports-container__content"
-    //                             >
-    //                                 <p>Bills</p>
-    //                             </div>
-    //                         </>
-    //                     );
-    //                 case "Reports":
-    //                     return (
-    //                         <>
-    //                             <div
-    //                                 id="Reports"
-    //                                 className="dashboard__reports-container__content"
-    //                             >
-    //                                 <p>property</p>
-
-    //                             </div>
-    //                         </>
-    //                     );
-    //                 default:
-    //                     "";
-    //             }
-    //         })()}
-    //     </div>
-    // )
