@@ -120,7 +120,7 @@ const SelectedPropertyDetails = () => {
                                                   .length === 0 ? (
                                                   <Link
                                                       className="property__info-details-buttom-buttons-link"
-                                                      to={`/`}
+                                                      to={`/owner/property/${propertyId}/accesses`}
                                                   >
                                                       <button className="log-button log-buttons_property">
                                                           Add tenant

@@ -21,7 +21,6 @@ export default function Properties() {
         subtype: "1",
     });
     const maxNumber = 10;
-    const navigate = useNavigate();
 
     // Handling selecting images changes
     const handleImageChange = (imageList, addUpdateIndex) => {
@@ -316,6 +315,7 @@ export default function Properties() {
                 ) : null}
 
                 {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
+                <label>Add images:</label>
                 <ImageUploading
                     multiple
                     value={images}

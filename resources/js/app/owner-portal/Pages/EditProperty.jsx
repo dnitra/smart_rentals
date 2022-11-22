@@ -23,6 +23,13 @@ export default function EditProperty() {
     // max number of uploaded images
     const maxNumber = 10;
 
+    // Handling selecting images changes
+    const handleImageChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
+
     // load user data
     useEffect(() => {
         changeUserData();
@@ -58,6 +65,9 @@ export default function EditProperty() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // create new array with the data I want to send to backend
+        const imagesArray = images.map((imgObject) => imgObject.file);
+
         try {
             // make the AJAX request
             const response = await axios.post(
@@ -77,6 +87,7 @@ export default function EditProperty() {
 
             // get the (already JSON-parsed) response data
             const response_data = response.data;
+            console.log(response_data);
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
@@ -310,6 +321,7 @@ export default function EditProperty() {
                 ) : null}
 
                 {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
+                <label>Add images:</label>
                 <ImageUploading
                     multiple
                     value={images}
