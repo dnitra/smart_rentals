@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('details', 3000)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('accessory_id')->nullable();
-            $table->string('accessory_name');
             $table->unsignedBigInteger('rented_property_id');
             $table->tinyInteger("active");
             $table->timestamps();                                                                                                                                             
