@@ -1,0 +1,18 @@
+.dashboard__properties-item {
+    display: flex;
+
+    // border: 1px solid #000;
+    // border-radius: 15px;
+    // overflow: hidden;
+    .properties-item__left {
+        width: 50%;
+    }
+
+    .properties-item__right {
+        width: 50%;
+    }
+}
+
+img {
+    width: 300px;
+}

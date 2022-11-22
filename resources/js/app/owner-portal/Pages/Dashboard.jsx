@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import "./Styles/Dashboard.scss"
-import AllProperty from "../Components/Dashboard/AllProperty";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import PropertyList from "../Components/PropertyList/PropertyList";
+
 function Dashboard() {
-    const { user } = useCustomContexts();
+    const { userData, changeUserData } = useCustomContexts();
+    useEffect(() => {
+        changeUserData();
+    }, []);
     return (
-        <div>
-            {/* <div className="property"></div>
+        <>
+            <PropertyList />
             <div className="cashflow"></div>
             <div className="tasks"></div>
             <div className="bills"></div>
-            <div className="mailbox"></div> */}
-        </div>
+            <div className="mailbox"></div>
+        </>
     );
 }
 
