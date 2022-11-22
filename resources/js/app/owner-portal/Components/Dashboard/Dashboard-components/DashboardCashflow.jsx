@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 // import "./Styles/Dashboard.scss"
-import { useCustomContexts } from '../../../../Context/ContextsProvider';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-
-
+import { useCustomContexts } from "../../../../Context/ContextsProvider";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Legend,
+    CartesianGrid,
+} from "recharts";
 
 function DashboardCashflow() {
     const { user, userData } = useCustomContexts();
@@ -26,7 +32,7 @@ function DashboardCashflow() {
     return (
        
             <div className="dashboard__cashflow">
-                <BarChart width={600} height={450} data={graph}>
+                <BarChart width={450} height={400} data={graph}>
                     <XAxis dataKey="name" stroke="#8884d8" />
                     <YAxis />
                     <Tooltip wrapperStyle={{ width: 250, backgroundColor: '#ccc' }} />
@@ -37,4 +43,4 @@ function DashboardCashflow() {
     );
 }
 
-export default DashboardCashflow
+export default DashboardCashflow;
