@@ -23,28 +23,32 @@ function Reports() {
 
     }, [])
 
-    const accessories = {
-        1: {
+    const accessories = [
+        {
             id: "1",
             name: "Shower"
         },
-        2: {
+        {
             id: "2",
             name: "TV"
         },
-        3: {
+        {
             id: "3",
             name: "Frige"
         },
-        4: {
+        {
             id: "4",
             name: "Light"
         },
-        5: {
+        {
             id: "5",
             name: "Window"
         },
-    }
+        {
+            id: "6", 
+            name: "Others"
+        }
+    ]
 
 
     const uploadReport = async () => {
@@ -114,12 +118,19 @@ function Reports() {
 
                     <select name="accessory_id" onChange={handleChange}>
                         <option value='default'>Please select a accessory</option>
-                        <option value={accessories[1].id}>{accessories[1].name}</option>
-                        <option value={accessories[2].id}>{accessories[2].name}</option>
+                        
+                        { accessories.map(accessory => {
+                            return(
+                                <option value={accessory.id}>{accessory.name}</option>
+                            )
+                        })}
+                     
+                       
+                        {/* <option value={accessories[2].id}>{accessories[2].name}</option>
                         <option value={accessories[3].id}>{accessories[3].name}</option>
                         <option value={accessories[4].id}>{accessories[4].name}</option>
                         <option value={accessories[5].id}>{accessories[5].name}</option>
-                        <option value={"other"}>Others</option>
+                        <option value="others">{accessories[6].name}</option> */}
                     </select>
                 </div>
                 <div className='reports__new--text'>

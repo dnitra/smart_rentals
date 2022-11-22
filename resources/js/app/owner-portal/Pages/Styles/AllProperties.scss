@@ -2,6 +2,7 @@ body {
     background-color: #f5f5f5;
 }
 
+
 .properies {
     width: 100%;
     display: grid;
@@ -11,6 +12,21 @@ body {
 
     .property__report-container {
         padding-bottom: 0;
+    }
+    &.currentPropertyDetails{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 1rem;
+       .property{
+        
+            &__reports{
+                &--container{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                }
+            }
+       }
     }
     .property {
         background-color: #ffffff;
@@ -118,6 +134,11 @@ body {
         }
     }
 }
+
+// .property.currentPropertyDetails{
+//     display: grid;
+//     grid-template-columns: 1fr;
+// }
 
 @media (max-width: 1366px) {
     .properies {

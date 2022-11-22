@@ -4,6 +4,7 @@ import "./Styles/SelectedPropertyDetails.scss";
 // import image from "../../../../img/dashboard/Property.svg";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import SelectedPropertyReports from "../Components/Dashboard/PropertyReports/SelectedPropertyReports";
 
 const SelectedPropertyDetails = () => {
     const { userData, changeUserData } = useCustomContexts();
@@ -142,7 +143,7 @@ const SelectedPropertyDetails = () => {
                                                 id="Reports"
                                                 className="tab__content"
                                             >
-                                                <p>Reports</p>
+                                                <SelectedPropertyReports id={propertyId} />
                                             </div>
                                         </>
                                     );
