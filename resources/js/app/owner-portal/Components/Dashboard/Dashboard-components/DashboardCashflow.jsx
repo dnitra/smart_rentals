@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'rec
 
 
 
-function Cashflow() {
+function DashboardCashflow() {
     const { user, userData } = useCustomContexts();
     console.log(userData.rented_properties)
 
@@ -38,4 +38,4 @@ function Cashflow() {
     );
 }
 
-export default Cashflow
+export default DashboardCashflow
