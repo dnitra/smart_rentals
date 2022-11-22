@@ -5,6 +5,7 @@ import "./Styles/SelectedPropertyDetails.scss";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import SelectedPropertyReports from "../Components/Dashboard/PropertyReports/SelectedPropertyReports";
+import BuildingPlaceholder from "../../../../img/building-placeholder.jpg";
 
 const SelectedPropertyDetails = () => {
     const { userData, changeUserData } = useCustomContexts();
@@ -31,36 +32,101 @@ const SelectedPropertyDetails = () => {
                               return (
                                   <div className="property__info">
                                       <div className="property__info-img">
-                                          <img
-                                              src={property.images[0]}
-                                              alt="property_preview"
-                                          />
+                                          {property.images.length === 0 ? (
+                                              <img
+                                                  src={BuildingPlaceholder}
+                                                  alt="building placeholder"
+                                              />
+                                          ) : (
+                                              <img
+                                                  src={
+                                                      "/" +
+                                                      property.images[0]
+                                                          ?.image_url
+                                                  }
+                                                  alt="property"
+                                              />
+                                          )}
                                       </div>
                                       <div className="property__info-details">
                                           <div className="property__info-details-top">
-                                              <h2>{property.name}</h2>
-                                              <p>
-                                                  {property.address.city}
+                                              {/* <h2>{property.name}</h2> */}
+                                              <h2>
+                                                  {property.address.city},&nbsp;
                                                   {
                                                       property.address
                                                           .street_and_number
                                                   }
-                                              </p>
+                                              </h2>
                                           </div>
                                           <div className="property__info-details-buttom">
                                               <div className="property__info-details-buttom-left">
-                                                  {/* <h3>{property.squre}m2</h3> */}
-                                                  <h4>Apartment area</h4>
+                                                  <span className="property__info-details-buttom-left-area">
+                                                      Area
+                                                  </span>
+                                                  <span>
+                                                      {!property.area ? (
+                                                          "N/A"
+                                                      ) : (
+                                                          <span>
+                                                              {property.area} m
+                                                              <sup>2</sup>
+                                                          </span>
+                                                      )}
+                                                  </span>
                                               </div>
                                               <div className="property__info-details-buttom-right">
-                                                  <h3>Tenant</h3>
-                                                  {/* <h4>{property.tenant}</h4> */}
+                                                  <span className="property__info-details-buttom-right-tenant">
+                                                      Tenant
+                                                  </span>
+                                                  <span>
+                                                      {property
+                                                          .property_accesses
+                                                          .length === 0 ? (
+                                                          "N/A"
+                                                      ) : (
+                                                          <>
+                                                              <span>
+                                                                  {
+                                                                      property
+                                                                          .property_accesses[0]
+                                                                          .first_name
+                                                                  }
+                                                              </span>
+                                                              &nbsp;
+                                                              <span>
+                                                                  {
+                                                                      property
+                                                                          .property_accesses[0]
+                                                                          .last_name
+                                                                  }
+                                                              </span>
+                                                          </>
+                                                      )}
+                                                  </span>
                                               </div>
+                                          </div>
+
+                                          <div className="property__info-details-buttom-buttons">
                                               <Link
+                                                  className="property__info-details-buttom-buttons-link"
                                                   to={`/owner/dashboard/property/all/${propertyId}/edit`}
                                               >
-                                                  <button>Edit property</button>
+                                                  <button className="log-button log-buttons_property">
+                                                      Edit property details
+                                                  </button>
                                               </Link>
+                                              {property.property_accesses
+                                                  .length === 0 ? (
+                                                  <Link
+                                                      className="property__info-details-buttom-buttons-link"
+                                                      to={`/owner/property/${propertyId}/accesses`}
+                                                  >
+                                                      <button className="log-button log-buttons_property">
+                                                          Add tenant
+                                                      </button>
+                                                  </Link>
+                                              ) : null}
                                           </div>
                                       </div>
                                   </div>
@@ -143,7 +209,9 @@ const SelectedPropertyDetails = () => {
                                                 id="Reports"
                                                 className="tab__content"
                                             >
-                                                <SelectedPropertyReports id={propertyId} />
+                                                <SelectedPropertyReports
+                                                    id={propertyId}
+                                                />
                                             </div>
                                         </>
                                     );

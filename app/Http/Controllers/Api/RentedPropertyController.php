@@ -39,6 +39,7 @@ class RentedPropertyController extends Controller
 
         // fill the object with data and save it to database
         $property->name = $data["name"];
+        $property->area = $data["area"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();
@@ -130,7 +131,7 @@ class RentedPropertyController extends Controller
     public function showInvitation($linkId)
     {
 
-        $access = PropertyAccess::where("invite_link","=", $linkId)->first();
+        $access = PropertyAccess::where("invite_link", "=", $linkId)->first();
 
         return $access;
     }
@@ -148,6 +149,7 @@ class RentedPropertyController extends Controller
 
         // // fill the object with data and save it to database
         $property->name = $data["name"];
+        $property->area = $data["area"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();

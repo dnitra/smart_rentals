@@ -22,6 +22,7 @@ return new class extends Migration
             $table->tinyInteger("published")->nullable();
             $table->tinyInteger("active")->nullable();
             $table->tinyInteger("rented_out")->nullable();
+            $table->integer("area")->nullable();
 
             $table->timestamps();
         });

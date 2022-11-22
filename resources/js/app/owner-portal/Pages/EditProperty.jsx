@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/EditProperty.scss";
+import ImageUploading from "react-images-uploading";
 
 export default function EditProperty() {
+    // states from context
     const { userData, content, changeUserData } = useCustomContexts();
+    // state for storing property ID
     const { propertyId } = useParams();
+    const [images, setImages] = useState([]);
+    // state for storing images
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -13,23 +18,35 @@ export default function EditProperty() {
         city: "",
         type: "1",
         subtype: "1",
+        area: "0",
     });
+    // max number of uploaded images
+    const maxNumber = 10;
+
+    // Handling selecting images changes
+    const handleImageChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
+
+    // load user data
     useEffect(() => {
         changeUserData();
     }, []);
 
+    // display old data for the property
     const populateFormData = () => {
         const propertyData = userData.rented_properties.filter((property) => {
             return property.id == propertyId;
         })[0];
 
-        // propertyData.address = propertyData.address.street_and_number;
         setFormData({
             name: propertyData.name,
             address: propertyData.address.street_and_number,
             country: propertyData.address.country_id,
             city: propertyData.address.city,
-            type: "1",
+            type: propertyData.rented_property_type_id,
             subtype: "1",
         });
     };
@@ -48,6 +65,9 @@ export default function EditProperty() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // create new array with the data I want to send to backend
+        const imagesArray = images.map((imgObject) => imgObject.file);
+
         try {
             // make the AJAX request
             const response = await axios.post(
@@ -55,7 +75,7 @@ export default function EditProperty() {
                 {
                     // Object to send
                     ...formData,
-                    // uploaded_images: imagesArray,
+                    uploaded_images: imagesArray,
                 },
                 {
                     // Options
@@ -67,6 +87,7 @@ export default function EditProperty() {
 
             // get the (already JSON-parsed) response data
             const response_data = response.data;
+            console.log(response_data);
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
@@ -101,17 +122,6 @@ export default function EditProperty() {
                 <h2 className="property-form__heading">
                     Update Property Details
                 </h2>
-                <label className="property-form__label" htmlFor="name">
-                    Name:
-                </label>
-                <input
-                    className="property-form__input"
-                    id="name"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                />
 
                 {/* ---------------------------------- SELECT ADDRESS  ---------------------------------- */}
                 <label className="property-form__label" htmlFor="city">
@@ -149,6 +159,29 @@ export default function EditProperty() {
                     type="text"
                     name="address"
                     value={formData.address}
+                    onChange={handleInputChange}
+                />
+
+                <label className="property-form__label" htmlFor="area">
+                    Area
+                </label>
+                <input
+                    className="property-form__input"
+                    type="number"
+                    name="area"
+                    value={formData.area}
+                    onChange={handleInputChange}
+                />
+
+                <label className="property-form__label" htmlFor="name">
+                    Name (optional):
+                </label>
+                <input
+                    className="property-form__input"
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
                 />
 
@@ -286,6 +319,86 @@ export default function EditProperty() {
                         </select>
                     </>
                 ) : null}
+
+                {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
+                <label>Add images:</label>
+                <ImageUploading
+                    multiple
+                    value={images}
+                    onChange={handleImageChange}
+                    maxNumber={maxNumber}
+                    dataURLKey="data_url"
+                >
+                    {({
+                        imageList,
+                        onImageUpload,
+                        onImageRemoveAll,
+                        onImageUpdate,
+                        onImageRemove,
+                        isDragging,
+                        dragProps,
+                    }) => (
+                        <>
+                            {/* <label>Upload your images:</label> */}
+                            <div className="upload__image-wrapper">
+                                <button
+                                    className="property-form__button property-form__button_images"
+                                    type="button"
+                                    style={
+                                        isDragging
+                                            ? { color: "red" }
+                                            : undefined
+                                    }
+                                    onClick={onImageUpload}
+                                    {...dragProps}
+                                >
+                                    Click or Drop here
+                                </button>
+                                &nbsp;
+                                <button
+                                    type="button"
+                                    className="property-form__button property-form__button_images"
+                                    onClick={onImageRemoveAll}
+                                >
+                                    Remove all images
+                                </button>
+                                <div className="property-form__image-container">
+                                    {imageList.map((image, index) => (
+                                        <div key={index} className="image-item">
+                                            <img
+                                                src={image["data_url"]}
+                                                alt=""
+                                                width="100"
+                                            />
+                                            <div className="image-item__btn-wrapper">
+                                                <button
+                                                    type="button"
+                                                    className="property-form__button property-form__button_images"
+                                                    onClick={() =>
+                                                        onImageUpdate(index)
+                                                    }
+                                                >
+                                                    Update
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    className="property-form__button property-form__button_images"
+                                                    onClick={() =>
+                                                        onImageRemove(index)
+                                                    }
+                                                >
+                                                    Remove
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </ImageUploading>
+
+                {/* -------------------------------------------------------------------------- */}
 
                 <button type="submit" className="property-form__button">
                     Update Property
