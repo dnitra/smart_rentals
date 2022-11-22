@@ -8,7 +8,7 @@ $border-color: #d0e2f9;
 .dashboard {
     display: grid;
     margin-top: 3rem;
-    grid-template-columns: 20% 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas:
         "properties cashflow reports"
@@ -17,8 +17,11 @@ $border-color: #d0e2f9;
 
 .dashboard__cashflow {
     grid-area: cashflow;
+    width: 100%;
 }
-
+.chart {
+    width: 100% !important;
+}
 .dashboard__reports-container {
     overflow: hidden;
     // height: 3rem;
