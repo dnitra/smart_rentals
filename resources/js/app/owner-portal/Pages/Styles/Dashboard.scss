@@ -1,12 +1,22 @@
-.main-content{
-    width:100%;
-    height:100vh;
+$border-color: #d0e2f9;
+
+.main-content {
+    width: 100%;
+    height: 100vh;
 }
 
-.dashboard{
+.dashboard {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr;
+    margin-top: 3rem;
+    grid-template-columns: 20% 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "properties cashflow reports"
+        "properties . .";
+}
+
+.dashboard__cashflow {
+    grid-area: cashflow;
 }
 
 .dashboard__reports-container {
@@ -45,4 +55,13 @@
         background-color: rgb(75, 75, 75);
         color: white;
     }
+}
+
+.dashboard__properties {
+    grid-area: "area-1";
+    border: 1px solid $border-color;
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+    overflow-y: scroll;
 }
