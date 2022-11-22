@@ -130,7 +130,7 @@ class RentedPropertyController extends Controller
     public function showInvitation($linkId)
     {
 
-        $access = PropertyAccess::latest()->first();
+        $access = PropertyAccess::where("invite_link","=", $linkId)->first();
 
         return $access;
     }

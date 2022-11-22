@@ -110,7 +110,7 @@ export default function EditAccesses() {
             
             <h2 className="accesses__heading">Add other people to your property</h2>
             
-    
+            <form action="">
             <div className="accesses__head">
                 <h3>Role</h3>
                 <h3>First name</h3>
@@ -133,11 +133,11 @@ export default function EditAccesses() {
                     <option  value="2">Manager</option>
                     <option  value="1">Co-owner</option>
                 </select>                
-                <input onInput={handleInput} id="firstName" name="firstName" type="text" value={accesses.firstName} />                                                    
-                <input onInput={handleInput} id="lastName" name="lastName" type="text" value={accesses.lastName} />                                              
+                <input onInput={handleInput} autoComplete="given-name" name="firstName" type="text" value={accesses.firstName} />                                                    
+                <input onInput={handleInput} autoComplete="family-name" name="lastName" type="text" value={accesses.lastName} />                                              
                 <input
                     onInput={handleInput}
-                    id="email"
+                    autoComplete="email"
                     name="email"
                     type="email"
                     value={accesses.email}
@@ -148,12 +148,12 @@ export default function EditAccesses() {
                         addAccess()
                         changeUserData()
                             }}
-                    type="submit">
+                    type="button">
                     Add access
                 </button>
                 
             </div> 
-            
+            </form>
         
 
                 <h2>LIST OF ACCESSES</h2>
