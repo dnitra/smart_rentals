@@ -34,7 +34,7 @@ function DashboardCashflow() {
             <div className="dashboard__cashflow">
                 <BarChart width={450} height={400} data={graph}>
                     <XAxis dataKey="name" stroke="#8884d8" />
-                    <YAxis />
+                    {/* <YAxis /> */}
                     <Tooltip wrapperStyle={{ width: 250, backgroundColor: '#ccc' }} />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <Bar dataKey="Incoming" fill="blue" barSize={70} />
