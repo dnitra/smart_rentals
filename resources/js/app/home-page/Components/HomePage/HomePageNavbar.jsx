@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
 
 export default function HomePageNavbar() {
-    const { user, setUser } = useCustomContexts();
+    const { user, setUser, userData } = useCustomContexts();
     const navigate = useNavigate();
 
     const logo = {
@@ -77,7 +77,7 @@ export default function HomePageNavbar() {
                             <span>Why SR</span>
                         </p>
                     </Link>
-                    <Link to="/test">
+                    <Link to="/">
                         <p>Product</p>
                     </Link>
                     <Link to="/">
@@ -90,11 +90,14 @@ export default function HomePageNavbar() {
                         {" "}
                         <p>Reviews</p>
                     </Link>
+                    <Link to="/public_listings">
+                        {" "}
+                        <p>Public listings</p>
+                    </Link>
                 </div>
                 {user ? (
                     <div className="navbar__buttons">
                         <Link to="/choosePortal" className="button_container">
-                            {" "}
                             <button className="log-button">Start Now</button>
                         </Link>
                         <button className="log-button" onClick={logoutUser}>

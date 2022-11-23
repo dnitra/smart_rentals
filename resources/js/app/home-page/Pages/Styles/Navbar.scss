@@ -204,17 +204,17 @@ body {
             cursor: pointer;
         }
 
-        .log-button:hover,
-        .log-button:focus {
-            background-color: lightblue;
-            color: black;
-        }
-        .log-button:active {
-            background: #09223b;
-            color: rgb(255, 255, 255, 0.7);
-        }
-        .log-button:disabled {
-            cursor: not-allowed;
-            background: rgba(0, 0, 0, 0.08);
-            color: rgba(0, 0, 0, 0.3);
-        }
+.log-button:hover,
+.log-button:focus {
+    background-color: lightblue;
+    color: black;
+}
+.log-button:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, 0.7);
+}
+.log-button:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.3);
+}

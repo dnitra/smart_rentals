@@ -9,12 +9,8 @@ use App\Models\Address;
 use App\Models\PropertyAccess;
 use App\Models\User;
 use Facades\App\Services\ImageService;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\TestEmail;
-
-
-
-
+use App\Models\PropertyDetail;
+use Illuminate\Support\Facades\DB;
 
 class RentedPropertyController extends Controller
 {
@@ -72,6 +68,29 @@ class RentedPropertyController extends Controller
         ];
     }
 
+
+    //stor details for the property listings
+    public function storeListingsDetails(Request $request, $propertyId)
+    {
+
+        $inputs = $request->all();
+
+        foreach ($inputs as $inputName => $inputValue) {
+
+            $detailId = PropertyDetail::where($propertyId, "-", $inputName)->first()->id;
+
+            DB::table('property_detail_rented_property')->insert([
+                'property_detail_id' => $detailId,
+                'rented_property_id' => $propertyId,
+                'value' => $inputValue
+
+            ]);
+        }
+    }
+
+
+
+
     public function addAccess(Request $request, $propertyId)
     {
 
@@ -84,7 +103,7 @@ class RentedPropertyController extends Controller
         $access->last_name = $data["lastName"];
         $access->email = $data["email"];
         $access->rented_property_user_role_id = $data["role"];
-        $access->invite_link = fake()->bothify('#?#?#?#?#?#?#?#?#?#?');
+        $access->invite_link = fake()->bothify('?########?############???');
         $access->rented_property_id = $propertyId;
 
         try {
@@ -136,7 +155,7 @@ class RentedPropertyController extends Controller
     {
         $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
 
-    
+
         return $properties;
     }
 
