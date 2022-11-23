@@ -34,7 +34,6 @@ function DashboardCashflow() {
     // const graph = [{ name: 'A', uv: 800, pv: 2000, amt: 2100 }, { name: 'B', uv: 400, pv: 2400, amt: 2400 }, { name: 'C', uv: 380, pv: 1400, amt: 200 }];
 
     return (
-<<<<<<< HEAD
        
             <div className="dashboard__cashflow">
                 <BarChart width={450} height={400} data={graph}>
@@ -45,19 +44,6 @@ function DashboardCashflow() {
                     <Bar dataKey="Incoming" fill="blue" barSize={70} />
                 </BarChart>
             </div>
-=======
-        <div className="dashboard__cashflow">
-            <BarChart width={450} height={400} data={graph}>
-                <XAxis dataKey="name" stroke="#8884d8" />
-                {/* <YAxis /> */}
-                <Tooltip
-                    wrapperStyle={{ width: 250, backgroundColor: "#ccc" }}
-                />
-                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                <Bar dataKey="Incoming" fill="blue" barSize={70} />
-            </BarChart>
-        </div>
->>>>>>> 8eafca4d962318cba8596aefb3ee874dd625d4c6
     );
 }
 
