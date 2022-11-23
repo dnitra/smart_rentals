@@ -42,12 +42,12 @@ export default function EditProperty() {
         })[0];
 
         setFormData({
-            name: propertyData.name,
-            address: propertyData.address.street_and_number,
+            name: propertyData.name ?? "",
+            address: propertyData.address.street_and_number ?? "",
             country: propertyData.address.country_id,
             city: propertyData.address.city,
             type: propertyData.rented_property_type_id,
-            area: propertyData.area,
+            area: propertyData.area ?? 0,
             subtype: "1",
         });
     };

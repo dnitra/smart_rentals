@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./Card";
 import DateInput from "./DateInput";
 
-
 export default function Date({ setFormData }) {
     const content = {
         sale: "Sale:",
