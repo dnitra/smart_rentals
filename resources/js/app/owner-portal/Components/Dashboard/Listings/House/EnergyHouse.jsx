@@ -32,8 +32,8 @@ export default function Energy({ setFormData }) {
 
     return (
         <Card>
-            <div className="content">
-                <h4>Energy eficciency of the building</h4>
+            <div className="energy-content">
+                <h4 className="h4">Energy eficciency of the building</h4>
 
                 <CheckBox
                     label="lowEnergy"
@@ -44,7 +44,7 @@ export default function Energy({ setFormData }) {
                 <fieldset className="fieldset">
                     {/* -------------------------------energy dropdown----------------------- */}
                     <div className="fieldset-dropdown">
-                        <label>Energy efficiency class: </label>
+                        <label className="fieldset-label">Energy efficiency class: </label>
                         <select className="select">
                             <option value="">- select</option>
                             <option value="a">A - extremely efficient</option>
@@ -74,7 +74,7 @@ export default function Energy({ setFormData }) {
                     </form>
                     {/* -------------------------------------decree dropdown-------------------------------- */}
                     <div className="fieldset-dropdown">
-                        <label>According to a regulation: </label>
+                        <label className="fieldset-label">According to a regulation: </label>
                         <select className="select">
                             <option value="">- select</option>
                             <option value="idk">TBD</option>

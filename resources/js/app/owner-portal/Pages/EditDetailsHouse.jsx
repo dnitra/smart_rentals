@@ -5,6 +5,7 @@ import EnergyHouse from "../Components/Dashboard/Listings/House/EnergyHouse";
 import OtherHouse from "../Components/Dashboard/Listings/House/OtherHouse";
 import BasicInfoHouse from "../Components/Dashboard/Listings/House/BasicInfoHouse";
 import CheckBoxAreaHouse from "../Components/Dashboard/Listings/House/CheckBoxAreaHouse";
+import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
 // import "../Components/Dashboard/Listings/House/PropertyHouse.css";
 
 export default function Body() {
@@ -15,14 +16,17 @@ export default function Body() {
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="house">
+        <div onSubmit={handleFormSubmit} className="listings-main">
+            <DescriptionField setFormData={setFormData}/>
             <BasicInfoHouse setFormData={setFormData} />
             <AreasHouse setFormData={setFormData} />
             <DateHouse setFormData={setFormData} />
             <OtherHouse setFormData={setFormData} />
             <EnergyHouse setFormData={setFormData} />
             <CheckBoxAreaHouse setFormData={setFormData} />
-            <button type="submit"></button>
+            <button className="tile-btn3" type="submit">
+                Submit
+            </button>
         </div>
     );
 }

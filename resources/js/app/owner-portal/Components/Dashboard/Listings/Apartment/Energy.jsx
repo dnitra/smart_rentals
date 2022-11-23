@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import CheckBox from "./CheckBox";
 import Card from "./Card";
 import "./Energy.css";
-import UploadPDF from "./UploadPDF";
+
 
 export default function Energy({ setFormData }) {
     const [file, setFile] = useState();

@@ -18,6 +18,7 @@ export default function CheckBoxArea({ setFormData }) {
         localGas: "Local gas:",
         centralGas: "Central gas",
         localElectric: "Local electric",
+        centralElectric: "Central electric",
         centralSolidFuels: "Central solid fuels",
         lokalSolidFuels: "Lokal solid fuels",
         centralRemote: "Central remote",
