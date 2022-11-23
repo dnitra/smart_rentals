@@ -5,6 +5,7 @@ import Energy from "../Components/Dashboard/Listings/Apartment/Energy";
 import Other from "../Components/Dashboard/Listings/Apartment/Other";
 import BasicInfo from "../Components/Dashboard/Listings/Apartment/BasicInfo";
 import CheckBoxArea from "../Components/Dashboard/Listings/Apartment/CheckBoxArea";
+import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
 
 export default function Body() {
     const [formData, setFormData] = useState({});
@@ -21,6 +22,7 @@ export default function Body() {
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
+            <DescriptionField setFormData={setFormData}/>
             <button type="submit">Submit</button>
         </div>
     );

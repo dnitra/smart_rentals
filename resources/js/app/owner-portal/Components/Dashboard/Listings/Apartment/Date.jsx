@@ -8,7 +8,7 @@ export default function Date({ setFormData }) {
         sale: "Sale:",
         movingIn: "Moving in:",
         commencement: "Construction Commencement:",
-        endOfConstruction: "EndOfConstruction:",
+        endOfConstruction: "End Of Construction:",
         visitFrom: "Visit from:",
         visitTo: "Visit to:",
         constructYear: "Year of construction:",

@@ -4,3 +4,34 @@
     flex-direction: column;
     width: 80%;
 }
+.uploadPDF{
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.inputPDF {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+    .inputPDF {
+        display: flex;
+        width: 100px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 0.6rem;
+    }
+    .checkbox-content .checkbox-area {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .uploadPDF{
+        display: flex;
+        width: 100px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+}

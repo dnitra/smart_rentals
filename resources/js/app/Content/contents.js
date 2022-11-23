@@ -6,7 +6,7 @@ import { login } from "./en/login";
 import { register } from "./en/register";
 import { properties } from "./en/properties";
 import { tenantPortal } from "./en/tenantPortal";
-
+import { listings } from "./en/listings";
 /**
  * import all files from CS folder (czech)
  */
@@ -21,6 +21,7 @@ export function contents() {
 
     return {
         en: {
+            ...listings(),
             ...mainContent(),
             ...login(),
             ...register(),

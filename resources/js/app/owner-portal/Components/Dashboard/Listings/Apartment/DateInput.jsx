@@ -8,7 +8,7 @@ export default function DateInput({ name, label, value, setFormData }) {
   };
   return (
     <div className="fieldset-item">
-      <label>{label}</label>
+      <label className="fieldset-label">{label}</label>
       <input
         className="selectDate"
         type="date"

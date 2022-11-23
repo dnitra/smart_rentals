@@ -10,7 +10,7 @@ export default function BasicDropdown({ label, setFormData, name }) {
     };
     return (
         <div className="fieldset-dropdown">
-            <label className="label">{label} </label>
+            <label className="fieldset-label">{label} </label>
             <select
                 className="select"
                 onChange={selectChangeHandler}
