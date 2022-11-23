@@ -9,8 +9,8 @@ use App\Models\Address;
 use App\Models\PropertyAccess;
 use App\Models\User;
 use Facades\App\Services\ImageService;
-use Facades\App\Http\Controllers\ImageController;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
 
 
 
@@ -84,7 +84,6 @@ class RentedPropertyController extends Controller
         $access->rented_property_user_role_id = $data["role"];
         $access->invite_link = fake()->bothify('#?#?#?#?#?#?#?#?#?#?');
         $access->rented_property_id = $propertyId;
-
         $access->save();
     }
 
@@ -93,11 +92,6 @@ class RentedPropertyController extends Controller
 
         //get the current user id
         $user = auth()->user();
-
-
-
-
-        //
 
         PropertyAccess::destroy($accessId);
     }
