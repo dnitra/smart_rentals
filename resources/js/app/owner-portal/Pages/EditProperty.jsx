@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/EditProperty.scss";
 import ImageUploading from "react-images-uploading";
@@ -11,6 +11,7 @@ export default function EditProperty() {
     const { propertyId } = useParams();
     const [images, setImages] = useState([]);
     // state for storing images
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         address: "",
@@ -87,7 +88,10 @@ export default function EditProperty() {
 
             // get the (already JSON-parsed) response data
             const response_data = response.data;
-            console.log(response_data);
+            // console.log(response_data);
+            // if (response_data) {
+            navigate(`/owner/dashboard/property/all/${propertyId}`);
+            // }
         } catch (error) {
             // if the response code is not 2xx (success)
             // console.log(error);
@@ -172,7 +176,7 @@ export default function EditProperty() {
                         />
 
                         <label className="property-form__label" htmlFor="area">
-                            Area
+                            Area (m2):
                         </label>
                         <input
                             className="property-form__input"

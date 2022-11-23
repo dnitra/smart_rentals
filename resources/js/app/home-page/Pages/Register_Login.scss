@@ -8,6 +8,7 @@ $font-play: "Play", sans-serif;
 $font-montserrat: "Montserrat", sans-serif;
 
 .register-section {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -96,6 +97,41 @@ $font-montserrat: "Montserrat", sans-serif;
 
         .register__img-item {
             width: 70%;
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .register-section {
+        .register-container {
+            .register__form {
+                width: 80%;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .register-section {
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        .register-container {
+            width: 100%;
+            .register__form {
+                width: 50%;
+            }
+        }
+        .register__img {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .register-section {
+        .register-container {
+            .register__form {
+                width: 80%;
+            }
         }
     }
 }

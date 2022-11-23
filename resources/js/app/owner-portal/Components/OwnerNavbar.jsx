@@ -48,13 +48,6 @@ export default function OwnerNavbar() {
         ),
     };
 
-    // const goBurger = () => {
-    //     document
-    //         .querySelector(".navbar")
-    //         .classList.toggle("burger__menu-container");
-    //     // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
-    // };
-
     const showSettings = (event) => {
         event.preventDefault();
     };
@@ -62,7 +55,9 @@ export default function OwnerNavbar() {
     return (
         <>
             <header className="navbar navbar_owner">
-                <div className="navbar__logo">{logo.data}</div>
+                <Link to="/">
+                    <div className="navbar__logo">{logo.data}</div>
+                </Link>
                 <div className="navbar__menu">
                     <div className="navbar__links">
                         <Link to="/owner/dashboard">

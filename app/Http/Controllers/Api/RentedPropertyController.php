@@ -141,6 +141,15 @@ class RentedPropertyController extends Controller
         $address->country_id = $data["country"];
         $address->save();
 
+        // if there are any uploaded images, then loop through them and call storeImage for each of them
+        if ($request->has('uploaded_images')) {
+
+            foreach ($request->file('uploaded_images') as $uploaded_image) {
+
+                ImageService::storeImage($uploaded_image, $property->id);
+            }
+        }
+
         // // fill the object with data and save it to database
         $property->name = $data["name"];
         $property->area = $data["area"];

@@ -68,7 +68,9 @@ export default function HomePageNavbar() {
     return (
         <div className={cls}>
             <header className="navbar navbar_home">
-                <div className="navbar__logo">{logo.data}</div>
+                <Link to="/">
+                    <div className="navbar__logo">{logo.data}</div>
+                </Link>
                 <div className="navbar__links">
                     <Link to="/">
                         <p>
