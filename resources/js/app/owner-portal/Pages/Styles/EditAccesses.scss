@@ -1,24 +1,105 @@
 .accesses{
-    &__head, &__access-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-transform: uppercase;
+
+    @media (max-width:1200px) {
         display: flex;
-        h3{
-         
-            margin: 5px;
-            width: 15%;
-            overflow:auto;
+        flex-direction: column;
+        align-items:center;
+        margin-top: 1rem;
+        &__form, &__list{
+            
+            width: 70%;
+            margin: 0 auto;
+        }
+
+         @media (max-width:650px) {
+            // margin-top: 3rem;
+            width: 100%;
+            margin-top: 3rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            // margin-left: 2rem;
+            #link{
+                overflow-x: scroll;
+            }
+            
+        &__form, &__list{
+            width: 100%;
+            // margin-left: 0 auto;
         }
         
-        
+
+
     }
-    &__row{
-        input,select,button,div{
-            margin: 5px;
-            width: 15%;
-            overflow:auto;
-            
+    }
+
+     
+
+&__form, &__list{
+    border:1px solid lightgray;
+    border-radius:15px;
+    padding: 1rem;
+    margin: 0.5rem;
+    // background-color: rgba(0, 0, 0, 0.179);
+    background-color:rgba(249, 251, 252, 0.786);
+    .accesses__access-detail{
+        // display: flex;
+        &.accesses__row{
+            & div{
+                 margin-top: 1.5rem;
+                 margin-bottom: 1.5rem; 
+                 & p{
+                    color:red;
+                 }
+            }
+
         }
     }
 
+    #link{
+        color:rgb(46, 144, 241);
+    }
+
+   & h2{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+   }
+   & button{
+    
+   }
+    .select-dropdown, .select-input, .accesses__row-header{
+        width: 70%;
+        margin: 0 auto;
+    }
+    .accesses__row-header, .select-dropdown{
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subject-input {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: normal;
+            // width: 50%; 
+            width: 100%;    
+            padding: 8px 24px 8px 10px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+            border-radius: 8px
+            
+        }
+
+       
+}
     .error{
 
         &__required{
