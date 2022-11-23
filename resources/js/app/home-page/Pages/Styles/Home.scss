@@ -12,7 +12,7 @@ html {
     position: relative;
     // top: 0px;
     z-index: 1;
-    width: 100vw;
+    width: auto;
     height: 120vh;
     background: url("../../../../../img/home/home_background.svg") no-repeat fixed
         center center;
@@ -20,7 +20,13 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    z-index: 1;
+    z-index: 1; 
+
+    @media (max-width:750px) {
+        // background: url("../../../../../img/home/home_background.svg") no-repeat fixed
+        // center center;
+        // background-size: auto;
+    }
 
     &__project-name {
         position: absolute;

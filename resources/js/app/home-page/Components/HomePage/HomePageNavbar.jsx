@@ -3,6 +3,9 @@ import "../../Pages/Styles/Navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
+import { slide as Menu } from "react-burger-menu";
+import logoBlack from "../../../../../img/logos/SM-logo-black.svg"
+
 
 export default function HomePageNavbar() {
     const { user, setUser } = useCustomContexts();
@@ -66,28 +69,26 @@ export default function HomePageNavbar() {
     const cls = visible ? "visible" : "hidden";
 
     return (
+        <>
         <div className={cls}>
             <header className="navbar navbar_home">
                 <div className="navbar__logo">{logo.data}</div>
                 <div className="navbar__links">
-                    <Link to="/">
-                        <p>
-                            <span>Why SR</span>
-                        </p>
-                    </Link>
-                    <Link to="/test">
+                    <a href="#sr">
+                        <span>Why SR</span>
+                    </a>
+                    <a href="#product">
                         <p>Product</p>
-                    </Link>
+                    </a>
                     <Link to="/">
                         <p>Prices</p>
                     </Link>
                     <Link to="/">
                         <p>Contacts</p>
                     </Link>
-                    <Link to="/">
-                        {" "}
+                    <a href="#review">
                         <p>Reviews</p>
-                    </Link>
+                    </a>
                 </div>
                 {user ? (
                     <div className="navbar__buttons">
@@ -113,7 +114,55 @@ export default function HomePageNavbar() {
                         </Link>
                     </div>
                 )}
-            </header>
-        </div>
+            </header> 
+            </div>
+            <div className="header-menu">
+                <Menu>
+                        <Link to="/"> 
+                            <p>
+                                <img src={logoBlack} alt="logo" />
+                            </p>
+                        </Link>
+                        <a href="#sr">
+                            <span>Why SR</span>
+                        </a>
+                        <a href="#product">
+                            <p>Product</p>
+                        </a>
+                        <Link to="/">
+                            <p>Prices</p>
+                        </Link>
+                        <a href="#contacts">
+                            <p>Contacts</p>
+                        </a>
+                        <a href="#review">
+                            <p>Reviews</p>
+                        </a>
+                    {user ? (
+                        <div>
+                            <Link to="/choosePortal" className="button_container">
+                                {" "}
+                                <button className="log-button">Start Now</button>
+                            </Link>
+                            <button className="log-button" onClick={logoutUser}>
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="navbar__buttons">
+                            <Link to="/login" className="button_container">
+                                <button className="log-button">Start Now</button>
+                            </Link>
+                            {/* <Link to="/login" className="button_container">
+                            <button className="log-button">Log In</button>
+                        </Link> */}
+                            <Link to="/register" className="button_container">
+                                <button className="log-button">Sign Up</button>
+                            </Link>
+                        </div>
+                    )}
+                </Menu>
+            </div>
+        </>
     );
 }

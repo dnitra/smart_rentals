@@ -32,7 +32,7 @@ function Home() {
                 </div>
             </div>
             <div className="main-content">
-                <div className="content">
+                <div className="content" id="sr">
                     <div className="content__img">
                         <img src={LoremImage} alt="" />
                     </div>
@@ -60,7 +60,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="content-1">
+                <div className="content-1" id="product">
                     <div className="content-1__info">
                         <p className="content-1__info-bold">
                             About the Product
@@ -81,7 +81,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="review">
+                <div className="review" id="review">
                     <Review />
                 </div>
             </div>
