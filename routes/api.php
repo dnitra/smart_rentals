@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RentedPropertyController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\UserDataController;
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\Api\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +37,4 @@ Route::get('/property/list', [RentedPropertyController::class, 'showAllPropertie
 Route::get('/property/list/{id}', [RentedPropertyController::class, 'showProperty']);
 
 Route::get('/invite/{linkId}', [RentedPropertyController::class, 'showInvitation']);
+Route::post('/invite/sendEmail/{accessId}', [MailController::class, 'sendInvitation']);
