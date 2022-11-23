@@ -10,6 +10,7 @@ import Register from "./home-page/Pages/Register";
 import Test from "./home-page/Pages/Test";
 import ChoosePortal from "./home-page/Pages/ChoosePortal";
 import Invitation from "./home-page/Pages/Invitation";
+import PublicListings from "./home-page/Pages/PublicListings";
 
 //imports from owner portal
 import OwnerLayout from "./owner-portal/Pages/OwnerLayout";
@@ -33,6 +34,7 @@ import EditProperty from "./owner-portal/Pages/EditProperty";
 import TenantLayout from "./tenant-portal/Pages/TenantLayout";
 import TenantDashboard from "./tenant-portal/Pages/TenantDashboard";
 import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
+
 
 export default function App() {
     // state from contexts
@@ -67,6 +69,7 @@ export default function App() {
                     <Route path="/choosePortal" element={<ChoosePortal />} />
 
                     <Route path="/invite/:linkId" element={<Invitation />} />
+                    <Route path="/public_listings" element={< PublicListings/>} />
                 </Route>
 
                 <Route path="/owner" element={<OwnerLayout />}>

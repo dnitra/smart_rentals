@@ -15,6 +15,7 @@ use App\Mail\TestEmail;
 
 
 
+
 class RentedPropertyController extends Controller
 {
     public function store(Request $request)
@@ -39,7 +40,7 @@ class RentedPropertyController extends Controller
 
         // fill the object with data and save it to database
         $property->name = $data["name"];
-        $property->area = $data["area"];
+        // $property->area = $data["area"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();
@@ -74,8 +75,9 @@ class RentedPropertyController extends Controller
     public function addAccess(Request $request, $propertyId)
     {
 
-        $data = $request->all();
+        $userId = auth()->user()->id;
 
+        $data = $request->all();
         $access = new PropertyAccess();
 
         $access->first_name = $data["firstName"];
@@ -84,7 +86,15 @@ class RentedPropertyController extends Controller
         $access->rented_property_user_role_id = $data["role"];
         $access->invite_link = fake()->bothify('#?#?#?#?#?#?#?#?#?#?');
         $access->rented_property_id = $propertyId;
-        $access->save();
+
+        try {
+            $roleId = RentedProperty::findOrFail($propertyId)->users()->where("users.id", "LIKE", $userId)->first()->pivot->role_id;
+            if ($roleId == 1 || $roleId == 2) {
+                $access->save();
+            }
+        } catch (Exception $e) {
+            echo 'Message: ' . $e->getMessage();
+        }
     }
 
     public function removeAccess($propertyId, $accessId)
@@ -120,6 +130,14 @@ class RentedPropertyController extends Controller
         }
 
         $property->save();
+    }
+
+    public function showPublicListings()
+    {
+        $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
+
+    
+        return $properties;
     }
 
     public function showInvitation($linkId)

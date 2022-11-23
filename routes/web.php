@@ -26,11 +26,19 @@ Route::view('/login', 'index');
 Route::view('/register', 'index');
 Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
+Route::view('/public_listings', 'index');
+
+Route::get('/publicListings/show', [RentedPropertyController::class, 'showPublicListings']);
+
 
 /// DASHBOARD FOR OWNER
 Route::view('/owner/properties', 'index');
 Route::view('/owner/dashboard', 'index');
 Route::view('/owner/dashboard/all', 'index');
+Route::view('/owner/dashboard/listings/details/apartment', 'index');
+Route::view('/owner/dashboard/listings/details/land', 'index');
+Route::view('/owner/dashboard/listings/details/house', 'index');
+Route::view('/owner/dashboard/listings/details/commercial', 'index');
 Route::view('/owner/dashboard/cashflow', 'index');
 Route::view('/owner/dashboard/listings', 'index');
 Route::view('/owner/dashboard/listings/create', 'index');

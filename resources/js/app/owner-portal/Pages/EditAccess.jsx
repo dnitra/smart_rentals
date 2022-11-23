@@ -4,6 +4,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Styles/EditAccesses.scss"
+import { Link } from "react-router-dom";
 import { set } from "lodash";
 
 const roles = {
@@ -33,7 +34,12 @@ export default function EditAccesses() {
     useEffect(() => {
        changeUserData()
         console.log(userData)
-    },[])
+    }, [])
+    
+    useEffect(() => {
+       
+        console.log(userData)
+    },[userData])
 
 
     const validation = () => {
@@ -124,64 +130,72 @@ export default function EditAccesses() {
     return (
         <div className="accesses">
         
-            
+        <div className="accesses__form " >
             <h2 className="accesses__heading">Add other people to your property</h2>
             
             <form action="">
-            <div className="accesses__head">
-                <h3>Role</h3>
-                <h3>First name</h3>
-                <h3>Last name</h3>
-                <h3>Email</h3>
-                <h3>Action</h3>
-            </div>
                 
             <div  className="accesses__row" >
-                <select
-                    onInput={handleInput}
-                    defaultValue={""}
-                    name="role"
-                    id="addAccess"
-                    value={accesses.role}
-                    className={errors.role}
-                >
-                    <option disabled value="">Select the role</option>
-                    <option  value="3">Tenant</option>
-                    <option  value="2">Manager</option>
-                    <option  value="1">Co-owner</option>
-                </select>                
-                <input onInput={handleInput} autoComplete="given-name" name="firstName" type="text" value={accesses.firstName} />                                                    
-                <input onInput={handleInput} autoComplete="family-name" name="lastName" type="text" value={accesses.lastName} />                                              
+                        
+                <div className="select__row-1">
+                            <div className="accesses__row-header">
+                                <h3>Role</h3>
+                            </div>  
+                            <div className="select-dropdown">
+                                <select 
+                                    onInput={handleInput}
+                                    defaultValue={""}
+                                    name="role"
+                                    id="addAccess"
+                                    className={errors.role}
+                                >   
+                                    <option disabled value="">Select the role</option>
+                                    <option  value="3">Tenant</option>
+                                    <option  value="2">Manager</option>
+                                    <option  value="1">Co-owner</option>
+                                </select>   
+                                </div>      
+                </div>
+                <div className="select-input">
+                    <h3>First name</h3>             
+                        <input onInput={handleInput} autoComplete="given-name" name="firstName" type="text" value={accesses.firstName} className="subject-input"/>     
+                    <h3>Last name</h3>                                               
+                        <input onInput={handleInput} autoComplete="family-name" name="lastName" type="text" value={accesses.lastName} className="subject-input" />      
+                    <h3>Email</h3>                                        
                 <input
                     onInput={handleInput}
                     autoComplete="email"
                     name="email"
                     type="email"
                     value={accesses.email}
-                    className={errors.role}/>                                        
+                    className={`${errors.role} subject-input`}/>                                        
+                <br />
                 <button
                     onClick={() => {
                         validation()
                         addAccess()
                         changeUserData()
                             }}
-                    type="button">
+                    type="button"
+                    className="log-button">
                     Add access
                 </button>
-                
+                            <Link to={"/owner/dashboard/all"}>
+                                <button
+                                    type="button"
+                                    className="log-button">
+                                    skip
+                                </button>
+                </Link>
+               
+            </div>
                 
             </div> 
             </form>
+            </div>
         
-
+            <div className="accesses__list">           
                 <h2>LIST OF ACCESSES</h2>
-                <div className="accesses__head">   
-                    <h3>Role</h3>
-                    <h3>Name</h3>
-                    <h3>Email</h3>
-                    <h3>Invitation link</h3>
-                    <h3>Action</h3>
-                </div>
 
             {
         
@@ -189,19 +203,24 @@ export default function EditAccesses() {
             
                     userData.rented_properties.filter((property) => {
                         
-                        
+                
                 return property.id == propertyId
                     })[0].property_accesses.map((access, index) => {
                     
                 return (
                     <div className="accesses__access-detail accesses__row" key={index}>
+                        <h3>Role</h3>
                         <div>{roles[access.rented_property_user_role_id]}</div>
+                        <h3>Name</h3>
                         <div>{access.first_name} {access.last_name}</div>
+                        <h3>Email</h3>
                         <div> {access.email}</div>
-                        <div id="link">www.smart-rentals.test/invite/{access.invite_link}</div>
+                        <h3>Invitation link</h3>
+                        <div id="link">https://smart-rentals.codeboot.cz/invite{access.invite_link}</div>
                         
                         <button
                             type="button"
+                            className="log-button"
                             onClick={() => {
                                 removeAccess(access.id)
                                 changeUserData()
@@ -216,6 +235,7 @@ export default function EditAccesses() {
                                 :
                             <button
                                 type="button"
+                                className="log-button"
                                     onClick={() => {
                                     setResponse(true)
                                     sendInvitation(access.id)
@@ -226,6 +246,7 @@ export default function EditAccesses() {
                             :"Loading" : (response) ?
                                 <button
                                 type="button"
+                                className="log-button"
                                     onClick={() => {
                                     setResponse(true)
                                     sendInvitation(access.id)
@@ -235,6 +256,7 @@ export default function EditAccesses() {
                                 </button>:
                             <button
                                 type="button"
+                                className="log-button"
                                     onClick={() => {
                                     setResponse(true)
                                     sendInvitation(access.id)
@@ -248,7 +270,7 @@ export default function EditAccesses() {
                         }  
             
                   
-
+            </div>  
         </div>
     )
             

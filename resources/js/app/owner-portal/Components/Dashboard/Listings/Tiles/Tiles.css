@@ -1,4 +1,4 @@
-.titles-btn2 {
+.tiles-btn2 {
     width: 120px;
     border-radius: 30px;
     padding-top: 4px;
@@ -23,7 +23,7 @@ p {
     height: 10rem;
     border-radius: 100%;
 }
-.titles-btn {
+.tile-btn {
     height: 35px;
     width: 120px;
     border-radius: 30px;
@@ -38,6 +38,12 @@ p {
     box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
         rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 }
+.tile-btn:hover {
+    background-color: rgb(255, 255, 255);
+}
+.tile-btn2:hover {
+    background-color: rgb(255, 255, 255);
+}
 .tiles {
     display: flex;
     justify-content: center;
@@ -47,10 +53,14 @@ p {
 }
 .tile {
     display: flex;
-    height: 13rem;
     width: 100%;
 }
 .tiles-picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tiles-picture__big {
     max-width: 100%;
     max-height: 100%;
     width: 10rem;
@@ -58,7 +68,16 @@ p {
     margin-top: 1rem;
     margin-left: 1rem;
     border-radius: 100%;
-    background-color: blueviolet;
+}
+.tiles-picture__small {
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.tileIcon {
+    width: 3rem;
+    height: 3rem;
 }
 .tiles-list {
     display: flex;
@@ -70,21 +89,75 @@ p {
 .tiles-edit {
     display: flex;
 }
-.tiles-address {
+.tiles-content {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
+    flex-wrap: wrap;
 }
-.tiles-address__heading {
+.tile-address__heading {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 1rem;
     text-transform: uppercase;
 }
-.ahoj {
+.tile-address {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+    /* applied only on screens wider or equal to 400px */
+    .tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .tiles-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .tiles-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0;
+    }
+    .tile-address__heading {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem 2rem 3rem;
+        align-items: center;
+    }
+    .tiles-picture__big {
+        max-width: 100%;
+        max-height: 100%;
+        width: 10rem;
+        height: 10rem;
+        margin: 0;
+        border-radius: 100%;
+    }
+    .tiles-picture {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+    .listnings-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    .listings button {
+        font-family: "Nunito";
+        font-weight: bold;
+        margin-top: 2rem;
+    }
 }

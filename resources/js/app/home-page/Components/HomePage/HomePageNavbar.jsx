@@ -68,7 +68,7 @@ export default function HomePageNavbar() {
     return (
         <div className={cls}>
             <header className="navbar navbar_home">
-                <Link to="/">
+                <Link to="/" className="navbar__link">
                     <div className="navbar__logo">{logo.data}</div>
                 </Link>
                 <div className="navbar__links">
@@ -104,15 +104,14 @@ export default function HomePageNavbar() {
                 ) : (
                     <div className="navbar__buttons">
                         <Link to="/login" className="button_container">
-                            {" "}
                             <button className="log-button">Start Now</button>
                         </Link>
                         {/* <Link to="/login" className="button_container">
                             <button className="log-button">Log In</button>
                         </Link> */}
-                        <Link to="/register" className="button_container">
+                        {/* <Link to="/register" className="button_container">
                             <button className="log-button">Sign Up</button>
-                        </Link>
+                        </Link> */}
                     </div>
                 )}
             </header>

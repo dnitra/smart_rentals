@@ -50,9 +50,9 @@ export default function CheckBoxArea({ setFormData }) {
     };
     return (
         <Card>
-            <div className="checkbox-content">
+            <div className="checkbox-contents">
                 <div className="checkbox-content">
-                    <h3>{content.heatingDistrib}</h3>
+                    <h3 className="checkbox-h3">{content.heatingDistrib}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.lokalSource}
@@ -72,7 +72,7 @@ export default function CheckBoxArea({ setFormData }) {
                     </div>
                 </div>
                 <div className="checkbox-content">
-                    <h3>{content.heatingDistrib}</h3>
+                    <h3 className="checkbox-h3">{content.heatingDistrib}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.localGas}
@@ -122,7 +122,7 @@ export default function CheckBoxArea({ setFormData }) {
                     </div>
                 </div>
                 <div className="checkbox-content">
-                    <h3>{content.gassDistrib}</h3>
+                    <h3 className="checkbox-h3">{content.gassDistrib}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.pipeline}
@@ -138,7 +138,7 @@ export default function CheckBoxArea({ setFormData }) {
                 </div>
 
                 <div className="checkbox-content">
-                    <h3>{content.wasteType}</h3>
+                    <h3 className="checkbox-h3">{content.wasteType}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.publicSewerage}
@@ -159,7 +159,7 @@ export default function CheckBoxArea({ setFormData }) {
                 </div>
 
                 <div className="checkbox-content">
-                    <h3>{content.accessRoad}</h3>
+                    <h3 className="checkbox-h3">{content.accessRoad}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.concrete}
@@ -190,7 +190,7 @@ export default function CheckBoxArea({ setFormData }) {
                 </div>
 
                 <div className="checkbox-content">
-                    <h3>{content.telecom}</h3>
+                    <h3 className="checkbox-h3">{content.telecom}</h3>
                     <div className="checkbox-area">
                       <CheckBox
                           label={content.telephone}
@@ -220,7 +220,7 @@ export default function CheckBoxArea({ setFormData }) {
                   </div>
   
                   <div className="checkbox-content">
-                      <h3>{content.electricity}</h3>
+                      <h3 className="checkbox-h3">{content.electricity}</h3>
                       <div className="checkbox-area">
                         <CheckBox
                             label={content.voltage1}
@@ -241,7 +241,7 @@ export default function CheckBoxArea({ setFormData }) {
                   </div>
   
                   <div className="checkbox-content">
-                      <h3>{content.transport}</h3>
+                      <h3 className="checkbox-h3">{content.transport}</h3>
                       <div className="checkbox-area">
                         <CheckBox
                             label={content.train}

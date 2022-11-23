@@ -4,6 +4,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
 import { slide as Menu } from "react-burger-menu";
 import logoBlack from "../../../../img/logos/SM-logo-black.svg";
+
 export default function OwnerNavbar() {
     const { user, setUser } = useCustomContexts();
     const navigate = useNavigate();
@@ -55,7 +56,7 @@ export default function OwnerNavbar() {
     return (
         <>
             <header className="navbar navbar_owner">
-                <Link to="/">
+                <Link to="/" className="navbar__link">
                     <div className="navbar__logo">{logo.data}</div>
                 </Link>
                 <div className="navbar__menu">

@@ -8,6 +8,7 @@ import registerImg from "../../../../img/others/register-img.png";
 import InputForm from "./../Components/InputForm/InputForm";
 import { loadUser } from "../../actions/auth";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import { Link } from "react-router-dom";
 
 function Login(props) {
     const { user, setUser, loadingUser, content, changeUserData } =
@@ -93,9 +94,18 @@ function Login(props) {
                         value={loginValues.password}
                         handleChange={handleChange}
                     />
+
+                    <div>
+                        <Link to="/register" className="register__link">
+                            Not registered yet?
+                        </Link>
+                    </div>
+
                     <span className="register__form-other">
                         {content.otherOptions}
                     </span>
+
+
                     <div className="register__logo-social">
                         <img
                             src={facebookLogo}

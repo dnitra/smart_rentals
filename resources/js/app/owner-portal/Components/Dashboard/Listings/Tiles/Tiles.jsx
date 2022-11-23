@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../../../Context/ContextsProvider";
 import "./Tiles.css";
 import Card from "../Apartment/Card";
+import BuildingPlaceholder from "../../../../../../../img/building-placeholder.jpg";
+import likes from "../../../../../../../img/Icons/likes.svg";
+import views from "../../../../../../../img/Icons/views.svg";
+
 export default function Tiles() {
     const { user, userData, changeUserData } = useCustomContexts();
 
@@ -37,61 +41,84 @@ export default function Tiles() {
                           return (
                               <Card key={index}>
                                   <div className="tile">
-                                      <div className="tiles-address">
+                                      <div className="tiles-content">
                                           <div className="tiles-picture">
-                                              <img className="tileImg"
-                                                  src={
-                                                      property.images.length > 0
-                                                          ? "/" +
-                                                            property.images[0]
-                                                                .image_url
-                                                          : ""
-                                                  }
-                                              ></img>
+                                              <div className="tiles-picture__big">
+                                                  {property.images.length ===
+                                                  0 ? (
+                                                      <img
+                                                          className="tileImg"
+                                                          src={
+                                                              BuildingPlaceholder
+                                                          }
+                                                          alt="building placeholder"
+                                                      />
+                                                  ) : (
+                                                      <img
+                                                          className="tileImg"
+                                                          src={
+                                                              "/" +
+                                                              property.images[0]
+                                                                  ?.image_url
+                                                          }
+                                                          alt="property"
+                                                      />
+                                                  )}
+                                              </div>
+                                              <div className="tiles-picture__small">
+                                                  <img
+                                                      className="tileIcon"
+                                                      src={views}
+                                                      alt="views"
+                                                  />
+
+                                                  <img
+                                                      className="tileIcon"
+                                                      src={likes}
+                                                      alt="likes"
+                                                  />
+                                              </div>
                                           </div>
 
-                                          <div className="ahoj">
+                                          <div className="tile-address">
                                               <h3
                                                   key={index}
-                                                  className="tiles-address__heading"
+                                                  className="tile-address__heading"
                                               >
                                                   {
                                                       property.address
                                                           .street_and_number
                                                   }
                                                   <br></br>
+                                                  {property.address.zip_code}
+                                                  <br></br>
                                                   {property.address.city}
                                                   <br />
                                               </h3>
-                                                  <button
-                                                      type="button"
-                                                      className="titles-btn"
-                                                  >
-                                                      Edit
-                                                  </button>
-                                          </div>
-                                          <div className="tiles-list">
-                                              {/* <ul>
-                        <li>Applicants</li>
-                        <li>Summary</li>
-                        <li>Publish</li>
-                    </ul> */}
                                               <button
                                                   type="button"
-                                                  className="titles-btn2"
+                                                  className="tile-btn"
+                                              >
+                                                  Edit
+                                              </button>
+                                          </div>
+                                          <div className="tiles-list">
+                                              <button
+                                                  type="button"
+                                                  className="tiles-btn2"
                                               >
                                                   Applicants
                                               </button>
                                               <button
                                                   type="button"
-                                                  className="titles-btn2"
+                                                  className="tiles-btn2"
                                               >
                                                   Summary
                                               </button>
                                               <button
                                                   type="button"
                                                   value={property.id}
-                                                  className="titles-btn2"
+                                                  className="tiles-btn2"
                                                   onClick={handleSelect}
                                               >
                                                   Unpublish
