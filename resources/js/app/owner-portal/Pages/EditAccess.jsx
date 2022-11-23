@@ -202,7 +202,7 @@ export default function EditAccesses() {
                         <div>{roles[access.rented_property_user_role_id]}</div>
                         <div>{access.first_name} {access.last_name}</div>
                         <div> {access.email}</div>
-                        <div id="link">www.smart-rentals.test/invite/{access.invite_link}</div>
+                        <div id="link">https://smart-rentals.codeboot.cz/invite{access.invite_link}</div>
                         
                         <button
                             type="button"
