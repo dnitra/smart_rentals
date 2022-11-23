@@ -17,6 +17,10 @@ function DashboardReports() {
     console.log(userData);
     return (
         <div className="dashboard__reports-container">
+            <div className="tasks">
+                <p>&#9776;</p>
+                <p>Tasks</p>
+            </div>
             <div>
                 {userData.rented_properties
                     ? userData.rented_properties

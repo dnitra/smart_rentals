@@ -35,7 +35,7 @@ function Footer() {
                     <h4 className="footer__heading">Contact us</h4>
                     <div className="footer__link"></div>
                     <div className="footer__link"></div>
-                    <div className="footer__link">603 286 460</div>
+                    <div className="footer__link">+420603286461</div>
                     <div className="footer__link">hello@smartrentals.com</div>
                 </div>
                 <div className="footer__third-row">

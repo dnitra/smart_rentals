@@ -1,27 +1,62 @@
 $border-color: #d0e2f9;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 
 .dashboard {
     display: grid;
     // margin-top: 3rem;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas:
         "properties cashflow reports"
-        "properties . .";
+        "properties bills messages"
 }
 .dashboard__reports {
     overflow-y: scroll;
-    max-height: 50vh;
+    max-height: 60vh;
 }
-
+.dashboard__bills{
+    grid-area:bills;
+    width:100%;
+}
 .dashboard__cashflow {
+    margin-top: 1rem;
     grid-area: cashflow;
+    max-height: 60vh;
+    width: 100%;
+   
+
+}
+.dashboard__messages{
+    grid-area:messages;
     width: 100%;
 }
 .chart {
-    width: 100% !important;
 }
-.dashboard__reports-container {
+.dashboard__reports-container { 
+    border: 1px solid darkgray;
+    height:100%;
+    .tasks{
+        width: 100%;
+        background-color: #D9D9D926;
+        border:1px solid lightgray;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        height: 4rem;
+        padding-left: 1rem;
+        display: flex;
+        align-items: center; 
+
+        & p{
+            margin: 0.5rem;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1877F2;
+            font-family: "Montserrat", sans-serif;
+        }
+
+    }
     .dashboard__report {
         overflow-y: scroll;
         display: none;
@@ -55,7 +90,8 @@ $border-color: #d0e2f9;
     // justify-content: space-between;
 
     &__links {
-        background-color: rgb(40, 40, 40);
+        background-color: #a3a3a312;
+        border-radius:15px;
         font-size: larger;
         letter-spacing: 1px;
         width: 100%;
@@ -64,17 +100,19 @@ $border-color: #d0e2f9;
         padding: 14px 16px;
         transition: 0.3s;
         text-transform: uppercase;
-        color: white;
+        color: #273655;
         &--active {
-            background-color: rgb(60, 60, 60);
+            background-color: #D9D9D912;
+            border-radius:15px;
+            color:#273655;
             font-size: larger;
             letter-spacing: 1px;
-            border: none;
+            border:1px solid lightgray;
             outline: none;
             padding: 14px 16px;
             transition: 0.3s;
             text-transform: uppercase;
-            color: white;
+            
         }
     }
 
