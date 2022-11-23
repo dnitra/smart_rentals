@@ -32,13 +32,14 @@ function Home() {
                 </div>
             </div>
             <div className="main-content">
-                <div className="content">
+                <div className="content" id="sr">
                     <div className="content__img">
                         <img src={LoremImage} alt="" />
                     </div>
                     <div className="content__info">
-                        <p className="content__info-bold">Why SR</p>
-                        <p>
+                        <div className="content__info-text">
+                            <span><p>WHY SR</p></span>
+                            <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing
                             elit. Nullam sit amet magna in magna gravida
                             vehicula. Proin mattis lacinia justo. Integer
@@ -47,6 +48,7 @@ function Home() {
                             amet enim. Duis ante orci, molestie vitae vehicula
                             venenatis, tincidunt ac pede.
                         </p>
+                        </div>
                         <br />
                         <div className="content__info-video">
                             <iframe
@@ -60,20 +62,21 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="content-1">
+                <div className="content-1" id="product">
                     <div className="content-1__info">
-                        <p className="content-1__info-bold">
-                            About the Product
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Nullam sit amet magna in magna gravida
-                            vehicula. Proin mattis lacinia justo. Integer
-                            rutrum, orci vestibulum ullamcorper ultricies, lacus
-                            quam ultricies odio, vitae placerat pede sem sit
-                            amet enim. Duis ante orci, molestie vitae vehicula
-                            venenatis, tincidunt ac pede.
-                        </p>
+                        <div className="content-1__info-text">
+                            <span><p>PRODUCT</p></span>
+            
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                elit. Nullam sit amet magna in magna gravida
+                                vehicula. Proin mattis lacinia justo. Integer
+                                rutrum, orci vestibulum ullamcorper ultricies, lacus
+                                quam ultricies odio, vitae placerat pede sem sit
+                                amet enim. Duis ante orci, molestie vitae vehicula
+                                venenatis, tincidunt ac pede.
+                            </p>
+                        </div>
                     </div>
                     <div className="content-1__img">
                         {" "}
@@ -81,7 +84,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="review">
+                <div className="review" id="review">
                     <Review />
                 </div>
             </div>

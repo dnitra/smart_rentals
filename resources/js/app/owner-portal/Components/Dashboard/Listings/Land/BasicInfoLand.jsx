@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Apartment/Card";
-
+import "../Apartment/BasicInfo.css";
 export default function BasicInfoLand({ setFormData }) {
     const selectChangeHandler = (e) => {
         setFormData((previous_values) => {
@@ -15,12 +15,12 @@ export default function BasicInfoLand({ setFormData }) {
 
     return (
         <Card>
-            <div className="content">
-                <h4>Basic Information</h4>
+            <div className="listings-content">
+                <h4 className="h4">Basic Information</h4>
                 <fieldset className="fieldset">
                     <form>
                         <div className="fieldset-dropdown">
-                            <label>{content.location} </label>
+                            <label className="fieldset-label">{content.location} </label>
                             <select
                                 className="select"
                                 name="buildingMaterial"
@@ -44,7 +44,7 @@ export default function BasicInfoLand({ setFormData }) {
                             </select>
                         </div>
                         <div className="fieldset-dropdown">
-                            <label>{content.protection} </label>
+                            <label className="fieldset-label">{content.protection} </label>
                             <select
                                 className="select"
                                 name="buildingMaterial"

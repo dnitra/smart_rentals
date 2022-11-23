@@ -46,10 +46,6 @@ class PropertyDetailsSeeder extends Seeder
                     "loggia" => "Loggia (in m²):",
                     "terrace" => "Terrace (in m²):",
                     "pool" => "Pool (in m²):",
-                    "loggia" => "Loggia (in m²):",
-                    "terrace" => "Terrace (in m²):",
-                    "pool" => "Pool (in m²):",
-
                 ],
                 "date" =>
                 [

@@ -6,10 +6,21 @@ body {
     
 }
 
-.navbar_home {
+.navbar.navbar_home {
     grid-template-columns: 2fr 3fr 2fr;
     z-index: 2;
     position: fixed;
+    &__buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar__links{
+        margin-top: 0.4rem;
+    }
+     @media (max-width : 1000px) {
+        display: none;
+    }
+    
 }
 
 
@@ -42,13 +53,14 @@ body {
         padding: 1rem;
     }
 
-    &__links {
+    &__links  {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding-top: 1.3rem;
+        margin-top:1.8rem;
         color: white;
         align-items: center;
+        
 
         & a {
             text-decoration: none;
@@ -71,14 +83,16 @@ body {
     &__buttons {
         display: flex;
         flex-direction: row;
-        margin-left: auto;
-        margin-top: 1.5rem;
-        margin-right: 2rem;
+        justify-content: center;
+        align-items:center
+        // margin-left: auto;
+        // margin-top: 3rem;
+        // margin-right: 2rem;
 
        
     }
 }
-
+.navbar
 .navbar:hover {
     animation-name: background_navbar;
     animation-duration: 2s;
@@ -123,7 +137,7 @@ body {
 /// 
 .header-menu{
     display: none;
-    @media (max-width : 1200px) {
+    @media (max-width : 1000px) {
         display: block;
     }
 }
@@ -202,6 +216,10 @@ body {
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
+
+            @media (max-width:1000px) {
+                margin: 0.1rem 0.2rem;
+            }
         }
 
         .log-button:hover,

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Apartment/Card";
 import DateInput from "../Apartment/DateInput";
-import "../Apartment/Date.css";
+
 
 export default function Date({ setFormData }) {
     const content = {

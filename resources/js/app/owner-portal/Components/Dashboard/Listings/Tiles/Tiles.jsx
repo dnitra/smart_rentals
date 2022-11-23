@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../../../Context/ContextsProvider";
-import "./Tiles.css";
+// import "./Tiles.css";
 import Card from "../Apartment/Card";
+import "../Apartment/Card.css";
 import BuildingPlaceholder from "../../../../../../../img/building-placeholder.jpg";
 import likes from "../../../../../../../img/Icons/likes.svg";
 import views from "../../../../../../../img/Icons/views.svg";

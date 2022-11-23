@@ -6,7 +6,7 @@ import Other from "../Components/Dashboard/Listings/Apartment/Other";
 import BasicInfo from "../Components/Dashboard/Listings/Apartment/BasicInfo";
 import CheckBoxArea from "../Components/Dashboard/Listings/Apartment/CheckBoxArea";
 import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
-
+import "./Styles/EditDetailsAppartment.scss";
 export default function Body() {
     const [formData, setFormData] = useState({});
 
@@ -15,15 +15,17 @@ export default function Body() {
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="apartment">
+        <div onSubmit={handleFormSubmit} className="listings-main">
             <BasicInfo setFormData={setFormData} />
             <Areas setFormData={setFormData} />
             <Date setFormData={setFormData} />
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
-            <DescriptionField setFormData={setFormData}/>
-            <button type="submit">Submit</button>
+            <DescriptionField setFormData={setFormData} />
+            <button className="tile-btn3" type="submit">
+                Submit
+            </button>
         </div>
     );
 }
