@@ -33,7 +33,12 @@ export default function EditAccesses() {
     useEffect(() => {
        changeUserData()
         console.log(userData)
-    },[])
+    }, [])
+    
+    useEffect(() => {
+       
+        console.log(userData)
+    },[userData])
 
 
     const validation = () => {
@@ -142,7 +147,6 @@ export default function EditAccesses() {
                     defaultValue={""}
                     name="role"
                     id="addAccess"
-                    value={accesses.role}
                     className={errors.role}
                 >
                     <option disabled value="">Select the role</option>
@@ -189,7 +193,7 @@ export default function EditAccesses() {
             
                     userData.rented_properties.filter((property) => {
                         
-                        
+                
                 return property.id == propertyId
                     })[0].property_accesses.map((access, index) => {
                     

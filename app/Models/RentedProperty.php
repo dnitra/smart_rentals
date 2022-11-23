@@ -18,7 +18,7 @@ class RentedProperty extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('role_id');
     }
 
     public function address()
