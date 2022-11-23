@@ -168,9 +168,10 @@ export default function Properties() {
                     onChange={handleInputChange}
                 />
                 <label className="property-form__label" htmlFor="name">
-                    Name (optional):
+                    Name of the property (optional):
                 </label>
                 <input
+                    autoComplete="nope"
                     className="property-form__input"
                     id="name"
                     type="text"
