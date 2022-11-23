@@ -136,7 +136,7 @@ class RentedPropertyController extends Controller
     {
         $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
 
-    
+
         return $properties;
     }
 
@@ -167,8 +167,9 @@ class RentedPropertyController extends Controller
                 ImageService::storeImage($uploaded_image, $property->id);
             }
         }
-
+        // dd($data["name"], $data["area"]);
         // // fill the object with data and save it to database
+        // dd($data);
         $property->name = $data["name"];
         $property->area = $data["area"];
         $property->rented_property_type_id = $data["type"];

@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../Apartment/Card";
 import DateInput from "../Apartment/DateInput";
-import "../Apartment/Date.css";
 
 export default function Date({ setFormData }) {
     const content = {
@@ -17,8 +16,8 @@ export default function Date({ setFormData }) {
     };
     return (
         <Card>
-            <div className="content">
-                <h4>Date</h4>
+            <div className="date-content">
+                <h4 className="h4">Date</h4>
                 <fieldset className="fieldset">
                     <div className="fieldset-date">
                         <DateInput

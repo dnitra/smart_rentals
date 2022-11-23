@@ -15,8 +15,9 @@ export default function DescriptionField({ setFormData }) {
     return (
         <Card>
             <h4 className="h4">Description</h4>
+            <label className="fieldset-label">{content.propDescription}</label>
             <textarea
-                label={content.propDescription}
+                
                 name="propDescription"
                 value={undefined}
                 onChange={setFormData}
