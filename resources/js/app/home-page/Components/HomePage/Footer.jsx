@@ -7,7 +7,6 @@ import instagram from "../../../../../img/logos/instagram-logo-black.svg";
 function Footer() {
     return (
         <footer>
-            <div className="footer__border"></div>
             <div className="footer-container">
                 <div className="footer__first-row">
                     <img

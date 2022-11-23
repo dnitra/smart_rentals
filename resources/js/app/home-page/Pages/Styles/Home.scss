@@ -14,8 +14,8 @@ html {
     z-index: 1;
     width: 100vw;
     height: 120vh;
-    background: url("../../../../../img/home/home_background.svg") no-repeat fixed
-        center center;
+    background: url("../../../../../img/home/home_background.svg") no-repeat
+        fixed center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -41,14 +41,15 @@ html {
 .main-content {
     position: relative;
     margin-top: -5rem;
-    background: url("../../../../../img/home/home_content_background.svg") no-repeat center center;
+    background: url("../../../../../img/home/home_content_background.svg")
+        no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
-    height: 318vh;
-    margin-bottom: -8rem;
+    // height: 318vh;
+    padding-bottom: 2rem;
     z-index: 0;
 }
 .content {
