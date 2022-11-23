@@ -45,20 +45,20 @@ export default function HomePageNavbar() {
         ),
     };
 
-    const [position, setPosition] = useState(window.pageYOffset);
-    const [visible, setVisible] = useState(true);
-    useEffect(() => {
-        const handleScroll = () => {
-            let moving = window.pageYOffset;
+    // const [position, setPosition] = useState(window.pageYOffset);
+    // const [visible, setVisible] = useState(true);
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         let moving = window.pageYOffset;
 
-            setVisible(position > moving);
-            setPosition(moving);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    });
+    //         setVisible(position > moving);
+    //         setPosition(moving);
+    //     };
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // });
 
     const logoutUser = async () => {
         const response = await axios.post("/logout");
@@ -66,11 +66,11 @@ export default function HomePageNavbar() {
         window.location.assign("/");
     };
 
-    const cls = visible ? "visible" : "hidden";
+    // const cls = visible ? "visible" : "hidden";
 
     return (
         <>
-        <div className={cls}>
+        <div>
             <header className="navbar navbar_home">
                 <Link to="/" className="navbar__link">
                     <div className="navbar__logo">{logo.data}</div>
