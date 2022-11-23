@@ -26,11 +26,12 @@ export default function EditAccesses() {
     const { userData,changeUserData } = useCustomContexts();
     const [accesses, setAccesses] = useState(accessesData);
     const { propertyId } = useParams()
-    const [errors,setErrors] = useState(accessesData)
+    const [errors, setErrors] = useState(accessesData);
+    const [response,setResponse] = useState("")
     
   
     useEffect(() => {
-        changeUserData()
+       changeUserData()
         console.log(userData)
     },[])
 
@@ -73,9 +74,11 @@ export default function EditAccesses() {
             changeUserData()
             console.log("test")
             setAccesses(accessesData)
+            
         }
         catch (error) {
             console.log(error)
+            
         }
             }
     }
@@ -86,13 +89,27 @@ export default function EditAccesses() {
             
             const response = await axios.post(`/api/property/${propertyId}/remove-access/${index}`)
             
-            
         }
         catch (error) {
             console.log(error)
         }
-        
-        
+    }
+
+
+    const sendInvitation = async (accessId) => {
+    
+        try {
+            
+            const response = await axios.post(`/api/invite/sendEmail/${accessId}`)
+            console.log(response)
+           
+            await setResponse(response)
+            
+        }
+        catch (error) {
+            console.log(error)
+            setResponse("Something went wrong")
+        }
     }
     
     //Handling adding Accesses with assigned roles to property
@@ -152,6 +169,7 @@ export default function EditAccesses() {
                     Add access
                 </button>
                 
+                
             </div> 
             </form>
         
@@ -191,6 +209,39 @@ export default function EditAccesses() {
                         >
                             Remove access
                         </button>
+                        {response?
+                            response.data ?
+                                (response.data.id==access.id)?
+                                "Message was sent successfully!"
+                                :
+                            <button
+                                type="button"
+                                    onClick={() => {
+                                    setResponse(true)
+                                    sendInvitation(access.id)
+                                }}
+                            >
+                                Send Invitation
+                            </button>
+                            :"Loading" : (response) ?
+                                <button
+                                type="button"
+                                    onClick={() => {
+                                    setResponse(true)
+                                    sendInvitation(access.id)
+                                }}
+                            >
+                                Send Invitation
+                                </button>:
+                            <button
+                                type="button"
+                                    onClick={() => {
+                                    setResponse(true)
+                                    sendInvitation(access.id)
+                                }}
+                            >
+                                Send Invitation
+                                </button>}
                     </div>
                     )
                     }) : "Loading..."
