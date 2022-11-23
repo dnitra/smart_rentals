@@ -1,9 +1,17 @@
+
+.checkbox-contents {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
+}
 .checkbox-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 80%;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 .checkbox-area {
     display: grid;

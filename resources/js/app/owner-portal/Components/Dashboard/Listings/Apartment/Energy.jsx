@@ -4,6 +4,7 @@ import InputField from "./InputField";
 import CheckBox from "./CheckBox";
 import Card from "./Card";
 import "./Energy.css";
+import UploadPDF from "./UploadPDF";
 
 export default function Energy({ setFormData }) {
     const [file, setFile] = useState();
@@ -23,9 +24,7 @@ export default function Energy({ setFormData }) {
                 "content-type": "multipart/form-data",
             },
         };
-        axios.post(url, formData, config).then((response) => {
-           
-        });
+        axios.post(url, formData, config).then((response) => {});
     }
     const content = {
         energyConsumptionIndex: "Energy consumption index:(kWh/m2)",
@@ -45,17 +44,23 @@ export default function Energy({ setFormData }) {
                 <fieldset className="fieldset">
                     {/* -------------------------------energy dropdown----------------------- */}
 
-                    <label>Energy efficiency class: </label>
-                    <select className="select">
-                        <option value="">- select</option>
-                        <option value="a">A - extremely efficient</option>
-                        <option value="b">B - very efficient</option>
-                        <option value="c">C - efficient</option>
-                        <option value="d">D - less efficient</option>
-                        <option value="e">E - uneconomical</option>
-                        <option value="f">F - very uneconomical</option>
-                        <option value="g">G - extremely uneconomical</option>
-                    </select>
+                    <div className="input-field">
+                        <label className="fieldset-label">
+                            Energy efficiency class:{" "}
+                        </label>
+                        <select className="select">
+                            <option value="">- select</option>
+                            <option value="a">A - extremely efficient</option>
+                            <option value="b">B - very efficient</option>
+                            <option value="c">C - efficient</option>
+                            <option value="d">D - less efficient</option>
+                            <option value="e">E - uneconomical</option>
+                            <option value="f">F - very uneconomical</option>
+                            <option value="g">
+                                G - extremely uneconomical
+                            </option>
+                        </select>
+                    </div>
 
                     <InputField
                         label={content.energyConsumptionIndex}
@@ -66,14 +71,24 @@ export default function Energy({ setFormData }) {
 
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
-                    <form onSubmit={handleSubmit}>
-                        <h5>React File Upload</h5>
-                        <input type="file" onChange={handleChange} />
+                    <form className="uploadPDF" onSubmit={handleSubmit}>
+                        <h5>Upload PDF</h5>
+                        <label htmlFor="file"></label>
+                        <input
+                            className="inputPDF"
+                            type="file"
+                            
+                            id="file"
+                            onChange={handleChange}
+                        />
                         <button type="submit">Upload</button>
                     </form>
+
                     {/* -------------------------------------decree dropdown-------------------------------- */}
                     <div className="fieldset-dropdown">
-                        <label>According to a regulation: </label>
+                        <label className="fieldset-label">
+                            According to a regulation:{" "}
+                        </label>
                         <select className="select">
                             <option value="">- select</option>
                             <option value="idk">TBD</option>

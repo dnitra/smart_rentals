@@ -5,6 +5,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Listings.scss";
 import Card from "../Components/Dashboard/Listings/Apartment/Card";
 
+
 function Listings() {
     const { user, userData, changeUserData } = useCustomContexts();
     const [selectedProperty, setSelectedProperty] = useState("");
@@ -37,9 +38,9 @@ function Listings() {
             
             
                 <form className="listnings-add">
-                    <div>
+                    <div className="listnings-field">
                         <select
-                            className="select-listnings"
+                            className="listnings-select"
                             name="propertyId"
                             onChange={handleChange}
                             value={selectedProperty}
@@ -70,7 +71,7 @@ function Listings() {
                                         );
                                     })}
                         </select>
-                        <button className="listnings-add__btn" type="button" onClick={handleSelect}>
+                        <button className="listnings-publish__btn" type="button" onClick={handleSelect}>
                             publish
                         </button>
                     </div>

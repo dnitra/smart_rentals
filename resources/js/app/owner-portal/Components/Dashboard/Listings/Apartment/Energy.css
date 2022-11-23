@@ -4,3 +4,28 @@
     flex-direction: column;
     width: 80%;
 }
+.uploadPDF {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.inputPDF {
+    margin-top: 0.5rem;
+}
+@media (max-width: 900px) {
+    .inputPDF {
+        display: flex;
+        width: 100px;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .checkbox-content .checkbox-area {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .uploadPDF{
+        display: flex;
+        width: 100px;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}

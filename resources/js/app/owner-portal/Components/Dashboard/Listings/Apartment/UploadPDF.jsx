@@ -22,7 +22,7 @@ export default function UploadPDF() {
 
     return (
         <div>
-            <input type="file" name="file" onChange={changeHandler} />
+            <input className="uploadPDF" type="file" name="file" onChange={changeHandler} />
             {isSelected ? (
                 <div>
                     <p>Filename: {selectedFile.name}</p>

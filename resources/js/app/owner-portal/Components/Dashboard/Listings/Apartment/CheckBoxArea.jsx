@@ -50,7 +50,7 @@ export default function CheckBoxArea({ setFormData }) {
     };
     return (
         <Card>
-            <div className="checkbox-content">
+            <div className="checkbox-contents">
                 <div className="checkbox-content">
                     <h3>{content.heatingDistrib}</h3>
                     <div className="checkbox-area">
