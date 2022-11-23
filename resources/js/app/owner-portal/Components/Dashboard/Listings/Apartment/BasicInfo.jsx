@@ -27,7 +27,7 @@ export default function Basic({ setFormData }) {
 
     return (
         <Card>
-            <div className="appartment-content">
+            <div className="listings-content">
                 <h4 className="h4">Basic Information</h4>
                 <fieldset className="fieldset">
                     {/* ---------------------first part of basic info------------------------- */}

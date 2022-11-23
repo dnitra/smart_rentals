@@ -11,11 +11,14 @@ export default function EditDeatilsLand() {
         event.preventDefault();
     };
     return (
-        <div onSubmit={handleFormSubmit} className="land">
+        <div onSubmit={handleFormSubmit} className="listings-main">
             <BasicInfoLand setFormData={setFormData} />
             <AreasLand setFormData={setFormData} />
             <DateLand setFormData={setFormData} />
             <CheckBoxAreaLand setFormData={setFormData} />
+            <button className="tile-btn3" type="submit">
+                Submit
+            </button>
         </div>
     );
 }

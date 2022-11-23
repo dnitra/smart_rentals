@@ -5,7 +5,7 @@ import EnergyHouse from "../Components/Dashboard/Listings/Commercial/EnergyHouse
 import OtherHouse from "../Components/Dashboard/Listings/Commercial/OtherHouse";
 import BasicInfoHouse from "../Components/Dashboard/Listings/Commercial/BasicInfoHouse";
 import CheckBoxAreaHouse from "../Components/Dashboard/Listings/Commercial/CheckBoxAreaHouse";
-import "../Components/Dashboard/Listings/Commercial/PropertyHouse.css";
+// import "../Components/Dashboard/Listings/Commercial/PropertyHouse.css";
 
 export default function Body() {
     const [formData, setFormData] = useState({});

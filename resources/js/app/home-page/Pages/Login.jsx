@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Register.scss";
+import "./Register_Login.scss";
 import googleLogo from "../../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../../img/others/register-img.png";
