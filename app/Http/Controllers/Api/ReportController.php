@@ -16,6 +16,7 @@ class ReportController extends Controller
 
         //get the data from all methods
         $data = $request->all();
+
         // dd($data);
         //get the current user id
         $userId = auth()->id();
@@ -35,6 +36,7 @@ class ReportController extends Controller
         $report->details = $data["report"]["details"];
         $report->accessory_id = $data["report"]["accessory_id"];
         $report->rented_property_id = $data["report"]["rented_property_id"];
+        // dd($report);
         $report->save();
 
         // return [
@@ -62,19 +64,19 @@ class ReportController extends Controller
         }
 
 
-    public function reportsFromUser(Request $request)
-    {
-        //get the data from all methods
-        $userId = auth()->id();
-        dd($userId);
-        $data = $request->all();
-        // dd($data);
-            // dd($userId);
-            //get the current user's data from the database as object instance
-        $userReports = Report::where('user_id', $data['id'])->where('active', '1')->get();
+    // public function reportsFromUser(Request $request)
+    // {
+    //     //get the data from all methods
+    //     $userId = auth()->id();
+    //     // dd($userId);
+    //     $data = $request->all();
+    //     // dd($data);
+    //         // dd($userId);
+    //         //get the current user's data from the database as object instance
+    //     $userReports = Report::where('user_id', $data['id'])->where('active', '1')->get();
         
-        return $userReports; 
-    }
+    //     return $userReports; 
+    // }
 
 
     public function deleteReport(Request $request)

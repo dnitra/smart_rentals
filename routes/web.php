@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\Api\RentedPropertyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +52,4 @@ Route::view('/tenant/dashboard/all', 'index');
 Route::view('/tenant/dashboard/messages', 'index');
 Route::view('/tenant/dashboard/reports', 'index');
 Route::view('/invite/{linkId}', 'index');
+

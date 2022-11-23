@@ -21,7 +21,6 @@ export default function Properties() {
         subtype: "1",
     });
     const maxNumber = 10;
-    const navigate = useNavigate();
 
     // Handling selecting images changes
     const handleImageChange = (imageList, addUpdateIndex) => {
@@ -118,17 +117,6 @@ export default function Properties() {
         <>
             <form className="property-form" onSubmit={handleSubmit}>
                 <h2 className="property-form__heading">Create New Property</h2>
-                <label className="property-form__label" htmlFor="name">
-                    Name:
-                </label>
-                <input
-                    className="property-form__input"
-                    id="name"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                />
 
                 {/* ---------------------------------- SELECT ADDRESS  ---------------------------------- */}
                 <label className="property-form__label" htmlFor="city">
@@ -166,6 +154,28 @@ export default function Properties() {
                     type="text"
                     name="address"
                     value={formData.address}
+                    onChange={handleInputChange}
+                />
+
+                <label className="property-form__label" htmlFor="area">
+                    Area (m2):
+                </label>
+                <input
+                    className="property-form__input"
+                    type="number"
+                    name="area"
+                    value={formData.area}
+                    onChange={handleInputChange}
+                />
+                <label className="property-form__label" htmlFor="name">
+                    Name (optional):
+                </label>
+                <input
+                    className="property-form__input"
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
                 />
 
@@ -305,6 +315,7 @@ export default function Properties() {
                 ) : null}
 
                 {/* ---------------------------------------- IMAGE UPLOADING ---------------------------------- */}
+                <label>Add images:</label>
                 <ImageUploading
                     multiple
                     value={images}

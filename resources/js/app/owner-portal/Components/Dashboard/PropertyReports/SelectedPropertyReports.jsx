@@ -4,12 +4,19 @@ import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
 import "../../../Pages/Styles/AllProperties.scss"
-const PropertyReports = () => {
+
+
+function SelectedPropertyReports(props) {
     const { user, userData, changeUserData } = useCustomContexts();
     const [status, setStatus] = useState([])
     const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([])
     const [done, setDone] = useState("Done")
-    // console.log(done)
+
+    const currentProperty = userData.rented_properties.filter((property) => {
+        return property.id == props.id
+    })
+    console.log(currentProperty[0])
+
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
@@ -38,7 +45,6 @@ const PropertyReports = () => {
             changeUserData();
         }
 
-        //    window.location.reload();
     }, [deleteCurrnetReport])
 
     const deleteItem = () => {
@@ -48,24 +54,6 @@ const PropertyReports = () => {
     const handleClick = () => {
         setDone("delete")
     }
-    // const userReports = async() => {
-
-    //     const user_id = userData.id
-    //     console.log(user_id)
-    //     const response = await axios.post(
-    //         "/api/report/user-reports",
-    //         {
-    //             id : user_id
-    //         },
-    //         {
-    //             headers: {
-    //                 "Content-Type": "multipart/form-data",
-    //             },
-    //         }
-    //     );
-    //     const data = response.data
-    // }
-
 
 
     const uploadStatus = async () => {
@@ -100,7 +88,6 @@ const PropertyReports = () => {
                     break;
             }
         }
-        // console.log(response.data)
     }
 
     const deleteReport = async () => {
@@ -137,29 +124,17 @@ const PropertyReports = () => {
                     break;
             }
         }
-        // console.log(response.data)
     }
-
-    // useEffect(() => {
-    //     setDeleteCurrnetReport([])
-    // }, [])
-
 
     return (
 
-        <div className="properies">
-            {userData.rented_properties ? userData.rented_properties.filter((property) => {
-                return property.pivot.role_id == 1
-            }).map((property, i) => {
-                return (
-                    property.reports.length > 0 ? (
-                        <div className="property property__report-container" key={i}>
-                            <div className="property__adress">
-                                <p>{property.address.street_and_number}</p>
-                                <p>{property.address.city}</p>
-                            </div>
+        <div className="properies currentPropertyDetails">
+
+                   { currentProperty[0].reports.length > 0 ? (
+                        <div className="property property__report-container ">
+
                             <div className='property__reports'>
-                                {property.reports.map((report, i) => {
+                                {currentProperty[0].reports.map((report, i) => {
 
                                     if (report.active != "0") {
                                         return (
@@ -213,20 +188,18 @@ const PropertyReports = () => {
 
                                     }
 
+                                   
+
 
                                 })}
                             </div>
                         </div>
 
                     ) : ""
-                )
-            }) : ""
-            }
+                }
+            
         </div>
     )
 }
 
-
-export default PropertyReports
-
-
+export default SelectedPropertyReports

@@ -1,4 +1,98 @@
-.main-content{
-    width:100%;
-    height:100vh;
+$border-color: #d0e2f9;
+
+
+.dashboard {
+    display: grid;
+    // margin-top: 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "properties cashflow reports"
+        "properties . .";
+}
+.dashboard__reports{
+    overflow-y: scroll;
+    max-height:50vh;
+}
+
+.dashboard__cashflow {
+    grid-area: cashflow;
+    width: 100%;
+}
+.chart {
+    width: 100% !important;
+}
+.dashboard__reports-container {
+    
+    
+    .dashboard__report{
+        overflow-y:scroll;
+        display: none;
+        &--show{
+            display: block;
+        }
+        &--info{
+            display: flex;
+            flex-direction: column;
+            border-radius:15px;
+            background-color:rgb(145, 184, 242);
+            margin: 1rem;
+            &__current{
+                padding: 0.5rem;
+                .title{
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    & button{
+        width: 100%;
+    }
+
+    overflow: hidden;
+    width: 100%;
+    // height: 3rem;
+    border-radius: 15px;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // justify-content: space-between;
+
+    &__links {
+        background-color: rgb(40, 40, 40);
+        font-size: larger;
+        letter-spacing: 1px;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        transition: 0.3s;
+        text-transform: uppercase;
+        color: white;
+        &--active {
+            background-color: rgb(60, 60, 60);
+            font-size: larger;
+            letter-spacing: 1px;
+            border: none;
+            outline: none;
+            padding: 14px 16px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            color: white;
+        }
+    }
+
+    &__links:hover {
+        background-color: rgb(75, 75, 75);
+        color: white;
+    }
+}
+
+.dashboard__properties {
+    grid-area: "area-1";
+    height: 80vh;
+    border: 1px solid $border-color;
+    border-radius: 15px;
+    overflow: hidden;
+
+    overflow-y: scroll;
 }
