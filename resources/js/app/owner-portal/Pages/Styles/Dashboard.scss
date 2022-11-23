@@ -89,9 +89,10 @@ $border-color: #d0e2f9;
 
 .dashboard__properties {
     grid-area: "area-1";
+    height: 80vh;
     border: 1px solid $border-color;
     border-radius: 15px;
     overflow: hidden;
-    height: auto;
+
     overflow-y: scroll;
 }
