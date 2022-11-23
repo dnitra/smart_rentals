@@ -1,10 +1,5 @@
 
-.basic-contents {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.appartment-content {
+
+.listings-content {
     width: 80%;
 }
