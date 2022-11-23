@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 export default function PropertyList() {
     const { userData, changeUserData } = useCustomContexts();
-    console.log(userData);
 
     return (
         <>
