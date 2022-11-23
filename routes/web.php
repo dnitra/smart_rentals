@@ -28,6 +28,8 @@ Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
 Route::view('/public_listings', 'index');
 
+Route::get('/publicListings/show', [RentedPropertyController::class, 'showPublicListings']);
+
 
 /// DASHBOARD FOR OWNER
 Route::view('/owner/properties', 'index');

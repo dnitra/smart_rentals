@@ -89,18 +89,12 @@ class RentedPropertyController extends Controller
 
         try {
             $roleId = RentedProperty::findOrFail($propertyId)->users()->where("users.id", "LIKE", $userId)->first()->pivot->role_id;
-            if($roleId ==1 || $roleId==2){
+            if ($roleId == 1 || $roleId == 2) {
                 $access->save();
             }
-        
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo 'Message: ' . $e->getMessage();
         }
-        
-
-
-       
     }
 
     public function removeAccess($propertyId, $accessId)
@@ -136,6 +130,14 @@ class RentedPropertyController extends Controller
         }
 
         $property->save();
+    }
+
+    public function showPublicListings()
+    {
+        $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
+
+    
+        return $properties;
     }
 
     public function showInvitation($linkId)

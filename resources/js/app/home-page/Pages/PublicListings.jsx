@@ -5,11 +5,12 @@ export default function PublicListings() {
 const [properties, setProperties] = useState([]);
 
     useEffect(()=>{
-    // getProperties()
+    getProperties()
     },[])
     const getProperties = async() => {
             try{
-                const response = axios.get('/publicListings/show')
+                const response = axios.get('publicListings/show')
+
                 console.log(response.data);
                 setProperties(response.data);
             }
