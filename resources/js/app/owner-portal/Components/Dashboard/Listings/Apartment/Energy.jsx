@@ -72,7 +72,7 @@ export default function Energy({ setFormData }) {
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
                     <form className="uploadPDF" onSubmit={handleSubmit}>
-                        <h5>Upload PDF</h5>
+                        <label className="fieldset-label">Upload PDF</label>
                         <label htmlFor="file"></label>
                         <input
                             className="inputPDF"
@@ -81,7 +81,7 @@ export default function Energy({ setFormData }) {
                             id="file"
                             onChange={handleChange}
                         />
-                        <button type="submit">Upload</button>
+                        <button type="submit" className="">Upload</button>
                     </form>
 
                     {/* -------------------------------------decree dropdown-------------------------------- */}

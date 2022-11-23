@@ -26,6 +26,8 @@ Route::view('/login', 'index');
 Route::view('/register', 'index');
 Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
+Route::view('/public_listings', 'index');
+
 
 /// DASHBOARD FOR OWNER
 Route::view('/owner/properties', 'index');

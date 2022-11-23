@@ -18,9 +18,7 @@ function Listings() {
             changeUserData();
         } catch (error) {
             console.log(error);
-        }
-
-        
+        }        
     };
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
@@ -76,7 +74,6 @@ function Listings() {
                         </button>
                     </div>
     
-                    {/* {selectedProperty ? <button>Publish the property</button> : ""} */}
                 </form>
             
 
