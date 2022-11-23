@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Register.scss";
+import "./Register_Login.scss";
 import googleLogo from "../../../../img/logos/google_logo.svg";
 import facebookLogo from "../../../../img/logos/facebook_logo.svg";
 import registerImg from "../../../../img/others/register-img.png";
@@ -8,6 +8,7 @@ import InputForm from "../../home-page/Components/InputForm/InputForm";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import { loadUser } from "../../actions/auth";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Register() {
     const { user, setUser, loadingUser, content, changeUserData } =
@@ -122,9 +123,16 @@ function Register() {
                         handleChange={handleChange}
                     />
 
+                    <div>
+                        <Link to="/login" className="register__link">
+                            Already registered? Log in
+                        </Link>
+                    </div>
+                    
                     <span className="register__form-other">
                         {content.otherOptions}
                     </span>
+
                     <div className="register__logo-social">
                         <img
                             src={facebookLogo}

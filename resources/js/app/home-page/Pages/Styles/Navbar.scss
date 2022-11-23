@@ -72,7 +72,7 @@ body {
         display: flex;
         flex-direction: row;
         margin-left: auto;
-        margin-top: 3rem;
+        margin-top: 1.5rem;
         margin-right: 2rem;
 
        
@@ -190,11 +190,12 @@ body {
 }
 
 .log-button {
-        
+    
             height: 35px;
             width: 120px;
             border-radius: 30px;
-            margin: auto 0.2rem;
+            margin: 0.2rem;
+            
             border: 0px;
             background-color: rgb(145, 184, 242);
             color: black;

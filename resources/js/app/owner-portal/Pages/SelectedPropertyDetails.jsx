@@ -20,6 +20,8 @@ const SelectedPropertyDetails = () => {
 
     return (
         <>
+            <h2 className="property__heading">Property Details</h2>
+
             <PropertyDetails propertyId={propertyId} key={propertyId} />
 
             <div className="property__about">

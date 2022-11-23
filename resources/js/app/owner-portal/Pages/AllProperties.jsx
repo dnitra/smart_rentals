@@ -7,8 +7,8 @@ import "./Styles/AllProperties.scss";
 function AllProperties() {
     return (
         <div>
+            <h2 className="all-properties__heading">Your properties</h2>
             <AllProperty />
-           
         </div>
     );
 }

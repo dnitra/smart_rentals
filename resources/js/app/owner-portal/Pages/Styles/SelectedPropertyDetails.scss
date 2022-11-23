@@ -1,3 +1,9 @@
+.property__heading {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0 2rem;
+    // color: #12476f;
+}
 .property {
     text-transform: uppercase;
 
@@ -6,19 +12,26 @@
         width: 90%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        // padding-top: 3rem;
-        padding: 1rem;
+        // padding: 1rem;
         justify-items: center;
         align-items: center;
         border-radius: 15px;
         box-shadow: 0 0 15px #999;
+        overflow: hidden;
+        border: 0.5px solid #12476f;
+        // max-height: 800px;
 
         &-img {
-            width: 80%;
-            padding: 1rem;
-            // overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-right: 0.5px solid #12476f;
+            max-height: 450px;
+
             img {
-                width: 100%;
+                width: 120%;
             }
         }
         &-details {
@@ -111,8 +124,8 @@
         display: flex;
         flex-direction: column;
         &-img {
-            width: 90%;
-            padding: 1rem;
+            width: 100%;
+            border-bottom: 0.5px solid #12476f;
         }
 
         &-details {

@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
 
-function TenantNavbar() {
-    const { user, setUser, conent } = useCustomContexts();
+export default function TenantNavbar() {
+    const { user, setUser, content } = useCustomContexts();
     const navigate = useNavigate();
+
+    
 
     const logoutUser = async () => {
         const response = await axios.post("/logout");
@@ -66,7 +68,9 @@ function TenantNavbar() {
                 <div className="burger__menu-icon"></div>
                 <div className="burger__menu-icon"></div>
             </div>
-            <div className="navbar__logo">{logo.data}</div>
+            <Link to="/" className="navbar__link">
+                <div className="navbar__logo">{logo.data}</div>
+            </Link>
             <div className="navbar__menu">
                 <div className="navbar__links">
                     <Link to="/owner/dashboard">
@@ -89,7 +93,7 @@ function TenantNavbar() {
             <div className="navbar__buttons">
                 <Link to="/" className="button_container">
                     <button className="log-button" onClick={logoutUser}>
-                        {conent.tenant_navbar_Logout}
+                        {content.tenant_navbar_Logout}
                     </button>
                 </Link>
             </div>
@@ -97,4 +101,4 @@ function TenantNavbar() {
     );
 }
 
-export default Navbar;
+

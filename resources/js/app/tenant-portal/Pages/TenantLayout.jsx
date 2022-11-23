@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom"
-import HomePageNavbar from "../../home-page/Components/HomePage/HomePageNavbar";
+import TenantNavbar from "../Components/TenantNavbar";
 
 export default function TenantLayout() {
     
@@ -8,7 +8,7 @@ export default function TenantLayout() {
     return (
         
         <>
-            <HomePageNavbar />
+            <TenantNavbar />
             <Outlet />
         </>
         
