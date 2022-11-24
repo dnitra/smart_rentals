@@ -37,13 +37,13 @@ function Listings() {
         e.preventDefault();
         setSelectedProperty(e.target.value);
 
-        const id = userData.rented_properties.filter((property) => {
-            console.log(property);
-            return property.id == e.target.value;
-        })[0].rented_property_type_id;
-        // .map((property) => {
-        //     return property.rented_property_type_id;
-        // });
+        const id = userData.rented_properties
+            .filter((property) => {
+                return property.id == e.target.value;
+            })
+            .map((property) => {
+                return property.rented_property_type_id;
+            })[0];
         console.log("id " + propertyTypes[id]);
         setPropertyType(propertyTypes[id]);
     };
@@ -52,6 +52,7 @@ function Listings() {
 
     return (
         <div className="listings">
+            <h2 className="listings__heading">Add new listing</h2>
             <form className="listnings-add">
                 <div className="listnings-field">
                     <select

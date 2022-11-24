@@ -8,6 +8,18 @@
         font-family: "Nunito";
         font-weight: bold;
     }
+
+    &__heading {
+        margin: 1rem 0 2rem;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #273655;
+
+        @media (max-width: 1100px) {
+            padding-top: 7rem;
+        }
+    }
 }
 .listnings-add {
     display: flex;
