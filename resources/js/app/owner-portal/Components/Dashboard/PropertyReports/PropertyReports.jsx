@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
 import "../../../Pages/Styles/AllProperties.scss"
-const PropertyReports = () => {
+const PropertyReports = (props) => {
     const { user, userData, changeUserData } = useCustomContexts();
     const [status, setStatus] = useState([])
     const [deleteCurrnetReport, setDeleteCurrnetReport] = useState([])
@@ -149,7 +149,9 @@ const PropertyReports = () => {
 
         <div className="properies">
             {userData.rented_properties ? userData.rented_properties.filter((property) => {
-                return property.pivot.role_id == 1
+               
+                    return property.pivot.role_id == props.access
+               
             }).map((property, i) => {
                 return (
                     property.reports.length > 0 ? (

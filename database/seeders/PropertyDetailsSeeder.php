@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\PropertyDetail;
+use Illuminate\Support\Facades\DB;
 
 class PropertyDetailsSeeder extends Seeder
 
@@ -17,6 +18,7 @@ class PropertyDetailsSeeder extends Seeder
     public function run()
     {
         //
+        DB::statement('TRUNCATE TABLE property_details');
 
         $details_list =
             [
@@ -105,9 +107,9 @@ class PropertyDetailsSeeder extends Seeder
 
         foreach ($details_list as $unit => $details) {
 
-            foreach ($details as $detail_slug => $datail_name) {
+            foreach ($details as $detail_slug => $detail_name) {
                 $detail = new PropertyDetail();
-                $detail->name = $datail_name;
+                $detail->name = $detail_name;
                 $detail->name_in_form = $detail_slug;
                 $detail->unit = $unit;
                 $detail->save();

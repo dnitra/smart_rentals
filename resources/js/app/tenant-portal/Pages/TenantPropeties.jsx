@@ -36,7 +36,7 @@ export default function TenantProperties() {
                                   <p>{property.address.street_and_number}</p>
                                   <p>{property.address.city}</p>
                                   <Link
-                                      to={`/dashboard/property/${property.id}`}
+                                      to={`/tenant/dashboard/property/all/${property.id}`}
                                   >
                                       <button className="property__button">
                                           Details

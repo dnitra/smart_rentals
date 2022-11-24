@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCustomContexts } from "../../Context/ContextsProvider";
+import { slide as Menu } from "react-burger-menu";
+import logoBlack from "../../../../img/logos/SM-logo-black.svg";
 import "../../home-page/Pages/Styles/Navbar.scss";
 
 export default function TenantNavbar() {
@@ -49,55 +51,93 @@ export default function TenantNavbar() {
         ),
     };
 
-    const goBurger = () => {
-        document
-            .querySelector(".navbar")
-            .classList.toggle("burger__menu-container");
-        // document.querySelector(".navbar__links").classList.toggle("navbar__links-show")
-    };
 
     return (
-        <header className="navbar navbar_owner">
-            <div
-                className="burger__menu"
-                onClick={(e) => {
-                    goBurger();
-                }}
-            >
-                <div className="burger__menu-icon"></div>
-                <div className="burger__menu-icon"></div>
-                <div className="burger__menu-icon"></div>
-            </div>
-            <Link to="/" className="navbar__link">
-                <div className="navbar__logo">{logo.data}</div>
-            </Link>
-            <div className="navbar__menu">
-                <div className="navbar__links">
+        <>
+            <header className="navbar navbar_owner">
+                <Link to="/" className="navbar__link">
+                    <div className="navbar__logo">{logo.data}</div>
+                </Link>
+                <div className="navbar__menu">
+                    <div className="navbar__links">
+                        <Link to="/tenant/dashboard">
+                            <p>
+                                <span>dashboard</span>
+                            </p>
+                        </Link>
+                        <Link to="/tenant/dashboard/all">
+                            <p>all properties</p>
+                        </Link>
+                        <Link to="/tenant/dashboard/reports">
+                            {" "}
+                            <p>reports</p>
+                        </Link>
+                        <Link to="/tenant/dashboard/messages">
+                            <p>messages</p>
+                        </Link>
+                        <Link to="/" className="button_container">
+                            <button className="log-button" onClick={logoutUser}>
+                                Logout
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+            </header>
+            <div className="menu-container">
+            <div className="header-menu"> 
+                
+                <Menu>
                     <Link to="/owner/dashboard">
                         <p>
-                            <span>{content.tenant_navbar_dashboard}</span>
+                            <img src={logoBlack} alt="logo" />
                         </p>
                     </Link>
-                    <Link to="/tenant/dashboard/all">
-                        <p>{content.tenant_navbar_allProperties}</p>
+                    <Link to="/owner/dashboard">
+                        <p>
+                            <span>dashboard</span>
+                        </p>
                     </Link>
-                    <Link to="/tenant/dashboard/reports">
-                        {" "}
-                        <p>{content.tenant_navbar_reports}</p>
+                    <Link to="/owner/dashboard/all">
+                        <p>all properties</p>
                     </Link>
-                    <Link to="/tenant/dashboard/messages">
-                        <p>{content.tenant_navbar_messages}</p>
+                    <Link to="/owner/dashboard/cashflow">
+                        <p>cashflow</p>
                     </Link>
-                </div>
+                    <Link to="/owner/dashboard/listings">
+                        <p>listings</p>
+                    </Link>
+                    <Link to="/owner/dashboard/reports">
+                        <p>reports</p>
+                    </Link>
+                    <Link to="/owner/dashboard/messages">
+                        <p>messages</p>
+                    </Link>
+                    <Link to="/" className="button_container">
+                        <button className="log-button" onClick={logoutUser}>
+                            Logout
+                        </button>
+                    </Link>
+                </Menu>
+            
             </div>
-            <div className="navbar__buttons">
-                <Link to="/" className="button_container">
-                    <button className="log-button" onClick={logoutUser}>
-                        {content.tenant_navbar_Logout}
+                <div className="bm-cross-button">
+                    <button
+                        type="button"
+                        id="react-burger-cross-btn"
+                        tabIndex="0"
+                    >
+                        Close Menu
                     </button>
-                </Link>
+                    <span className="bm-span">
+                        <span className="bm-cross-1"></span>
+                        <span className="bm-cross-2"></span>
+                    </span>
+                </div>
+                {/* <div>
+                
+            </div> */}
             </div>
-        </header>
+        </>
     );
 }
 

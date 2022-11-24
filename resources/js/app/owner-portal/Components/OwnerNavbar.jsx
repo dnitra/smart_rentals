@@ -90,7 +90,9 @@ export default function OwnerNavbar() {
                     </div>
                 </div>
             </header>
-            <div className="header-menu">
+            <div className="menu-container">
+            <div className="header-menu"> 
+                
                 <Menu>
                     <Link to="/owner/dashboard">
                         <p>
@@ -123,6 +125,8 @@ export default function OwnerNavbar() {
                         </button>
                     </Link>
                 </Menu>
+            
+            </div>
                 <div className="bm-cross-button">
                     <button
                         type="button"

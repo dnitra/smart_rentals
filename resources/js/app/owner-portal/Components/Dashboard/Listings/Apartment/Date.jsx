@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "./Card";
 import DateInput from "./DateInput";
-// import "./Date.css";
 
 export default function Date({ setFormData }) {
     const content = {

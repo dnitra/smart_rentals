@@ -1,11 +1,7 @@
-import React from 'react'
-import fakeBills from "./fakeBills.svg"
+import React from "react";
+import fakeBills from "./fakeBills.svg";
 function DashboardBills() {
-  return (
-    <div>
-        <img src={fakeBills} alt="" />
-    </div>
-  )
+    return <img className="dashboard__image" src={fakeBills} alt="" />;
 }
 
-export default DashboardBills
+export default DashboardBills;
