@@ -4,6 +4,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import "../../home-page/Pages/Styles/Navbar.scss";
 import { slide as Menu } from "react-burger-menu";
 import logoBlack from "../../../../img/logos/SM-logo-black.svg";
+import SMlogo from "../../../../img/logos/SM-logo.svg";
 
 export default function OwnerNavbar() {
     const { user, setUser, userData } = useCustomContexts();
@@ -48,6 +49,8 @@ export default function OwnerNavbar() {
             </svg>
         ),
     };
+
+    const logo2 = { ...logo };
 
     const showSettings = (event) => {
         event.preventDefault();

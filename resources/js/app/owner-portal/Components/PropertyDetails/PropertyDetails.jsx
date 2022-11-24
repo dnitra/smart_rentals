@@ -7,12 +7,14 @@ export default function PropertyDetails({ propertyId }) {
     useEffect(() => {
         changeUserData();
     }, []);
+    
     const { userData, changeUserData } = useCustomContexts();
+    console.log(userData)
     return (
         <div className="property">
             {userData.rented_properties
                 ? userData.rented_properties
-                      .filter((property) => {
+                      .filter((property) => { 
                           return propertyId == property.id;
                       })
                       .map((property) => {
@@ -93,6 +95,7 @@ export default function PropertyDetails({ propertyId }) {
                                       </div>
 
                                       <div className="property__info-details-buttom-buttons">
+                                        { property.pivot.role_id == 1 ? (
                                           <Link
                                               className="property__info-details-buttom-buttons-link"
                                               to={`/owner/dashboard/property/all/${propertyId}/edit`}
@@ -101,8 +104,9 @@ export default function PropertyDetails({ propertyId }) {
                                                   Edit property details
                                               </button>
                                           </Link>
+                                          ) : null}
                                           {property.property_accesses.length ===
-                                          0 ? (
+                                          0 && property.pivot.role_id == 1 ? (
                                               <Link
                                                   className="property__info-details-buttom-buttons-link"
                                                   to={`/owner/property/${propertyId}/accesses`}
@@ -113,6 +117,7 @@ export default function PropertyDetails({ propertyId }) {
                                               </Link>
                                           ) : null}
                                       </div>
+                                      
                                   </div>
                               </div>
                           );

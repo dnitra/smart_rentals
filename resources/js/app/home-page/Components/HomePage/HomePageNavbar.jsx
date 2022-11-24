@@ -120,52 +120,54 @@ export default function HomePageNavbar() {
                 )}
             </header> 
             </div>
-            <div className="header-menu">
-                <Menu>
-                        <Link to="/"> 
-                            <p>
-                                <img src={logoBlack} alt="logo" />
-                            </p>
-                        </Link>
-                        <a href="#sr">
-                            <span>Why SR</span>
-                        </a>
-                        <a href="#product">
-                            <p>Product</p>
-                        </a>
-                        <Link to="/">
-                            <p>Prices</p>
-                        </Link>
-                        <a href="#contacts">
-                            <p>Contacts</p>
-                        </a>
-                        <a href="#review">
-                            <p>Reviews</p>
-                        </a>
-                    {user ? (
-                        <div>
-                            <Link to="/choosePortal" className="button_container">
-                                {" "}
-                                <button className="log-button">Start Now</button>
+            <div className="menu-container menu-container__home">
+                <div className="header-menu">
+                    <Menu>
+                            <Link to="/"> 
+                                <p>
+                                    <img src={logoBlack} alt="logo" />
+                                </p>
                             </Link>
-                            <button className="log-button" onClick={logoutUser}>
-                                Logout
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="navbar__buttons">
-                            <Link to="/login" className="button_container">
-                                <button className="log-button">Start Now</button>
+                            <a href="#sr">
+                                <span>Why SR</span>
+                            </a>
+                            <a href="#product">
+                                <p>Product</p>
+                            </a>
+                            <Link to="/">
+                                <p>Prices</p>
                             </Link>
-                            {/* <Link to="/login" className="button_container">
-                            <button className="log-button">Log In</button>
-                        </Link> */}
-                            <Link to="/register" className="button_container">
-                                <button className="log-button">Sign Up</button>
-                            </Link>
-                        </div>
-                    )}
-                </Menu>
+                            <a href="#contacts">
+                                <p>Contacts</p>
+                            </a>
+                            <a href="#review">
+                                <p>Reviews</p>
+                            </a>
+                        {user ? (
+                            <div>
+                                <Link to="/choosePortal" className="button_container">
+                                    {" "}
+                                    <button className="log-button">Start Now</button>
+                                </Link>
+                                <button className="log-button" onClick={logoutUser}>
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="navbar__buttons">
+                                <Link to="/login" className="button_container">
+                                    <button className="log-button">Start Now</button>
+                                </Link>
+                                {/* <Link to="/login" className="button_container">
+                                <button className="log-button">Log In</button>
+                            </Link> */}
+                                <Link to="/register" className="button_container">
+                                    <button className="log-button">Sign Up</button>
+                                </Link>
+                            </div>
+                        )}
+                    </Menu>
+                </div>
             </div>
         </>
     );

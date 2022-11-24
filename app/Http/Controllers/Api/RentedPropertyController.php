@@ -133,7 +133,6 @@ class RentedPropertyController extends Controller
 
         $property = RentedProperty::with("address")->where("rented_property_user.user_id", $userId)->find($id);
         // $property = RentedProperty::with("address")->where('id', $id)->first();
-        dd($property);
         return $property;
     }
 
