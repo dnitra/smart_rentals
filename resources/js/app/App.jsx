@@ -79,10 +79,19 @@ export default function App() {
                         path="/owner/dashboard/all"
                         element={<AllProperties />}
                     />
+<<<<<<< HEAD
                     <Route
                         path="/owner/dashboard/property/all/:propertyId"
                         element={<SelectedPropertyDetails />}
                     />
+=======
+
+                      <Route
+                        path="/owner/dashboard/property/all/:propertyId"
+                        element={<SelectedPropertyDetails />}
+                    />
+
+>>>>>>> main
                     <Route
                         path="/owner/dashboard/property/all/flat"
                         element={<SelectedPropertyDetails />}
