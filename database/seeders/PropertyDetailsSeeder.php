@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\PropertyDetail;
+use Illuminate\Support\Facades\DB;
 
 class PropertyDetailsSeeder extends Seeder
 
@@ -17,6 +18,7 @@ class PropertyDetailsSeeder extends Seeder
     public function run()
     {
         //
+        DB::statement('TRUNCATE TABLE property_details');
 
         $details_list =
             [

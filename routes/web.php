@@ -53,6 +53,7 @@ Route::view('/owner/dashboard/property/all/{propertyId}/edit', 'index');
 /// DASHBOARD FOR TENANT
 Route::view('/tenant/dashboard', 'index');
 Route::view('/tenant/dashboard/all', 'index');
+Route::view('/tenant/dashboard/property/all/{propertyId}', 'index');
 Route::view('/tenant/dashboard/messages', 'index');
 Route::view('/tenant/dashboard/reports', 'index');
 Route::view('/invite/{linkId}', 'index');

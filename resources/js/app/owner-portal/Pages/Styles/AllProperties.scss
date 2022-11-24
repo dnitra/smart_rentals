@@ -19,10 +19,15 @@ body {
 // }
 .all-properties__heading {
     margin: 1rem 0 2rem;
+    
     width: 100%;
     text-align: center;
+
+    @media (max-width:1100px) {
+        padding-top: 6rem;
+    }
 }
-.properies {
+.properies { 
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
