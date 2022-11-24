@@ -1,3 +1,15 @@
-// .applicationForm-textarea{
-
-// }
+.applicationForm-field__textarea{
+    resize: none;
+    border-radius: 0.25rem;
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    color: #000;
+    display: inline-block;
+    font-size: 0.875rem;
+    line-height: 1.57;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    min-height: 2.5rem;
+    outline: none;
+    width: 100%;
+}

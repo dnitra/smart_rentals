@@ -34,16 +34,21 @@ function DashboardCashflow() {
     // const graph = [{ name: 'A', uv: 800, pv: 2000, amt: 2100 }, { name: 'B', uv: 400, pv: 2400, amt: 2400 }, { name: 'C', uv: 380, pv: 1400, amt: 200 }];
 
     return (
-       
-            <div className="dashboard__cashflow"> 
-                <BarChart width={450} height={460} data={graph}>
-                    <XAxis dataKey="name" stroke="#8884d8" />
-                    {/* <YAxis /> */}
-                    <Tooltip wrapperStyle={{ width: 250, backgroundColor: '#ccc' }} />
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <Bar dataKey="Incoming" fill="blue" barSize={70} />
-                </BarChart>
-            </div>
+        // <div className="dashboard__cashflow">
+        <BarChart
+            className="dashboard__cashflow-bar"
+            width={300}
+            height={300}
+            data={graph}
+        >
+            <XAxis dataKey="name" stroke="#12476f" />
+            {/* <YAxis /> */}
+            <Tooltip
+                wrapperStyle={{ width: 250, backgroundColor: "#91B8F2" }}
+            />
+            <Bar dataKey="Incoming" fill="#91B8F2" barSize={70} />
+        </BarChart>
+        // </div>
     );
 }
 

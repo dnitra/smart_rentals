@@ -14,15 +14,17 @@ export default function DescriptionField({ setFormData }) {
     };
     return (
         <Card>
-            <h4 className="h4">Description</h4>
-            <label className="fieldset-label">{content.propDescription}</label>
-            <textarea
-            className="listings-textarea"
-                
-                name="propDescription"
-                value={undefined}
-                onChange={setFormData}
-            ></textarea>
+            <div className="listings-content">
+                <h4 className="h4">Description</h4>
+                <label className="fieldset-label">{content.propDescription}</label>
+                <textarea
+                className="listings-textarea"
+                    
+                    name="propDescription"
+                    value={undefined}
+                    onChange={setFormData}
+                ></textarea>
+            </div>
         </Card>
     );
 }

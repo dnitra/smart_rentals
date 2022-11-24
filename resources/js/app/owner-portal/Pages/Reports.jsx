@@ -6,8 +6,7 @@ import "./Styles/Reports.scss"
 import AllProperty from '../Components/Dashboard/AllProperty'
 import { render } from 'react-dom'
 
-function Reports() {
-
+function Reports(props) {
     const { theme, content, userData, user, changeUserData } = useCustomContexts();
     const [properties, setProperties] = useState(null)
     const [report, setReport] = useState({
@@ -17,7 +16,6 @@ function Reports() {
         details: "",
         active: 1
     })
-
     useEffect(() => {
         setProperties(userData.rented_properties)
 
@@ -103,8 +101,13 @@ function Reports() {
 
                     <select name="rented_property_id" className='property' onChange={handleChange}>
                         <option value='Others'>Please select a property</option>
-                        {userData.rented_properties ? (
-                            userData.rented_properties.map((property, i) => {
+                        
+
+                        {userData.rented_properties ?  ( 
+                           userData.rented_properties.filter((property) => {
+                                return property.pivot.role_id == props.access
+                            
+                          }).map((property, i) => {
                                 return (
                                     <option value={property.id} key={i}>
                                         {property.name} | {property.address.city} | {property.address.street_and_number}
@@ -147,7 +150,7 @@ function Reports() {
 
             </div>
             {/* <AllProperty/> */}
-            <div className="allReports"><PropertyReports /></div>
+            <div className="allReports"><PropertyReports access = {props.access} /></div>
         </div>
     )
 }

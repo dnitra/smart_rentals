@@ -13,8 +13,8 @@ $border-color: #d0e2f9;
         width: 50%;
 
         .properties-item__left-img-container {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
 
             border-radius: 100%;
             overflow: hidden;
@@ -40,8 +40,19 @@ $border-color: #d0e2f9;
             width: 100%;
             text-decoration: none;
             display: flex;
-            justify-content: center;
+            // justify-content: center;
             align-items: center;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .dashboard__properties-item {
+        .properties-item__left {
+            .properties-item__left-img-container {
+                width: 110px;
+                height: 110px;
+            }
         }
     }
 }

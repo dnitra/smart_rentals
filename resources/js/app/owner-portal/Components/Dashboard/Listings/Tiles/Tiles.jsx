@@ -11,11 +11,11 @@ import views from "../../../../../../../img/Icons/views.svg";
 export default function Tiles() {
     const { user, userData, changeUserData } = useCustomContexts();
 
-    const handleSelect = (e) => {
+    const handleSelect = async (e) => {
         const selectedProperty = e.target.value;
 
         try {
-            const response = axios.post("/api/property/publish", {
+            const response = await axios.post("/api/property/publish", {
                 propertyId: selectedProperty,
             });
             changeUserData();

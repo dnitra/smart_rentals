@@ -35,6 +35,8 @@ import TenantLayout from "./tenant-portal/Pages/TenantLayout";
 import TenantDashboard from "./tenant-portal/Pages/TenantDashboard";
 import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
 
+
+
 export default function App() {
     // state from contexts
     const { user, userData, setUser, changeUserData } = useCustomContexts();
@@ -81,7 +83,7 @@ export default function App() {
                     />
 
                     <Route
-                        path="/owner/dashboard/property/all/:propertyId"
+                        path="/owner/dashboard/property/all/flat"
                         element={<SelectedPropertyDetails />}
                     />
                     <Route
@@ -97,7 +99,7 @@ export default function App() {
                         element={<Listings />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/details/apartment"
+                        path="/owner/dashboard/listings/details/:id"
                         element={<EditDetailsApartment />}
                     />
                     <Route
@@ -118,7 +120,7 @@ export default function App() {
                     />
                     <Route
                         path="/owner/dashboard/reports"
-                        element={<Reports />}
+                        element={<Reports access = "1"/>}
                     />
                     <Route path="/owner/properties" element={<Properties />} />
                     <Route
@@ -141,7 +143,11 @@ export default function App() {
                     />
                     <Route
                         path="/tenant/dashboard/reports"
-                        element={<Reports />}
+                        element={<Reports access = "3"/>}
+                    />
+                    <Route
+                        path="/tenant/dashboard/property/all/:propertyId"
+                        element={<SelectedPropertyDetails />}
                     />
                 </Route>
             </Routes>

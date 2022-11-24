@@ -110,15 +110,12 @@ export default function EditProperty() {
         }
     };
 
-    console.log(formData);
-
     useEffect(() => {
         userData && userData.rented_properties && populateFormData();
     }, [userData]);
 
     return (
         <>
-            {console.log(formData)}
             {formData ? (
                 <div className="section-edit">
                     <form
@@ -140,6 +137,7 @@ export default function EditProperty() {
                             name="city"
                             value={formData.city ?? ""}
                             onChange={handleInputChange}
+                            required
                         />
 
                         <label

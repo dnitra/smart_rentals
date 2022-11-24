@@ -5,7 +5,6 @@ import CheckBox from "./CheckBox";
 import Card from "./Card";
 import "./Energy.css";
 
-
 export default function Energy({ setFormData }) {
     const [file, setFile] = useState();
 
@@ -71,17 +70,15 @@ export default function Energy({ setFormData }) {
 
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
-                    <form className="uploadPDF" onSubmit={handleSubmit}>
-                        <label className="fieldset-label energy-label">Upload PDF</label>
-                        <label htmlFor="file"></label>
-                        <input
-                            className="inputPDF"
-                            type="file"
-                            
-                            id="file"
-                            onChange={handleChange}
-                        />
-                        <button type="submit" className="">Upload</button>
+                    <form className="fieldset-label" onSubmit={handleSubmit}>
+                    <label className="fieldset-label energy-label">
+                            Upload file:{" "}
+                        </label>
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fa fa-cloud-upload"></i> -select
+                        </label>
+                        <input className="energyInput" id="file-upload" type="file" />
+                        
                     </form>
 
                     {/* -------------------------------------decree dropdown-------------------------------- */}

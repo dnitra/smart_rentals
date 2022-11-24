@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
             $this->call([
                 CountriesSeeder::class,
-                // PropertyDetailsSeeder::class,
+                PropertyDetailsSeeder::class,
                 RentedPropertyUserRoleSeeder::class,
                 AddressSeeder::class,
             ]);

@@ -6,14 +6,20 @@ import "./Styles/Listings.scss";
 import Card from "../Components/Dashboard/Listings/Apartment/Card";
 import { Link } from "react-router-dom";
 
+const propertyTypes = {
+    1: "Flat",
+    2: "House",
+    3: "Commercial",
+    4: "Land",
+};
 function Listings() {
     const [propertyType, setPropertyType] = useState("");
     const { user, userData, changeUserData } = useCustomContexts();
     const [selectedProperty, setSelectedProperty] = useState("");
 
-    const handleSelect = () => {
+    const handleSelect = async () => {
         try {
-            const response = axios.post("/api/property/publish", {
+            const response = await axios.post("/api/property/publish", {
                 propertyId: selectedProperty,
             });
             changeUserData();
@@ -26,11 +32,20 @@ function Listings() {
         changeUserData();
     }, []);
 
+    console.log(selectedProperty);
     const handleChange = (e) => {
         e.preventDefault();
         setSelectedProperty(e.target.value);
-        setPropertyType(e.target.propertytype);
-        console.log(e.target.key);
+
+        const id = userData.rented_properties.filter((property) => {
+            console.log(property);
+            return property.id == e.target.value;
+        })[0].rented_property_type_id;
+        // .map((property) => {
+        //     return property.rented_property_type_id;
+        // });
+        console.log("id " + propertyTypes[id]);
+        setPropertyType(propertyTypes[id]);
     };
     console.log(userData);
     console.log(propertyType);
@@ -59,7 +74,7 @@ function Listings() {
                                               className="tiles-address__heading"
                                               key={rented_property.id}
                                               value={rented_property.id}
-                                              propertytype={
+                                              boo={
                                                   rented_property.rented_property_type_id
                                               }
                                           >
@@ -74,11 +89,20 @@ function Listings() {
                                   })
                             : "...loading"}
                     </select>
-                    <Link
-                        to={`/owner/dashboard/listings/details/${propertyType}`}
-                    >
-                        <button className="listnings-publish__btn">Add details</button>
-                    </Link>
+                    {selectedProperty ? (
+                        <Link
+                            to={`/owner/dashboard/listings/details/${propertyType}}`}
+                        >
+                            <button
+                                className="listnings-publish__btn"
+                                type="button"
+                            >
+                                Add details
+                            </button>
+                        </Link>
+                    ) : (
+                        ""
+                    )}
                     <button
                         className="listnings-publish__btn"
                         type="button"
