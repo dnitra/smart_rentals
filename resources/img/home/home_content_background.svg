@@ -1,4 +1,4 @@
-<svg width="1441" height="2513" viewBox="0 0 1441 2513" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- <svg width="1441" height="2513" viewBox="0 0 1441 2513" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="1440" height="2513" transform="translate(1)" fill="#F8F8F8"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1365.7 311.787L754.969 313.285L1056.76 69.1412L1365.7 311.787V311.787Z" stroke="#273655" stroke-opacity="0.41"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1408.28 322.951L684.515 324.672L1042.06 35.4255L1408.28 322.951Z" stroke="#273655" stroke-opacity="0.41"/>
@@ -10,5 +10,11 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1425.85 2487.09L1282.53 2495.54L1349.51 2410.22L1425.85 2487.09V2487.09Z" stroke="#273655" stroke-opacity="0.41"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1431 2488.7L1274.2 2497.99L1347.54 2404.56L1431 2488.7V2488.7Z" stroke="#273655" stroke-opacity="0.41"/>
 <rect width="1520.7" height="870" transform="matrix(0.94693 -0.321439 0 1 1 1007.81)" fill="#D0E2F9" fill-opacity="0.3"/>
+</svg> -->
+
+<svg width="1440" height="2513" viewBox="0 0 1440 2513" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="2513" fill="#F8F8F8"/>
+<rect width="1520.7" height="870" transform="matrix(0.94693 -0.321439 0 1 0 1007.81)" fill="#D0E2F9" fill-opacity="0.3"/>
 </svg>
+
 
