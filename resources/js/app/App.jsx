@@ -35,8 +35,6 @@ import TenantLayout from "./tenant-portal/Pages/TenantLayout";
 import TenantDashboard from "./tenant-portal/Pages/TenantDashboard";
 import TenantProperties from "./tenant-portal/Pages/TenantPropeties";
 
-
-
 export default function App() {
     // state from contexts
     const { user, userData, setUser, changeUserData } = useCustomContexts();
@@ -81,7 +79,10 @@ export default function App() {
                         path="/owner/dashboard/all"
                         element={<AllProperties />}
                     />
-
+                    <Route
+                        path="/owner/dashboard/property/all/:propertyId"
+                        element={<SelectedPropertyDetails />}
+                    />
                     <Route
                         path="/owner/dashboard/property/all/flat"
                         element={<SelectedPropertyDetails />}
@@ -120,7 +121,7 @@ export default function App() {
                     />
                     <Route
                         path="/owner/dashboard/reports"
-                        element={<Reports access = "1"/>}
+                        element={<Reports access="1" />}
                     />
                     <Route path="/owner/properties" element={<Properties />} />
                     <Route
@@ -143,7 +144,7 @@ export default function App() {
                     />
                     <Route
                         path="/tenant/dashboard/reports"
-                        element={<Reports access = "3"/>}
+                        element={<Reports access="3" />}
                     />
                     <Route
                         path="/tenant/dashboard/property/all/:propertyId"
