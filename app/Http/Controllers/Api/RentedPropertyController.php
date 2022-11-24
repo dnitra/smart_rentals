@@ -153,7 +153,10 @@ class RentedPropertyController extends Controller
 
     public function showPublicListings()
     {
-        $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
+        $properties = RentedProperty::where("published", "like", 1)
+        ->with("address")
+        ->with("images")
+        ->get();
 
 
         return $properties;

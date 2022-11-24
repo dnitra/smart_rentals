@@ -13,7 +13,7 @@ export default function PublicListings() {
     const { user, userData, changeUserData } = useCustomContexts();
     const [properties, setProperties] = useState([]);
     // const [form, setForm] = useState(false);
-    const [sendform, sendSetForm] = useState([]);
+    const [formData, setFormData] = useState({});
 
     const [openForms, setOpenForms] = useState([]);
 
@@ -32,31 +32,31 @@ export default function PublicListings() {
 
     const getProperties = async () => {
         try {
-            const response = axios.get("/publicListings/show");
-
-            setProperties(response);
+            const response = await axios.get("/publicListings/show");
+            console.log(response.data)
+            setProperties(response.data);
         } catch (error) {
             console.log(error);
         }
     };
     const sendingForm = async () => {
         try {
-            const response = axios.get("");
+            const response = await axios.post("");
             sendSetForm(response.data);
         } catch (error) {
             console.log(error);
         }
-    };
+    }
+    useEffect(() => {
+            console.log(formData)
+        },[formData]
+
+        )
+    
     return (
         <div className="pubListings">
             <div className="tiles">
-                {userData.rented_properties
-                    ? userData.rented_properties
-                          .filter(
-                              (rented_property) =>
-                                  rented_property.published == 1 &&
-                                  rented_property.pivot.role_id == 1
-                          )
+                {properties? properties
                           .map((property, index) => {
                               return (
                                   <Card key={property.id}>
@@ -143,13 +143,14 @@ export default function PublicListings() {
                                           {openForms.includes(property.id) ? (
                                               <div className="">
                                                   <ApplicationForm
-                                                      select={showForm}
+                                                      setFormData = {setFormData}
                                                   />
                                                   <button
                                                       className="tile-btn"
                                                       onClick={sendingForm}
+                                                      type="button"
                                                   >
-                                                      Submit
+                                                      Send application
                                                   </button>
                                               </div>
                                           ) : (

@@ -40,21 +40,21 @@ export default function App() {
     const { user, userData, setUser, changeUserData } = useCustomContexts();
 
     // get authenticated user and store the user in state
-    // const getUser = async () => {
-    //     try {
-    //         const res = await axios.get("/api/user");
-    //         const data = res.data;
-    //         setUser(data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
+    const getUser = async () => {
+        try {
+            const res = await axios.get("/api/user");
+            const data = res.data;
+            setUser(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    // useEffect(() => {
-    //     // if there is no user run the function getUser - short-circuiting
-    //     !user && getUser();
-    //     changeUserData();
-    // }, []);
+    useEffect(() => {
+        // if there is no user run the function getUser - short-circuiting
+        !user && getUser();
+        changeUserData();
+    }, []);
 
     return (
         <BrowserRouter>
