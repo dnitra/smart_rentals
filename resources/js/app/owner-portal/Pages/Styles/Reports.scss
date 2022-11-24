@@ -55,16 +55,11 @@
             }
             & button {
                 border-radius: 8px;
-                background-color: #e9f1fc;
+                background-color: rgb(145, 184, 242);
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 border: none;
             }
-        }
-
-        &--property {
-        }
-        &--select {
         }
     }
 }
