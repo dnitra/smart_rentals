@@ -13,16 +13,22 @@ const SelectedPropertyDetails = () => {
     const [detailsShown, setDetailsShown] = useState(false);
     const [active, setActive] = useState(false);
     const { propertyId } = useParams();
-    
-    let currentProperty 
+    // const [currentProperty, setCurrentProperty] = []
+    // let currentProperty 
 
-    currentProperty = userData ? userData.rented_properties.filter((property) => {
+    // currentProperty = userData ? userData.rented_properties.filter((property) => {
                
-                    return property.id == propertyId
+    //                 return property.id == propertyId
                
-            })[0] : ""
+    //         })[0].pivot.role_id : ""
+    //         console.log(currentProperty)
+    // setCurrentProperty({[userData ? userData.rented_properties.filter((property) => {
+               
+    //                 return property.id == propertyId
+               
+    //         })[0] : "")
 
-            
+    //         console.log(currentProperty)
 
     useEffect(() => {
         changeUserData();
@@ -39,8 +45,15 @@ const SelectedPropertyDetails = () => {
                 <h2 className="property__heading-about">About property</h2>
 
                 <div className="property__about-details">
-                    <div className="property__about-details tab">
-                        {currentProperty.pivot.role_id == 1 || currentProperty.pivot.role_id == 2  ? (
+                    <div className="property__about-details tab"> 
+                    
+                        {userData.rented_properties ? 
+                        (userData.rented_properties.filter((property) => {
+               
+                                return property.id == propertyId
+               
+                        })[0].pivot.role_id == 1 ?
+                        (
                         <button
                             className={
                                 "tab__links" +
@@ -65,7 +78,7 @@ const SelectedPropertyDetails = () => {
                             }}
                         >
                             Contract
-                        </button>)}
+                        </button>)):""}
                         
 
                         <button
