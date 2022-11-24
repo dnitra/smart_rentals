@@ -36,7 +36,7 @@ const SelectedPropertyDetails = () => {
 
             
             <div className="property__about">
-                <h2>About property</h2>
+                <h2 className="property__heading-about">About property</h2>
 
                 <div className="property__about-details">
                     <div className="property__about-details tab">
