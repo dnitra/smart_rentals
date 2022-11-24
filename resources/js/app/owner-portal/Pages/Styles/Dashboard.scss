@@ -1,61 +1,87 @@
 $border-color: #d0e2f9;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-
+@mixin component-border {
+    border: 0.5px solid #12476f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .dashboard {
     display: grid;
-    // margin-top: 3rem;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "properties cashflow reports"
-        "properties bills messages"
+    grid-template-columns: 1fr 1.3fr 1.3fr;
+    padding: 1rem;
 }
 .dashboard__reports {
+    width: 100%;
     overflow-y: scroll;
-    max-height: 60vh;
+    grid-column: 2;
+    grid-row-start: 0;
+    grid-row-end: 1;
+    // padding: 0.5rem;
 }
-.dashboard__bills{
-    grid-area:bills;
-    width:100%;
+.dashboard__bills {
+    width: 100%;
+    grid-column: 3;
+    grid-row-start: 0;
+    grid-row-end: 1;
+    // @include component-border();
 }
 .dashboard__cashflow {
-    margin-top: 1rem;
-    grid-area: cashflow;
-    max-height: 60vh;
     width: 100%;
-   
+    height: 50vh;
+    grid-column: 3;
+    @include component-border();
+}
+.dashboard__messages {
+    width: 100%;
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    // overflow-y: scroll;
+    // @include component-border();
+    border: none;
+}
 
+.dashboard__properties {
+    border: 0.5px solid #12476f;
+    border-radius: 15px;
+    overflow: hidden;
+    overflow-y: scroll;
+    grid-column: 1;
+    grid-row: span 3;
+
+    & > div:nth-child(2n + 1) {
+        background-color: #e9f1fc;
+    }
 }
-.dashboard__messages{
-    grid-area:messages;
+
+.dashboard__reports-container {
+    border: 0.5px solid #12476f;
+    height: 100%;
+    overflow: hidden;
     width: 100%;
-}
-.chart {
-}
-.dashboard__reports-container { 
-    border: 1px solid darkgray;
-    height:100%;
-    .tasks{
+    border-radius: 15px;
+
+    .tasks {
         width: 100%;
-        background-color: #D9D9D926;
-        border:1px solid lightgray;
-        margin-bottom: 1.5rem;
+        background-color: #d9d9d926;
+        border: 1px solid lightgray;
+        // margin-bottom: 1.5rem;
         border-radius: 15px;
         height: 4rem;
-        padding-left: 1rem;
+        // padding-left: 1rem;
         display: flex;
-        align-items: center; 
+        align-items: center;
 
-        & p{
+        & p {
             margin: 0.5rem;
             font-size: 12px;
             font-weight: 700;
-            color: #1877F2;
+            color: #1877f2;
             font-family: "Montserrat", sans-serif;
         }
-
     }
     .dashboard__report {
         overflow-y: scroll;
@@ -81,17 +107,9 @@ $border-color: #d0e2f9;
         width: 100%;
     }
 
-    overflow: hidden;
-    width: 100%;
-    // height: 3rem;
-    border-radius: 15px;
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // justify-content: space-between;
-
     &__links {
         background-color: #a3a3a312;
-        border-radius:15px;
+        border-radius: 15px;
         font-size: larger;
         letter-spacing: 1px;
         width: 100%;
@@ -102,17 +120,16 @@ $border-color: #d0e2f9;
         text-transform: uppercase;
         color: #273655;
         &--active {
-            background-color: #D9D9D912;
-            border-radius:15px;
-            color:#273655;
+            background-color: #d9d9d912;
+            border-radius: 15px;
+            color: #273655;
             font-size: larger;
             letter-spacing: 1px;
-            border:1px solid lightgray;
+            border: 1px solid lightgray;
             outline: none;
             padding: 14px 16px;
             transition: 0.3s;
             text-transform: uppercase;
-            
         }
     }
 
@@ -122,12 +139,114 @@ $border-color: #d0e2f9;
     }
 }
 
-.dashboard__properties {
-    grid-area: "area-1";
-    height: 80vh;
-    border: 0.5px solid #12476f;
-    border-radius: 15px;
-    overflow: hidden;
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+    .dashboard__reports {
+        grid-column: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .dashboard__bills {
+        & img {
+            width: 80%;
+        }
+    }
+    .dashboard__messages {
+        & img {
+            width: 80%;
+        }
+    }
+    .dashboard__images {
+        grid-column: span 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .dashboard__cashflow {
+        grid-column: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    // .dashboard__properties {
+    //     grid-column: span 2;
+    //     grid-row-start: 1;
+    //     grid-row-end: 2;
+    //     display: grid;
 
-    overflow-y: scroll;
+    //     grid-template-columns: 1fr 1fr 1fr;
+    //     & > div:nth-child(3n + 2) {
+    //         background-color: #e9f1fc;
+    //     }
+
+    //     .dashboard__properties-item {
+    //         border: none;
+    //     }
+    // }
+}
+
+// @media (max-width: 975px) {
+//     .dashboard__images {
+//         display: flex;
+//     }
+// }
+@media (max-width: 1200px) and (min-width: 860px) {
+    .dashboard__properties {
+        grid-column: span 2;
+        grid-row-start: 0;
+        grid-row-end: 1;
+        display: grid;
+
+        grid-template-columns: 1fr 1fr 1fr;
+        & > div:nth-child(2n + 1) {
+            background-color: #e9f1fc;
+        }
+
+        .dashboard__properties-item {
+            border: none;
+        }
+    }
+}
+
+@media (max-width: 860px) and (min-width: 600px) {
+    .dashboard {
+        .dashboard__properties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column: span 2;
+            & > div:nth-child(4n + 1) {
+                background-color: #e9f1fc;
+            }
+            & > div:nth-child(4n + 4) {
+                background-color: #e9f1fc;
+            }
+            .dashboard__properties-item {
+                border: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        .dashboard__properties {
+            display: flex;
+            flex-direction: column;
+
+            & > div:nth-child(2n) {
+                background-color: #e9f1fc;
+            }
+            .dashboard__cashflow-bar {
+                width: 200px !important;
+                height: 200px !important;
+            }
+        }
+    }
 }

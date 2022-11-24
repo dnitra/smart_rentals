@@ -19,14 +19,14 @@ function Dashboard() {
             <div className="dashboard__reports">
                 <DashboardReports />
             </div>
-            <div className="dashboard__bills">
-                <DashboardBills/>
-            </div>
-            <div className="dashboard__messages">
-                <DashboardMessages/>
-            </div>
-            {/* <div className="dashboard__bills"></div>
-            <div className="dashboard__messages"></div> */}
+            {/* <div className="dashboard__images">
+                <div className="dashboard__bills">
+                    <DashboardBills />
+                </div>
+                <div className="dashboard__messages">
+                    <DashboardMessages />
+                </div>
+            </div> */}
         </div>
     );
 }

@@ -1,13 +1,8 @@
-import React from 'react'
-import fakeMessages from "./fakeMessages.svg"
+import React from "react";
+import fakeMessages from "./fakeMessages.svg";
 
 function DashboardMessages() {
-
-  return (
-    <div>
-          <img src={fakeMessages} alt="" />
-    </div>
-  )
+    return <img className="dashboard__image" src={fakeMessages} alt="" />;
 }
 
-export default DashboardMessages
+export default DashboardMessages;
