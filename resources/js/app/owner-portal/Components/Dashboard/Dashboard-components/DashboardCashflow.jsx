@@ -35,8 +35,8 @@ function DashboardCashflow() {
 
     return (
        
-            <div className="dashboard__cashflow">
-                <BarChart width={450} height={400} data={graph}>
+            <div className="dashboard__cashflow"> 
+                <BarChart width={450} height={460} data={graph}>
                     <XAxis dataKey="name" stroke="#8884d8" />
                     {/* <YAxis /> */}
                     <Tooltip wrapperStyle={{ width: 250, backgroundColor: '#ccc' }} />

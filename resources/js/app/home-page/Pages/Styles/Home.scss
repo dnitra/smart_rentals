@@ -9,6 +9,22 @@ html {
     padding: 0;
     scroll-behavior: smooth;
 }
+body {
+    overflow: overlay;
+    overflow: overlay;
+    
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightblue;
+    border-radius: 10px;
+}
+
+
 .welcome {
     position: relative;
     // top: 0px;

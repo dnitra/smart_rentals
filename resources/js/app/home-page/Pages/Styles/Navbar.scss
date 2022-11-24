@@ -26,7 +26,7 @@ body {
 .navbar.navbar_owner {
     grid-template-columns: 1fr 3fr 0.1fr;
     z-index: 1;
-    background-color: rgba(39, 54, 85, 0.88);
+    background-color: #273655e0;
     height: 85px;
     width: 100%;
     display: grid;
@@ -92,28 +92,28 @@ body {
     animation-fill-mode: forwards;
 }
 
-.navbar {
-    animation-name: background_navbar_back;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-}
+// .navbar {
+//     animation-name: background_navbar_back;
+//     animation-duration: 2s;
+//     animation-fill-mode: forwards;
+// }
 
-@keyframes background_navbar {
-    from {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    to {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-}
-@keyframes background_navbar_back {
-    from {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    to {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-}
+// @keyframes background_navbar {
+//     from {
+//         background-color: rgba(0, 0, 0, 0.5);
+//     }
+//     to {
+//         background-color: rgba(0, 0, 0, 0.8);
+//     }
+// }
+// @keyframes background_navbar_back {
+//     from {
+//         background-color: rgba(0, 0, 0, 0.8);
+//     }
+//     to {
+//         background-color: rgba(0, 0, 0, 0.5);
+//     }
+// }
 
 .visible {
     display: fixed;

@@ -8,7 +8,7 @@ import logoBlack from "../../../../../img/logos/SM-logo-black.svg"
 
 
 export default function HomePageNavbar() {
-    const { user, setUser } = useCustomContexts();
+    const { user, setUser, userData } = useCustomContexts();
     const navigate = useNavigate();
 
     const logo = {
@@ -95,7 +95,6 @@ export default function HomePageNavbar() {
                 {user ? (
                     <div className="navbar__buttons">
                         <Link to="/choosePortal" className="button_container">
-                            {" "}
                             <button className="log-button">Start Now</button>
                         </Link>
                         <button className="log-button" onClick={logoutUser}>
