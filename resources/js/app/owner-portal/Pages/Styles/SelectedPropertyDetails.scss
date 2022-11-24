@@ -144,7 +144,7 @@
 
 .tab {
     overflow: hidden;
-    height: 5rem;
+    height: 3rem;
     background-color: #1877f2b2;
     border-radius: 15px;
     display: grid;
@@ -152,17 +152,21 @@
     justify-content: space-between;
 
     &__links {
-        background-color: rgb(40, 40, 40);
-        font-size: larger;
-        letter-spacing: 1px;
+        background-color: rgb(145, 184, 242);
+        // font-size: larger;
+        // letter-spacing: 1px;
         border: none;
         outline: none;
-        padding: 14px 16px;
+        height: 100%;
+        // padding: 14px 16px;
         transition: 0.3s;
         text-transform: uppercase;
-        color: white;
+        color: black; 
+        @media (max-width:1100px) {
+            
+        }
         &--active {
-            background-color: rgb(60, 60, 60);
+            background-color: rgb(102, 170, 238);
             font-size: larger;
             letter-spacing: 1px;
             border: none;
@@ -170,12 +174,12 @@
             padding: 14px 16px;
             transition: 0.3s;
             text-transform: uppercase;
-            color: white;
+            color: black;
         }
     }
 
     &__links:hover {
-        background-color: rgb(75, 75, 75);
-        color: white;
+        background-color: rgb(127, 183, 240);
+        color: black;
     }
 }
