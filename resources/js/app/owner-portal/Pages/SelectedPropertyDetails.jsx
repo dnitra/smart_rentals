@@ -9,10 +9,20 @@ import SelectedPropertyReports from "../Components/Dashboard/PropertyReports/Sel
 import PropertyDetails from "../Components/PropertyDetails/PropertyDetails";
 
 const SelectedPropertyDetails = () => {
-    const { changeUserData } = useCustomContexts();
+    const { changeUserData, userData } = useCustomContexts();
     const [detailsShown, setDetailsShown] = useState(false);
     const [active, setActive] = useState(false);
     const { propertyId } = useParams();
+    
+    let currentProperty 
+
+    currentProperty = userData ? userData.rented_properties.filter((property) => {
+               
+                    return property.id == propertyId
+               
+            })[0] : ""
+
+            
 
     useEffect(() => {
         changeUserData();
@@ -24,11 +34,13 @@ const SelectedPropertyDetails = () => {
 
             <PropertyDetails propertyId={propertyId} key={propertyId} />
 
+            
             <div className="property__about">
                 <h2>About property</h2>
 
                 <div className="property__about-details">
                     <div className="property__about-details tab">
+                        {currentProperty.pivot.role_id == 1 || currentProperty.pivot.role_id == 2  ? (
                         <button
                             className={
                                 "tab__links" +
@@ -41,6 +53,20 @@ const SelectedPropertyDetails = () => {
                         >
                             Cashflow
                         </button>
+                        
+                        ) : ( <button
+                            className={
+                                "tab__links" +
+                                (active === "cashflow" ? "--active" : "")
+                            }
+                            onClick={() => {
+                                setDetailsShown("Contract");
+                                setActive("contract");
+                            }}
+                        >
+                            Contract
+                        </button>)}
+                        
 
                         <button
                             className={
@@ -105,6 +131,17 @@ const SelectedPropertyDetails = () => {
                                         </div>
                                     </>
                                 );
+                            case "Contract": 
+                                    return(
+                                        <>
+                                           <div
+                                            id="Contract"
+                                            className="tab__content"
+                                        >
+                                            <p>Contract</p>
+                                        </div>
+                                        </>
+                                    )
                             default:
                                 "";
                         }

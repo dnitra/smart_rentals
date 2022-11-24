@@ -120,7 +120,7 @@ export default function App() {
                     />
                     <Route
                         path="/owner/dashboard/reports"
-                        element={<Reports />}
+                        element={<Reports access = "1"/>}
                     />
                     <Route path="/owner/properties" element={<Properties />} />
                     <Route
@@ -143,7 +143,11 @@ export default function App() {
                     />
                     <Route
                         path="/tenant/dashboard/reports"
-                        element={<Reports />}
+                        element={<Reports access = "3"/>}
+                    />
+                    <Route
+                        path="/tenant/dashboard/property/all/:propertyId"
+                        element={<SelectedPropertyDetails />}
                     />
                 </Route>
             </Routes>
