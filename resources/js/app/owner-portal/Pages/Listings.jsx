@@ -7,20 +7,19 @@ import Card from "../Components/Dashboard/Listings/Apartment/Card";
 import { Link } from "react-router-dom";
 
 const propertyTypes = {
-        1: "Flat",
-        2: "House",
-        3: "Commercial",
-        4: "Land",
-    
-}
+    1: "Flat",
+    2: "House",
+    3: "Commercial",
+    4: "Land",
+};
 function Listings() {
     const [propertyType, setPropertyType] = useState("");
     const { user, userData, changeUserData } = useCustomContexts();
     const [selectedProperty, setSelectedProperty] = useState("");
 
-    const handleSelect = () => {
+    const handleSelect = async () => {
         try {
-            const response = axios.post("/api/property/publish", {
+            const response = await axios.post("/api/property/publish", {
                 propertyId: selectedProperty,
             });
             changeUserData();
@@ -33,26 +32,27 @@ function Listings() {
         changeUserData();
     }, []);
 
+    console.log(selectedProperty);
     const handleChange = (e) => {
         e.preventDefault();
         setSelectedProperty(e.target.value);
 
-        const id = userData.rented_properties.filter((property) => {
-            
-            return property.id == e.target.value
-        }).map(property => {
-            return (
-                property.rented_property_type_id
-                )
-            })[0]
-            console.log("id "+propertyTypes[id])
-            setPropertyType(propertyTypes[id])
+        const id = userData.rented_properties
+            .filter((property) => {
+                return property.id == e.target.value;
+            })
+            .map((property) => {
+                return property.rented_property_type_id;
+            })[0];
+        console.log("id " + propertyTypes[id]);
+        setPropertyType(propertyTypes[id]);
     };
     console.log(userData);
     console.log(propertyType);
 
     return (
         <div className="listings">
+            <h2 className="listings__heading">Add new listing</h2>
             <form className="listnings-add">
                 <div className="listnings-field">
                     <select
@@ -75,7 +75,9 @@ function Listings() {
                                               className="tiles-address__heading"
                                               key={rented_property.id}
                                               value={rented_property.id}
-                                              boo={rented_property.rented_property_type_id}
+                                              boo={
+                                                  rented_property.rented_property_type_id
+                                              }
                                           >
                                               {
                                                   rented_property.address
@@ -88,15 +90,20 @@ function Listings() {
                                   })
                             : "...loading"}
                     </select>
-                    {selectedProperty ?
-                    
+                    {selectedProperty ? (
                         <Link
                             to={`/owner/dashboard/listings/details/${propertyType}}`}
                         >
-                            <button className="listnings-publish__btn" type="button">Add details</button>
+                            <button
+                                className="listnings-publish__btn"
+                                type="button"
+                            >
+                                Add details
+                            </button>
                         </Link>
-                        :""
-                    }
+                    ) : (
+                        ""
+                    )}
                     <button
                         className="listnings-publish__btn"
                         type="button"

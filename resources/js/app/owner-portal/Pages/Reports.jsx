@@ -1,53 +1,52 @@
-import React from 'react'
-import PropertyReports from '../Components/Dashboard/PropertyReports/PropertyReports'
-import { useCustomContexts } from '../../Context/ContextsProvider'
-import { useState, useEffect } from 'react'
-import "./Styles/Reports.scss"
-import AllProperty from '../Components/Dashboard/AllProperty'
-import { render } from 'react-dom'
+import React from "react";
+import PropertyReports from "../Components/Dashboard/PropertyReports/PropertyReports";
+import { useCustomContexts } from "../../Context/ContextsProvider";
+import { useState, useEffect } from "react";
+import "./Styles/Reports.scss";
+import AllProperty from "../Components/Dashboard/AllProperty";
+import { render } from "react-dom";
 
 function Reports(props) {
-    const { theme, content, userData, user, changeUserData } = useCustomContexts();
-    const [properties, setProperties] = useState(null)
+    const { theme, content, userData, user, changeUserData } =
+        useCustomContexts();
+    const [properties, setProperties] = useState(null);
     const [report, setReport] = useState({
         rented_property_id: "",
         accessory_id: "",
         subject: "",
         details: "",
-        active: 1
-    })
+        active: 1,
+    });
     useEffect(() => {
-        setProperties(userData.rented_properties)
-
-    }, [])
+        setProperties(userData.rented_properties);
+    }, []);
 
     const accessories = [
         {
             id: "1",
-            name: "Shower"
+            name: "Shower",
         },
         {
             id: "2",
-            name: "TV"
+            name: "TV",
         },
         {
             id: "3",
-            name: "Frige"
+            name: "Frige",
         },
         {
             id: "4",
-            name: "Light"
+            name: "Light",
         },
         {
             id: "5",
-            name: "Window"
+            name: "Window",
         },
         {
-            id: "6", 
-            name: "Others"
-        }
-    ]
-
+            id: "6",
+            name: "Others",
+        },
+    ];
 
     const uploadReport = async () => {
         try {
@@ -83,52 +82,62 @@ function Reports(props) {
             }
         }
         // console.log(response.data)
-    }
-
+    };
 
     const handleChange = (e) => {
         setReport((previous_values) => {
-            return { ...previous_values, [e.target.name]: e.target.value }
-        })
-    }
+            return { ...previous_values, [e.target.name]: e.target.value };
+        });
+    };
 
     return (
-        <div className='reports'>
-            <h2>Create new report</h2>
-            <div className='reports__new'>
-
+        <div className="reports">
+            <h2 className="reports__heading">Add new report</h2>
+            <div className="reports__new">
                 <div className="reports__new--property select-dropdown">
+                    <select
+                        name="rented_property_id"
+                        className="property"
+                        onChange={handleChange}
+                    >
+                        <option value="Others">Please select a property</option>
 
-                    <select name="rented_property_id" className='property' onChange={handleChange}>
-                        <option value='Others'>Please select a property</option>
-                        
-
-                        {userData.rented_properties ?  ( 
-                           userData.rented_properties.filter((property) => {
-                                return property.pivot.role_id == props.access
-                            
-                          }).map((property, i) => {
-                                return (
-                                    <option value={property.id} key={i}>
-                                        {property.name} | {property.address.city} | {property.address.street_and_number}
-                                    </option>
-                                )
-                            })) : ""
-                        }
+                        {userData.rented_properties
+                            ? userData.rented_properties
+                                  .filter((property) => {
+                                      return (
+                                          property.pivot.role_id == props.access
+                                      );
+                                  })
+                                  .map((property, i) => {
+                                      return (
+                                          <option value={property.id} key={i}>
+                                              {property.name} |{" "}
+                                              {property.address.city} |{" "}
+                                              {
+                                                  property.address
+                                                      .street_and_number
+                                              }
+                                          </option>
+                                      );
+                                  })
+                            : ""}
                     </select>
                 </div>
                 <div className="reports__new--select select-dropdown">
-
                     <select name="accessory_id" onChange={handleChange}>
-                        <option value='default'>Please select a accessory</option>
-                        
-                        { accessories.map(accessory => {
-                            return(
-                                <option value={accessory.id}>{accessory.name}</option>
-                            )
+                        <option value="default">
+                            Please select a accessory
+                        </option>
+
+                        {accessories.map((accessory) => {
+                            return (
+                                <option value={accessory.id}>
+                                    {accessory.name}
+                                </option>
+                            );
                         })}
-                     
-                       
+
                         {/* <option value={accessories[2].id}>{accessories[2].name}</option>
                         <option value={accessories[3].id}>{accessories[3].name}</option>
                         <option value={accessories[4].id}>{accessories[4].name}</option>
@@ -136,23 +145,40 @@ function Reports(props) {
                         <option value="others">{accessories[6].name}</option> */}
                     </select>
                 </div>
-                <div className='reports__new--text'>
-                    <input type="text" className='subject-input' list="accessories" name='subject' onChange={handleChange} placeholder="Subject" />
-                    <textarea name='details' onChange={handleChange} placeholder="Details here"></textarea>
-                    <button type='submit' onClick={(e) => {
-                        e.preventDefault()
-                        uploadReport()
+                <div className="reports__new--text">
+                    <input
+                        type="text"
+                        className="subject-input"
+                        list="accessories"
+                        name="subject"
+                        onChange={handleChange}
+                        placeholder="Subject"
+                    />
+                    <textarea
+                        name="details"
+                        onChange={handleChange}
+                        placeholder="Details here"
+                    ></textarea>
+                    <button
+                        type="submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            uploadReport();
 
-                        // setReport({ active: 1 })
-                        changeUserData()
-                    }}>Confirm</button>
+                            // setReport({ active: 1 })
+                            changeUserData();
+                        }}
+                    >
+                        Confirm
+                    </button>
                 </div>
-
             </div>
             {/* <AllProperty/> */}
-            <div className="allReports"><PropertyReports access = {props.access} /></div>
+            <div className="allReports">
+                <PropertyReports access={props.access} />
+            </div>
         </div>
-    )
+    );
 }
 
-export default Reports
+export default Reports;

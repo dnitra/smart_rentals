@@ -1,115 +1,111 @@
-*{
-  font-family: "Montserrat", sans-serif;
+* {
+    font-family: "Montserrat", sans-serif;
 }
 
 .reports {
-    
-    & h2{
+    .reports__heading {
+        margin: 1rem 0 2rem;
+        width: 100%;
         text-align: center;
-        margin: 0;
-        margin-bottom: 2rem;
-        @media (max-width:1100px) {
-          padding-top: 6rem;
-      }
+        text-transform: uppercase;
+        color: #273655;
+
+        @media (max-width: 1100px) {
+            padding-top: 7rem;
+        }
     }
-    &__new{
+    &__new {
         width: 60%;
-        margin: 0 auto; 
+        margin: 0 auto;
         // display: flex;
         // flex-direction: column;
         @media (max-width: 800px) {
             width: 95%;
         }
-            
-        &--text{
-        display: grid;
-        grid-template-columns: 1fr 1fr 0.5fr;
-        gap: 1rem;
-        padding: 0 1rem;
-         @media (max-width: 800px) {
-            display: flex;
-            flex-direction: column;
-        }
-        & *{
-            height: 4rem;
-        }
-        & textarea, & .subject-input {
-            font-size: 1rem;
-            font-weight: normal;
-            max-width: 100%;
-            padding: 8px 24px 8px 10px;
-            box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            font-size: 16px;
-            resize: none;
-            border-radius: 8px
-            
-        } 
 
-        & textarea{
-          padding-top: 1rem;
-        }
-        & button {
-            border-radius: 8px;
-            background-color: rgb(204,222,249,1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border:none;
-        }
-        
+        &--text {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.5fr;
+            gap: 1rem;
+            padding: 0 1rem;
+            @media (max-width: 800px) {
+                display: flex;
+                flex-direction: column;
+            }
+            & * {
+                height: 4rem;
+            }
+            & textarea,
+            & .subject-input {
+                font-size: 1rem;
+                font-weight: normal;
+                max-width: 100%;
+                padding: 8px 24px 8px 10px;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                background-color: #f8f8f8;
+                font-size: 16px;
+                resize: none;
+                border-radius: 8px;
+            }
+
+            & textarea {
+                padding-top: 1rem;
+            }
+            & button {
+                border-radius: 8px;
+                background-color: #e9f1fc;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border: none;
+            }
         }
 
-        &--property{
+        &--property {
         }
-        &--select{
-
-        } 
-
+        &--select {
         }
-       
-        
     }
-
+}
 
 .select-dropdown,
 .select-dropdown * {
-  margin: 1rem;
-  padding: 0;
-  position: relative;
-  box-sizing: border-box;
+    margin: 1rem;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
 }
 .select-dropdown {
-  position: relative;
-  background-color: #E6E6E6;
-  border-radius: 8px;
-
+    position: relative;
+    background-color: #e6e6e6;
+    border-radius: 8px;
 }
 .select-dropdown select {
-  font-size: 1rem;
-  font-weight: normal;
-  max-width: 100%;
-  padding: 8px 24px 8px 10px;
-  border: none;
-  background-color: transparent;
+    font-size: 1rem;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border: none;
+    background-color: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
-  appearance: none;
+    appearance: none;
 }
-.select-dropdown select:active, .select-dropdown select:focus {
-  outline: none;
-  box-shadow: none;
+.select-dropdown select:active,
+.select-dropdown select:focus {
+    outline: none;
+    box-shadow: none;
 }
 .select-dropdown:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  width: 0;
-  height: 0;
-  margin-top: -2px;
-  border-top: 5px solid #aaa;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-top: 5px solid #aaa;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
 }

@@ -16,13 +16,13 @@ export default function Body() {
 
     return (
         <div onSubmit={handleFormSubmit} className="listings-main">
+            <DescriptionField setFormData={setFormData} />
             <BasicInfo setFormData={setFormData} />
             <Areas setFormData={setFormData} />
             <Date setFormData={setFormData} />
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
-            <DescriptionField setFormData={setFormData} />
             <button className="tile-btn3" type="submit">
                 Submit
             </button>

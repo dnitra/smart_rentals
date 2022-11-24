@@ -4,7 +4,6 @@ import InputField from "./InputField";
 import CheckBox from "./CheckBox";
 import Card from "./Card";
 import "./Energy.css";
-import UploadPDF from "./UploadPDF";
 
 export default function Energy({ setFormData }) {
     const [file, setFile] = useState();
@@ -45,7 +44,7 @@ export default function Energy({ setFormData }) {
                     {/* -------------------------------energy dropdown----------------------- */}
 
                     <div className="input-field">
-                        <label className="fieldset-label">
+                        <label className="fieldset-label energy-label">
                             Energy efficiency class:{" "}
                         </label>
                         <select className="select">
@@ -71,22 +70,20 @@ export default function Energy({ setFormData }) {
 
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
-                    <form className="uploadPDF" onSubmit={handleSubmit}>
-                        <label className="fieldset-label">Upload PDF</label>
-                        <label htmlFor="file"></label>
-                        <input
-                            className="inputPDF"
-                            type="file"
-                            
-                            id="file"
-                            onChange={handleChange}
-                        />
-                        <button type="submit" className="">Upload</button>
+                    <form className="fieldset-label" onSubmit={handleSubmit}>
+                    <label className="fieldset-label energy-label">
+                            Upload file:{" "}
+                        </label>
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fa fa-cloud-upload"></i> -select
+                        </label>
+                        <input className="energyInput" id="file-upload" type="file" />
+                        
                     </form>
 
                     {/* -------------------------------------decree dropdown-------------------------------- */}
                     <div className="fieldset-dropdown">
-                        <label className="fieldset-label">
+                        <label className="fieldset-label energy-label">
                             According to a regulation:{" "}
                         </label>
                         <select className="select">

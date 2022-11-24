@@ -12,7 +12,6 @@ html {
 body {
     overflow: overlay;
     overflow: overlay;
-    
 }
 
 ::-webkit-scrollbar {
@@ -20,10 +19,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: lightblue;
+    background: #91b8f2;
     border-radius: 10px;
 }
-
 
 .welcome {
     position: relative;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useCustomContexts } from "../../../../../Context/ContextsProvider";
-// import "./Tiles.css";
+import "./Tiles.css";
 import Card from "../Apartment/Card";
 import "../Apartment/Card.css";
 import BuildingPlaceholder from "../../../../../../../img/building-placeholder.jpg";
@@ -11,11 +11,11 @@ import views from "../../../../../../../img/Icons/views.svg";
 export default function Tiles() {
     const { user, userData, changeUserData } = useCustomContexts();
 
-    const handleSelect = (e) => {
+    const handleSelect = async (e) => {
         const selectedProperty = e.target.value;
 
         try {
-            const response = axios.post("/api/property/publish", {
+            const response = await axios.post("/api/property/publish", {
                 propertyId: selectedProperty,
             });
             changeUserData();

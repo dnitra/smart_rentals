@@ -10,6 +10,9 @@
     text-shadow: none;
     display: inline-block;
     text-align: start;
+    width: 1em;
+    height: 1em;
+    
 }
 .checkbox-label {
     display: inline-block;
@@ -17,4 +20,5 @@
     width: auto;
     margin-bottom: 0;
 }
+
 
