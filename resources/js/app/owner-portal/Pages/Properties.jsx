@@ -128,6 +128,7 @@ export default function Properties() {
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
+                    required
                 />
 
                 <label className="property-form__label" htmlFor="country">
