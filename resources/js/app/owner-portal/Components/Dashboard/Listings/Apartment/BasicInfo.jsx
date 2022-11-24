@@ -3,6 +3,7 @@ import BasicDropdown from "./BasicDropdown";
 import InputField from "./InputField";
 import "./BasicInfo.css";
 import Card from "./Card";
+import axios from "axios";
 
 export default function Basic({ setFormData }) {
     const selectChangeHandler = (e) => {
@@ -10,6 +11,8 @@ export default function Basic({ setFormData }) {
             return { ...previous_values, [e.target.name]: e.target.value };
         });
     };
+
+    
 
     const content = {
         building: "Building:",

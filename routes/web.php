@@ -22,7 +22,7 @@ use App\Http\Controllers\MailController;
 
 
 Route::view('/', 'index');
-Route::view('/login', 'index');
+Route::view('/login', 'index')->name('login');
 Route::view('/register', 'index');
 Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
@@ -30,6 +30,7 @@ Route::view('/public_listings', 'index');
 
 Route::get('/publicListings/show', [RentedPropertyController::class, 'showPublicListings']);
 
+<<<<<<< HEAD
 
 /// DASHBOARD FOR OWNER
 Route::view('/owner/properties', 'index');
@@ -58,3 +59,32 @@ Route::view('/tenant/dashboard/messages', 'index');
 Route::view('/tenant/dashboard/reports', 'index');
 Route::view('/invite/{linkId}', 'index');
 
+=======
+Route::group(['middleware' => 'auth'], function () {
+    /// DASHBOARD FOR OWNER
+    Route::view('/owner/properties', 'index');
+    Route::view('/owner/dashboard', 'index');
+    Route::view('/owner/dashboard/all', 'index');
+    Route::view('/owner/dashboard/listings/details/apartment', 'index');
+    Route::view('/owner/dashboard/listings/details/land', 'index');
+    Route::view('/owner/dashboard/listings/details/house', 'index');
+    Route::view('/owner/dashboard/listings/details/commercial', 'index');
+    Route::view('/owner/dashboard/cashflow', 'index');
+    Route::view('/owner/dashboard/listings', 'index');
+    Route::view('/owner/dashboard/listings/create', 'index');
+    Route::view('/owner/dashboard/messages', 'index');
+    Route::view('/owner/dashboard/reports', 'index');
+    Route::view('/owner/dashboard/property/all/{propertyId}', 'index');
+    Route::view('/owner/property/{propertyId}/accesses', 'index');
+    Route::view('/owner/dashboard/property/all/{propertyId}/edit', 'index');
+
+
+
+    /// DASHBOARD FOR TENANT
+    Route::view('/tenant/dashboard', 'index');
+    Route::view('/tenant/dashboard/all', 'index');
+    Route::view('/tenant/dashboard/messages', 'index');
+    Route::view('/tenant/dashboard/reports', 'index');
+    Route::view('/invite/{linkId}', 'index');
+});
+>>>>>>> main
