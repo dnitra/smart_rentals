@@ -45,7 +45,8 @@ function DashboardReports() {
                                               wrapReport();
                                           }}
                                       >
-                                          {property.name} ,{" "}
+                                          {/* {property.name},{" "} */}
+                                          {property.address.city},{" "}
                                           {property.address.street_and_number}
                                       </button>
                                       <div
