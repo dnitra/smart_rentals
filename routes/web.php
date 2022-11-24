@@ -26,7 +26,8 @@ Route::view('/login', 'index')->name('login');
 Route::view('/register', 'index');
 Route::view('/register/{linkId}', 'index');
 Route::view('/choosePortal', 'index');
-Route::view('/public_listings', 'index');
+Route::view('/publicListings', 'index');
+
 
 Route::get('/publicListings/show', [RentedPropertyController::class, 'showPublicListings']);
 

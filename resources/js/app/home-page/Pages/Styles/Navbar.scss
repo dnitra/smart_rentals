@@ -8,7 +8,7 @@ body {
 .navbar.navbar_home {
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-columns: 1.5fr 3fr 2fr;
     z-index: 2;
     position: fixed;
     &__buttons {

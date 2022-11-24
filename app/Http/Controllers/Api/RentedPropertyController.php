@@ -84,7 +84,6 @@ class RentedPropertyController extends Controller
                     'property_detail_id' => $detailId,
                     'rented_property_id' => $propertyId,
                     'value' => $inputValue
-
                 ]);
             }
         }

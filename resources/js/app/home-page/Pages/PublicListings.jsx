@@ -16,10 +16,9 @@ export default function PublicListings() {
     }, []);
     const getProperties = async () => {
         try {
-            const response = axios.get("publicListings/show");
+            const response = axios.get("/publicListings/show");
 
-            console.log(response.data);
-            setProperties(response.data);
+            setProperties(response);
         } catch (error) {
             console.log(error);
         }

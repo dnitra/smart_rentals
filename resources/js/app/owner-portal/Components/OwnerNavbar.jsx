@@ -6,7 +6,7 @@ import { slide as Menu } from "react-burger-menu";
 import logoBlack from "../../../../img/logos/SM-logo-black.svg";
 
 export default function OwnerNavbar() {
-    const { user, setUser } = useCustomContexts();
+    const { user, setUser, userData } = useCustomContexts();
     const navigate = useNavigate();
 
     const logoutUser = async () => {
@@ -122,6 +122,7 @@ export default function OwnerNavbar() {
                             Logout
                         </button>
                     </Link>
+                  
                 </Menu>
                 <div className="bm-cross-button">
                     <button
