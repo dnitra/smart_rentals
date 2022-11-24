@@ -45,7 +45,7 @@ export default function Energy({ setFormData }) {
                     {/* -------------------------------energy dropdown----------------------- */}
 
                     <div className="input-field">
-                        <label className="fieldset-label">
+                        <label className="fieldset-label energy-label">
                             Energy efficiency class:{" "}
                         </label>
                         <select className="select">
@@ -72,7 +72,7 @@ export default function Energy({ setFormData }) {
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
                     <form className="uploadPDF" onSubmit={handleSubmit}>
-                        <label className="fieldset-label">Upload PDF</label>
+                        <label className="fieldset-label energy-label">Upload PDF</label>
                         <label htmlFor="file"></label>
                         <input
                             className="inputPDF"
@@ -86,7 +86,7 @@ export default function Energy({ setFormData }) {
 
                     {/* -------------------------------------decree dropdown-------------------------------- */}
                     <div className="fieldset-dropdown">
-                        <label className="fieldset-label">
+                        <label className="fieldset-label energy-label">
                             According to a regulation:{" "}
                         </label>
                         <select className="select">

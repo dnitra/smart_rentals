@@ -77,7 +77,7 @@ function Listings() {
                     <Link
                         to={`/owner/dashboard/listings/details/${propertyType}`}
                     >
-                        <button>Add details</button>
+                        <button className="listnings-publish__btn">Add details</button>
                     </Link>
                     <button
                         className="listnings-publish__btn"

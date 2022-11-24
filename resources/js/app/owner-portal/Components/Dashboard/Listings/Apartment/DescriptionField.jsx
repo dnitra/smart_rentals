@@ -17,6 +17,7 @@ export default function DescriptionField({ setFormData }) {
             <h4 className="h4">Description</h4>
             <label className="fieldset-label">{content.propDescription}</label>
             <textarea
+            className="listings-textarea"
                 
                 name="propDescription"
                 value={undefined}

@@ -6,20 +6,44 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import BuildingPlaceholder from "../../../../../resources/img/building-placeholder.jpg";
 import likes from "../../../../img/Icons/likes.svg";
 import views from "../../../../img/Icons/views.svg";
+import ApplicationForm from "../Components/Listings/ApplicationForm";
+import { property } from "lodash";
 
 export default function PublicListings() {
     const { user, userData, changeUserData } = useCustomContexts();
     const [properties, setProperties] = useState([]);
+    // const [form, setForm] = useState(false);
+    const [sendform, sendSetForm] = useState([]);
+
+    const [openForms, setOpenForms] = useState([]);
+
+    const showForm = (e, propertyId) => {
+        e.preventDefault();
+        if (!openForms.includes(propertyId)) {
+            const newOpenForms = [...openForms];
+            newOpenForms.push(propertyId);
+            setOpenForms(newOpenForms);
+        }
+    };
 
     useEffect(() => {
         getProperties();
     }, []);
+
     const getProperties = async () => {
         try {
             const response = axios.get("publicListings/show");
 
             console.log(response.data);
             setProperties(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const sendingForm = async () => {
+        try {
+            const response = axios.get("");
+            sendSetForm(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -36,7 +60,7 @@ export default function PublicListings() {
                           )
                           .map((property, index) => {
                               return (
-                                  <Card key={index}>
+                                  <Card key={property.id}>
                                       <div className="tile">
                                           <div className="tiles-content">
                                               <div className="tiles-picture">
@@ -96,18 +120,42 @@ export default function PublicListings() {
                                                       {property.address.city}
                                                       <br />
                                                   </h3>
+                                                  {openForms.includes(
+                                                      property.id
+                                                  ) ? (
+                                                      ""
+                                                  ) : (
+                                                      <button
+                                                          type="button"
+                                                          className="tile-btn"
+                                                          onClick={(e) => {
+                                                              showForm(
+                                                                  e,
+                                                                  property.id
+                                                              );
+                                                          }}
+                                                      >
+                                                          Apply
+                                                      </button>
+                                                  )}
+                                              </div>
+                                              <div className="tiles-form"></div>
+                                          </div>
+                                          {openForms.includes(property.id) ? (
+                                              <div className="">
+                                                  <ApplicationForm
+                                                      select={showForm}
+                                                  />
                                                   <button
-                                                      type="button"
                                                       className="tile-btn"
+                                                      onClick={sendingForm}
                                                   >
-                                                      Edit
+                                                      Submit
                                                   </button>
                                               </div>
-                                              <div className="tiles-form">
-                                                  
-                                                 
-                                              </div>
-                                          </div>
+                                          ) : (
+                                              ""
+                                          )}
                                       </div>
                                   </Card>
                               );
