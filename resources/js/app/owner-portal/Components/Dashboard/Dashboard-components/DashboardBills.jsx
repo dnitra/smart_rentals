@@ -1,5 +1,5 @@
 import React from "react";
-import fakeBills from "./fakeBills.svg";
+import fakeBills from "./fakeBills.png";
 function DashboardBills() {
     return <img className="dashboard__image" src={fakeBills} alt="" />;
 }
