@@ -140,6 +140,7 @@ export default function EditProperty() {
                             name="city"
                             value={formData.city ?? ""}
                             onChange={handleInputChange}
+                            required
                         />
 
                         <label
