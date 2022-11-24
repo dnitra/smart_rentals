@@ -77,14 +77,16 @@ class RentedPropertyController extends Controller
 
         foreach ($inputs as $inputName => $inputValue) {
 
-            $detailId = PropertyDetail::where($propertyId, "-", $inputName)->first()->id;
+            if ($inputValue) {
+                $detailId = PropertyDetail::where("name_in_form", "=", $inputName)->first()->id;
 
-            DB::table('property_detail_rented_property')->insert([
-                'property_detail_id' => $detailId,
-                'rented_property_id' => $propertyId,
-                'value' => $inputValue
+                DB::table('property_detail_rented_property')->insert([
+                    'property_detail_id' => $detailId,
+                    'rented_property_id' => $propertyId,
+                    'value' => $inputValue
 
-            ]);
+                ]);
+            }
         }
     }
 
