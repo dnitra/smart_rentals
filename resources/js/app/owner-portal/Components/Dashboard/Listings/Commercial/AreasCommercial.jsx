@@ -18,8 +18,8 @@ export default function Areas({ setFormData }) {
     };
     return (
         <Card>
-            <div className="content">
-                <h4>Areas</h4>
+            <div className="areas-content">
+                <h4 className="h4">Areas</h4>
                 <fieldset className="fieldset">
                     <div className="fieldset-inputs">
                         <form>

@@ -17,9 +17,9 @@ function Listings() {
     const { user, userData, changeUserData } = useCustomContexts();
     const [selectedProperty, setSelectedProperty] = useState("");
 
-    const handleSelect = () => {
+    const handleSelect = async () => {
         try {
-            const response = axios.post("/api/property/publish", {
+            const response = await axios.post("/api/property/publish", {
                 propertyId: selectedProperty,
             });
             changeUserData();
@@ -32,6 +32,7 @@ function Listings() {
         changeUserData();
     }, []);
 
+    console.log(selectedProperty);
     const handleChange = (e) => {
         e.preventDefault();
         setSelectedProperty(e.target.value);

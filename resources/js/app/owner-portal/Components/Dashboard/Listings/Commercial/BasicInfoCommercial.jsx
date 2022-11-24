@@ -27,14 +27,14 @@ export default function Basic({ setFormData }) {
 
     return (
         <Card>
-            <div className="content">
-                <h4>Basic Information</h4>
+            <div className="listings-content">
+                <h4 className="h4">Basic Information</h4>
                 <fieldset className="fieldset">
                     {/* ---------------------first part of basic info------------------------- */}
                     <div className="fieldset-top">
                         <form>
                             <div className="fieldset-dropdown">
-                                <label>{content.building} </label>
+                                <label className="fieldset-label">{content.building} </label>
                                 <select
                                     className="select"
                                     name="buildingMaterial"
@@ -51,7 +51,7 @@ export default function Basic({ setFormData }) {
                                 </select>
                             </div>
                             <div className="fieldset-dropdown">
-                                <label>{content.state} </label>
+                                <label className="fieldset-label">{content.state} </label>
                                 <select
                                     className="select"
                                     name="stateOfProperty"
@@ -77,7 +77,7 @@ export default function Basic({ setFormData }) {
                                 </select>
                             </div>
                             <div className="fieldset-dropdown">
-                                <label>{content.type}</label>
+                                <label className="fieldset-label">{content.type}</label>
                                 <select
                                     className="select"
                                     name="typeOfProperty"
@@ -130,7 +130,7 @@ export default function Basic({ setFormData }) {
                         />
 
                         <div className="fieldset-dropdown">
-                            <label>{content.surrounding}</label>
+                            <label className="fieldset-label">{content.surrounding}</label>
                             <select
                                 className="select"
                                 name="surrounding"
@@ -150,7 +150,7 @@ export default function Basic({ setFormData }) {
                             </select>
                         </div>
                         <div className="fieldset-dropdown">
-                            <label>{content.location}</label>
+                            <label className="fieldset-label">{content.location}</label>
                             <select
                                 className="select"
                                 name="location"
@@ -172,7 +172,7 @@ export default function Basic({ setFormData }) {
                             </select>
                         </div>
                         <div className="fieldset-dropdown">
-                            <label>{content.protection}</label>
+                            <label className="fieldset-label">{content.protection}</label>
                             <select
                                 className="select"
                                 name="protection"
