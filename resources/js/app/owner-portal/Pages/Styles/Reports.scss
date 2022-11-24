@@ -55,10 +55,13 @@
             }
             & button {
                 border-radius: 8px;
-                background-color: rgb(145, 184, 242);
+                background-color: rgb(124, 170, 239);
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 border: none;
+            }
+            & button:hover{
+              
             }
         }
     }
