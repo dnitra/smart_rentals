@@ -36,7 +36,7 @@ class RentedPropertyController extends Controller
 
         // fill the object with data and save it to database
         $property->name = $data["name"];
-        // $property->price = $data["price"];
+        $property->price = $data["price"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();

@@ -50,14 +50,15 @@ export default function PropertyDetails({ propertyId }) {
                                       <div className="property__info-details-buttom">
                                           <div className="property__info-details-buttom-left">
                                               <span className="property__info-details-buttom-left-price">
-                                                  Price
+                                                  Monthly price
+                                                  
                                               </span>
                                               <span>
                                                   {!property.price ? (
                                                       "N/A"
                                                   ) : (
                                                       <span>
-                                                          {property.price}
+                                                          {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'CZK' }).format(property.price)}
                                                       </span>
                                                   )}
                                               </span>
@@ -111,7 +112,7 @@ export default function PropertyDetails({ propertyId }) {
                                                   to={`/owner/property/${propertyId}/accesses`}
                                               >
                                                   <button className="log-button log-buttons_property">
-                                                      Add tenant
+                                                      Add access
                                                   </button>
                                               </Link>
                                           ) : null}

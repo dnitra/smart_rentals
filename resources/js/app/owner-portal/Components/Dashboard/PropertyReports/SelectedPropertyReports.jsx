@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { useCustomContexts } from '../../../../Context/ContextsProvider';
 import "../../../Pages/Styles/AllProperties.scss"
 
-
+const accessories = ["Fridge", "Owen", "Window", "Shower", "Toilet", "Door", "Washing machine", "Others"];
 function SelectedPropertyReports(props) {
     const { user, userData, changeUserData } = useCustomContexts();
     const [status, setStatus] = useState([])
@@ -141,7 +141,7 @@ function SelectedPropertyReports(props) {
                                             <div className={done == "done" ? "property__reports--container done" : "property__reports--container"} key={i}>
                                                 <div>
                                                     <p className='title'>Accesory:</p>
-                                                    <p>{report.accessory_id}</p>
+                                                    <p>{accessories[report.accessory_id]}</p>
                                                 </div>
                                                 <div>
                                                     <p className='title'>Subject:</p>
@@ -168,7 +168,7 @@ function SelectedPropertyReports(props) {
                                             <div className='property__reports--container done' key={i}>
                                                 <div>
                                                     <p>Accesory:</p>
-                                                    <p>{report.accessory_id}</p>
+                                                    <p>{accessories[report.accessory_id]}</p>
                                                 </div>
                                                 <div>
                                                     <p>Subject:</p>
