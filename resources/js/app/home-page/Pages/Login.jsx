@@ -25,7 +25,7 @@ function Login(props) {
             // make the AJAX request
             const response = await axios.post("/login", loginValues);
             // get the (already JSON-parsed) response data
-            console.log(response.status);
+            // console.log(response.status);
             const response_data = response.data;
 
             // Load information about the user

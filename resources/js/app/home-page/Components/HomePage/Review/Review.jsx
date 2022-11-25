@@ -5,33 +5,38 @@ import review_img_2 from "../../../../../../img/home/Reviews/review_2.svg";
 import review_img_3 from "../../../../../../img/home/Reviews/review_3.svg";
 import review_img_4 from "../../../../../../img/home/Reviews/review_4.svg";
 import review_img_5 from "../../../../../../img/home/Reviews/review_5.svg";
+
+import nitra from "./Nitra.png"
+import maxim from "./Maxim.png"
+import flanderka from "./Flanderka.png"
+import rosol from "./Rosol.png"
 import { useEffect } from "react";
 
 function Review() {
     const reviewsData = [
         {
-            img: `${review_img_1}`,
+            img: `${rosol}`,
             author: "Jakub Rosol",
             job: "Web developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
 
         {
-            img: `${review_img_5}`,
+            img: `${maxim}`,
             author: "Maxim Khromov",
             job: "Web developer",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh nisl, eleifend a lorem sed, facilisis tempor urna. Aliquam tincidunt. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt.",
         },
 
         {
-            img: `${review_img_1}`,
+            img: `${nitra}`,
             author: "David Nitra",
             job: "Web Developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
 
         {
-            img: `${review_img_5}`,
+            img: `${flanderka}`,
             author: "Jakub Flanderka",
             job: "Backend Developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laudantium animi accusamus at, nesciunt. laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
@@ -99,12 +104,12 @@ function Review() {
                 <div className="review__img-container">
                     <img
                         className="review__img"
-                        src={review_img_1}
+                        src={rosol}
                         alt="Photo of a guy"
                     />
                 </div>
-                <div className="review__author">Jake Nackos</div>
-                <div className="review__job">UX Designer</div>
+                <div className="review__author">Jakub Rosol</div>
+                <div className="review__job">Web Developer</div>
                 <div className="review__text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Soluta cupiditate in quo sequi architecto nihil laudantium

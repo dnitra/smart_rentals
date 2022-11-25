@@ -28,7 +28,8 @@ function Footer() {
                     </div> */}
                     <div className="footer__copyright">
                         Copyright © 2022 by SmartRentals, Inc. All rights
-                        reserved.
+                        reserved. <br />
+                        Design by Anna Chunareva
                     </div>
                 </div>
                 <div className="footer__second-row">

@@ -14,14 +14,14 @@ export default function Body() {
     const [formData, setFormData] = useState({});
 
     useEffect(() => {
-        console.log(formData)
+        // console.log(formData)
     },[formData])
     const {propertyId} = useParams()
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(propertyId)
+        // console.log(propertyId)
         try {
-            console.log(formData)
+            // console.log(formData)
             const response = await axios.post(`/api/property/storeListingsDetails/${propertyId}`,  formData )
             console.log(response)
             window.location.assign(

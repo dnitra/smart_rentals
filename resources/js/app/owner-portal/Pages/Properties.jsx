@@ -25,7 +25,7 @@ export default function Properties() {
     // Handling selecting images changes
     const handleImageChange = (imageList, addUpdateIndex) => {
         // data for submit
-        console.log(imageList, addUpdateIndex);
+        // console.log(imageList, addUpdateIndex);
         setImages(imageList);
     };
 

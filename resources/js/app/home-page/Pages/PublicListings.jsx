@@ -33,7 +33,7 @@ export default function PublicListings() {
     const getProperties = async () => {
         try {
             const response = await axios.get("/publicListings/show");
-            console.log(response.data);
+            // console.log(response.data)
             setProperties(response.data);
         } catch (error) {
             console.log(error);
@@ -45,13 +45,13 @@ export default function PublicListings() {
                 `api/application/sendEmail/${openForms.slice(-1)}`,
                 { formData }
             );
-            console.log(response);
+            // console.log(response);
         } catch (error) {
             console.log(error);
         }
     };
     useEffect(() => {
-        console.log(formData);
+        // console.log(formData);
     }, [formData]);
 
     return (

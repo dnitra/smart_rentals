@@ -15,12 +15,12 @@ function SelectedPropertyReports(props) {
     const currentProperty = userData.rented_properties.filter((property) => {
         return property.id == props.id
     })
-    console.log(currentProperty[0])
+    // console.log(currentProperty[0])
 
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
-        console.log(userData)
+        // console.log(userData)
 
     }, []);
 
