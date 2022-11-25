@@ -95,13 +95,24 @@ export default function Tiles() {
                                                   {property.address.zip_code}
                                                   <br></br>
                                                   {property.address.city}
-                                                      
-                                                      <br />
-                                                  </h3>
-                                                  <h3>Monthly price:
-                                                      <br />
-                                                      {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'CZK' }).format(property.price)}</h3>
-                                              <Link to={`/owner/dashboard/property/all/${property.id}/edit`} >
+
+                                                  <br />
+                                              </h3>
+                                              <h3 className="tile-address__price">
+                                                  Monthly price:
+                                                  <br />
+                                                  {new Intl.NumberFormat(
+                                                      "de-DE",
+                                                      {
+                                                          style: "currency",
+                                                          currency: "CZK",
+                                                      }
+                                                  ).format(property.price)}
+                                              </h3>
+                                              <Link
+                                                  className="tile-link"
+                                                  to={`/owner/dashboard/property/all/${property.id}/edit`}
+                                              >
                                                   <button
                                                       type="button"
                                                       className="tile-btn"
