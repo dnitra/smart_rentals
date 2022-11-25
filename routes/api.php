@@ -27,7 +27,7 @@ Route::get('/userData', [UserDataController::class, 'showAllUserData']);
 //handle properties
 Route::post('/property/store', [RentedPropertyController::class, 'store']);
 Route::post('/property/{propertyId}/update', [RentedPropertyController::class, 'update']);
-Route::post('/property/{propertyId}/storeListingsDetails/', [RentedPropertyController::class, 'storeListingsDetails']);
+Route::post('/property/storeListingsDetails/{propertyId}', [RentedPropertyController::class, 'storeListingsDetails']);
 Route::get('/property/list', [RentedPropertyController::class, 'showAllProperties']);
 Route::get('/property/list/{id}', [RentedPropertyController::class, 'showProperty']);
 

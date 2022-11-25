@@ -202,14 +202,14 @@ export default function Properties() {
                     <>
                         <label
                             className="property-form__label"
-                            htmlFor="subtype-flat"
+                            htmlFor="subtype-apartment"
                         >
                             {content.subCategory}
                         </label>
                         <select
                             className="property-form__input"
                             name="subtype"
-                            id="subtype-flat"
+                            id="subtype-apartment"
                             value={formData.subtype}
                             onChange={handleInputChange}
                         >

@@ -12,7 +12,7 @@ export default function AreasLand({ setFormData }) {
                 <h4 className="h4">Land area</h4>
                 <fieldset className="fieldset">
                     <div className="fieldset-inputs">
-                        <form>
+                        <div>
                             <InputField
                                 type="text"
                                 label={content.land}
@@ -20,7 +20,7 @@ export default function AreasLand({ setFormData }) {
                                 value={undefined}
                                 setFormData={setFormData}
                             />
-                        </form>
+                        </div>
                     </div>
                 </fieldset>
             </div>

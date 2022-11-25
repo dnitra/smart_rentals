@@ -5,22 +5,26 @@ import CheckBoxAreaLand from "../Components/Dashboard/Listings/Land/CheckBoxArea
 import BasicInfoLand from "../Components/Dashboard/Listings/Land/BasicInfoLand";
 import "./Styles/EditDetailsLand.scss";
 import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
+import { Link } from "react-router-dom";
 export default function EditDeatilsLand() {
     const [formData, setFormData] = useState({});
+    const {propertyId} = useParams()
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
     };
     return (
-        <div onSubmit={handleFormSubmit} className="listings-main">
+        <form onSubmit={handleFormSubmit} className="listings-main">
             <DescriptionField setFormData={setFormData}/>
             <BasicInfoLand setFormData={setFormData} />
             <AreasLand setFormData={setFormData} />
             <DateLand setFormData={setFormData} />
             <CheckBoxAreaLand setFormData={setFormData} />
-            <button className="tile-btn3" type="submit">
-                Submit
-            </button>
-        </div>
+             <Link to={"/owner/dashboard/listings"}>
+                <button className="tile-btn3" type="submit">
+                    Submit
+                </button>
+            </Link>
+        </form>
     );
 }

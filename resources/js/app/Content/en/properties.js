@@ -2,7 +2,7 @@ export function properties() {
     return {
         category: "Category:",
         subCategory: "Subcategory:",
-        type1: "Flat",
+        type1: "Apartment",
         type2: "House",
         type3: "Commercial",
         type4: "Others",

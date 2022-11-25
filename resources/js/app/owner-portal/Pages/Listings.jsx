@@ -7,7 +7,7 @@ import Card from "../Components/Dashboard/Listings/Apartment/Card";
 import { Link } from "react-router-dom";
 
 const propertyTypes = {
-    1: "Flat",
+    1: "Apartment",
     2: "House",
     3: "Commercial",
     4: "Land",
@@ -93,7 +93,7 @@ function Listings() {
                     </select>
                     {selectedProperty ? (
                         <Link
-                            to={`/owner/dashboard/listings/details/${propertyType}}`}
+                            to={`/owner/dashboard/listings/details/${selectedProperty}/${propertyType}`}
                         >
                             <button
                                 className="listnings-publish__btn"

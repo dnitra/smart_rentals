@@ -75,10 +75,12 @@ class RentedPropertyController extends Controller
 
         $inputs = $request->all();
 
+       
+        
         foreach ($inputs as $inputName => $inputValue) {
-
             if ($inputValue) {
-                $detailId = PropertyDetail::where("name_in_form", "=", $inputName)->first()->id;
+                $detailId = PropertyDetail::where("name_in_form", "like","%". $inputName."%")->first()->id;
+                
 
                 DB::table('property_detail_rented_property')->insert([
                     'property_detail_id' => $detailId,

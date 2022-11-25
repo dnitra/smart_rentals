@@ -6,6 +6,7 @@ import "./DescriptionField.css";
 export default function DescriptionField({ setFormData }) {
     const titleChangeHandler = (e) => {
         setFormData((previous_values) => {
+            
             return { ...previous_values, [e.target.name]: e.target.value };
         });
     };
@@ -22,7 +23,7 @@ export default function DescriptionField({ setFormData }) {
                     
                     name="propDescription"
                     value={undefined}
-                    onChange={setFormData}
+                    onChange={titleChangeHandler}
                 ></textarea>
             </div>
         </Card>
