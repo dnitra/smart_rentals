@@ -30,9 +30,11 @@ function Listings() {
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
+        console.log(userData);
+        console.log(propertyType);
+        console.log(selectedProperty);
     }, []);
 
-    console.log(selectedProperty);
     const handleChange = (e) => {
         e.preventDefault();
         setSelectedProperty(e.target.value);
@@ -47,8 +49,7 @@ function Listings() {
         console.log("id " + propertyTypes[id]);
         setPropertyType(propertyTypes[id]);
     };
-    console.log(userData);
-    console.log(propertyType);
+    
 
     return (
         <div className="listings">

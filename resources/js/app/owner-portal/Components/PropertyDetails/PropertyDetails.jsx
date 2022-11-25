@@ -49,16 +49,15 @@ export default function PropertyDetails({ propertyId }) {
                                       </div>
                                       <div className="property__info-details-buttom">
                                           <div className="property__info-details-buttom-left">
-                                              <span className="property__info-details-buttom-left-area">
-                                                  Area
+                                              <span className="property__info-details-buttom-left-price">
+                                                  Price
                                               </span>
                                               <span>
-                                                  {!property.area ? (
+                                                  {!property.price ? (
                                                       "N/A"
                                                   ) : (
                                                       <span>
-                                                          {property.area} m
-                                                          <sup>2</sup>
+                                                          {property.price}
                                                       </span>
                                                   )}
                                               </span>

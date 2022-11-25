@@ -49,3 +49,4 @@ Route::post('/property/publish', [RentedPropertyController::class, 'handlePublis
 
 //handle emails
 Route::post('/invite/sendEmail/{accessId}', [MailController::class, 'sendInvitation']);
+Route::post('/application/sendEmail/{propertyId}', [MailController::class, 'sendApplication']);

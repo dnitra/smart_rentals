@@ -158,14 +158,14 @@ export default function Properties() {
                     onChange={handleInputChange}
                 />
 
-                <label className="property-form__label" htmlFor="area">
-                    Area (m2):
+                <label className="property-form__label" htmlFor="price">
+                    Monthly price (CZK):
                 </label>
                 <input
                     className="property-form__input"
                     type="number"
-                    name="area"
-                    value={formData.area}
+                    name="price"
+                    value={formData.price}
                     onChange={handleInputChange}
                 />
                 <label className="property-form__label" htmlFor="name">

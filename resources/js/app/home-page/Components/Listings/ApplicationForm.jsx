@@ -22,21 +22,21 @@ export default function ApplicationForm({ setFormData }) {
             <InputField
                 type="text"
                 label={content.emailForm}
-                name="emailForm"
+                name="email"
                 value={undefined}
                 selectChangeHandler={selectChangeHandler}
             />
             <InputField
                 type="text"
                 label={content.nameForm}
-                name="nameForm"
+                name="name"
                 value={undefined}
                 selectChangeHandler={selectChangeHandler}
             />
             <InputField
                 type="text"
                 label={content.telForm}
-                name="telForm"
+                name="phone"
                 value={undefined}
                 selectChangeHandler={selectChangeHandler}
             />
@@ -48,8 +48,8 @@ export default function ApplicationForm({ setFormData }) {
                 <textarea
                     placeholder="I'm interested in your apartment..."
                     className="applicationForm-field__textarea"
-                    name="propDescription"
-                    value={"I'm interested in renting your property..."}
+                    name="message"
+                    value={undefined}
                     onChange={selectChangeHandler}
                 ></textarea>
                 

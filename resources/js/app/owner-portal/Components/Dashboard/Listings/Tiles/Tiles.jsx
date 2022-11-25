@@ -7,6 +7,7 @@ import "../Apartment/Card.css";
 import BuildingPlaceholder from "../../../../../../../img/building-placeholder.jpg";
 import likes from "../../../../../../../img/Icons/likes.svg";
 import views from "../../../../../../../img/Icons/views.svg";
+import { Link } from "react-router-dom";
 
 export default function Tiles() {
     const { user, userData, changeUserData } = useCustomContexts();
@@ -94,14 +95,20 @@ export default function Tiles() {
                                                   {property.address.zip_code}
                                                   <br></br>
                                                   {property.address.city}
-                                                  <br />
-                                              </h3>
-                                              <button
-                                                  type="button"
-                                                  className="tile-btn"
-                                              >
-                                                  Edit
-                                              </button>
+                                                      
+                                                      <br />
+                                                  </h3>
+                                                  <h3>Monthly price:
+                                                      <br />
+                                                      {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'CZK' }).format(property.price)}</h3>
+                                              <Link to={`/owner/dashboard/property/all/${property.id}/edit`} >
+                                                  <button
+                                                      type="button"
+                                                      className="tile-btn"
+                                                  >
+                                                      Edit
+                                                  </button>
+                                              </Link>
                                           </div>
                                           <div className="tiles-list">
                                               <button

@@ -23,7 +23,9 @@ export default function PublicListings() {
             const newOpenForms = [...openForms];
             newOpenForms.push(propertyId);
             setOpenForms(newOpenForms);
+          
         }
+    
     };
 
     useEffect(() => {
@@ -41,8 +43,8 @@ export default function PublicListings() {
     };
     const sendingForm = async () => {
         try {
-            const response = await axios.post("");
-            sendSetForm(response.data);
+            const response = await axios.post(`api/application/sendEmail/${openForms.slice(-1)}`,{formData});
+            console.log(response)
         } catch (error) {
             console.log(error);
         }
@@ -117,8 +119,12 @@ export default function PublicListings() {
                                                       }
                                                       <br></br>
                                                       {property.address.city}
+                                                      
                                                       <br />
                                                   </h3>
+                                                  <h3>Monthly price:
+                                                      <br />
+                                                      {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'CZK' }).format(property.price)}</h3>
                                                   {openForms.includes(
                                                       property.id
                                                   ) ? (
