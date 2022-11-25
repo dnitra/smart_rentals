@@ -3,6 +3,7 @@ import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Home.scss";
 // import background from "../../../img/home/home_background.svg";
 import Phones from "../../../../img/home/home_phones.svg";
+import newPhones from "../../../../img/home/home__newPhones.svg"
 import LoremImage from "../../../../img/home/homeImg.png"
 import Review from "../../home-page/Components/HomePage/Review/Review";
 function Home() {
@@ -80,7 +81,7 @@ function Home() {
                     </div>
                     <div className="content-1__img">
                         {" "}
-                        <img src={Phones} alt="" />
+                        <img src={newPhones} alt="" />
                     </div>
                 </div>
 
