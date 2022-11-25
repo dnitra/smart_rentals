@@ -52,71 +52,73 @@ function Listings() {
     
 
     return (
-        <div className="listings">
-            <h2 className="listings__heading">Add new listing</h2>
-            <form className="listnings-add">
-                <div className="listnings-field">
-                    <select
-                        className="listnings-select"
-                        name="propertyId"
-                        onChange={handleChange}
-                        value={selectedProperty}
-                    >
-                        <option value="">- select</option>
-                        {userData.rented_properties
-                            ? userData.rented_properties
-                                  .filter(
-                                      (rented_property) =>
-                                          rented_property.published == null &&
-                                          rented_property.pivot.role_id == 1
-                                  )
-                                  .map((rented_property) => {
-                                      return (
-                                          <option
-                                              className="tiles-address__heading"
-                                              key={rented_property.id}
-                                              value={rented_property.id}
-                                              boo={
-                                                  rented_property.rented_property_type_id
-                                              }
-                                          >
-                                              {
-                                                  rented_property.address
-                                                      .street_and_number
-                                              }
-
-                                              {rented_property.address.city}
-                                          </option>
-                                      );
-                                  })
-                            : "...loading"}
-                    </select>
-                    {selectedProperty ? (
-                        <Link
-                            to={`/owner/dashboard/listings/details/${selectedProperty}/${propertyType}`}
+            <>
+                <h2 className="listings__heading">Add new listing</h2>
+            <div className="listings">
+                <form className="listnings-add">
+                    <div className="listnings-field">
+                        <select
+                            className="listings-select"
+                            name="propertyId"
+                            onChange={handleChange}
+                            value={selectedProperty}
                         >
-                            <button
-                                className="listnings-publish__btn"
-                                type="button"
+                            <option value="">- select</option>
+                            {userData.rented_properties
+                                ? userData.rented_properties
+                                      .filter(
+                                          (rented_property) =>
+                                              rented_property.published == null &&
+                                              rented_property.pivot.role_id == 1
+                                      )
+                                      .map((rented_property) => {
+                                          return (
+                                              <option
+                                                  className="tiles-address__heading"
+                                                  key={rented_property.id}
+                                                  value={rented_property.id}
+                                                  boo={
+                                                      rented_property.rented_property_type_id
+                                                  }
+                                              >
+                                                  {
+                                                      rented_property.address
+                                                          .street_and_number
+                                                  }
+    
+                                                  {rented_property.address.city}
+                                              </option>
+                                          );
+                                      })
+                                : "...loading"}
+                        </select>
+                        {selectedProperty ? (
+                            <Link
+                                to={`/owner/dashboard/listings/details/${propertyType}}`}
                             >
-                                Add details
-                            </button>
-                        </Link>
-                    ) : (
-                        ""
-                    )}
-                    <button
-                        className="listnings-publish__btn"
-                        type="button"
-                        onClick={handleSelect}
-                    >
-                        publish
-                    </button>
-                </div>
-            </form>
-
-            <Tiles select={handleSelect} />
-        </div>
+                                <button
+                                    className="listnings-publish__btn"
+                                    type="button"
+                                >
+                                    Add details
+                                </button>
+                            </Link>
+                        ) : (
+                            ""
+                        )}
+                        <button
+                            className="listnings-publish__btn"
+                            type="button"
+                            onClick={handleSelect}
+                        >
+                            publish
+                        </button>
+                    </div>
+                </form>
+    
+                <Tiles select={handleSelect} />
+            </div>
+            </>
     );
 }
 

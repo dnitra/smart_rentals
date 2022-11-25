@@ -26,6 +26,7 @@ function Register() {
 
         // role: "default",
     });
+    const [errors, setErrors] = useState([])
 
     const { linkId } = useParams();
 
@@ -66,7 +67,9 @@ function Register() {
                     console.log(
                         "VALIDATION FAILED:",
                         error.response.data.errors
-                    );
+                        );
+                    setErrors(error.response.data.errors.password)
+
                     break;
                 case 500:
                     console.log("UNKNOWN ERROR", error.response.data);
@@ -113,7 +116,9 @@ function Register() {
                         name="password"
                         value={formValues.password}
                         handleChange={handleChange}
+                        errors={errors}
                     />
+                    
                     <InputForm
                         className="register__form-item"
                         type="password"

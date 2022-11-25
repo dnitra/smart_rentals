@@ -8,7 +8,7 @@
 }
 
 .listings-content {
-    width: 80%;
+    width: 85%;
 }
 
 .box {
@@ -96,7 +96,7 @@
 
 @media (max-width: 700px) {
     .card {
-        width: 85%;
+        width: 90%;
     }
     .checkbox-content {
         margin: 0;
