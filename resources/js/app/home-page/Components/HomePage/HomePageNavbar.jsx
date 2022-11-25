@@ -162,9 +162,9 @@ export default function HomePageNavbar() {
                                 {/* <Link to="/login" className="button_container">
                                 <button className="log-button">Log In</button>
                             </Link> */}
-                                <Link to="/register" className="button_container">
+                                {/* <Link to="/register" className="button_container">
                                     <button className="log-button">Sign Up</button>
-                                </Link>
+                                </Link> */}
                             </div>
                         )}
                     </Menu>
