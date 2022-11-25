@@ -33,12 +33,12 @@ export default function EditAccesses() {
   
     useEffect(() => {
        changeUserData()
-        console.log(userData)
+        // console.log(userData)
     }, [])
     
     useEffect(() => {
        
-        console.log(userData)
+        // console.log(userData)
     },[userData])
 
 
@@ -70,15 +70,15 @@ export default function EditAccesses() {
     }
     const addAccess = (e) => {
 
-        console.log(accesses)
-        console.log(errors)
+        // console.log(accesses)
+        // console.log(errors)
         
         if (accesses.role !== "" && accesses.email !== "") {
 
         try {
             const response = axios.post(`/api/property/${propertyId}/add-access`, { ...accesses })
             changeUserData()
-            console.log("test")
+            // console.log("test")
             setAccesses(accessesData)
             
         }
@@ -107,7 +107,7 @@ export default function EditAccesses() {
         try {
             
             const response = await axios.post(`/api/invite/sendEmail/${accessId}`)
-            console.log(response)
+            // console.log(response)
            
             await setResponse(response)
             

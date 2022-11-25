@@ -28,10 +28,10 @@ export default function Invitation() {
                 
         const response = await axios.get(`/api/invite/${linkId}`)
         const data = response.data
-        console.log(data)
+        // console.log(data)
         setData(data)
     }
-        console.log(data)
+        // console.log(data)
     return (
         data ?
             

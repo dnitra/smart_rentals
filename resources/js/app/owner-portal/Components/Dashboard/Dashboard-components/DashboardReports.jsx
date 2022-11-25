@@ -14,7 +14,7 @@ function DashboardReports() {
         // console.log(e);
         setWrapped(!wrapped);
     };
-    console.log(userData);
+    // console.log(userData);
     return (
         <>
             <div className="dashboard__reports-container">
@@ -40,7 +40,7 @@ function DashboardReports() {
                                                       : "")
                                               }
                                               onClick={(e) => {
-                                                  console.log(e.target);
+                                                //   console.log(e.target);
                                                   //   setDetailsShown(property.name);
                                                   setActive(property.id);
                                                   wrapReport();

@@ -9,7 +9,7 @@ export default function PropertyDetails({ propertyId }) {
     }, []);
     
     const { userData, changeUserData } = useCustomContexts();
-    console.log(userData)
+    // console.log(userData)
     return (
         <div className="property">
             {userData.rented_properties

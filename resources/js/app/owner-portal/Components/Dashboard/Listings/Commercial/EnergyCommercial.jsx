@@ -23,7 +23,7 @@ export default function Energy({ setFormData }) {
             },
         };
         axios.post(url, formData, config).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
         });
     }
     const content = {

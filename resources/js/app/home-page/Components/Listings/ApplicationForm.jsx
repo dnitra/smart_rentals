@@ -3,8 +3,8 @@ import InputField from "../../../owner-portal/Components/Dashboard/Listings/Apar
 import "./ApplicationForm.scss";
 export default function ApplicationForm({ setFormData }) {
     const selectChangeHandler = (e) => {
-        console.log(e.target.name)
-        console.log(e.target.value)
+        // console.log(e.target.name)
+        // console.log(e.target.value)
         setFormData((previous_values) => {
             return { ...previous_values, [e.target.name]: e.target.value };
         });
