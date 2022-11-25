@@ -1,4 +1,6 @@
-
+*{
+    font-family: "Montserrat", sans-serif;
+}
 .tileImg {
     max-width: 100%;
     max-height: 100%;
@@ -13,13 +15,13 @@
     margin-bottom: 1rem;
     border: 0px;
     background-color: rgb(224, 236, 251);
-    color: rgb(101,156,245);
+    color: black;
     text-transform: capitalize;
 
     letter-spacing: 1px;
     transition: all 0.1s ease;
-    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
-        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    /* box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+        rgb(0 0 0 / 30%) 0px 1px 3px -1px; */
 }
 .tile-btn:hover {
     background-color: rgb(64, 77, 105);
@@ -33,12 +35,12 @@
     margin-top: 0.5rem;
     border: 0px;
     background-color: rgb(224, 236, 251);
-    color: rgb(66, 133, 244);
+    color: black;
     text-transform: capitalize;
     letter-spacing: 1px;
     transition: all 0.1s ease;
-    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
-        rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    /* box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+        rgb(0 0 0 / 30%) 0px 1px 3px -1px; */
 }
 .tiles-btn2:hover {
     background-color: rgb(64, 77, 105);
@@ -156,8 +158,10 @@
         margin-top: 2rem;
     }
     .listings button {
-        font-family: "Nunito";
-        font-weight: bold;
+        /* font-family: "Nunito";
+        font-weight: bold; */
+        font-family: "Montserrat", sans-serif;
+        font-weight: 100;
         margin-top: 1rem;
     }
 }

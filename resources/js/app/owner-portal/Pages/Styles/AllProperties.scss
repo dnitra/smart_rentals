@@ -38,6 +38,7 @@ body {
 
     .property__report-container {
         padding-bottom: 0;
+        margin: 1rem;
     }
     &.currentPropertyDetails {
         display: grid;
@@ -180,7 +181,8 @@ body {
         @media (max-width: 650px) {
             grid-template-columns: 1fr;
             padding: 1rem;
-            gap: 1rem;
+            margin: 0 auto;
+            // gap: 1rem;
         }
         .property {
             background-color: #ffffff;

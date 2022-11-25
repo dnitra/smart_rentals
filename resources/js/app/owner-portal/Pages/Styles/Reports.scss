@@ -55,16 +55,14 @@
             }
             & button {
                 border-radius: 8px;
-                background-color: #e9f1fc;
+                background-color: rgb(124, 170, 239);
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 border: none;
             }
-        }
-
-        &--property {
-        }
-        &--select {
+            & button:hover{
+              
+            }
         }
     }
 }

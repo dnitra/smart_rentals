@@ -5,8 +5,8 @@
     font-family: "Nunito";
     font-weight: bold;
     button {
-        font-family: "Nunito";
-        font-weight: bold;
+        // font-family: "Nunito";
+        // font-weight: bold;
     }
 
     &__heading {
@@ -33,11 +33,11 @@
     margin: 0.2rem;
     border: 0px;
     background-color: rgb(224, 236, 251);
-    color: rgb(103, 157, 246);
+    color: black;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    // box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    //     rgba(0, 0, 0, 0.23) 0px 6px 6px;
     transition: all300ms ease;
 }
 
@@ -58,7 +58,7 @@
     min-height: 2.5rem;
     outline: none;
     padding: 0.5rem 0.75rem;
-    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+    // box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
 }
 
 @media screen and (max-width: 900px) {

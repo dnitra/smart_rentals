@@ -120,7 +120,6 @@ export default function HomePageNavbar() {
                 )}
             </header> 
             </div>
-            <div className="menu-container menu-container__home">
                 <div className="header-menu">
                     <Menu>
                             <Link to="/"> 
@@ -168,7 +167,6 @@ export default function HomePageNavbar() {
                         )}
                     </Menu>
                 </div>
-            </div>
         </>
     );
 }
