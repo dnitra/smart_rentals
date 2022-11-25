@@ -56,7 +56,7 @@ class InvitationMail extends Mailable
             ->markdown('mails.invitation')
             ->with([
                 'name' => " " . $this->access->first_name,
-                'link' => "www.smart-rentals.test/invite/" . $this->access->invite_link,
+                'link' => "https://www.smart-rentals.codeboot.cz/invite/" . $this->access->invite_link,
                 'role' => $this->roles[$this->access->rented_property_user_role_id - 1],
                 'street_and_number' => $this->access->rentedProperty->address->street_and_number,
                 'city' => $this->access->rentedProperty->address->city,

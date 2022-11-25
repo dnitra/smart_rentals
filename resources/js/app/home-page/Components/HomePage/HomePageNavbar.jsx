@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useCustomContexts } from "../../../Context/ContextsProvider";
 import { slide as Menu } from "react-burger-menu";
 import logoBlack from "../../../../../img/logos/SM-logo-black.svg"
-
+import SMlogo from "../../../../../img/logos/SM-logo.svg";
 
 export default function HomePageNavbar() {
     const { user, setUser, userData } = useCustomContexts();
@@ -120,7 +120,9 @@ export default function HomePageNavbar() {
                 )}
             </header> 
             </div>
-                <div className="header-menu">
+             <div className="menu-container">
+                 <img className="menu-container__logo" src={SMlogo} alt="" />
+                <div className="header-menu header-menu__homepage">
                     <Menu>
                             <Link to="/"> 
                                 <p>
@@ -166,6 +168,7 @@ export default function HomePageNavbar() {
                             </div>
                         )}
                     </Menu>
+                </div>
                 </div>
         </>
     );

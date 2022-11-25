@@ -11,29 +11,29 @@ function Review() {
     const reviewsData = [
         {
             img: `${review_img_1}`,
-            author: "Jake Nackos",
-            job: "UX Designer",
+            author: "Jakub Rosol",
+            job: "Web developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
 
         {
             img: `${review_img_5}`,
-            author: "Joseph Gonzales",
-            job: "Tennis Coach",
+            author: "Maxim Khromov",
+            job: "Web developer",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh nisl, eleifend a lorem sed, facilisis tempor urna. Aliquam tincidunt. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt.",
         },
 
         {
             img: `${review_img_1}`,
-            author: "Stephanie Liverani",
-            job: "Frontend Developer",
+            author: "David Nitra",
+            job: "Web Developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cupiditate in quo sequi architecto nihil laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
 
         {
             img: `${review_img_5}`,
-            author: "Jurica Koletic",
-            job: "Realtor",
+            author: "Jakub Flanderka",
+            job: "Backend Developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laudantium animi accusamus at, nesciunt. laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
     ];

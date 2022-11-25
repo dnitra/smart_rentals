@@ -55,7 +55,7 @@ class ApplicationMail extends Mailable
             ->subject("New applicant at your property ID: {$this->property->id}")
             ->markdown('mails.application')
             ->with([
-                'link' => "www.smart-rentals.test/owner/dashboard/property/all/{$this->property->id}/",
+                'link' => "https://www.smart-rentals.codeboot.cz/owner/dashboard/property/all/{$this->property->id}/",
                 'name' => $this->applicant->name,
                 'email' => $this->applicant->email,
                 'phone' => $this->applicant->phone,
