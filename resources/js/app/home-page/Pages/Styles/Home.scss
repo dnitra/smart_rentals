@@ -38,9 +38,8 @@ body {
     z-index: 1;
 
     @media (max-width: 700px) {
-        // background: url("../../../../../img/home/home_background.svg") no-repeat fixed
-        // center center;
-        // background-size: auto;
+         background: url("../../../../../img/home/home_background.svg") no-repeat
+            scroll center center;
     }
 
     &__project-name {

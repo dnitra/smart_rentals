@@ -93,6 +93,8 @@ export default function OwnerNavbar() {
                     </div>
                 </div>
             </header>
+            <div className="menu-container">
+                <img className="menu-container__logo" src={SMlogo} alt="" />
             <div className="header-menu">
                 <Menu>
                     <Link to="/owner/dashboard">
@@ -143,6 +145,7 @@ export default function OwnerNavbar() {
                 {/* <div>
                 
             </div> */}
+                </div>
             </div>
         </>
     );
