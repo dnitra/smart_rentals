@@ -100,6 +100,10 @@ $font-montserrat: "Montserrat", sans-serif;
         }
     }
 }
+.errors {
+    color: red;
+    text-align: center;
+}
 @media (max-width: 1024px) {
     .register-section {
         .register-container {
