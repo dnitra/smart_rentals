@@ -5,6 +5,19 @@
 
     RewriteEngine On
 
+    # RewriteBase /
+
+    RewriteCond %{HTTPS} off
+    RewriteCond %{ENV:HTTPS} off
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+    RewriteCond %{HTTPS} on
+    RewriteCond %{ENV:HTTPS} on
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
