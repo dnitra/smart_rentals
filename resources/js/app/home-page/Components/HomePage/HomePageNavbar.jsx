@@ -90,7 +90,10 @@ export default function HomePageNavbar() {
                     </Link>
                     <a href="#review">
                         <p>Reviews</p>
-                    </a>
+                        </a>
+                        <Link to="/publicListings">
+                        <p>Public Listings</p>
+                    </Link>
                 </div>
                 {user ? (
                     <div className="navbar__buttons">
@@ -105,7 +108,8 @@ export default function HomePageNavbar() {
                     <div className="navbar__buttons">
                         <Link to="/login" className="button_container">
                             <button className="log-button">Start Now</button>
-                        </Link>
+                                </Link>
+                        
                         {/* <Link to="/login" className="button_container">
                             <button className="log-button">Log In</button>
                         </Link> */}
@@ -116,7 +120,6 @@ export default function HomePageNavbar() {
                 )}
             </header> 
             </div>
-            <div className="menu-container menu-container__home">
                 <div className="header-menu">
                     <Menu>
                             <Link to="/"> 
@@ -164,7 +167,6 @@ export default function HomePageNavbar() {
                         )}
                     </Menu>
                 </div>
-            </div>
         </>
     );
 }

@@ -7,15 +7,17 @@ import BasicInfo from "../Components/Dashboard/Listings/Apartment/BasicInfo";
 import CheckBoxArea from "../Components/Dashboard/Listings/Apartment/CheckBoxArea";
 import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
 import "./Styles/EditDetailsAppartment.scss";
+import { Link } from "react-router-dom";
 export default function Body() {
     const [formData, setFormData] = useState({});
+    const {propertyId} = useParams()
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="listings-main">
+        <form onSubmit={handleFormSubmit} className="listings-main">
             <DescriptionField setFormData={setFormData} />
             <BasicInfo setFormData={setFormData} />
             <Areas setFormData={setFormData} />
@@ -23,9 +25,11 @@ export default function Body() {
             <Other setFormData={setFormData} />
             <Energy setFormData={setFormData} />
             <CheckBoxArea setFormData={setFormData} />
-            <button className="tile-btn3" type="submit">
-                Submit
-            </button>
-        </div>
+             <Link to={"/owner/dashboard/listings"}>
+                <button className="tile-btn3" type="submit">
+                    Submit
+                </button>
+            </Link>
+        </form>
     );
 }

@@ -7,7 +7,7 @@ import Card from "../Components/Dashboard/Listings/Apartment/Card";
 import { Link } from "react-router-dom";
 
 const propertyTypes = {
-    1: "Flat",
+    1: "Apartment",
     2: "House",
     3: "Commercial",
     4: "Land",
@@ -30,9 +30,11 @@ function Listings() {
     useEffect(() => {
         //load all the user data with all of his database data to userContext as userData variable
         changeUserData();
+        console.log(userData);
+        console.log(propertyType);
+        console.log(selectedProperty);
     }, []);
 
-    console.log(selectedProperty);
     const handleChange = (e) => {
         e.preventDefault();
         setSelectedProperty(e.target.value);
@@ -47,8 +49,7 @@ function Listings() {
         console.log("id " + propertyTypes[id]);
         setPropertyType(propertyTypes[id]);
     };
-    console.log(userData);
-    console.log(propertyType);
+    
 
     return (
             <>

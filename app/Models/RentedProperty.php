@@ -11,6 +11,7 @@ use App\Models\PropertyDetail;
 use App\Models\Report;
 use App\Models\Image;
 use App\Models\PropertyAccess;
+use App\Models\PropertyApplicant;
 
 class RentedProperty extends Model
 {
@@ -33,6 +34,10 @@ class RentedProperty extends Model
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+    public function propertyApplicants()
+    {
+        return $this->hasMany(PropertyApplicant::class);
     }
 
     public function reports()

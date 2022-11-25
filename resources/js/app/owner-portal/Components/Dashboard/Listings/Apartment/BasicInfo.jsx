@@ -35,7 +35,7 @@ export default function Basic({ setFormData }) {
                 <fieldset className="fieldset">
                     {/* ---------------------first part of basic info------------------------- */}
                     <div className="fieldset-top">
-                        <form>
+                        <div>
                             <div className="fieldset-dropdown">
                                 <label className="fieldset-label">{content.building} </label>
                                 <select
@@ -113,7 +113,7 @@ export default function Basic({ setFormData }) {
                                 value={undefined}
                                 setFormData={setFormData}
                             />
-                        </form>
+                        </div>
                     </div>
                     <br />
                     <hr />

@@ -6,6 +6,8 @@ import Card from "../Apartment/Card";
 
 export default function Basic({ setFormData }) {
     const selectChangeHandler = (e) => {
+        console.log(e.target.name)
+        console.log(e.target.value)
         setFormData((previous_values) => {
             return { ...previous_values, [e.target.name]: e.target.value };
         });
@@ -32,7 +34,7 @@ export default function Basic({ setFormData }) {
                 <fieldset className="fieldset">
                     {/* ---------------------first part of basic info------------------------- */}
                     <div className="fieldset-top">
-                        <form>
+                        <div>
                             <div className="fieldset-dropdown">
                                 <label className="fieldset-label">{content.building} </label>
                                 <select
@@ -94,23 +96,23 @@ export default function Basic({ setFormData }) {
                                 label={content.numberOfFloors}
                                 name="numberOfFloors"
                                 value={undefined}
-                                setFormData={setFormData}
+                                setFormData={selectChangeHandler}
                             />
                             <InputField
                                 type="number"
                                 label={content.numberOfUdgFloors}
                                 name="numberOfUdgFloors"
                                 value={undefined}
-                                setFormData={setFormData}
+                                setFormData={selectChangeHandler}
                             />
                             <InputField
                                 type="text"
                                 label={content.floorLocation}
                                 name="floorLocation"
                                 value={undefined}
-                                setFormData={setFormData}
+                                setFormData={selectChangeHandler}
                             />
-                        </form>
+                        </div>
                     </div>
                     <br />
                     <hr />
@@ -121,12 +123,12 @@ export default function Basic({ setFormData }) {
                         <BasicDropdown
                             label={content.elevator}
                             name="elevator"
-                            setFormData={setFormData}
+                            setFormData={selectChangeHandler}
                         />
                         <BasicDropdown
                             label={content.wheelchairAccess}
                             name="wheelchairAccess"
-                            setFormData={setFormData}
+                            setFormData={selectChangeHandler}
                         />
 
                         <div className="fieldset-dropdown">

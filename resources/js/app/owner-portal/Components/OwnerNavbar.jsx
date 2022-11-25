@@ -7,7 +7,7 @@ import logoBlack from "../../../../img/logos/SM-logo-black.svg";
 import SMlogo from "../../../../img/logos/SM-logo.svg";
 
 export default function OwnerNavbar() {
-    const { user, setUser } = useCustomContexts();
+    const { user, setUser, userData } = useCustomContexts();
     const navigate = useNavigate();
 
     const logoutUser = async () => {
@@ -93,47 +93,40 @@ export default function OwnerNavbar() {
                     </div>
                 </div>
             </header>
-            <div className="menu-container">
-                <img
-                    className="menu-container__logo"
-                    src={SMlogo}
-                    alt="smartrentals logo"
-                />
-
-                <div className="header-menu">
-                    <Menu>
-                        <Link to="/owner/dashboard">
-                            <p>
-                                <img src={logoBlack} alt="logo" />
-                            </p>
-                        </Link>
-                        <Link to="/owner/dashboard">
-                            <p>
-                                <span>dashboard</span>
-                            </p>
-                        </Link>
-                        <Link to="/owner/dashboard/all">
-                            <p>all properties</p>
-                        </Link>
-                        <Link to="/owner/dashboard/cashflow">
-                            <p>cashflow</p>
-                        </Link>
-                        <Link to="/owner/dashboard/listings">
-                            <p>listings</p>
-                        </Link>
-                        <Link to="/owner/dashboard/reports">
-                            <p>reports</p>
-                        </Link>
-                        <Link to="/owner/dashboard/messages">
-                            <p>messages</p>
-                        </Link>
-                        <Link to="/" className="button_container">
-                            <button className="log-button" onClick={logoutUser}>
-                                Logout
-                            </button>
-                        </Link>
-                    </Menu>
-                </div>
+            <div className="header-menu">
+                <Menu>
+                    <Link to="/owner/dashboard">
+                        <p>
+                            <img src={logoBlack} alt="logo" />
+                        </p>
+                    </Link>
+                    <Link to="/owner/dashboard">
+                        <p>
+                            <span>dashboard</span>
+                        </p>
+                    </Link>
+                    <Link to="/owner/dashboard/all">
+                        <p>all properties</p>
+                    </Link>
+                    <Link to="/owner/dashboard/cashflow">
+                        <p>cashflow</p>
+                    </Link>
+                    <Link to="/owner/dashboard/listings">
+                        <p>listings</p>
+                    </Link>
+                    <Link to="/owner/dashboard/reports">
+                        <p>reports</p>
+                    </Link>
+                    <Link to="/owner/dashboard/messages">
+                        <p>messages</p>
+                    </Link>
+                    <Link to="/" className="button_container">
+                        <button className="log-button" onClick={logoutUser}>
+                            Logout
+                        </button>
+                    </Link>
+                  
+                </Menu>
                 <div className="bm-cross-button">
                     <button
                         type="button"

@@ -49,16 +49,16 @@ export default function PropertyDetails({ propertyId }) {
                                       </div>
                                       <div className="property__info-details-buttom">
                                           <div className="property__info-details-buttom-left">
-                                              <span className="property__info-details-buttom-left-area">
-                                                  Area
+                                              <span className="property__info-details-buttom-left-price">
+                                                  Monthly price
+                                                  
                                               </span>
                                               <span>
-                                                  {!property.area ? (
+                                                  {!property.price ? (
                                                       "N/A"
                                                   ) : (
                                                       <span>
-                                                          {property.area} m
-                                                          <sup>2</sup>
+                                                          {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'CZK' }).format(property.price)}
                                                       </span>
                                                   )}
                                               </span>
@@ -112,7 +112,7 @@ export default function PropertyDetails({ propertyId }) {
                                                   to={`/owner/property/${propertyId}/accesses`}
                                               >
                                                   <button className="log-button log-buttons_property">
-                                                      Add tenant
+                                                      Add access
                                                   </button>
                                               </Link>
                                           ) : null}

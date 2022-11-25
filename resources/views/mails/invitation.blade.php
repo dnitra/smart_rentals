@@ -11,7 +11,11 @@
     <br>
     <br>
     Use this link to accept the invitation <a href="{{ $link }}">{{ $link }}</a>
-
+    <br>
+    <br>
+    Sincerly Yours,
+    <br>
+    Smart-rentals Team
 
 
 </div>

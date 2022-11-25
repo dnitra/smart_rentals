@@ -23,14 +23,14 @@ class PropertyDetailsSeeder extends Seeder
         $details_list =
             [
                 "no unit" => [
-                    "building" => "Building:",
-                    "state" => "State:",
-                    "type" => "Type",
+                    "buildingMaterial" => "Building:",
+                    "stateOfProperty" => "State:",
+                    "typeOfProperty" => "Type",
                     "surrounding" => "Surrounding development",
                     "location" => "Location",
                     "protection" => "Protection",
                     "floorLocation" => "Floor location",
-                    "propDescription" => "Descibe your property"
+                    "propDescription" => "Describe your property"
                 ],
                 "count" => [
                     "numberOfUdgFloors" => "Number of underground floors",

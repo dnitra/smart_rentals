@@ -23,7 +23,7 @@ export default function Areas({ setFormData }) {
                 <h4 className="h4">Areas</h4>
                 <fieldset className="fieldset">
                     <div className="fieldset-inputs">
-                        <form>
+                        <div>
                             <InputField
                                 type="text"
                                 label={content.usable}
@@ -52,7 +52,7 @@ export default function Areas({ setFormData }) {
                                 value={undefined}
                                 setFormData={setFormData}
                             />
-                        </form>
+                        </div>
                     </div>
                     <div className="fieldset-inputs">
                         <BasicDropdown
