@@ -122,9 +122,7 @@
     .tile-link {
         align-self: center;
     }
-    .tile-btn {
-        /* align-self: center; */
-    }
+   
     .tiles-content {
         display: flex;
         flex-direction: column;
