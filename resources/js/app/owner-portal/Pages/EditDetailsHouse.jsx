@@ -24,7 +24,9 @@ export default function Body() {
             console.log(formData)
             const response = await axios.post(`/api/property/storeListingsDetails/${propertyId}`,  formData )
             console.log(response)
-            console.log("form sent")
+            window.location.assign(
+                    `/owner/dashboard/listings`
+                );
         }
         catch (error) {
             console.log(error)

@@ -30,7 +30,7 @@ class PropertyDetailsSeeder extends Seeder
                     "location" => "Location",
                     "protection" => "Protection",
                     "floorLocation" => "Floor location",
-                    "propDescription" => "Descibe your property"
+                    "propDescription" => "Describe your property"
                 ],
                 "count" => [
                     "numberOfUdgFloors" => "Number of underground floors",
