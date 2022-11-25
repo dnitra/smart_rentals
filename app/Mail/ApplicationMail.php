@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class InvitationMail extends Mailable
+class ApplicationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,10 +19,10 @@ class InvitationMail extends Mailable
      * @return void
      */
 
-    public function __construct($access)
+    public function __construct($applicant, $property)
     {
-        $this->access = $access;
-        $this->roles = ["Owner", "Manager", "Tenant", "Applicant"];
+        $this->applicant = $applicant;
+        $this->property = $property;
     }
 
 
@@ -34,7 +34,7 @@ class InvitationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Invitation to become ' . $this->roles[$this->access->rented_property_user_role_id - 1],
+            subject: "New applicant at your property ID: {$this->property->id}",
         );
     }
 
@@ -51,15 +51,17 @@ class InvitationMail extends Mailable
     // }
     public function build()
     {
-        return $this->from($this->access->fromEmail, 'Smart-rentals')
-            ->subject('Invitation to become ' . $this->roles[$this->access->rented_property_user_role_id - 1])
-            ->markdown('mails.invitation')
+        return $this->from($this->applicant->email, 'Smart-rentals')
+            ->subject("New applicant at your property ID: {$this->property->id}")
+            ->markdown('mails.application')
             ->with([
-                'name' => " " . $this->access->first_name,
-                'link' => "www.smart-rentals.test/invite/" . $this->access->invite_link,
-                'role' => $this->roles[$this->access->rented_property_user_role_id - 1],
-                'street_and_number' => $this->access->rentedProperty->address->street_and_number,
-                'city' => $this->access->rentedProperty->address->city,
+                'link' => "www.smart-rentals.test/owner/dashboard/property/all/{$this->property->id}/",
+                'name' => $this->applicant->name,
+                'email' => $this->applicant->email,
+                'phone' => $this->applicant->phone,
+                'message' => $this->applicant->message,
+                'street_and_number' => $this->property->address->street_and_number,
+                'city' => $this->property->address->city,
 
             ]);
     }

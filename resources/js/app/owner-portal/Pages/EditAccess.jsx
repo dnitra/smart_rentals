@@ -184,7 +184,7 @@ export default function EditAccesses() {
                                 <button
                                     type="button"
                                     className="log-button">
-                                    skip
+                                    next
                                 </button>
                 </Link>
                

@@ -6,6 +6,9 @@ import "./Styles/Reports.scss";
 import AllProperty from "../Components/Dashboard/AllProperty";
 import { render } from "react-dom";
 
+const accessories = ["Fridge","Owen", "Window","Shower","Toilet","Door","Washing machine","Others"];
+
+
 function Reports(props) {
     const { theme, content, userData, user, changeUserData } =
         useCustomContexts();
@@ -21,32 +24,6 @@ function Reports(props) {
         setProperties(userData.rented_properties);
     }, []);
 
-    const accessories = [
-        {
-            id: "1",
-            name: "Shower",
-        },
-        {
-            id: "2",
-            name: "TV",
-        },
-        {
-            id: "3",
-            name: "Frige",
-        },
-        {
-            id: "4",
-            name: "Light",
-        },
-        {
-            id: "5",
-            name: "Window",
-        },
-        {
-            id: "6",
-            name: "Others",
-        },
-    ];
 
     const uploadReport = async () => {
         try {
@@ -130,10 +107,10 @@ function Reports(props) {
                             Please select a accessory
                         </option>
 
-                        {accessories.map((accessory) => {
+                        {accessories.map((accessory,index) => {
                             return (
-                                <option value={accessory.id}>
-                                    {accessory.name}
+                                <option value={index}>
+                                    {accessory}
                                 </option>
                             );
                         })}

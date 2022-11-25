@@ -67,7 +67,7 @@ export default function App() {
                     {/* <Route path="/products" element={<Products />} /> */}
                     <Route path="/choosePortal" element={<ChoosePortal />} />
                     <Route
-                        path="/public_listings"
+                        path="/publicListings"
                         element={<PublicListings />}
                     />
                     <Route path="/invite/:linkId" element={<Invitation />} />
@@ -98,19 +98,19 @@ export default function App() {
                         element={<Listings />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/details/:id"
+                        path="/owner/dashboard/listings/details/:propertyId/house"
                         element={<EditDetailsApartment />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/details/land"
+                        path="/owner/dashboard/listings/details/:propertyId/land"
                         element={<EditDeatilsLand />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/details/house/"
+                        path="/owner/dashboard/listings/details/:propertyId/house/"
                         element={<EditDetailsHouse />}
                     />
                     <Route
-                        path="/owner/dashboard/listings/details/commercial/"
+                        path="/owner/dashboard/listings/details/:propertyId/commercial/"
                         element={<EditDetailsCommercial />}
                     />
                     <Route

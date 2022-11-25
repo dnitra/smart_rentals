@@ -36,7 +36,7 @@ class RentedPropertyController extends Controller
 
         // fill the object with data and save it to database
         $property->name = $data["name"];
-        // $property->area = $data["area"];
+        $property->price = $data["price"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();
@@ -75,16 +75,17 @@ class RentedPropertyController extends Controller
 
         $inputs = $request->all();
 
+       
+        
         foreach ($inputs as $inputName => $inputValue) {
-
             if ($inputValue) {
-                $detailId = PropertyDetail::where("name_in_form", "=", $inputName)->first()->id;
+                $detailId = PropertyDetail::where("name_in_form", "like","%". $inputName."%")->first()->id;
+                
 
                 DB::table('property_detail_rented_property')->insert([
                     'property_detail_id' => $detailId,
                     'rented_property_id' => $propertyId,
                     'value' => $inputValue
-
                 ]);
             }
         }
@@ -154,7 +155,10 @@ class RentedPropertyController extends Controller
 
     public function showPublicListings()
     {
-        $properties = RentedProperty::where("published", "like", 1)->with("address")->get();
+        $properties = RentedProperty::where("published", "like", 1)
+        ->with("address")
+        ->with("images")
+        ->get();
 
 
         return $properties;
@@ -187,11 +191,9 @@ class RentedPropertyController extends Controller
                 ImageService::storeImage($uploaded_image, $property->id);
             }
         }
-        // dd($data["name"], $data["area"]);
-        // // fill the object with data and save it to database
-        // dd($data);
+      
         $property->name = $data["name"];
-        $property->area = $data["area"];
+        $property->price = $data["price"];
         $property->rented_property_type_id = $data["type"];
         $property->address_id = $address->id;
         $property->save();

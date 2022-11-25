@@ -67,11 +67,11 @@ export default function Energy({ setFormData }) {
 
                     {/* ---------------------------------------upload file form---------------------------------- */}
 
-                    <form onSubmit={handleSubmit}>
+                    <div>
                         <h5>React File Upload</h5>
                         <input type="file" onChange={handleChange} />
-                        <button type="submit">Upload</button>
-                    </form>
+                        <button onClick={handleSubmit} type="submit">Upload</button>
+                    </div>
                     {/* -------------------------------------decree dropdown-------------------------------- */}
                     <div className="fieldset-dropdown">
                         <label className="fieldset-label">According to a regulation: </label>

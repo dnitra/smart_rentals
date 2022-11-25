@@ -6,17 +6,19 @@ import OtherCommercial from "../Components/Dashboard/Listings/Commercial/OtherHo
 import BasicInfoCommercial from "../Components/Dashboard/Listings/Commercial/BasicInfoCommercial";
 import CheckBoxAreaCommercial from "../Components/Dashboard/Listings/Commercial/CheckBoxAreaCommercial";
 import DescriptionField from "../Components/Dashboard/Listings/Apartment/DescriptionField";
+import { Link } from "react-router-dom";
 // import "../Components/Dashboard/Listings/Commercial/PropertyHouse.css";
 
 export default function Body() {
     const [formData, setFormData] = useState({});
+    const {propertyId} = useParams()
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
     };
 
     return (
-        <div onSubmit={handleFormSubmit} className="listings-main">
+        <form onSubmit={handleFormSubmit} className="listings-main">
             <DescriptionField setFormData={setFormData}/>
             <BasicInfoCommercial setFormData={setFormData} />
             <AreasCommercial setFormData={setFormData} />
@@ -24,9 +26,11 @@ export default function Body() {
             <OtherCommercial setFormData={setFormData} />
             <EnergyCommercial setFormData={setFormData} />
             <CheckBoxAreaCommercial setFormData={setFormData} />
-            <button className="tile-btn3" type="submit">
-                Submit
-            </button>
-        </div>
+            <Link to={"/owner/dashboard/listings"}>
+                <button className="tile-btn3" type="submit">
+                    Submit
+                </button>
+            </Link>
+        </form>
     );
 }

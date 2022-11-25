@@ -38,8 +38,8 @@ class CreateNewUser implements CreatesNewUsers
         $rented_property_user_role_id= $input[ 'rented_property_user_role_id'] ?? null;
 
         $user = User::create([
-            'first_name' => $input['first_name'],
-            'last_name' => $input['last_name'],
+            'first_name' => $input['first_name']??null,
+            'last_name' => $input['last_name']??null,
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);

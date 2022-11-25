@@ -19,7 +19,7 @@ export default function EditProperty() {
         city: "",
         type: "1",
         subtype: "1",
-        area: 0,
+        price: 0,
     });
     // max number of uploaded images
     const maxNumber = 10;
@@ -47,7 +47,7 @@ export default function EditProperty() {
             country: propertyData.address.country_id,
             city: propertyData.address.city,
             type: propertyData.rented_property_type_id,
-            area: propertyData.area ?? 0,
+            price: propertyData.price ?? 0,
             subtype: "1",
         });
     };
@@ -173,14 +173,14 @@ export default function EditProperty() {
                             onChange={handleInputChange}
                         />
 
-                        <label className="property-form__label" htmlFor="area">
-                            Area (m2):
+                        <label className="property-form__label" htmlFor="price">
+                            Monthly price (CZK):
                         </label>
                         <input
                             className="property-form__input"
                             type="number"
-                            name="area"
-                            value={formData.area ?? ""}
+                            name="price"
+                            value={formData.price ?? ""}
                             onChange={handleInputChange}
                         />
 
@@ -218,14 +218,14 @@ export default function EditProperty() {
                             <>
                                 <label
                                     className="property-form__label"
-                                    htmlFor="subtype-flat"
+                                    htmlFor="subtype-apartment"
                                 >
                                     {content.subCategory}
                                 </label>
                                 <select
                                     className="property-form__input"
                                     name="subtype"
-                                    id="subtype-flat"
+                                    id="subtype-apartment"
                                     value={formData.subtype ?? ""}
                                     onChange={handleInputChange}
                                 >

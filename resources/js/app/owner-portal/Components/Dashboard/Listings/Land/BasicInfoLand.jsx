@@ -18,7 +18,7 @@ export default function BasicInfoLand({ setFormData }) {
             <div className="listings-content">
                 <h4 className="h4">Basic Information</h4>
                 <fieldset className="fieldset">
-                    <form>
+                    <div>
                         <div className="fieldset-dropdown">
                             <label className="fieldset-label">{content.location} </label>
                             <select
@@ -58,7 +58,7 @@ export default function BasicInfoLand({ setFormData }) {
                                 <option value="chko">CHKO</option>
                             </select>
                         </div>
-                    </form>
+                    </div>
                 </fieldset>
             </div>
         </Card>
