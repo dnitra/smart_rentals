@@ -75,7 +75,7 @@ export default function ContextsProvider({ children }) {
             const responseUserData = await axios.get("/api/userData");
             setUserData(responseUserData.data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     };
 

@@ -46,7 +46,7 @@ export default function App() {
             const data = res.data;
             setUser(data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     };
 
