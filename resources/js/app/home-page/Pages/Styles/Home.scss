@@ -116,6 +116,8 @@ body {
 
         & p {
             margin-top: 1rem;
+            font-size: larger;
+            letter-spacing: 1px;
         }
 
         &-video {
@@ -171,6 +173,7 @@ body {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+                    
 
                     &-text,
                     &-video {
@@ -229,6 +232,8 @@ body {
 
         & p {
             margin-top: 1rem;
+            font-size: larger;
+            letter-spacing: 1px;
         }
     }
     @media (max-width: 1260px) {
@@ -273,10 +278,16 @@ body {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+                    text-align: center;
+
+                    & p{
+                        text-align: center;
+                    }
 
                     &-text {
                         max-width: 100%;
-                        margin: 0;
+                        margin: 1rem;
+
                     }
                 }
                 &__img {

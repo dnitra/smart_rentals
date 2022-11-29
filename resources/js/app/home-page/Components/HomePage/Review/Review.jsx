@@ -38,7 +38,7 @@ function Review() {
         {
             img: `${flanderka}`,
             author: "Jakub Flanderka",
-            job: "Backend Developer",
+            job: "Web Developer",
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laudantium animi accusamus at, nesciunt. laudantium animi accusamus at, nesciunt libero ad eum, eligendi consequatur. Ducimus porro aliquam possimus iste.",
         },
     ];

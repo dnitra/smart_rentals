@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useCustomContexts } from "../../Context/ContextsProvider";
 import "./Styles/Home.scss";
 // import background from "../../../img/home/home_background.svg";
-import Phones from "../../../../img/home/home_phones.svg";
 import newPhones from "../../../../img/home/home__newPhones.svg"
 import LoremImage from "../../../../img/home/homeImg.png"
 import Review from "../../home-page/Components/HomePage/Review/Review";
@@ -40,15 +39,20 @@ function Home() {
                     <div className="content__info">
                         <div className="content__info-text">
                             <span><p>WHY SR</p></span>
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
+                            
+                            <p> SR - Smart Property Management System. </p>
+                            <p> Management system for property owners and tenants.</p>
+                            <p> With our system you can easily manage the property you rent.</p>
+                            <p> Create a rental offer, communicate with your tenant, check your property details - smart, fast, in one place.</p>
+                        
+                            {/* Lorem ipsum dolor sit amet, consectetuer adipiscing
                             elit. Nullam sit amet magna in magna gravida
                             vehicula. Proin mattis lacinia justo. Integer
                             rutrum, orci vestibulum ullamcorper ultricies, lacus
                             quam ultricies odio, vitae placerat pede sem sit
                             amet enim. Duis ante orci, molestie vitae vehicula
-                            venenatis, tincidunt ac pede.
-                        </p>
+                            venenatis, tincidunt ac pede. */}
+                       
                         </div>
                         <br />
                         <div className="content__info-video">
@@ -68,15 +72,22 @@ function Home() {
                         <div className="content-1__info-text">
                             <span><p>PRODUCT</p></span>
             
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                <p> The main task for us is to save your time. </p>
+                                <p>What can Smart Rentals do for you?</p>
+                                <p>Generate Contracts</p>
+                                <p>Monitor Profitability</p>
+                                <p>Property Maitenance</p>
+                                <p>Communicate with Tenants</p>
+                                <p>Property Reports</p>
+                                <p>Create Rental Offers</p>
+                                {/* Lorem ipsum dolor sit amet, consectetuer adipiscing
                                 elit. Nullam sit amet magna in magna gravida
                                 vehicula. Proin mattis lacinia justo. Integer
                                 rutrum, orci vestibulum ullamcorper ultricies, lacus
                                 quam ultricies odio, vitae placerat pede sem sit
                                 amet enim. Duis ante orci, molestie vitae vehicula
-                                venenatis, tincidunt ac pede.
-                            </p>
+                                venenatis, tincidunt ac pede. */}
+                            
                         </div>
                     </div>
                     <div className="content-1__img">
